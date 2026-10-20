@@ -74,7 +74,6 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --radius-xs: 6px;
-  --duration-120: 120ms;
   --ease-material: cubic-bezier(0.2, 0, 0, 1);
 }
 

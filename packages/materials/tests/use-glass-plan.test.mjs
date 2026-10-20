@@ -2,17 +2,28 @@
 // react-dom/server so the test exercises the real useSyncExternalStore server path.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { createElement } from 'react';
-import { renderToString } from 'react-dom/server';
-import { useGlassPlan } from '../src/gate/use-glass-plan.ts';
 import { SERVER_PLAN } from '../src/gate/glass-gate.ts';
 
-function Probe() {
-  const plan = useGlassPlan();
-  return createElement('span', { 'data-mode': plan.mode, 'data-reason': plan.reason });
+// The repo root runs `node --test` over every package without installing this package's
+// dependencies. react is a peer here, so without it this test skips with a reason instead
+// of failing the root suite; `pnpm test` inside packages/materials always runs it.
+let react = null;
+try {
+  react = {
+    ...(await import('react')),
+    renderToString: (await import('react-dom/server')).renderToString,
+    useGlassPlan: (await import('../src/gate/use-glass-plan.ts')).useGlassPlan,
+  };
+} catch {
+  react = null;
 }
 
-test('useGlassPlan answers css on the server without touching window', () => {
+test('useGlassPlan answers css on the server without touching window', { skip: react ? false : 'react is not installed here; run pnpm test in packages/materials' }, () => {
+  const { createElement, renderToString, useGlassPlan } = react;
+  function Probe() {
+    const plan = useGlassPlan();
+    return createElement('span', { 'data-mode': plan.mode, 'data-reason': plan.reason });
+  }
   assert.equal(typeof globalThis.window, 'undefined');
   const html = renderToString(createElement(Probe));
   assert.match(html, /data-mode="css"/);
