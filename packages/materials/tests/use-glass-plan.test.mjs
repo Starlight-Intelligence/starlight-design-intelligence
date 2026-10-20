@@ -11,8 +11,10 @@ let react = null;
 try {
   react = { ...(await import('react')), renderToString: (await import('react-dom/server')).renderToString };
 } catch (err) {
-  // Only a missing react or react-dom is a reason to skip; any other import error fails.
-  if (err?.code !== 'ERR_MODULE_NOT_FOUND' || !/react/.test(String(err.message))) throw err;
+  // Only react or react-dom itself being absent is a reason to skip; a missing transitive
+  // package, or any other import error, fails the test.
+  const missing = /Cannot find package '([^']+)'/.exec(String(err?.message))?.[1];
+  if (err?.code !== 'ERR_MODULE_NOT_FOUND' || !['react', 'react-dom'].includes(missing)) throw err;
   react = null;
 }
 if (react) react.useGlassPlan = (await import('../src/gate/use-glass-plan.ts')).useGlassPlan;

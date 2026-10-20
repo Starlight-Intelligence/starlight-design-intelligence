@@ -164,31 +164,40 @@ export async function mountGlass({ scene, canvas, panel, poster, plan, signal, o
     if (!active) return;
     active = false;
     if (queued) cancelAnimationFrame(queued);
-    while (releases.length) releases.pop()!();
+    // Every release runs even if one throws; a disposer that fails must not keep the
+    // listeners and the context of the ones behind it alive.
+    while (releases.length) {
+      try { releases.pop()!(); } catch { /* released as far as it could be */ }
+    }
     if (reason) record('css', reason);
+  };
+  // A resource acquired after teardown ran (a texture that resolved late) is released
+  // on the spot instead of being parked on a stack nobody will drain again.
+  const acquire = (release: () => void) => {
+    if (active) releases.push(release);
+    else release();
   };
   const listen = <T extends EventTarget>(target: T, type: string, fn: EventListener, opts?: AddEventListenerOptions) => {
     target.addEventListener(type, fn, opts);
-    releases.push(() => target.removeEventListener(type, fn, opts));
+    acquire(() => target.removeEventListener(type, fn, opts));
   };
-  // The caller's abort and every change that would refuse WebGL at load refuse it from
-  // this point on, including during the two awaits below: a preference turned on while the
-  // texture loads tears the mount down before it ever reports webgl.
-  const abort = () => teardown('cancelled');
-  if (signal) {
-    if (signal.aborted) { abort(); return { ...state, teardown }; }
-    listen(signal, 'abort', abort);
-  }
-  for (const q of PREFERENCE_QUERIES) {
-    listen(window.matchMedia(q), 'change', ((ev: MediaQueryListEvent) => { if (ev.matches) teardown('preference changed'); }) as EventListener);
-  }
-  listen(window.matchMedia(DESKTOP_QUERY), 'change', ((ev: MediaQueryListEvent) => { if (!ev.matches) teardown('phone layout'); }) as EventListener);
-  const conn = (navigator as Navigator & { connection?: EventTarget & { saveData?: boolean } }).connection;
-  if (conn?.addEventListener) listen(conn, 'change', () => { if (conn.saveData) teardown('data saver on'); });
-  listen(canvas, 'webglcontextlost', (ev) => { ev.preventDefault(); teardown('WebGL context lost'); });
   const checkpoint = () => { if (!active) throw new Cancelled(); };
 
   try {
+    // The caller's abort and every change that would refuse WebGL at load refuse it from
+    // this point on, including during the two awaits below: a preference turned on while
+    // the texture loads tears the mount down before it ever reports webgl.
+    const abort = () => teardown('cancelled');
+    if (signal?.aborted) { abort(); return { ...state, teardown }; }
+    if (signal) listen(signal, 'abort', abort);
+    for (const q of PREFERENCE_QUERIES) {
+      listen(window.matchMedia(q), 'change', ((ev: MediaQueryListEvent) => { if (ev.matches) teardown('preference changed'); }) as EventListener);
+    }
+    listen(window.matchMedia(DESKTOP_QUERY), 'change', ((ev: MediaQueryListEvent) => { if (!ev.matches) teardown('phone layout'); }) as EventListener);
+    const conn = (navigator as Navigator & { connection?: EventTarget & { saveData?: boolean } }).connection;
+    if (conn?.addEventListener) listen(conn, 'change', () => { if (conn.saveData) teardown('data saver on'); });
+    listen(canvas, 'webglcontextlost', (ev) => { ev.preventDefault(); teardown('WebGL context lost'); });
+
     let THREE: typeof ThreeNS;
     try {
       THREE = await import('three');
@@ -199,7 +208,7 @@ export async function mountGlass({ scene, canvas, panel, poster, plan, signal, o
     checkpoint();
 
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'low-power' });
-    releases.push(() => { renderer.dispose(); renderer.forceContextLoss(); });
+    acquire(() => { renderer.dispose(); renderer.forceContextLoss(); });
     renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 
     let texture: ThreeNS.Texture;
@@ -209,7 +218,7 @@ export async function mountGlass({ scene, canvas, panel, poster, plan, signal, o
       teardown('poster failed to load');
       return { ...state, teardown };
     }
-    releases.push(() => texture.dispose());
+    acquire(() => texture.dispose());
     checkpoint();
     texture.colorSpace = THREE.NoColorSpace;
     texture.minFilter = THREE.LinearFilter;
@@ -233,7 +242,7 @@ export async function mountGlass({ scene, canvas, panel, poster, plan, signal, o
     };
     const geometry = new THREE.PlaneGeometry(2, 2);
     const material = new THREE.ShaderMaterial({ uniforms, vertexShader: vertex, fragmentShader: fragment });
-    releases.push(() => { geometry.dispose(); material.dispose(); });
+    acquire(() => { geometry.dispose(); material.dispose(); });
     const glScene = new THREE.Scene();
     glScene.add(new THREE.Mesh(geometry, material));
     const camera = new THREE.Camera();
@@ -280,11 +289,11 @@ export async function mountGlass({ scene, canvas, panel, poster, plan, signal, o
     const ro = new ResizeObserver(remeasure);
     ro.observe(scene);
     ro.observe(panel);
-    releases.push(() => ro.disconnect());
+    acquire(() => ro.disconnect());
     // Off screen: stop drawing. Back on screen: one frame, then on change only again.
     const io = new IntersectionObserver(([entry]) => { intersecting = !!entry?.isIntersecting; request(); });
     io.observe(scene);
-    releases.push(() => io.disconnect());
+    acquire(() => io.disconnect());
     listen(window, 'scroll', remeasure, { passive: true });
     listen(document, 'visibilitychange', () => { hidden = document.hidden; request(); });
 

@@ -4,7 +4,8 @@
   "title": "Card",
   "description": "shadcn card with a material prop and an interactive flag that opts a card into the state contract.",
   "dependencies": [
-    "cn"
+    "cn",
+    "radix-ui"
   ],
   "registryDependencies": [
     "@starlight/material"
