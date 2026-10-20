@@ -208,7 +208,9 @@ export async function mountGlass({ scene, canvas, panel, poster, plan, signal, o
     checkpoint();
 
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'low-power' });
-    acquire(() => { renderer.dispose(); renderer.forceContextLoss(); });
+    // One release per resource, so a throwing disposer cannot skip the one beside it.
+    acquire(() => renderer.forceContextLoss());
+    acquire(() => renderer.dispose());
     renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 
     let texture: ThreeNS.Texture;
@@ -242,7 +244,8 @@ export async function mountGlass({ scene, canvas, panel, poster, plan, signal, o
     };
     const geometry = new THREE.PlaneGeometry(2, 2);
     const material = new THREE.ShaderMaterial({ uniforms, vertexShader: vertex, fragmentShader: fragment });
-    acquire(() => { geometry.dispose(); material.dispose(); });
+    acquire(() => material.dispose());
+    acquire(() => geometry.dispose());
     const glScene = new THREE.Scene();
     glScene.add(new THREE.Mesh(geometry, material));
     const camera = new THREE.Camera();
