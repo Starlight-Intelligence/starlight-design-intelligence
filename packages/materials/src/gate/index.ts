@@ -6,9 +6,11 @@ export {
   PREFERENCE_QUERIES,
   PROBE_FRAMES,
   SERVER_PLAN,
+  detectWebgl2,
   gpuPlan,
   medianMs,
   readEnv,
+  readPreferences,
   withinBudget,
 } from './glass-gate.ts';
 export type { GlassEnv, GlassMode, GlassPlan } from './glass-gate.ts';

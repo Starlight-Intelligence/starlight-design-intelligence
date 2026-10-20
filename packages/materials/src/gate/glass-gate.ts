@@ -53,7 +53,7 @@ export function withinBudget(samples: readonly number[], budgetMs: number = FRAM
 }
 
 // The preference queries the gate reads. A change to any of them after mount is a reason
-// to tear WebGL down, so the hook subscribes to exactly this list.
+// to tear WebGL down, so the hook and the wrapper subscribe to exactly this list.
 export const PREFERENCE_QUERIES = [
   '(prefers-reduced-motion: reduce)',
   '(prefers-reduced-transparency: reduce)',
@@ -65,23 +65,43 @@ interface NavigatorWithHints extends Navigator {
   deviceMemory?: number;
 }
 
-export function readEnv(win: Window & typeof globalThis): GlassEnv {
-  const mq = (q: string) => win.matchMedia(q).matches;
-  let webgl2 = false;
+type Win = Window & typeof globalThis;
+
+// WebGL2 support does not change during a visit, so it is probed once per window and the
+// probe context is released at once: an unreleased context counts against the browser's
+// per-page limit and would be a GPU surface the page never drew with.
+const webgl2ByWindow = new WeakMap<Win, boolean>();
+
+export function detectWebgl2(win: Win): boolean {
+  const known = webgl2ByWindow.get(win);
+  if (known !== undefined) return known;
+  let supported = false;
   try {
-    webgl2 = !!win.document.createElement('canvas').getContext('webgl2');
+    const gl = win.document.createElement('canvas').getContext('webgl2');
+    supported = !!gl;
+    gl?.getExtension('WEBGL_lose_context')?.loseContext();
   } catch {
-    webgl2 = false;
+    supported = false;
   }
+  webgl2ByWindow.set(win, supported);
+  return supported;
+}
+
+// The parts of the environment that change during a visit; no GPU work here.
+export function readPreferences(win: Win): Omit<GlassEnv, 'webgl2'> {
+  const mq = (q: string) => win.matchMedia(q).matches;
   const nav = win.navigator as NavigatorWithHints;
   return {
-    webgl2,
     reducedMotion: mq(PREFERENCE_QUERIES[0]),
     reducedTransparency: mq(PREFERENCE_QUERIES[1]),
     saveData: !!nav.connection?.saveData,
     deviceMemory: nav.deviceMemory,
     viewportWidth: win.innerWidth,
   };
+}
+
+export function readEnv(win: Win): GlassEnv {
+  return { webgl2: detectWebgl2(win), ...readPreferences(win) };
 }
 
 // What the server, and the first client render, always answer. Refusing by default means a

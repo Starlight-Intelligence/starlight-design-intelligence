@@ -1,24 +1,31 @@
 import * as React from "react"
 import { cn } from "cn"
+import { Slot } from "radix-ui"
 import { type Material, materialClasses } from "../material.ts"
 
 // shadcn's card with a `material` prop. `interactive` opts a card into the state contract
-// (press, focus ring, gated hover) for cards that are links or buttons; a static card never
-// gets a hover state, because a surface that reacts and does nothing is a lie.
-function Card({
-  className,
-  material = "paper",
-  interactive = false,
-  ...props
-}: React.ComponentProps<"div"> & { material?: Material; interactive?: boolean }) {
+// (press, focus ring, gated hover) and must be paired with `asChild` over a link or a
+// button, so the card has keyboard activation and semantics; a bare interactive div is
+// refused at the type level. A static card never gets a hover state, because a surface
+// that reacts and does nothing is a lie. On paper a card rests on ivory, one tonal step
+// above the page, and presses down to paper (DESIGN.md, Elevation & Depth).
+type CardProps = React.ComponentProps<"div"> & { material?: Material } & (
+  | { interactive?: false; asChild?: boolean }
+  | { interactive: true; asChild: true }
+)
+
+function Card({ className, material = "paper", interactive = false, asChild = false, ...props }: CardProps) {
+  const Comp = asChild ? Slot.Root : "div"
   return (
-    <div
+    <Comp
       data-slot="card"
       data-material={material}
       data-interactive={interactive ? "" : undefined}
       className={cn(
         "flex flex-col gap-6 rounded-lg py-6",
         materialClasses(material, interactive),
+        material === "paper" && "bg-surface-ivory",
+        material === "paper" && interactive && "active:bg-surface-paper fine-hover:bg-surface-paper",
         className
       )}
       {...props}

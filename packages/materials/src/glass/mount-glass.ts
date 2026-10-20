@@ -5,7 +5,8 @@
 // unchanged, so it can replace the CSS tier pixel for pixel; inside the panel's rounded
 // rectangle it refracts at the bevel with a slight channel split, frosts the interior with a
 // 13-tap blur, darkens toward ink and adds a rim light. On a mouse, a soft highlight follows
-// the pointer. It draws on change only, never on a loop, and stops while off screen.
+// the pointer. It draws on change only, never on a loop, and stops while off screen or
+// while the document is hidden.
 //
 // three is loaded with a dynamic import so the poster, the gate and the hook never pull it
 // into a server or phone bundle.
@@ -42,8 +43,11 @@ export interface MountGlassOptions {
   panel: HTMLElement;
   // The poster image URL, also the refraction texture, so the two tiers match.
   poster: string;
-  // A plan already read by useGlassPlan(); omitted, the gate reads the window itself.
+  // A plan already read by useGlassPlan(); the gate is re-read before the probe either way.
   plan?: GlassPlan;
+  // Abort during the two awaits (three.js load, texture load): the mount tears down and
+  // never reports webgl. The caller aborts on unmount or when its inputs change.
+  signal?: AbortSignal;
   onChange?: (state: GlassState) => void;
 }
 
@@ -132,7 +136,9 @@ function inkFromTokens(el: HTMLElement): [number, number, number] {
   return [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255) as [number, number, number];
 }
 
-export async function mountGlass({ scene, canvas, panel, poster, plan, onChange }: MountGlassOptions): Promise<GlassHandle> {
+class Cancelled extends Error {}
+
+export async function mountGlass({ scene, canvas, panel, poster, plan, signal, onChange }: MountGlassOptions): Promise<GlassHandle> {
   const state: GlassState = { mode: 'css', reason: 'server' };
   const record = (mode: GlassMode, reason: string, frameMs?: number) => {
     state.mode = mode;
@@ -161,121 +167,146 @@ export async function mountGlass({ scene, canvas, panel, poster, plan, onChange 
     while (releases.length) releases.pop()!();
     if (reason) record('css', reason);
   };
-
-  let THREE: typeof ThreeNS;
-  try {
-    THREE = await import('three');
-  } catch (err) {
-    teardown(`three failed to load: ${(err as Error).message}`);
-    return { ...state, teardown };
-  }
-
-  const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'low-power' });
-  releases.push(() => { renderer.dispose(); renderer.forceContextLoss(); });
-  renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
-
-  let texture: ThreeNS.Texture;
-  try {
-    texture = await new THREE.TextureLoader().loadAsync(poster);
-  } catch {
-    teardown('poster failed to load');
-    return { ...state, teardown };
-  }
-  releases.push(() => texture.dispose());
-  texture.colorSpace = THREE.NoColorSpace;
-  texture.minFilter = THREE.LinearFilter;
-  texture.generateMipmaps = false;
-
-  const image = texture.image as { width: number; height: number };
-  const uniforms = {
-    uImage: { value: texture },
-    uImageSize: { value: new THREE.Vector2(image.width, image.height) },
-    uRes: { value: new THREE.Vector2() },
-    uBuf: { value: new THREE.Vector2() },
-    uRect: { value: new THREE.Vector4() },
-    uRadius: { value: 40 },
-    uPointer: { value: new THREE.Vector2(-9999, -9999) },
-    uLit: { value: 0 },
-    uInk: { value: new THREE.Vector3(...inkFromTokens(scene)) },
-  };
-  const geometry = new THREE.PlaneGeometry(2, 2);
-  const material = new THREE.ShaderMaterial({ uniforms, vertexShader: vertex, fragmentShader: fragment });
-  releases.push(() => { geometry.dispose(); material.dispose(); });
-  const glScene = new THREE.Scene();
-  glScene.add(new THREE.Mesh(geometry, material));
-  const camera = new THREE.Camera();
-  const buffer = new THREE.Vector2();
-
-  const measure = () => {
-    const s = scene.getBoundingClientRect();
-    const r = panel.getBoundingClientRect();
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-    renderer.setSize(s.width, s.height, false);
-    renderer.getDrawingBufferSize(buffer);
-    uniforms.uRes.value.set(s.width, s.height);
-    uniforms.uBuf.value.copy(buffer);
-    uniforms.uRect.value.set(r.left - s.left, r.top - s.top, r.width, r.height);
-    uniforms.uRadius.value = parseFloat(getComputedStyle(panel).borderTopLeftRadius) || 0;
-  };
-  let visible = true;
-  const draw = () => { queued = 0; if (active) renderer.render(glScene, camera); };
-  const request = () => { if (active && visible && !queued) queued = requestAnimationFrame(draw); };
-
-  // Probe: the frame budget is measured on this device, not assumed. gl.finish() times
-  // render plus GPU completion; it excludes page compositing, which the CSS tier also pays.
-  measure();
-  const gl = renderer.getContext();
-  const samples: number[] = [];
-  for (let i = 0; i < PROBE_FRAMES; i++) {
-    const t = performance.now();
-    renderer.render(glScene, camera);
-    gl.finish();
-    samples.push(performance.now() - t);
-  }
-  const frameMs = medianMs(samples);
-  if (!withinBudget(samples)) {
-    state.frameMs = frameMs;
-    teardown(`frame budget: ${frameMs.toFixed(2)} ms median`);
-    return { ...state, teardown };
-  }
-
   const listen = <T extends EventTarget>(target: T, type: string, fn: EventListener, opts?: AddEventListenerOptions) => {
     target.addEventListener(type, fn, opts);
     releases.push(() => target.removeEventListener(type, fn, opts));
   };
-  const remeasure = () => { measure(); request(); };
-
-  const ro = new ResizeObserver(remeasure);
-  ro.observe(scene);
-  ro.observe(panel);
-  releases.push(() => ro.disconnect());
-  // Off screen: stop drawing. Back on screen: one frame, then on change only again.
-  const io = new IntersectionObserver(([entry]) => { visible = !!entry?.isIntersecting; request(); });
-  io.observe(scene);
-  releases.push(() => io.disconnect());
-  listen(window, 'scroll', remeasure, { passive: true });
-  listen(document, 'visibilitychange', () => { visible = !document.hidden && visible; request(); });
-
-  const dark = () => { uniforms.uLit.value = 0; request(); };
-  listen(panel, 'pointermove', ((e: PointerEvent) => {
-    if (e.pointerType !== 'mouse') { dark(); return; }
-    const s = scene.getBoundingClientRect();
-    uniforms.uPointer.value.set(e.clientX - s.left, e.clientY - s.top);
-    uniforms.uLit.value = 1;
-    request();
-  }) as EventListener);
-  listen(panel, 'pointerleave', dark);
-  listen(panel, 'pointercancel', dark);
-
-  // Any change that would have refused WebGL at load refuses it now: preferences, the
-  // phone breakpoint, or a lost context.
+  // The caller's abort and every change that would refuse WebGL at load refuse it from
+  // this point on, including during the two awaits below: a preference turned on while the
+  // texture loads tears the mount down before it ever reports webgl.
+  const abort = () => teardown('cancelled');
+  if (signal) {
+    if (signal.aborted) { abort(); return { ...state, teardown }; }
+    listen(signal, 'abort', abort);
+  }
   for (const q of PREFERENCE_QUERIES) {
     listen(window.matchMedia(q), 'change', ((ev: MediaQueryListEvent) => { if (ev.matches) teardown('preference changed'); }) as EventListener);
   }
   listen(window.matchMedia(DESKTOP_QUERY), 'change', ((ev: MediaQueryListEvent) => { if (!ev.matches) teardown('phone layout'); }) as EventListener);
+  const conn = (navigator as Navigator & { connection?: EventTarget & { saveData?: boolean } }).connection;
+  if (conn?.addEventListener) listen(conn, 'change', () => { if (conn.saveData) teardown('data saver on'); });
   listen(canvas, 'webglcontextlost', (ev) => { ev.preventDefault(); teardown('WebGL context lost'); });
+  const checkpoint = () => { if (!active) throw new Cancelled(); };
 
-  record('webgl', decided.reason, frameMs);
-  request();
-  return { ...state, teardown };
+  try {
+    let THREE: typeof ThreeNS;
+    try {
+      THREE = await import('three');
+    } catch (err) {
+      teardown(`three failed to load: ${(err as Error).message}`);
+      return { ...state, teardown };
+    }
+    checkpoint();
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'low-power' });
+    releases.push(() => { renderer.dispose(); renderer.forceContextLoss(); });
+    renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+
+    let texture: ThreeNS.Texture;
+    try {
+      texture = await new THREE.TextureLoader().loadAsync(poster);
+    } catch {
+      teardown('poster failed to load');
+      return { ...state, teardown };
+    }
+    releases.push(() => texture.dispose());
+    checkpoint();
+    texture.colorSpace = THREE.NoColorSpace;
+    texture.minFilter = THREE.LinearFilter;
+    texture.generateMipmaps = false;
+
+    // The gate is read again here: the plan the caller passed was true before the awaits.
+    const live = gpuPlan(readEnv(window));
+    if (live.mode !== 'webgl') { teardown(live.reason); return { ...state, teardown }; }
+
+    const image = texture.image as { width: number; height: number };
+    const uniforms = {
+      uImage: { value: texture },
+      uImageSize: { value: new THREE.Vector2(image.width, image.height) },
+      uRes: { value: new THREE.Vector2() },
+      uBuf: { value: new THREE.Vector2() },
+      uRect: { value: new THREE.Vector4() },
+      uRadius: { value: 40 },
+      uPointer: { value: new THREE.Vector2(-9999, -9999) },
+      uLit: { value: 0 },
+      uInk: { value: new THREE.Vector3(...inkFromTokens(scene)) },
+    };
+    const geometry = new THREE.PlaneGeometry(2, 2);
+    const material = new THREE.ShaderMaterial({ uniforms, vertexShader: vertex, fragmentShader: fragment });
+    releases.push(() => { geometry.dispose(); material.dispose(); });
+    const glScene = new THREE.Scene();
+    glScene.add(new THREE.Mesh(geometry, material));
+    const camera = new THREE.Camera();
+    const buffer = new THREE.Vector2();
+
+    const measure = () => {
+      const s = scene.getBoundingClientRect();
+      const r = panel.getBoundingClientRect();
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setSize(s.width, s.height, false);
+      renderer.getDrawingBufferSize(buffer);
+      uniforms.uRes.value.set(s.width, s.height);
+      uniforms.uBuf.value.copy(buffer);
+      uniforms.uRect.value.set(r.left - s.left, r.top - s.top, r.width, r.height);
+      uniforms.uRadius.value = parseFloat(getComputedStyle(panel).borderTopLeftRadius) || 0;
+    };
+    // Two independent reasons not to draw; either one pauses, both clearing resumes.
+    let intersecting = true;
+    let hidden = document.hidden;
+    const canDraw = () => active && intersecting && !hidden;
+    const draw = () => { queued = 0; if (canDraw()) renderer.render(glScene, camera); };
+    const request = () => { if (canDraw() && !queued) queued = requestAnimationFrame(draw); };
+
+    // Probe: the frame budget is measured on this device, not assumed. gl.finish() times
+    // render plus GPU completion; it excludes page compositing, which the CSS tier also pays.
+    measure();
+    const gl = renderer.getContext();
+    const samples: number[] = [];
+    for (let i = 0; i < PROBE_FRAMES; i++) {
+      const t = performance.now();
+      renderer.render(glScene, camera);
+      gl.finish();
+      samples.push(performance.now() - t);
+    }
+    const frameMs = medianMs(samples);
+    if (!withinBudget(samples)) {
+      state.frameMs = frameMs;
+      teardown(`frame budget: ${frameMs.toFixed(2)} ms median`);
+      return { ...state, teardown };
+    }
+    checkpoint();
+
+    const remeasure = () => { measure(); request(); };
+    const ro = new ResizeObserver(remeasure);
+    ro.observe(scene);
+    ro.observe(panel);
+    releases.push(() => ro.disconnect());
+    // Off screen: stop drawing. Back on screen: one frame, then on change only again.
+    const io = new IntersectionObserver(([entry]) => { intersecting = !!entry?.isIntersecting; request(); });
+    io.observe(scene);
+    releases.push(() => io.disconnect());
+    listen(window, 'scroll', remeasure, { passive: true });
+    listen(document, 'visibilitychange', () => { hidden = document.hidden; request(); });
+
+    const dark = () => { uniforms.uLit.value = 0; request(); };
+    listen(panel, 'pointermove', ((e: PointerEvent) => {
+      if (e.pointerType !== 'mouse') { dark(); return; }
+      const s = scene.getBoundingClientRect();
+      uniforms.uPointer.value.set(e.clientX - s.left, e.clientY - s.top);
+      uniforms.uLit.value = 1;
+      request();
+    }) as EventListener);
+    listen(panel, 'pointerleave', dark);
+    listen(panel, 'pointercancel', dark);
+
+    record('webgl', live.reason, frameMs);
+    request();
+    return { ...state, teardown };
+  } catch (err) {
+    // Anything thrown after resources were acquired releases them; a cancellation has
+    // already recorded its reason, anything else records the error and keeps the CSS tier.
+    if (err instanceof Cancelled) return { ...state, teardown };
+    teardown(`WebGL failed: ${err instanceof Error ? err.message : String(err)}`);
+    return { ...state, teardown };
+  }
 }

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from '@starlight/materials/primitives';
 import { InkSheet } from './InkSheet.tsx';
 
@@ -24,12 +25,14 @@ export default function InkPage() {
           </CardHeader>
           <CardContent className="font-mono text-code opacity-80">starlight &gt; materials gate . &rarr; PASS</CardContent>
         </Card>
-        <Card material="ink" interactive>
-          <CardHeader>
-            <CardTitle>Inspector</CardTitle>
-            <CardDescription>An interactive ink card. Hover adds a hairline where a fine pointer exists; press sinks it.</CardDescription>
-          </CardHeader>
-          <CardContent className="text-label-sm opacity-60">Interactive: press it</CardContent>
+        <Card material="ink" interactive asChild>
+          <Link href="/paper">
+            <CardHeader>
+              <CardTitle>Inspector</CardTitle>
+              <CardDescription>An interactive ink card. Hover adds a hairline where a fine pointer exists; press sinks it.</CardDescription>
+            </CardHeader>
+            <CardContent className="text-label-sm opacity-60">Interactive: a link to /paper, press it</CardContent>
+          </Link>
         </Card>
       </div>
       <div className="flex flex-wrap gap-3">

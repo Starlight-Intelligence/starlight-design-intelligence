@@ -3,19 +3,20 @@ import {
   DESKTOP_QUERY,
   PREFERENCE_QUERIES,
   SERVER_PLAN,
+  detectWebgl2,
   gpuPlan,
-  readEnv,
+  readPreferences,
   type GlassPlan,
 } from './glass-gate.ts';
 
 // One cached plan per distinct answer, so useSyncExternalStore sees a stable reference and
 // a resize that changes nothing does not re-render every glass surface on the page.
 const plans = new Map<string, GlassPlan>();
-let webgl2: boolean | null = null;
 
 function snapshot(): GlassPlan {
-  const env = readEnvOnce();
-  const plan = gpuPlan(env);
+  // detectWebgl2 probes once per window and releases its context; the preferences are
+  // re-read on every snapshot because they do change.
+  const plan = gpuPlan({ webgl2: detectWebgl2(window), ...readPreferences(window) });
   const key = `${plan.mode}:${plan.reason}`;
   let cached = plans.get(key);
   if (!cached) {
@@ -23,14 +24,6 @@ function snapshot(): GlassPlan {
     plans.set(key, cached);
   }
   return cached;
-}
-
-// WebGL2 support does not change during a visit, so the canvas probe runs once; the
-// preferences and the viewport are re-read on every snapshot because they do change.
-function readEnvOnce() {
-  const env = readEnv(window);
-  if (webgl2 === null) webgl2 = env.webgl2;
-  return { ...env, webgl2 };
 }
 
 function subscribe(onChange: () => void): () => void {

@@ -18,13 +18,7 @@ A material is a surface that answers to light, pointer, scroll and state, and th
 
 ## Install from the registry
 
-Any repo with shadcn and Tailwind 4 can pull the components in without installing the package:
-
-```bash
-npx shadcn@latest add https://raw.githubusercontent.com/frankxai/starlight-design-intelligence/main/packages/materials/public/r/glass-surface.json
-```
-
-Items: `materials-styles`, `material`, `glass-gate`, `glass-surface`, `material-button`, `material-card`, `material-sheet`. Each resolves its own dependencies, including `materials-styles`. Or register the namespace once in `components.json`:
+Any repo with shadcn and Tailwind 4 can pull the components in without installing the package. Register the namespace once in `components.json`, pointing at the branch or tag you want (items depend on each other by namespace, so nothing in the registry is pinned to a branch):
 
 ```json
 {
@@ -34,7 +28,13 @@ Items: `materials-styles`, `material`, `glass-gate`, `glass-surface`, `material-
 }
 ```
 
-then `npx shadcn@latest add @starlight/glass-surface`.
+then:
+
+```bash
+npx shadcn@latest add @starlight/glass-surface
+```
+
+Items: `materials-styles`, `material`, `glass-gate`, `glass-surface`, `material-button`, `material-card`, `material-sheet`. Each resolves its own dependencies through the namespace, down to `materials-styles`. Until this package's branch merges, point the namespace at `agent/claude/materials-pkg` instead of `main`.
 
 The files land under `components/starlight-materials/` with their tree intact, because they import each other by relative path with `.ts` and `.tsx` extensions (so the same sources run under `node --test` with no build). Set `"allowImportingTsExtensions": true` in the consuming `tsconfig.json`; Next.js projects have `noEmit: true`, which is what that option requires. Add to the global stylesheet, after Tailwind:
 
@@ -42,8 +42,6 @@ The files land under `components/starlight-materials/` with their tree intact, b
 @import "tailwindcss";
 @import "./components/starlight-materials/styles/materials.css";
 ```
-
-The registry URL points at `main`; until this package's branch merges, use the branch's raw URL instead.
 
 ## Use as a package (workspace link)
 

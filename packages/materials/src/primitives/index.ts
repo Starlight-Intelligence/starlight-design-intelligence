@@ -1,4 +1,4 @@
-export { MATERIALS, materialClasses, materialHover, materialSurface, stateContract } from './material.ts';
+export { MATERIALS, materialActive, materialClasses, materialHover, materialSurface, stateContract } from './material.ts';
 export type { Material } from './material.ts';
 export { Button, buttonVariants } from './ui/button.tsx';
 export {

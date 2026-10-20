@@ -8,11 +8,25 @@
       "type": "registry:style",
       "title": "Starlight materials styles",
       "description": "DESIGN.md tokens as CSS custom properties and a Tailwind 4 theme, plus the glass tiers and the state contract's preference rules. Import materials.css from your global stylesheet after Tailwind.",
-      "dependencies": ["tw-animate-css"],
+      "dependencies": [
+        "tw-animate-css"
+      ],
       "files": [
-        { "path": "src/tokens/tokens.css", "type": "registry:file", "target": "~/components/starlight-materials/tokens/tokens.css" },
-        { "path": "src/tokens/theme.css", "type": "registry:file", "target": "~/components/starlight-materials/tokens/theme.css" },
-        { "path": "src/styles/materials.css", "type": "registry:file", "target": "~/components/starlight-materials/styles/materials.css" }
+        {
+          "path": "src/tokens/tokens.css",
+          "type": "registry:file",
+          "target": "~/components/starlight-materials/tokens/tokens.css"
+        },
+        {
+          "path": "src/tokens/theme.css",
+          "type": "registry:file",
+          "target": "~/components/starlight-materials/tokens/theme.css"
+        },
+        {
+          "path": "src/styles/materials.css",
+          "type": "registry:file",
+          "target": "~/components/starlight-materials/styles/materials.css"
+        }
       ],
       "docs": "Add to your global CSS, after @import \"tailwindcss\": @import \"@/components/starlight-materials/styles/materials.css\";"
     },
@@ -21,10 +35,18 @@
       "type": "registry:lib",
       "title": "Material contract",
       "description": "The material prop type and the one shared state contract (press depth, visible focus ring, hover only inside hover: hover and pointer: fine).",
-      "dependencies": ["cn"],
-      "registryDependencies": ["https://raw.githubusercontent.com/frankxai/starlight-design-intelligence/main/packages/materials/public/r/materials-styles.json"],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "@starlight/materials-styles"
+      ],
       "files": [
-        { "path": "src/primitives/material.ts", "type": "registry:lib", "target": "~/components/starlight-materials/primitives/material.ts" }
+        {
+          "path": "src/primitives/material.ts",
+          "type": "registry:lib",
+          "target": "~/components/starlight-materials/primitives/material.ts"
+        }
       ]
     },
     {
@@ -33,9 +55,21 @@
       "title": "Glass gate",
       "description": "gpuPlan(), the 8 ms frame budget, and the SSR-safe useGlassPlan() hook that decides CSS or WebGL on the reader's device and preferences.",
       "files": [
-        { "path": "src/gate/glass-gate.ts", "type": "registry:lib", "target": "~/components/starlight-materials/gate/glass-gate.ts" },
-        { "path": "src/gate/use-glass-plan.ts", "type": "registry:hook", "target": "~/components/starlight-materials/gate/use-glass-plan.ts" },
-        { "path": "src/gate/index.ts", "type": "registry:lib", "target": "~/components/starlight-materials/gate/index.ts" }
+        {
+          "path": "src/gate/glass-gate.ts",
+          "type": "registry:lib",
+          "target": "~/components/starlight-materials/gate/glass-gate.ts"
+        },
+        {
+          "path": "src/gate/use-glass-plan.ts",
+          "type": "registry:hook",
+          "target": "~/components/starlight-materials/gate/use-glass-plan.ts"
+        },
+        {
+          "path": "src/gate/index.ts",
+          "type": "registry:lib",
+          "target": "~/components/starlight-materials/gate/index.ts"
+        }
       ]
     },
     {
@@ -43,27 +77,53 @@
       "type": "registry:component",
       "title": "Glass surface",
       "description": "The glass material: a poster and a CSS-blurred panel with no script, upgraded to a three.js refraction pass only when the gate says webgl and a 12-frame probe stays under 8 ms. Pauses off screen; one teardown.",
-      "dependencies": ["cn", "three", "@types/three"],
+      "dependencies": [
+        "cn",
+        "three",
+        "@types/three"
+      ],
       "registryDependencies": [
-        "https://raw.githubusercontent.com/frankxai/starlight-design-intelligence/main/packages/materials/public/r/glass-gate.json",
-        "https://raw.githubusercontent.com/frankxai/starlight-design-intelligence/main/packages/materials/public/r/material.json"
+        "@starlight/glass-gate",
+        "@starlight/material"
       ],
       "files": [
-        { "path": "src/glass/mount-glass.ts", "type": "registry:lib", "target": "~/components/starlight-materials/glass/mount-glass.ts" },
-        { "path": "src/glass/GlassSurface.tsx", "type": "registry:component", "target": "~/components/starlight-materials/glass/GlassSurface.tsx" },
-        { "path": "src/glass/index.ts", "type": "registry:lib", "target": "~/components/starlight-materials/glass/index.ts" }
+        {
+          "path": "src/glass/mount-glass.ts",
+          "type": "registry:lib",
+          "target": "~/components/starlight-materials/glass/mount-glass.ts"
+        },
+        {
+          "path": "src/glass/GlassSurface.tsx",
+          "type": "registry:component",
+          "target": "~/components/starlight-materials/glass/GlassSurface.tsx"
+        },
+        {
+          "path": "src/glass/index.ts",
+          "type": "registry:lib",
+          "target": "~/components/starlight-materials/glass/index.ts"
+        }
       ],
-      "docs": "Relative imports between the installed files use .ts extensions; set allowImportingTsExtensions: true in tsconfig (Next.js has noEmit, so it is allowed)."
+      "docs": "Relative imports between the installed files use .ts extensions; set allowImportingTsExtensions: true in tsconfig (Next.js has noEmit, so it is allowed). Needs the @starlight namespace in components.json registries, which resolves glass-gate, material and materials-styles."
     },
     {
       "name": "material-button",
       "type": "registry:ui",
       "title": "Button",
       "description": "shadcn button with a material prop (glass, paper, ink) and the shared state contract. 44px pill by default.",
-      "dependencies": ["cn", "radix-ui", "class-variance-authority"],
-      "registryDependencies": ["https://raw.githubusercontent.com/frankxai/starlight-design-intelligence/main/packages/materials/public/r/material.json"],
+      "dependencies": [
+        "cn",
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "@starlight/material"
+      ],
       "files": [
-        { "path": "src/primitives/ui/button.tsx", "type": "registry:ui", "target": "~/components/starlight-materials/primitives/ui/button.tsx" }
+        {
+          "path": "src/primitives/ui/button.tsx",
+          "type": "registry:ui",
+          "target": "~/components/starlight-materials/primitives/ui/button.tsx"
+        }
       ]
     },
     {
@@ -71,10 +131,18 @@
       "type": "registry:ui",
       "title": "Card",
       "description": "shadcn card with a material prop and an interactive flag that opts a card into the state contract.",
-      "dependencies": ["cn"],
-      "registryDependencies": ["https://raw.githubusercontent.com/frankxai/starlight-design-intelligence/main/packages/materials/public/r/material.json"],
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "@starlight/material"
+      ],
       "files": [
-        { "path": "src/primitives/ui/card.tsx", "type": "registry:ui", "target": "~/components/starlight-materials/primitives/ui/card.tsx" }
+        {
+          "path": "src/primitives/ui/card.tsx",
+          "type": "registry:ui",
+          "target": "~/components/starlight-materials/primitives/ui/card.tsx"
+        }
       ]
     },
     {
@@ -82,10 +150,20 @@
       "type": "registry:ui",
       "title": "Sheet",
       "description": "shadcn sheet with a material prop, 100dvh side sheets, safe-area padding on the edge it touches, and touch-action on its own axis only.",
-      "dependencies": ["cn", "radix-ui", "lucide-react"],
-      "registryDependencies": ["https://raw.githubusercontent.com/frankxai/starlight-design-intelligence/main/packages/materials/public/r/material.json"],
+      "dependencies": [
+        "cn",
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@starlight/material"
+      ],
       "files": [
-        { "path": "src/primitives/ui/sheet.tsx", "type": "registry:ui", "target": "~/components/starlight-materials/primitives/ui/sheet.tsx" }
+        {
+          "path": "src/primitives/ui/sheet.tsx",
+          "type": "registry:ui",
+          "target": "~/components/starlight-materials/primitives/ui/sheet.tsx"
+        }
       ]
     }
   ]

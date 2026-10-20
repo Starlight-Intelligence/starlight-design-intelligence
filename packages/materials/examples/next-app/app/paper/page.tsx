@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from '@starlight/materials/primitives';
 
 // Server Component, no island. Paper is the reading surface: the whole route is static
@@ -23,13 +24,22 @@ export default function PaperPage() {
           </p>
         </header>
         <div className="grid gap-4 md:grid-cols-3">
-          {notes.map((n, i) => (
-            <Card key={n.title} material="paper" interactive={i === 0} className={i === 0 ? 'bg-surface-ivory' : ''}>
+          <Card material="paper" interactive asChild>
+            <Link href="/glass">
+              <CardHeader>
+                <CardTitle>{notes[0].title}</CardTitle>
+                <CardDescription>{notes[0].body}</CardDescription>
+              </CardHeader>
+              <CardContent className="text-label-sm opacity-60">Interactive: a link to /glass, press it</CardContent>
+            </Link>
+          </Card>
+          {notes.slice(1).map((n) => (
+            <Card key={n.title} material="paper">
               <CardHeader>
                 <CardTitle>{n.title}</CardTitle>
                 <CardDescription>{n.body}</CardDescription>
               </CardHeader>
-              <CardContent className="text-label-sm opacity-60">{i === 0 ? 'Interactive: press it' : 'Static: no hover, no press'}</CardContent>
+              <CardContent className="text-label-sm opacity-60">Static: no hover, no press</CardContent>
             </Card>
           ))}
         </div>

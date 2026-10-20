@@ -9,14 +9,13 @@ import { SERVER_PLAN } from '../src/gate/glass-gate.ts';
 // of failing the root suite; `pnpm test` inside packages/materials always runs it.
 let react = null;
 try {
-  react = {
-    ...(await import('react')),
-    renderToString: (await import('react-dom/server')).renderToString,
-    useGlassPlan: (await import('../src/gate/use-glass-plan.ts')).useGlassPlan,
-  };
-} catch {
+  react = { ...(await import('react')), renderToString: (await import('react-dom/server')).renderToString };
+} catch (err) {
+  // Only a missing react or react-dom is a reason to skip; any other import error fails.
+  if (err?.code !== 'ERR_MODULE_NOT_FOUND' || !/react/.test(String(err.message))) throw err;
   react = null;
 }
+if (react) react.useGlassPlan = (await import('../src/gate/use-glass-plan.ts')).useGlassPlan;
 
 test('useGlassPlan answers css on the server without touching window', { skip: react ? false : 'react is not installed here; run pnpm test in packages/materials' }, () => {
   const { createElement, renderToString, useGlassPlan } = react;

@@ -7,9 +7,11 @@ import { Dialog as SheetPrimitive } from "radix-ui"
 import { type Material, materialClasses, stateContract } from "../material.ts"
 
 // shadcn's sheet with a `material` prop. A side sheet is 100dvh, not h-full of a 100vh
-// parent, so the phone URL bar never hides its footer; it pads the safe-area inset on the
-// edge it touches, and it owns only its own scroll axis (touch-action: pan-y on a side
-// sheet, pan-x on a top or bottom one). Entry and exit are opacity and transform only.
+// parent, so the phone URL bar never hides its footer; a top or bottom sheet is capped at
+// 100dvh. Every sheet pads the safe-area insets it touches, scrolls its own content
+// (overflow-y-auto, so a long sheet never puts its controls past the viewport while the
+// dialog locks the page), and owns only its own scroll axis. Entry and exit are opacity and
+// transform only.
 
 function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
   return <SheetPrimitive.Root data-slot="sheet" {...props} />
@@ -53,13 +55,13 @@ type Side = "top" | "right" | "bottom" | "left"
 
 const sideClasses: Record<Side, string> = {
   right:
-    "inset-y-0 right-0 h-dvh w-3/4 rounded-l-xl touch-pan-y pr-[env(safe-area-inset-right)] data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm",
+    "inset-y-0 right-0 h-dvh w-3/4 rounded-l-xl touch-pan-y pt-[env(safe-area-inset-top)] pr-[env(safe-area-inset-right)] pb-[env(safe-area-inset-bottom)] data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right sm:max-w-sm",
   left:
-    "inset-y-0 left-0 h-dvh w-3/4 rounded-r-xl touch-pan-y pl-[env(safe-area-inset-left)] data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm",
+    "inset-y-0 left-0 h-dvh w-3/4 rounded-r-xl touch-pan-y pt-[env(safe-area-inset-top)] pl-[env(safe-area-inset-left)] pb-[env(safe-area-inset-bottom)] data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left sm:max-w-sm",
   top:
-    "inset-x-0 top-0 h-auto rounded-b-xl touch-pan-x pt-[env(safe-area-inset-top)] data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top",
+    "inset-x-0 top-0 h-auto max-h-dvh rounded-b-xl touch-pan-y pt-[env(safe-area-inset-top)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)] data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top",
   bottom:
-    "inset-x-0 bottom-0 h-auto rounded-t-xl touch-pan-x pb-[env(safe-area-inset-bottom)] data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom",
+    "inset-x-0 bottom-0 h-auto max-h-dvh rounded-t-xl touch-pan-y pb-[env(safe-area-inset-bottom)] pl-[env(safe-area-inset-left)] pr-[env(safe-area-inset-right)] data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom",
 }
 
 function SheetContent({
@@ -81,7 +83,7 @@ function SheetContent({
         data-slot="sheet-content"
         data-material={material}
         className={cn(
-          "fixed z-50 flex flex-col gap-4 transition ease-out data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:animate-in data-[state=open]:duration-500",
+          "fixed z-50 flex flex-col gap-4 overflow-y-auto overscroll-contain transition ease-out data-[state=closed]:animate-out data-[state=closed]:duration-300 data-[state=open]:animate-in data-[state=open]:duration-500",
           materialClasses(material, false),
           sideClasses[side],
           className
@@ -91,8 +93,9 @@ function SheetContent({
         {children}
         {showCloseButton && (
           <SheetPrimitive.Close
+            data-slot="sheet-close"
             className={cn(
-              "absolute top-4 right-4 inline-flex size-11 items-center justify-center rounded-full opacity-70 hover:opacity-100",
+              "absolute top-4 right-4 inline-flex size-11 items-center justify-center rounded-full opacity-70 fine-hover:opacity-100 active:opacity-100",
               stateContract
             )}
           >

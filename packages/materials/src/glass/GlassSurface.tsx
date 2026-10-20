@@ -27,8 +27,10 @@ export interface GlassSurfaceProps extends Omit<React.ComponentProps<'section'>,
 // the server and on every client; on a capable desktop it mounts the three.js refraction
 // pass over the same poster, only after useGlassPlan() says webgl and the 12-frame probe
 // stays under budget. Reduced motion and reduced transparency keep the designed still
-// (materials.css); leaving the viewport pauses the pass; unmount, a preference change, a
-// resize under 900px, a lost context or a failed poster all go through one teardown.
+// (materials.css); leaving the viewport or hiding the tab pauses the pass; unmount, a
+// changed poster, a preference change, a resize under 900px, a lost context or a failed
+// poster all go through one teardown, and a mount still loading when any of those happens
+// is aborted before it can report webgl.
 export function GlassSurface({
   poster,
   posterAlt,
@@ -48,35 +50,30 @@ export function GlassSurface({
   const planRef = React.useRef(onPlan);
   planRef.current = onPlan;
 
-  const report = React.useCallback((next: GlassState) => {
-    setState(next);
-    planRef.current?.(next);
-  }, []);
-
   React.useEffect(() => {
+    // Reports from a mount this effect run owns; a stale mount's reports are dropped at
+    // the abort, so a cancelled mount can never overwrite a newer state.
+    const controller = new AbortController();
+    const report = (next: GlassState) => {
+      if (controller.signal.aborted) return;
+      setState(next);
+      planRef.current?.(next);
+    };
     if (plan.mode !== 'webgl') {
       report({ mode: 'css', reason: plan.reason });
-      return;
+      return () => controller.abort();
     }
     const scene = sceneRef.current;
     const canvas = canvasRef.current;
     const panel = panelRef.current;
-    if (!scene || !canvas || !panel) return;
-    let cancelled = false;
-    let teardown: (() => void) | undefined;
-    mountGlass({ scene, canvas, panel, poster, plan, onChange: report })
-      .then((handle) => {
-        if (cancelled) handle.teardown();
-        else teardown = handle.teardown;
-      })
-      .catch((err: unknown) => {
-        report({ mode: 'css', reason: `WebGL failed: ${err instanceof Error ? err.message : String(err)}` });
-      });
+    if (!scene || !canvas || !panel) return () => controller.abort();
+    const mounted = mountGlass({ scene, canvas, panel, poster, plan, signal: controller.signal, onChange: report });
     return () => {
-      cancelled = true;
-      teardown?.();
+      controller.abort();
+      // The abort already tore a loading mount down; a mounted one is torn down here.
+      void mounted.then((handle) => handle.teardown());
     };
-  }, [plan, poster, report]);
+  }, [plan, poster]);
 
   return (
     <section

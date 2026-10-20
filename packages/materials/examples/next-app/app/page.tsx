@@ -35,15 +35,15 @@ export default function Page() {
       </p>
       <div className="grid gap-4 md:grid-cols-3">
         {materials.map((m) => (
-          <Link key={m.href} href={m.href} className="group rounded-lg focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-focus">
-            <Card material={m.material} interactive className="h-full">
+          <Card key={m.href} material={m.material} interactive asChild className="h-full">
+            <Link href={m.href}>
               <CardHeader>
                 <CardTitle>{m.title}</CardTitle>
                 <CardDescription>{m.body}</CardDescription>
               </CardHeader>
               <CardContent className="mt-auto text-label-md font-medium">Open the route</CardContent>
-            </Card>
-          </Link>
+            </Link>
+          </Card>
         ))}
       </div>
     </main>

@@ -9,7 +9,7 @@
     "class-variance-authority"
   ],
   "registryDependencies": [
-    "https://raw.githubusercontent.com/frankxai/starlight-design-intelligence/main/packages/materials/public/r/material.json"
+    "@starlight/material"
   ],
   "files": [
     {

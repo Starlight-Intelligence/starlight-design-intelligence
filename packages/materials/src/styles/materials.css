@@ -8,13 +8,23 @@
  *
  * theme.css and tokens.css are generated from DESIGN.md (`pnpm tokens`); edit the tokens
  * there, never here. This file carries the shadcn semantic variables mapped onto those
- * tokens, the glass material's three tiers, and the preference rules of the state contract.
+ * tokens, the glass material's tiers, and the preference rules of the state contract.
  */
 @import "tw-animate-css";
 @import "../tokens/theme.css";
 @import "../tokens/tokens.css";
 
 @custom-variant dark (&:is(.dark *));
+
+/* The contract's hover gate: a fine pointer that can hover. Tailwind's own `hover:` only
+ * checks (hover: hover), which a touch screen with a paired stylus also satisfies. */
+@custom-variant fine-hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @slot;
+    }
+  }
+}
 
 /* shadcn's semantic palette, resolved to DESIGN.md tokens so the generated primitives
  * (bg-background, text-foreground, border, ring) land on the Starlight palette. */
@@ -108,8 +118,9 @@
   }
 }
 
-/* Glass, tier 2: the three.js pass is frosting and darkening, so the DOM panel only tints.
- * The wrapper sets data-glass="webgl" on the scene after the probe passes. */
+/* Glass, tier 2: the three.js pass is frosting and darkening, so the panel only tints.
+ * The wrapper sets data-glass="webgl" on the scene after the probe passes. The override
+ * is scoped to the panel itself; glass buttons inside it keep their own tint and states. */
 .sl-glass-scene {
   position: relative;
   isolation: isolate;
@@ -127,7 +138,7 @@
 .sl-glass-scene[data-glass="webgl"] > canvas {
   opacity: 1;
 }
-.sl-glass-scene[data-glass="webgl"] .sl-glass {
+.sl-glass-scene[data-glass="webgl"] > [data-slot="glass-panel"] {
   background: var(--sl-color-glass-tint-webgl);
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
@@ -139,7 +150,7 @@
  * quietly stopped working. The gate refuses WebGL under the same query. */
 @media (prefers-reduced-transparency: reduce) {
   .sl-glass,
-  .sl-glass-scene[data-glass="webgl"] .sl-glass {
+  .sl-glass-scene[data-glass="webgl"] > [data-slot="glass-panel"] {
     background: var(--sl-color-glass-opaque);
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
@@ -151,18 +162,22 @@
 }
 
 /* The state contract under reduced motion: the press keeps its tint change and drops the
- * transform; the canvas fade becomes a cut. Nothing else in this package moves. */
+ * movement. Tailwind 4 writes the press to the individual `translate` and `scale`
+ * properties, so those are what is reset; `transform: none` would reset neither. The
+ * canvas fade and the sheet's slide become cuts. Nothing else in this package moves. */
 @media (prefers-reduced-motion: reduce) {
   .sl-glass-scene > canvas {
     transition: none;
   }
   [data-slot="button"]:active,
   [data-slot="card"][data-interactive]:active,
-  [data-slot="sheet-content"] {
-    transform: none;
+  [data-slot="sheet-close"]:active {
+    translate: none;
+    scale: none;
   }
   [data-slot="sheet-content"],
   [data-slot="sheet-overlay"] {
     animation: none;
+    transition: none;
   }
 }
