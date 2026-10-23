@@ -8,7 +8,7 @@ Reference voices (how other founders, teachers and lab leaders make their moves)
 
 ## The thesis
 
-Intelligence is becoming a utility one person can direct. FrankX's working belief, tested in public against Frank's own builds, is that a founder with good judgment and a few well-run agents can now research, build, sell and support work that used to need several people. Each public claim about that leverage carries the build that shows it.
+Intelligence is becoming a utility one person can direct. FrankX's working belief, which Frank's builds are meant to test in public, is that a founder with good judgment and a few well-run agents can now research, build, sell and support work that used to need several people. Each public claim about that leverage carries the build that shows it.
 
 FrankX calls the period ahead a golden age of intelligence. The phrase is a bet and an obligation. It holds only if we build well: verified work, systems people can stop and inspect, defenses for the people who depend on us, and collaboration across labs, countries and disciplines. Hope is the posture. Receipts are the method.
 
@@ -18,7 +18,7 @@ Each stance has a claim FrankX makes, the proof that claim needs, the edge where
 
 ### 1. One person can now build what a team built
 
-- **Claim (belief, tested on Frank's builds):** A single operator with agents can ship products, research and revenue loops that used to need several people.
+- **Claim (belief, to be tested on Frank's builds):** A single operator with agents can ship products, research and revenue loops that used to need several people.
 - **Proof it needs:** A named artifact with its time, cost and the checks it passed. Frank's own builds first.
 - **Edge:** Leverage multiplies judgment, including bad judgment. Output volume is not quality, and a fleet of unreviewed agents is a liability.
 - **Never say:** "anyone can build a million-dollar company this weekend", or any income claim or earnings promise.
