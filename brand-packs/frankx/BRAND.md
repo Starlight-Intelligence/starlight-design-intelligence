@@ -23,3 +23,7 @@ Help builders turn AI capability into owned systems, products, revenue loops, an
 ## Honor and responsibility
 
 Apply the shared principle through the brand-specific [narrative and behavior contract](NARRATIVE.md). Read it alongside this constitution; existing identity and source authority remain in force.
+
+## Point of view
+
+What FrankX believes about the AI era, its audience ladder and its rules for AGI claims: [POINT_OF_VIEW](POINT_OF_VIEW.md). Read it before drafting anything that takes a position.
