@@ -1,6 +1,6 @@
 # What FrankX believes
 
-Status: proposed. Owner direction supplied by Frank on 2026-10-23; drafted by Claude Code (Opus 5.5). Frank approves or edits the stances before any surface quotes them.
+Status: approved by Frank on 2026-10-23 (chat with Claude Code) for agent drafting. Drafted by Claude Code (Opus 5.5) from Frank's direction the same day. Frank may still edit any stance; a changed stance carries its revision date here.
 
 [BRAND](BRAND.md) says how FrankX behaves, [COPY](COPY.md) says how a sentence earns its place, and [NARRATIVE](NARRATIVE.md) says how a build becomes teaching. This file says what FrankX thinks is true about the moment we are in. Agents read it so a draft carries a view instead of a tone.
 
