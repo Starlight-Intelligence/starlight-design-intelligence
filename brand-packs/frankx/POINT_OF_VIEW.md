@@ -8,7 +8,7 @@ Reference voices (how other founders, teachers and lab leaders make their moves)
 
 ## The thesis
 
-Intelligence is becoming a utility one person can direct. A founder with good judgment and a few well-run agents can now research, build, sell and support at a scale that needed a team five years ago. That is the most useful economic fact of this decade, and most people are still treating it as a chatbot.
+Intelligence is becoming a utility one person can direct. FrankX's working belief, tested in public against Frank's own builds, is that a founder with good judgment and a few well-run agents can now research, build, sell and support work that used to need several people. Each public claim about that leverage carries the build that shows it.
 
 FrankX calls the period ahead a golden age of intelligence. The phrase is a bet and an obligation. It holds only if we build well: verified work, systems people can stop and inspect, defenses for the people who depend on us, and collaboration across labs, countries and disciplines. Hope is the posture. Receipts are the method.
 
@@ -18,10 +18,10 @@ Each stance has a claim FrankX makes, the proof that claim needs, the edge where
 
 ### 1. One person can now build what a team built
 
-- **Claim:** A single operator with agents can ship products, research and revenue loops that used to need a department.
+- **Claim (belief, tested on Frank's builds):** A single operator with agents can ship products, research and revenue loops that used to need several people.
 - **Proof it needs:** A named artifact with its time, cost and the checks it passed. Frank's own builds first.
 - **Edge:** Leverage multiplies judgment, including bad judgment. Output volume is not quality, and a fleet of unreviewed agents is a liability.
-- **Never say:** "anyone can build a million-dollar company this weekend", or any income claim without a ledger behind it.
+- **Never say:** "anyone can build a million-dollar company this weekend", or any income claim or earnings promise.
 
 ### 2. From vibe coding to agentic engineering
 
@@ -32,7 +32,7 @@ Each stance has a claim FrankX makes, the proof that claim needs, the edge where
 
 ### 3. Explore with curiosity, build your own defenses
 
-- **Claim:** The same capability that lets a founder do the work of ten lets an attacker do the same. Families, small companies and solo operators need their own defenses now: account security, data ownership, verification habits, agent permissions and the judgment to tell a real voice from a cloned one.
+- **Claim:** The capability that gives a founder leverage gives an attacker leverage too. Families, small companies and solo operators need their own defenses now: account security, data ownership, verification habits, agent permissions and the judgment to tell a real voice from a cloned one.
 - **Proof it needs:** A concrete defense someone can apply today, with the threat it answers and where it falls short.
 - **Edge:** Fear sells and it shrinks people. Every risk FrankX names comes with an action the reader can take.
 - **Never say:** doom framing, "AI will take your job" hooks, or security advice FrankX has not tried.
@@ -53,7 +53,7 @@ Each stance has a claim FrankX makes, the proof that claim needs, the edge where
 
 ### 6. AI will help us find answers we could not find alone
 
-- **Claim:** The biggest return on this technology is in science, medicine, energy, climate and education: problems where a tireless research collaborator changes what a small team can attempt.
+- **Claim (belief):** FrankX expects the largest long-term return from this technology to come from science, medicine, energy, climate and education: problems where a tireless research collaborator changes what a small team can attempt.
 - **Proof it needs:** A cited result, such as a published discovery, a benchmark with its method, or a lab's stated finding, and what it does not yet show.
 - **Edge:** A demo on a benchmark is not a cure. Name the step between the result and the world.
 - **Never say:** "AI will solve climate change" or any unsourced breakthrough.
@@ -102,7 +102,7 @@ FrankX takes the possibility of AGI and superintelligence seriously and talks ab
 
 ## Specimens
 
-Bracketed slots must be filled with a real artifact before publication. A specimen with an empty slot is a template, not copy.
+Bracketed slots must be filled with a real artifact before publication. Every filled assertion needs a source or Frank's confirmation, and any personal or family detail needs Frank's explicit approval. A specimen with an empty slot is a template.
 
 Weak:
 
@@ -110,7 +110,7 @@ Weak:
 
 FrankX:
 
-> This week one agent pipeline did [task] in [time] for [cost]. Here is the run, the check that caught its one mistake, and the step I still do by hand. Start with the hand step. That is where your judgment lives.
+> [Date range]: one agent pipeline did [task] in [time] for [cost]. Here is the run, the check that caught [the mistake it made], and the step I still do by hand. Start with the hand step. That is where your judgment lives.
 
 Weak:
 
@@ -118,7 +118,7 @@ Weak:
 
 FrankX:
 
-> My parents now have a family code word for any call that asks for money. A voice clone needs [seconds] of audio; a code word costs nothing. Set yours tonight, then turn on [specific account protection] for the accounts that hold your money.
+> [Owner-approved family practice, such as a code word for any call that asks for money.] [Source, date]: a voice clone can be made from [duration] of audio under [conditions]. A code word costs nothing. Set yours tonight, then turn on [specific account protection] for the accounts that hold your money.
 
 Weak:
 
