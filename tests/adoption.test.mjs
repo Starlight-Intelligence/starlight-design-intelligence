@@ -267,3 +267,47 @@ test("adoption rejects dangling local contract symlinks", (t) => {
   }).validate();
   assert.match(failures.join("\n"), /symlinks are not allowed/i);
 });
+
+test("transferred canonical namespace accepts its fully qualified workflow path", (t) => {
+  const fixture = createDownstream(t);
+  assert.equal(CANONICAL_REPOSITORY, "Starlight-Intelligence/starlight-design-intelligence");
+  assert.deepEqual(validateAdoption({
+    downstreamRoot: fixture.root, kernelRoot, callerRepository,
+    workflowRepository: CANONICAL_REPOSITORY,
+    workflowPath: CANONICAL_REPOSITORY + "/" + CANONICAL_WORKFLOW_PATH,
+    workflowSha: fixture.kernelSha
+  }), []);
+});
+
+test("transferred namespace rejects the former workflow repository identity", (t) => {
+  const fixture = createDownstream(t);
+  const failures = validateAdoption({
+    downstreamRoot: fixture.root, kernelRoot, callerRepository,
+    workflowRepository: "frankxai/starlight-design-intelligence",
+    workflowPath: CANONICAL_WORKFLOW_PATH, workflowSha: fixture.kernelSha
+  });
+  assert.match(failures.join("\n"), /workflow repository must be Starlight-Intelligence\/starlight-design-intelligence/);
+});
+
+test("transferred namespace rejects a caller still using the former owner", (t) => {
+  const fixture = createDownstream(t);
+  const path = ".github/workflows/starlight-design-contract.yml";
+  writeFileSync(join(fixture.root, path), callerWorkflow(fixture.kernelSha).replaceAll(
+    "Starlight-Intelligence/starlight-design-intelligence",
+    "frankxai/starlight-design-intelligence"
+  ));
+  git(fixture.root, ["add", path]);
+  git(fixture.root, ["commit", "-qm", "former-owner negative fixture"]);
+  const failures = fixture.validate();
+  assert.match(failures.join("\n"), /no parsed canonical design-contract workflow job exists/);
+});
+
+test("reusable workflow checks out the same canonical repository at its exact workflow SHA", async () => {
+  const { parse } = await import("yaml");
+  const workflow = parse(readFileSync(join(kernelRoot, CANONICAL_WORKFLOW_PATH), "utf8"));
+  const step = workflow.jobs["design-contract"].steps.find((entry) => entry.name === "Check out immutable design kernel");
+  assert.equal(step.with.repository, CANONICAL_REPOSITORY);
+  assert.equal(step.with.ref, "$" + "{{ job.workflow_sha }}");
+  assert.equal(step.with["persist-credentials"], false);
+  assert.deepEqual(workflow.permissions, { contents: "read" });
+});
