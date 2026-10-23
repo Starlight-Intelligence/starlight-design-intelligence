@@ -13,7 +13,7 @@ import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { parse as parseYaml } from "yaml";
 
-export const CANONICAL_REPOSITORY = "frankxai/starlight-design-intelligence";
+export const CANONICAL_REPOSITORY = "Starlight-Intelligence/starlight-design-intelligence";
 export const CANONICAL_WORKFLOW_PATH = ".github/workflows/design-contract.yml";
 export const CONTRACT_PATH = ".starlight/design-contract.json";
 export const REGISTRY_PATH = "portfolio/core-surfaces.json";
