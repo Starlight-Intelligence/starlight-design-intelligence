@@ -13,14 +13,22 @@ const FUTURE = /\b(will|won't|is coming|coming in|arriv\w*|by (the end of )?(the
 const ATTRIBUTION_VERB = /\b(wrote|writes|said|says|forecasts?|estimated|estimates|predicted|predicts|expects|argued|argues|according to)\b/i;
 const MONTHS = new Set(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
 const SENTENCE_STARTERS = new Set(["The", "This", "That", "These", "In", "By", "It", "We", "I", "A", "An", "Our", "My", "If", "When", "And", "But", "So"]);
-const FRONTIER_TERMS = new Set(["AGI", "ASI"]);
+const NEGATION_BEFORE = /\b(not|n't|never|nothing|no longer|none)\b(\W+\w+){0,4}\W+$/i;
 
-// A forecast counts as attributed when it carries an attribution verb and a proper name
-// (a person, lab or venue), not merely a verb.
+// The date a statement was made: a month name, or a year no later than this one.
+// A future year in the same line is the forecast horizon, not the statement date.
+function statementDate(line) {
+  const current = new Date().getUTCFullYear();
+  if ([...MONTHS].some((month) => line.includes(month))) return true;
+  return (line.match(/\b20\d\d\b/g) ?? []).some((year) => Number(year) <= current);
+}
+
+// A forecast counts as attributed when it carries an attribution verb, a proper name
+// (a person, lab or venue) and a statement date.
 function hasNamedSource(line) {
-  if (!ATTRIBUTION_VERB.test(line)) return false;
+  if (!ATTRIBUTION_VERB.test(line) || !statementDate(line)) return false;
   const names = line.match(/\b[A-Z][A-Za-z]+\b/g) ?? [];
-  return names.some((name) => !MONTHS.has(name) && !SENTENCE_STARTERS.has(name) && !FRONTIER_TERMS.has(name.toUpperCase()) && !/^Superintelligen/i.test(name));
+  return names.some((name) => !MONTHS.has(name) && !SENTENCE_STARTERS.has(name) && !FRONTIER.test(name));
 }
 
 function futureYear(line) {
@@ -28,15 +36,16 @@ function futureYear(line) {
   return (line.match(/\b20[2-9]\d\b(?!-\d)/g) ?? []).some((year) => Number(year) > current);
 }
 
-// Markdown constructs that use brackets legitimately: inline links, reference links,
-// reference definitions and task checkboxes. What remains in brackets is a slot.
-function bracketSlots(line) {
-  if (/^\s*\[[^\]]+\]:\s/.test(line)) return [];
+// Markdown constructs that use brackets legitimately: inline links, full and shortcut
+// reference links, reference definitions and task checkboxes. What remains is a slot.
+function bracketSlots(line, definitions = new Set()) {
+  const definition = line.match(/^\s*\[[^\]]+\]:\s*\S+(.*)$/);
+  if (definition) return definition[1].match(/\[[^\]\n]{2,80}\]/g) ?? [];
   const stripped = line
     .replace(/!?\[[^\]]*\]\([^)]*\)/g, "")
     .replace(/\[[^\]]*\]\[[^\]]*\]/g, "")
     .replace(/\[[ xX]\]/g, "");
-  return stripped.match(/\[[^\]\n]{2,80}\]/g) ?? [];
+  return (stripped.match(/\[[^\]\n]{2,80}\]/g) ?? []).filter((slot) => !definitions.has(slot.slice(1, -1).toLowerCase()));
 }
 
 export const RULES = [
@@ -49,8 +58,9 @@ export const RULES = [
   {
     id: "unattributed-forecast",
     severity: "error",
-    why: "AGI and superintelligence forecasts need a named forecaster and date (POINT_OF_VIEW claim rule 1).",
-    test: (line) => FRONTIER.test(line) && (FUTURE.test(line) || futureYear(line)) && !hasNamedSource(line) && !bracketSlots(line).length
+    why: "AGI and superintelligence forecasts need a named forecaster and a date (POINT_OF_VIEW claim rule 1).",
+    test: (line, options) =>
+      FRONTIER.test(line) && (FUTURE.test(line) || futureYear(line)) && !hasNamedSource(line) && !bracketSlots(line, options.definitions).length
   },
   {
     id: "income-claim",
@@ -65,7 +75,7 @@ export const RULES = [
     why: "No inevitability or fear framing (POINT_OF_VIEW register).",
     test: (line) =>
       /\bno stopping (this|it)\b|\bthere is no stopping\b|\bleft behind\b|\badapt or die\b|\bthose who (don't|do not|won't)\b/i.test(line) ||
-      (/\binevitable\b/i.test(line) && !/\b(not|n't|never|no longer|isn't|is not)\s+(\w+\s+){0,2}inevitable\b/i.test(line))
+      [...line.matchAll(/\binevitable\b/gi)].some((match) => !NEGATION_BEFORE.test(line.slice(0, match.index).split(/[.!?;]/).pop()))
   },
   {
     id: "unpopular-opinion",
@@ -89,7 +99,7 @@ export const RULES = [
     id: "unfilled-slot",
     severity: "error",
     why: "A specimen with an empty bracket slot is a template, not copy.",
-    test: (line, options) => !options.template && bracketSlots(line).length > 0
+    test: (line, options) => !options.template && bracketSlots(line, options.definitions).length > 0
   },
   {
     id: "hype-verb",
@@ -103,7 +113,7 @@ export const RULES = [
     why: "Rhetorical contrast formula (COPY.md avoid list). Keep only if the contrast carries a fact.",
     test: (line) =>
       /\bnot (just |only |merely )?[^.;:!?]{1,40}, but\b|\b(isn't|is not) [^.;:!?]{1,40}[,;] it's\b/i.test(line) ||
-      /(^|[.!?]\s+|^\W*)[\w' ]{1,30}, not [\w' ]{1,30}[.!?]\s*$/i.test(line)
+      /(^|[.!?]\s+|^\W*)[\w' ]{1,30}, not [\w' ]{1,30}[.!?]?\s*$/i.test(line)
   },
   {
     id: "stock-phrase",
@@ -143,17 +153,19 @@ const DOCUMENT_RULES = [
   }
 ];
 
-// Blank out fenced code (``` or ~~~, closed only by the same character at least as long)
-// so every rule sees prose only and line numbers stay true.
+// Blank out fenced code so every rule sees prose only and line numbers stay true.
+// Follows CommonMark: ``` or ~~~ (also inside blockquotes), closed only by the same
+// character at least as long, and a backtick fence's info string cannot hold a backtick.
 function maskFences(lines) {
   let fence = null;
   return lines.map((line) => {
-    const marker = line.match(/^\s{0,3}(`{3,}|~{3,})/);
+    const body = line.replace(/^(\s*>)+\s?/, "");
+    const marker = body.match(/^\s{0,3}(`{3,}|~{3,})(.*)$/);
     if (fence) {
-      if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !line.trim().slice(marker[1].length).trim()) fence = null;
+      if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !marker[2].trim()) fence = null;
       return "";
     }
-    if (marker) {
+    if (marker && !(marker[1][0] === "`" && marker[2].includes("`"))) {
       fence = marker[1];
       return "";
     }
@@ -163,10 +175,12 @@ function maskFences(lines) {
 
 export function lintFrankxVoice(text, options = {}) {
   const lines = maskFences(text.replace(/\r\n/g, "\n").split("\n"));
+  const definitions = new Set(lines.flatMap((line) => line.match(/^\s*\[([^\]]+)\]:\s/)?.[1]?.toLowerCase() ?? []));
+  const lineOptions = { ...options, definitions };
   const findings = [];
   for (const [index, line] of lines.entries()) {
     for (const rule of RULES) {
-      if (rule.test(line, options)) {
+      if (rule.test(line, lineOptions)) {
         findings.push({ rule: rule.id, severity: rule.severity, line: index + 1, excerpt: line.trim().slice(0, 120), why: rule.why });
       }
     }

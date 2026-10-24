@@ -98,7 +98,8 @@ test("prices are not income claims", () => {
 
 test("negated inevitability passes", () => {
   assert.deepEqual(errorsOf("AGI is not inevitable, and neither is the timeline."), []);
-  assert.deepEqual(errorsOf("Nothing about this is inevitable."), ["inevitability"]);
+  assert.deepEqual(errorsOf("Nothing about this is inevitable."), []);
+  assert.deepEqual(errorsOf("AGI is not inevitable. Job loss is inevitable."), ["inevitability"]);
 });
 
 test("common-word Arcanea names warn instead of failing", () => {
@@ -136,4 +137,24 @@ test("CLI rejects unknown options and unreadable files with exit 2", () => {
   assert.equal(main([], quiet), 2);
   assert.equal(main(["missing.md"], { ...quiet, read: () => { const e = new Error("nope"); e.code = "ENOENT"; throw e; } }), 2);
   assert.equal(main(["warn.md"], { ...quiet, read: () => "It will unlock nothing." }), 0);
+});
+
+test("forecast attribution needs a real name and a statement date", () => {
+  assert.deepEqual(errorsOf("Singularity is forecast by 2030."), ["unattributed-forecast"]);
+  assert.deepEqual(errorsOf("Hassabis says AGI will arrive by 2030."), ["unattributed-forecast"]);
+  assert.deepEqual(errorsOf("Hassabis said in 2025 that AGI could arrive by 2030."), []);
+});
+
+test("shortcut references with a definition are links; definition titles are checked", () => {
+  assert.deepEqual(errorsOf("Read the [kernel] notes.\n\n[kernel]: https://example.com/kernel"), []);
+  assert.deepEqual(errorsOf('[source]: https://example.com "Fill [task]"'), ["unfilled-slot"]);
+});
+
+test("blockquoted fences mask and invalid backtick openers do not", () => {
+  assert.deepEqual(errorsOf("> ~~~\n> left behind\n> ~~~\nDone."), []);
+  assert.deepEqual(errorsOf("```js`x\nleft behind"), ["inevitability"]);
+});
+
+test("unpunctuated X-not-Y lines warn", () => {
+  assert.ok(warningsOf("Evidence, not hype").includes("contrast-formula"));
 });
