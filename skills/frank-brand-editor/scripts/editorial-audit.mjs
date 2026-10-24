@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { existsSync, readFileSync, readdirSync } from "node:fs";
-import { extname, join, relative, resolve } from "node:path";
+import { existsSync, readFileSync, readdirSync, realpathSync, statSync } from "node:fs";
+import { extname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
 
@@ -93,10 +93,18 @@ export function auditRoot(root, { policy = loadPolicy(), files: selectedFiles = 
   const absoluteRoot = resolve(root);
   const files = [];
   if (selectedFiles.length) {
+    const realRoot = realpathSync(absoluteRoot);
     for (const selected of selectedFiles) {
       const path = resolve(absoluteRoot, selected);
+      if (!existsSync(path)) continue;
+      // Explicit files must stay inside --root after symlinks resolve, and be regular files.
+      const realPath = realpathSync(path);
+      const inside = relative(realRoot, realPath);
+      if (inside.startsWith("..") || isAbsolute(inside) || !statSync(realPath).isFile()) {
+        throw new Error(`Refusing ${selected}: not a regular file inside ${absoluteRoot}`);
+      }
       const relPath = relative(absoluteRoot, path).replaceAll("\\", "/");
-      if (existsSync(path) && !shouldExclude(relPath, policy)) files.push(path);
+      if (!shouldExclude(relPath, policy)) files.push(path);
     }
   } else {
     for (const directory of policy.scan_directories) {
@@ -113,14 +121,41 @@ export function auditRoot(root, { policy = loadPolicy(), files: selectedFiles = 
   return { root: absoluteRoot, filesScanned: files.length, findings };
 }
 
+const C_ESCAPES = { n: "\n", t: "\t", r: "\r", '"': '"', "\\": "\\", a: "\x07", b: "\b", f: "\f", v: "\v" };
+
+// Git C-quotes paths with special bytes ("b/caf\303\251.md"). Decode the escapes and the
+// octal UTF-8 bytes so such files are audited, not skipped.
+export function decodeGitPath(raw) {
+  if (!raw.startsWith('"')) return raw;
+  const bytes = [];
+  const body = raw.slice(1, -1);
+  for (let index = 0; index < body.length; index += 1) {
+    const char = body[index];
+    if (char !== "\\") {
+      bytes.push(...Buffer.from(char, "utf8"));
+      continue;
+    }
+    const next = body[index + 1];
+    if (/[0-7]/.test(next)) {
+      bytes.push(parseInt(body.slice(index + 1, index + 4), 8));
+      index += 3;
+    } else {
+      bytes.push(...Buffer.from(C_ESCAPES[next] ?? next, "utf8"));
+      index += 1;
+    }
+  }
+  return Buffer.from(bytes).toString("utf8");
+}
+
 function parseAddedLines(diff) {
   const output = new Map();
   let file = null;
   let newLine = 0;
   for (const line of diff.split(/\r?\n/u)) {
-    if (line.startsWith("+++ b/")) {
-      file = line.slice(6);
-      if (!output.has(file)) output.set(file, []);
+    if (line.startsWith("+++ ")) {
+      const target = decodeGitPath(line.slice(4));
+      file = target.startsWith("b/") ? target.slice(2) : null;
+      if (file && !output.has(file)) output.set(file, []);
       continue;
     }
     const hunk = line.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/u);
@@ -144,7 +179,7 @@ export function auditChangedLines(root, baseRef, { policy = loadPolicy() } = {})
   const absoluteRoot = resolve(root);
   const result = spawnSync(
     "git",
-    ["diff", "--unified=0", "--no-color", `${baseRef}...HEAD`, "--", ...policy.scan_directories],
+    ["-c", "core.quotePath=false", "diff", "--unified=0", "--no-color", `${baseRef}...HEAD`, "--", ...policy.scan_directories],
     { cwd: absoluteRoot, encoding: "utf8", maxBuffer: 20 * 1024 * 1024 }
   );
   if (result.status !== 0) {
@@ -180,9 +215,25 @@ function parseArgs(argv) {
   return options;
 }
 
+// A consumer's .starlight/editorial-contract.json may name its own content_roots. When it
+// does, those roots replace the policy's default scan directories for both audit modes.
+export function contractRoots(root) {
+  const contractPath = join(resolve(root), ".starlight", "editorial-contract.json");
+  if (!existsSync(contractPath)) return null;
+  const roots = JSON.parse(readFileSync(contractPath, "utf8")).content_roots;
+  if (!Array.isArray(roots) || !roots.length) return null;
+  for (const entry of roots) {
+    const clean = typeof entry === "string" && entry && !isAbsolute(entry) && !entry.split(/[\\/]/).includes("..");
+    if (!clean) throw new Error(`content_roots entry must be a relative path inside the repository: ${JSON.stringify(entry)}`);
+  }
+  return roots;
+}
+
 export function main(argv = process.argv.slice(2)) {
   const options = parseArgs(argv);
-  const policy = loadPolicy(options.policyPath);
+  const basePolicy = loadPolicy(options.policyPath);
+  const roots = contractRoots(options.root);
+  const policy = roots ? { ...basePolicy, scan_directories: roots } : basePolicy;
   const result = options.changedFrom
     ? auditChangedLines(options.root, options.changedFrom, { policy })
     : auditRoot(options.root, { policy, files: options.files });

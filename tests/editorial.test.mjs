@@ -4,7 +4,7 @@ import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
-import { auditChangedLines, auditRoot, auditText, loadPolicy } from "../skills/frank-brand-editor/scripts/editorial-audit.mjs";
+import { auditChangedLines, auditRoot, auditText, contractRoots, decodeGitPath, loadPolicy, main } from "../skills/frank-brand-editor/scripts/editorial-audit.mjs";
 
 const policy = loadPolicy(join(process.cwd(), "editorial/language-policy.json"));
 
@@ -65,4 +65,41 @@ test("changed-line mode ignores existing debt and catches new copy", () => {
   const result = auditChangedLines(root, base, { policy });
   assert.equal(result.findings.filter((finding) => finding.severity === "hard_fail").length, 2);
   assert.ok(result.findings.every((finding) => finding.line === 2));
+});
+
+test("contract content_roots replace the default scan directories", () => {
+  const root = mkdtempSync(join(tmpdir(), "editorial-roots-"));
+  mkdirSync(join(root, ".starlight"), { recursive: true });
+  mkdirSync(join(root, "templates/anime-studio-landing/src"), { recursive: true });
+  writeFileSync(join(root, ".starlight/editorial-contract.json"), JSON.stringify({ content_roots: ["templates/anime-studio-landing/src"] }));
+  writeFileSync(join(root, "templates/anime-studio-landing/src/page.tsx"), "export const copy = 'A decision atlas, not a logo cloud.'\n");
+  assert.deepEqual(contractRoots(root), ["templates/anime-studio-landing/src"]);
+  const quiet = console.log;
+  console.log = () => {};
+  try {
+    const result = main(["--root", root, "--policy", join(process.cwd(), "editorial/language-policy.json")]);
+    assert.equal(result.filesScanned, 1);
+    assert.ok(result.findings.some((finding) => finding.severity === "hard_fail"));
+  } finally {
+    console.log = quiet;
+  }
+});
+
+test("content_roots that leave the repository are refused", () => {
+  const root = mkdtempSync(join(tmpdir(), "editorial-roots-bad-"));
+  mkdirSync(join(root, ".starlight"), { recursive: true });
+  writeFileSync(join(root, ".starlight/editorial-contract.json"), JSON.stringify({ content_roots: ["../elsewhere"] }));
+  assert.throws(() => contractRoots(root), /relative path inside the repository/);
+});
+
+test("git C-quoted paths decode to the real filename", () => {
+  assert.equal(decodeGitPath(String.raw`"b/content/caf\303\251.md"`), `b/content/caf${String.fromCharCode(0xe9)}.md`);
+  assert.equal(decodeGitPath("b/plain.md"), "b/plain.md");
+});
+
+test("explicit files cannot escape --root", () => {
+  const parent = mkdtempSync(join(tmpdir(), "editorial-escape-"));
+  mkdirSync(join(parent, "repo/app"), { recursive: true });
+  writeFileSync(join(parent, "outside.md"), "A map, not a list.\n");
+  assert.throws(() => auditRoot(join(parent, "repo"), { policy, files: ["../outside.md"] }), /Refusing/);
 });
