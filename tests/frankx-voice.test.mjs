@@ -158,3 +158,14 @@ test("blockquoted fences mask and invalid backtick openers do not", () => {
 test("unpunctuated X-not-Y lines warn", () => {
   assert.ok(warningsOf("Evidence, not hype").includes("contrast-formula"));
 });
+
+test("contracted negation and generic sources", () => {
+  assert.deepEqual(errorsOf("AGI isn't inevitable."), []);
+  assert.deepEqual(errorsOf("Experts forecast in 2025 that AGI will arrive by 2030."), ["unattributed-forecast"]);
+  assert.deepEqual(errorsOf("Hassabis predicts AGI will arrive in January 2030."), ["unattributed-forecast"]);
+  assert.deepEqual(errorsOf("Hassabis said in January 2026 that AGI could arrive by 2030."), []);
+});
+
+test("a blockquoted fence ends with its blockquote", () => {
+  assert.deepEqual(errorsOf("> ~~~\n> code\n\nleft behind"), ["inevitability"]);
+});

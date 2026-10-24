@@ -12,15 +12,21 @@ const FRONTIER = /\b(AGI|superintelligen\w*|singularity|ASI)\b/i;
 const FUTURE = /\b(will|won't|is coming|coming in|arriv\w*|by (the end of )?(the decade|20[2-9]\d)|within (a|the next|\d+|one|two|three|four|five)|in (the next )?(one|two|three|four|five|\d+) years?|next year|forecast|predicted|expected)\b/i;
 const ATTRIBUTION_VERB = /\b(wrote|writes|said|says|forecasts?|estimated|estimates|predicted|predicts|expects|argued|argues|according to)\b/i;
 const MONTHS = new Set(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
-const SENTENCE_STARTERS = new Set(["The", "This", "That", "These", "In", "By", "It", "We", "I", "A", "An", "Our", "My", "If", "When", "And", "But", "So"]);
-const NEGATION_BEFORE = /\b(not|n't|never|nothing|no longer|none)\b(\W+\w+){0,4}\W+$/i;
+// Capitalised words that are not a named source: sentence starters and generic crowds.
+const NOT_A_SOURCE = new Set(["The", "This", "That", "These", "In", "By", "It", "We", "I", "A", "An", "Our", "My", "If", "When", "And", "But", "So",
+  "Experts", "Researchers", "Analysts", "Scientists", "People", "Many", "Some", "Most", "Insiders", "Observers", "Leaders", "Everyone"]);
+// "n't" is matched without a leading word boundary so it is found inside "isn't".
+const NEGATION_BEFORE = /(\b(not|never|nothing|no longer|none)\b|n't\b)(\W+\w+){0,4}\W+$/i;
 
-// The date a statement was made: a month name, or a year no later than this one.
-// A future year in the same line is the forecast horizon, not the statement date.
+// The date a statement was made: a month or year no later than now. A future year in
+// the same line, with or without a month before it, is the forecast horizon.
 function statementDate(line) {
   const current = new Date().getUTCFullYear();
-  if ([...MONTHS].some((month) => line.includes(month))) return true;
-  return (line.match(/\b20\d\d\b/g) ?? []).some((year) => Number(year) <= current);
+  const monthYear = /\b(January|February|March|April|May|June|July|August|September|October|November|December)\b(?:\s+(20\d\d))?/g;
+  for (const [, , year] of line.matchAll(monthYear)) {
+    if (!year || Number(year) <= current) return true;
+  }
+  return (line.match(/(?<!(January|February|March|April|May|June|July|August|September|October|November|December)\s)\b20\d\d\b/g) ?? []).some((year) => Number(year) <= current);
 }
 
 // A forecast counts as attributed when it carries an attribution verb, a proper name
@@ -28,7 +34,7 @@ function statementDate(line) {
 function hasNamedSource(line) {
   if (!ATTRIBUTION_VERB.test(line) || !statementDate(line)) return false;
   const names = line.match(/\b[A-Z][A-Za-z]+\b/g) ?? [];
-  return names.some((name) => !MONTHS.has(name) && !SENTENCE_STARTERS.has(name) && !FRONTIER.test(name));
+  return names.some((name) => !MONTHS.has(name) && !NOT_A_SOURCE.has(name) && !FRONTIER.test(name));
 }
 
 function futureYear(line) {
@@ -158,15 +164,20 @@ const DOCUMENT_RULES = [
 // character at least as long, and a backtick fence's info string cannot hold a backtick.
 function maskFences(lines) {
   let fence = null;
+  let fenceQuoted = false;
   return lines.map((line) => {
+    const quoted = /^\s*>/.test(line);
     const body = line.replace(/^(\s*>)+\s?/, "");
     const marker = body.match(/^\s{0,3}(`{3,}|~{3,})(.*)$/);
+    // A fence opened inside a blockquote ends when the blockquote ends.
+    if (fence && fenceQuoted && !quoted) fence = null;
     if (fence) {
       if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !marker[2].trim()) fence = null;
       return "";
     }
     if (marker && !(marker[1][0] === "`" && marker[2].includes("`"))) {
       fence = marker[1];
+      fenceQuoted = quoted;
       return "";
     }
     return line;
