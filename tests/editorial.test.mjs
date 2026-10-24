@@ -4,7 +4,7 @@ import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
-import { auditChangedLines, auditRoot, auditText, contractRoots, decodeGitPath, loadPolicy, main } from "../skills/frank-brand-editor/scripts/editorial-audit.mjs";
+import { auditChangedLines, auditRoot, auditText, contractRoots, decodeGitPath, loadPolicy, main, parseAddedLines } from "../skills/frank-brand-editor/scripts/editorial-audit.mjs";
 
 const policy = loadPolicy(join(process.cwd(), "editorial/language-policy.json"));
 
@@ -102,4 +102,45 @@ test("explicit files cannot escape --root", () => {
   mkdirSync(join(parent, "repo/app"), { recursive: true });
   writeFileSync(join(parent, "outside.md"), "A map, not a list.\n");
   assert.throws(() => auditRoot(join(parent, "repo"), { policy, files: ["../outside.md"] }), /Refusing/);
+});
+
+test("an added line that starts with ++ is content, not a file header", () => {
+  const diff = [
+    "diff --git a/app/page.tsx b/app/page.tsx",
+    "--- a/app/page.tsx",
+    "+++ b/app/page.tsx",
+    "@@ -1,0 +1,2 @@",
+    "+++ counter;",
+    "+export const copy = 'A decision atlas, not a logo cloud.'"
+  ].join("\n");
+  const added = parseAddedLines(diff);
+  assert.deepEqual([...added.keys()], ["app/page.tsx"]);
+  assert.equal(added.get("app/page.tsx").length, 2);
+  assert.equal(added.get("app/page.tsx")[1].line, 2);
+});
+
+test("quoted paths keep literal emoji intact", () => {
+  const rocket = String.fromCodePoint(0x1f680);
+  assert.equal(decodeGitPath(`"b/content/${rocket}\t.md"`), `b/content/${rocket}\t.md`);
+});
+
+test("a file named ..notes.md inside the root is allowed", () => {
+  const root = mkdtempSync(join(tmpdir(), "editorial-dotdot-"));
+  mkdirSync(join(root, "app"), { recursive: true });
+  writeFileSync(join(root, "app/..notes.md"), "Plain copy.\n");
+  const result = auditRoot(root, { policy, files: ["app/..notes.md"] });
+  assert.equal(result.filesScanned, 1);
+});
+
+test("a removed -- line followed by an added ++ line stays content", () => {
+  const diff = [
+    "diff --git a/app/page.tsx b/app/page.tsx",
+    "--- a/app/page.tsx",
+    "+++ b/app/page.tsx",
+    "@@ -1,1 +1,1 @@",
+    "--- old;",
+    "+++ new;"
+  ].join("\n");
+  const added = parseAddedLines(diff);
+  assert.deepEqual(added.get("app/page.tsx"), [{ line: 1, text: "++ new;" }]);
 });

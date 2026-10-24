@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { existsSync, readFileSync, readdirSync, realpathSync, statSync } from "node:fs";
-import { extname, isAbsolute, join, relative, resolve } from "node:path";
+import { extname, isAbsolute, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
 
@@ -100,7 +100,8 @@ export function auditRoot(root, { policy = loadPolicy(), files: selectedFiles = 
       // Explicit files must stay inside --root after symlinks resolve, and be regular files.
       const realPath = realpathSync(path);
       const inside = relative(realRoot, realPath);
-      if (inside.startsWith("..") || isAbsolute(inside) || !statSync(realPath).isFile()) {
+      const escapes = inside === ".." || inside.startsWith(`..${sep}`) || isAbsolute(inside);
+      if (escapes || !statSync(realPath).isFile()) {
         throw new Error(`Refusing ${selected}: not a regular file inside ${absoluteRoot}`);
       }
       const relPath = relative(absoluteRoot, path).replaceAll("\\", "/");
@@ -128,16 +129,17 @@ const C_ESCAPES = { n: "\n", t: "\t", r: "\r", '"': '"', "\\": "\\", a: "\x07", 
 export function decodeGitPath(raw) {
   if (!raw.startsWith('"')) return raw;
   const bytes = [];
-  const body = raw.slice(1, -1);
-  for (let index = 0; index < body.length; index += 1) {
-    const char = body[index];
+  // Iterate code points, so a literal emoji (two UTF-16 units) is encoded whole.
+  const chars = [...raw.slice(1, -1)];
+  for (let index = 0; index < chars.length; index += 1) {
+    const char = chars[index];
     if (char !== "\\") {
       bytes.push(...Buffer.from(char, "utf8"));
       continue;
     }
-    const next = body[index + 1];
+    const next = chars[index + 1];
     if (/[0-7]/.test(next)) {
-      bytes.push(parseInt(body.slice(index + 1, index + 4), 8));
+      bytes.push(parseInt(chars.slice(index + 1, index + 4).join(""), 8));
       index += 3;
     } else {
       bytes.push(...Buffer.from(C_ESCAPES[next] ?? next, "utf8"));
@@ -147,15 +149,31 @@ export function decodeGitPath(raw) {
   return Buffer.from(bytes).toString("utf8");
 }
 
-function parseAddedLines(diff) {
+export function parseAddedLines(diff) {
   const output = new Map();
   let file = null;
   let newLine = 0;
+  // File headers ("--- a/x", "+++ b/x") only appear between "diff --git" and the first
+  // hunk. Inside a hunk, an added source line such as "++ counter;" also starts with "+++".
+  let inHunk = false;
   for (const line of diff.split(/\r?\n/u)) {
-    if (line.startsWith("+++ ")) {
-      const target = decodeGitPath(line.slice(4));
-      file = target.startsWith("b/") ? target.slice(2) : null;
-      if (file && !output.has(file)) output.set(file, []);
+    if (line.startsWith("diff --git ")) {
+      inHunk = false;
+      file = null;
+      continue;
+    }
+    if (!inHunk) {
+      if (line.startsWith("+++ ")) {
+        const target = decodeGitPath(line.slice(4));
+        file = target.startsWith("b/") ? target.slice(2) : null;
+        if (file && !output.has(file)) output.set(file, []);
+        continue;
+      }
+      const hunk = line.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/u);
+      if (hunk) {
+        inHunk = true;
+        newLine = Number(hunk[1]);
+      }
       continue;
     }
     const hunk = line.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/u);
@@ -163,13 +181,13 @@ function parseAddedLines(diff) {
       newLine = Number(hunk[1]);
       continue;
     }
-    if (!file || line.startsWith("diff --git ") || line.startsWith("--- ")) continue;
-    if (line.startsWith("+") && !line.startsWith("+++")) {
+    if (!file) continue;
+    if (line.startsWith("+")) {
       output.get(file).push({ line: newLine, text: line.slice(1) });
       newLine += 1;
       continue;
     }
-    if (line.startsWith("-") && !line.startsWith("---")) continue;
+    if (line.startsWith("-")) continue;
     if (!line.startsWith("\\ No newline")) newLine += 1;
   }
   return output;
