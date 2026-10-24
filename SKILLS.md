@@ -23,6 +23,7 @@ Contract: `starlight.repo_profile.v2` · Team: `frankx-product-revenue-team` · 
   - `conversion-clarity`
   - `landing-page-polish`
   - `product-ui-polish`
+  - `frank-brand-editor` (editorial contract gate for public copy)
 - Plugins:
   - `product-design`
   - `motion-design-studio` when a real installable adapter is available

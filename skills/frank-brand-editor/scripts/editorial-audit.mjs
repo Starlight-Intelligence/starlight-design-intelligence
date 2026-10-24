@@ -1,0 +1,273 @@
+#!/usr/bin/env node
+
+import { existsSync, readFileSync, readdirSync, realpathSync, statSync } from "node:fs";
+import { extname, isAbsolute, join, relative, resolve, sep } from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { spawnSync } from "node:child_process";
+
+const skillRoot = resolve(fileURLToPath(new URL("..", import.meta.url)));
+const fallbackPolicyPath = resolve(skillRoot, "../../editorial/language-policy.json");
+
+function compilePolicy(policy) {
+  const compile = (item) => ({
+    ...item,
+    regex: new RegExp(item.pattern, item.case_sensitive ? "gu" : "giu")
+  });
+  return {
+    ...policy,
+    hard_fail: policy.hard_fail.map(compile),
+    review: policy.review.map(compile),
+    excludeRegexes: policy.exclude_path_patterns.map((pattern) => new RegExp(pattern, "u")),
+    extensionSet: new Set(policy.scan_extensions)
+  };
+}
+
+export function loadPolicy(path = fallbackPolicyPath) {
+  return compilePolicy(JSON.parse(readFileSync(path, "utf8")));
+}
+
+function stripCodeFences(text) {
+  return text.replace(/```[\s\S]*?```/gu, "");
+}
+
+function lineAllowed(line, marker) {
+  return line.includes(marker);
+}
+
+export function auditText(text, { file = "inline", policy = loadPolicy() } = {}) {
+  const findings = [];
+  const source = stripCodeFences(text);
+  const lines = source.split(/\r?\n/u);
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    if (lineAllowed(line, policy.allow_marker)) continue;
+    for (const severity of ["hard_fail", "review"]) {
+      for (const rule of policy[severity]) {
+        rule.regex.lastIndex = 0;
+        const match = rule.regex.exec(line);
+        if (!match) continue;
+        findings.push({
+          severity,
+          rule: rule.id,
+          reason: rule.reason,
+          file,
+          line: index + 1,
+          match: match[0].slice(0, 160),
+          snippet: line.trim().slice(0, 220)
+        });
+      }
+    }
+  }
+
+  const words = source.match(/[\p{L}\p{N}'-]+/gu) ?? [];
+  const emDashes = source.match(/—/gu)?.length ?? 0;
+  if (words.length >= 80 && emDashes > Math.max(2, Math.floor(words.length / 180))) {
+    findings.push({
+      severity: "review",
+      rule: "em-dash-density",
+      reason: "Em dashes appear often enough to create generated rhythm",
+      file,
+      line: 1,
+      match: `${emDashes} em dashes`,
+      snippet: `${words.length} words`
+    });
+  }
+  return findings;
+}
+
+function shouldExclude(path, policy) {
+  return policy.excludeRegexes.some((regex) => regex.test(path));
+}
+
+function walk(directory, root, policy, files) {
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const fullPath = join(directory, entry.name);
+    const relPath = relative(root, fullPath).replaceAll("\\", "/");
+    if (shouldExclude(relPath, policy)) continue;
+    if (entry.isDirectory()) walk(fullPath, root, policy, files);
+    if (entry.isFile() && policy.extensionSet.has(extname(entry.name))) files.push(fullPath);
+  }
+}
+
+export function auditRoot(root, { policy = loadPolicy(), files: selectedFiles = [] } = {}) {
+  const absoluteRoot = resolve(root);
+  const files = [];
+  if (selectedFiles.length) {
+    const realRoot = realpathSync(absoluteRoot);
+    for (const selected of selectedFiles) {
+      const path = resolve(absoluteRoot, selected);
+      if (!existsSync(path)) continue;
+      // Explicit files must stay inside --root after symlinks resolve, and be regular files.
+      const realPath = realpathSync(path);
+      const inside = relative(realRoot, realPath);
+      const escapes = inside === ".." || inside.startsWith(`..${sep}`) || isAbsolute(inside);
+      if (escapes || !statSync(realPath).isFile()) {
+        throw new Error(`Refusing ${selected}: not a regular file inside ${absoluteRoot}`);
+      }
+      const relPath = relative(absoluteRoot, path).replaceAll("\\", "/");
+      if (!shouldExclude(relPath, policy)) files.push(path);
+    }
+  } else {
+    for (const directory of policy.scan_directories) {
+      const path = join(absoluteRoot, directory);
+      if (existsSync(path)) walk(path, absoluteRoot, policy, files);
+    }
+  }
+  const findings = files.flatMap((file) =>
+    auditText(readFileSync(file, "utf8"), {
+      file: relative(absoluteRoot, file).replaceAll("\\", "/"),
+      policy
+    })
+  );
+  return { root: absoluteRoot, filesScanned: files.length, findings };
+}
+
+const C_ESCAPES = { n: "\n", t: "\t", r: "\r", '"': '"', "\\": "\\", a: "\x07", b: "\b", f: "\f", v: "\v" };
+
+// Git C-quotes paths with special bytes ("b/caf\303\251.md"). Decode the escapes and the
+// octal UTF-8 bytes so such files are audited, not skipped.
+export function decodeGitPath(raw) {
+  if (!raw.startsWith('"')) return raw;
+  const bytes = [];
+  // Iterate code points, so a literal emoji (two UTF-16 units) is encoded whole.
+  const chars = [...raw.slice(1, -1)];
+  for (let index = 0; index < chars.length; index += 1) {
+    const char = chars[index];
+    if (char !== "\\") {
+      bytes.push(...Buffer.from(char, "utf8"));
+      continue;
+    }
+    const next = chars[index + 1];
+    if (/[0-7]/.test(next)) {
+      bytes.push(parseInt(chars.slice(index + 1, index + 4).join(""), 8));
+      index += 3;
+    } else {
+      bytes.push(...Buffer.from(C_ESCAPES[next] ?? next, "utf8"));
+      index += 1;
+    }
+  }
+  return Buffer.from(bytes).toString("utf8");
+}
+
+export function parseAddedLines(diff) {
+  const output = new Map();
+  let file = null;
+  let newLine = 0;
+  // File headers ("--- a/x", "+++ b/x") only appear between "diff --git" and the first
+  // hunk. Inside a hunk, an added source line such as "++ counter;" also starts with "+++".
+  let inHunk = false;
+  for (const line of diff.split(/\r?\n/u)) {
+    if (line.startsWith("diff --git ")) {
+      inHunk = false;
+      file = null;
+      continue;
+    }
+    if (!inHunk) {
+      if (line.startsWith("+++ ")) {
+        const target = decodeGitPath(line.slice(4));
+        file = target.startsWith("b/") ? target.slice(2) : null;
+        if (file && !output.has(file)) output.set(file, []);
+        continue;
+      }
+      const hunk = line.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/u);
+      if (hunk) {
+        inHunk = true;
+        newLine = Number(hunk[1]);
+      }
+      continue;
+    }
+    const hunk = line.match(/^@@ -\d+(?:,\d+)? \+(\d+)(?:,\d+)? @@/u);
+    if (hunk) {
+      newLine = Number(hunk[1]);
+      continue;
+    }
+    if (!file) continue;
+    if (line.startsWith("+")) {
+      output.get(file).push({ line: newLine, text: line.slice(1) });
+      newLine += 1;
+      continue;
+    }
+    if (line.startsWith("-")) continue;
+    if (!line.startsWith("\\ No newline")) newLine += 1;
+  }
+  return output;
+}
+
+export function auditChangedLines(root, baseRef, { policy = loadPolicy() } = {}) {
+  const absoluteRoot = resolve(root);
+  const result = spawnSync(
+    "git",
+    ["-c", "core.quotePath=false", "diff", "--unified=0", "--no-color", `${baseRef}...HEAD`, "--", ...policy.scan_directories],
+    { cwd: absoluteRoot, encoding: "utf8", maxBuffer: 20 * 1024 * 1024 }
+  );
+  if (result.status !== 0) {
+    throw new Error(`Unable to diff from ${baseRef}: ${(result.stderr || result.stdout).trim()}`);
+  }
+  const added = parseAddedLines(result.stdout);
+  const findings = [];
+  let filesScanned = 0;
+  for (const [file, lines] of added) {
+    if (shouldExclude(file, policy) || !policy.extensionSet.has(extname(file))) continue;
+    filesScanned += 1;
+    for (const item of lines) {
+      findings.push(
+        ...auditText(item.text, { file, policy }).map((finding) => ({ ...finding, line: item.line }))
+      );
+    }
+  }
+  return { root: absoluteRoot, baseRef, filesScanned, findings };
+}
+
+function parseArgs(argv) {
+  const options = { root: process.cwd(), strict: false, json: false, policyPath: fallbackPolicyPath, files: [], changedFrom: null };
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    if (arg === "--strict") options.strict = true;
+    else if (arg === "--json") options.json = true;
+    else if (arg === "--root") options.root = argv[++index];
+    else if (arg === "--policy") options.policyPath = argv[++index];
+    else if (arg === "--file") options.files.push(argv[++index]);
+    else if (arg === "--changed-from") options.changedFrom = argv[++index];
+    else throw new Error(`Unknown argument: ${arg}`);
+  }
+  return options;
+}
+
+// A consumer's .starlight/editorial-contract.json may name its own content_roots. When it
+// does, those roots replace the policy's default scan directories for both audit modes.
+export function contractRoots(root) {
+  const contractPath = join(resolve(root), ".starlight", "editorial-contract.json");
+  if (!existsSync(contractPath)) return null;
+  const roots = JSON.parse(readFileSync(contractPath, "utf8")).content_roots;
+  if (!Array.isArray(roots) || !roots.length) return null;
+  for (const entry of roots) {
+    const clean = typeof entry === "string" && entry && !isAbsolute(entry) && !entry.split(/[\\/]/).includes("..");
+    if (!clean) throw new Error(`content_roots entry must be a relative path inside the repository: ${JSON.stringify(entry)}`);
+  }
+  return roots;
+}
+
+export function main(argv = process.argv.slice(2)) {
+  const options = parseArgs(argv);
+  const basePolicy = loadPolicy(options.policyPath);
+  const roots = contractRoots(options.root);
+  const policy = roots ? { ...basePolicy, scan_directories: roots } : basePolicy;
+  const result = options.changedFrom
+    ? auditChangedLines(options.root, options.changedFrom, { policy })
+    : auditRoot(options.root, { policy, files: options.files });
+  const hardFailures = result.findings.filter((finding) => finding.severity === "hard_fail");
+  if (options.json) {
+    console.log(JSON.stringify({ ...result, hardFailureCount: hardFailures.length }, null, 2));
+  } else if (result.findings.length === 0) {
+    console.log(`Editorial audit passed: ${result.filesScanned} files scanned.`);
+  } else {
+    console.log(`Editorial audit found ${hardFailures.length} hard failures and ${result.findings.length - hardFailures.length} review signals.`);
+    for (const finding of result.findings) {
+      console.log(`${finding.severity.toUpperCase()} ${finding.file}:${finding.line} ${finding.rule}: ${finding.match}`);
+    }
+  }
+  if (options.strict && hardFailures.length) process.exitCode = 1;
+  return result;
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
