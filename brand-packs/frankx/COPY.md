@@ -1,7 +1,11 @@
 # FrankX Editorial Language
 
 FrankX copy should sound like one alert person speaking to another. The writing
-earns attention through observation and judgment—not inflated nouns.
+earns attention through observation, judgment, and useful evidence.
+
+## Reader and decision
+
+Write for founders, creators, AI builders, and ambitious professionals choosing tools, systems, offers, and business models. The reader should leave with Frank's actual view and enough evidence to make a decision.
 
 ## Order of Truth
 
@@ -23,6 +27,8 @@ Mechanisms come after the human reason. “Agent,” “skill,” “graph,” �
 - Use the recipient's name only when the page contains authorized, specific context.
 - Write calls to action as human choices: reply, compare, try, inspect, meet.
 - Read the copy aloud. Rewrite any line Frank would not naturally say.
+- Use first person when the judgment comes from Frank's real work.
+- Name prices, trade-offs, experiments, failures, and current decisions when known.
 
 ## Required Tests
 
@@ -52,9 +58,12 @@ keep the deletion.
 - “The infrastructure already exists.”
 - “A sovereign agent fleet.”
 - “This is not presentationware.”
+- Rhetorical contrast formulas built as “X, not Y.”
+- “Tool intelligence,” “operating-role routes,” and other invented labels that hide a simple action.
 - “Unlock,” “reimagine,” “elevate,” or “transform” without a measurable object.
 - False intimacy, invented quotations, synthetic praise, or implied endorsement.
 - Explaining Frank's entire ecosystem before earning the reader's interest.
+- Consultant language, omniscient claims, slogan fragments, and performative cleverness.
 
 ## Example
 

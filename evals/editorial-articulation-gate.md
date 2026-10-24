@@ -1,5 +1,7 @@
 # Editorial Articulation Gate
 
+For FrankX copy, run `node scripts/check-frankx-voice.mjs <file>` first; any error is an automatic failure before scoring.
+
 Score each item 0, 1, or 2. Release requires **18/20** and no automatic failure.
 
 | Item | Passing evidence |
