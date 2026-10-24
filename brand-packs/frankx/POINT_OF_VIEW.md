@@ -100,6 +100,10 @@ FrankX takes the possibility of AGI and superintelligence seriously and talks ab
 7. **Argue from observable effects.** Where the question cannot be settled (consciousness, "understanding"), design for what people observe and believe.
 8. **Show what changed your mind.** When Frank's view moves, quote the earlier view and the new evidence.
 
+## Mechanical pre-check
+
+Before the [editorial articulation gate](../../evals/editorial-articulation-gate.md), run `node scripts/check-frankx-voice.mjs <file>` on the draft. It fails on what a script can decide with certainty: em dashes, unattributed AGI forecasts, income claims, inevitability framing, Arcanea names, numbered-framework openers, a repeated "golden age" and unfilled bracket slots (`--template` allows slots). It warns on hype verbs and contrast formulas. Run it on copy, not on rule documents like this one, which quote the patterns they forbid. Passing it is necessary and not sufficient; the gate still judges the rest.
+
 ## Specimens
 
 Bracketed slots must be filled with a real artifact before publication. Every filled assertion needs a source or Frank's confirmation, and any personal or family detail needs Frank's explicit approval. A specimen with an empty slot is a template.

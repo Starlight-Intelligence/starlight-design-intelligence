@@ -22,6 +22,7 @@
     "test:fonts": "node --test tests/font-artifact.test.mjs",
     "test": "node --test",
     "validate:experience": "node scripts/validate-experience.mjs",
+    "check:frankx-voice": "node scripts/check-frankx-voice.mjs",
     "export:brand": "node scripts/export-brand-handoff.mjs"
   },
   "engines": {
