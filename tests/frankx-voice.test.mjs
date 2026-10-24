@@ -4,7 +4,7 @@ import { mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
-import { lintFrankxVoice } from "../scripts/check-frankx-voice.mjs";
+import { lintFrankxVoice, main } from "../scripts/check-frankx-voice.mjs";
 
 const errorsOf = (text, options) =>
   lintFrankxVoice(text, options).filter((finding) => finding.severity === "error").map((finding) => finding.rule);
@@ -19,7 +19,11 @@ const FAILING = [
   ["income-claim", "I make $12k/month from this workflow."],
   ["inevitability", "Those who don't adapt will be left behind."],
   ["unpopular-opinion", "Unpopular opinion: prompts are dead."],
-  ["arcanea-diction", "Lumina would approve of this deployment."],
+  ["arcanea-diction", "The Luminors would approve of this deployment."],
+  ["unattributed-forecast", "AGI is forecast by 2027."],
+  ["unattributed-forecast", "AGI arrives on 2027-01-01."],
+  ["income-claim", "Students earn $3,000 in their first month."],
+  ["unfilled-slot", "Read the [release](https://example.com), then fill [task]."],
   ["unfilled-slot", "One pipeline did [task] in [time] for [cost]."],
   ["numbered-opener", "# Draft\n\n7 lessons from shipping agents\n\nBody."],
   ["numbered-opener", "1/ \u{1F9F5}\nHere is how I ship."],
@@ -86,4 +90,50 @@ test("CLI exits 1 on errors and 0 on clean copy", () => {
   const run = (file) => spawnSync(process.execPath, ["scripts/check-frankx-voice.mjs", file], { encoding: "utf8" });
   assert.equal(run(bad).status, 1);
   assert.equal(run(good).status, 0);
+});
+
+test("prices are not income claims", () => {
+  assert.deepEqual(errorsOf("The product costs $20/month and the audit is $490."), []);
+});
+
+test("negated inevitability passes", () => {
+  assert.deepEqual(errorsOf("AGI is not inevitable, and neither is the timeline."), []);
+  assert.deepEqual(errorsOf("Nothing about this is inevitable."), ["inevitability"]);
+});
+
+test("common-word Arcanea names warn instead of failing", () => {
+  const text = "We benchmarked the Nero burner and the Lumina lamp.";
+  assert.deepEqual(errorsOf(text), []);
+  assert.ok(warningsOf(text).includes("arcanea-name-check"));
+});
+
+test("reference links, definitions and checkboxes are not slots", () => {
+  assert.deepEqual(errorsOf("See the [kernel notes][kernel] for details."), []);
+  assert.deepEqual(errorsOf("[kernel]: https://example.com/kernel"), []);
+  assert.deepEqual(errorsOf("- [ ] write the receipt\n- [x] run the check"), []);
+});
+
+test("tilde fences and longer fences mask their contents", () => {
+  assert.deepEqual(errorsOf("~~~\nleft behind — [x]\n~~~\nDone."), []);
+  assert.deepEqual(errorsOf("````\n```\nleft behind\n```\n````\nDone."), []);
+});
+
+test("fenced content does not trigger document rules", () => {
+  assert.deepEqual(errorsOf("```\n7 lessons from agents\ngolden age golden age\n```\nReal opener."), []);
+});
+
+test("historical mentions of AGI are not forecasts", () => {
+  assert.deepEqual(errorsOf("In 2026, I reviewed AGI safety papers."), []);
+});
+
+test("bare X-not-Y lines warn", () => {
+  assert.ok(warningsOf("Evidence, not hype.").includes("contrast-formula"));
+});
+
+test("CLI rejects unknown options and unreadable files with exit 2", () => {
+  const quiet = { log: () => {}, error: () => {} };
+  assert.equal(main(["--templat", "package.json"], quiet), 2);
+  assert.equal(main([], quiet), 2);
+  assert.equal(main(["missing.md"], { ...quiet, read: () => { const e = new Error("nope"); e.code = "ENOENT"; throw e; } }), 2);
+  assert.equal(main(["warn.md"], { ...quiet, read: () => "It will unlock nothing." }), 0);
 });

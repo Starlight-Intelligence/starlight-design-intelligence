@@ -2,40 +2,70 @@
 // Mechanical pre-check for FrankX copy. It catches only what a script can decide with
 // certainty; the editorial articulation gate (evals/editorial-articulation-gate.md) still
 // judges everything that needs taste. Rules trace to brand-packs/frankx/POINT_OF_VIEW.md
-// and COPY.md, so a rule change starts there.
+// and COPY.md, so a rule change starts there. When a match cannot establish the violation
+// (a common word, an ambiguous name), the rule warns instead of failing.
 import { readFileSync } from "node:fs";
 import { pathToFileURL } from "node:url";
 
-const ATTRIBUTION = /\b(wrote|writes|said|says|forecast|forecasts|estimated|estimates|predicted|predicts|expects|according to|argued|argues)\b/i;
+const EM_DASH = String.fromCharCode(0x2014);
 const FRONTIER = /\b(AGI|superintelligen\w*|singularity|ASI)\b/i;
-// A bare year counts as a horizon; an ISO date such as 2026-10-23 is a record of when something happened.
-const HORIZON = /\b(20[2-9]\d)\b(?!-\d)|\bin (the next )?(one|two|three|four|five|\d+) years?\b|\bby the end of the decade\b/i;
+const FUTURE = /\b(will|won't|is coming|coming in|arriv\w*|by (the end of )?(the decade|20[2-9]\d)|within (a|the next|\d+|one|two|three|four|five)|in (the next )?(one|two|three|four|five|\d+) years?|next year|forecast|predicted|expected)\b/i;
+const ATTRIBUTION_VERB = /\b(wrote|writes|said|says|forecasts?|estimated|estimates|predicted|predicts|expects|argued|argues|according to)\b/i;
+const MONTHS = new Set(["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]);
+const SENTENCE_STARTERS = new Set(["The", "This", "That", "These", "In", "By", "It", "We", "I", "A", "An", "Our", "My", "If", "When", "And", "But", "So"]);
+const FRONTIER_TERMS = new Set(["AGI", "ASI"]);
+
+// A forecast counts as attributed when it carries an attribution verb and a proper name
+// (a person, lab or venue), not merely a verb.
+function hasNamedSource(line) {
+  if (!ATTRIBUTION_VERB.test(line)) return false;
+  const names = line.match(/\b[A-Z][A-Za-z]+\b/g) ?? [];
+  return names.some((name) => !MONTHS.has(name) && !SENTENCE_STARTERS.has(name) && !FRONTIER_TERMS.has(name.toUpperCase()) && !/^Superintelligen/i.test(name));
+}
+
+function futureYear(line) {
+  const current = new Date().getUTCFullYear();
+  return (line.match(/\b20[2-9]\d\b(?!-\d)/g) ?? []).some((year) => Number(year) > current);
+}
+
+// Markdown constructs that use brackets legitimately: inline links, reference links,
+// reference definitions and task checkboxes. What remains in brackets is a slot.
+function bracketSlots(line) {
+  if (/^\s*\[[^\]]+\]:\s/.test(line)) return [];
+  const stripped = line
+    .replace(/!?\[[^\]]*\]\([^)]*\)/g, "")
+    .replace(/\[[^\]]*\]\[[^\]]*\]/g, "")
+    .replace(/\[[ xX]\]/g, "");
+  return stripped.match(/\[[^\]\n]{2,80}\]/g) ?? [];
+}
 
 export const RULES = [
   {
     id: "em-dash",
     severity: "error",
     why: "No em dashes in FrankX copy (estate writing standard).",
-    test: (line) => line.includes("—")
+    test: (line) => line.includes(EM_DASH)
   },
   {
     id: "unattributed-forecast",
     severity: "error",
-    why: "AGI and superintelligence forecasts need the forecaster and date (POINT_OF_VIEW claim rule 1).",
-    test: (line) => FRONTIER.test(line) && HORIZON.test(line) && !ATTRIBUTION.test(line) && !/\[[^\]]+\]/.test(line)
+    why: "AGI and superintelligence forecasts need a named forecaster and date (POINT_OF_VIEW claim rule 1).",
+    test: (line) => FRONTIER.test(line) && (FUTURE.test(line) || futureYear(line)) && !hasNamedSource(line) && !bracketSlots(line).length
   },
   {
     id: "income-claim",
     severity: "error",
-    why: "FrankX makes no income claims or earnings promises (POINT_OF_VIEW stance 1 and 5).",
+    why: "FrankX makes no income claims or earnings promises (POINT_OF_VIEW stance 1 and 5). Prices are fine.",
     test: (line) =>
-      /\bpassive income\b|\bsix[- ]figures?\b|\b[5-9]-figure\b|\bquit your (day )?job\b|\b(make|earn|making|earning)\s+\$\d|\$\d[\d,.]*\s*[kKmM]?\s*\/\s*(mo|month|year|yr|week)\b/i.test(line)
+      /\bpassive income\b|\bsix[- ]figures?\b|\b[5-9]-figure (income|business|month|year)\b|\bquit your (day )?job\b|\b(make|makes|made|earn|earns|earned|making|earning|bring in|brings in|clear|clears)\s+(over |about |up to |around )?\$\d/i.test(line)
   },
   {
     id: "inevitability",
     severity: "error",
     why: "No inevitability or fear framing (POINT_OF_VIEW register).",
-    test: (line) => /\bno stopping (this|it)\b|\bthere is no stopping\b|\bleft behind\b|\badapt or die\b|\bthose who (don't|do not|won't)\b|\binevitable\b/i.test(line)
+    test: (line) =>
+      /\bno stopping (this|it)\b|\bthere is no stopping\b|\bleft behind\b|\badapt or die\b|\bthose who (don't|do not|won't)\b/i.test(line) ||
+      (/\binevitable\b/i.test(line) && !/\b(not|n't|never|no longer|isn't|is not)\s+(\w+\s+){0,2}inevitable\b/i.test(line))
   },
   {
     id: "unpopular-opinion",
@@ -47,13 +77,19 @@ export const RULES = [
     id: "arcanea-diction",
     severity: "error",
     why: "Arcanea names never cross into FrankX copy (Voice Observatory AGENTS.md).",
-    test: (line) => /\b(Arcanea|Arcanean|Luminor|Lumina|Nero)\b/.test(line)
+    test: (line) => /\b(Arcanea|Arcanean|Luminor|Luminors)\b/.test(line)
+  },
+  {
+    id: "arcanea-name-check",
+    severity: "warn",
+    why: "Lumina and Nero are Arcanea canon names and also common words. Confirm this is not Arcanea diction.",
+    test: (line) => /\b(Lumina|Nero)\b/.test(line)
   },
   {
     id: "unfilled-slot",
     severity: "error",
     why: "A specimen with an empty bracket slot is a template, not copy.",
-    test: (line, options) => !options.template && /\[[^\]\n]{2,80}\]/.test(line) && !/\[[^\]]*\]\(/.test(line)
+    test: (line, options) => !options.template && bracketSlots(line).length > 0
   },
   {
     id: "hype-verb",
@@ -64,8 +100,10 @@ export const RULES = [
   {
     id: "contrast-formula",
     severity: "warn",
-    why: "Rhetorical not-X-but-Y contrast (COPY.md avoid list). Keep only if the contrast carries a fact.",
-    test: (line) => /\bnot (just |only |merely )?[^.;:!?]{1,40}, but\b|\b(isn't|is not) [^.;:!?]{1,40}[,;] it's\b/i.test(line)
+    why: "Rhetorical contrast formula (COPY.md avoid list). Keep only if the contrast carries a fact.",
+    test: (line) =>
+      /\bnot (just |only |merely )?[^.;:!?]{1,40}, but\b|\b(isn't|is not) [^.;:!?]{1,40}[,;] it's\b/i.test(line) ||
+      /(^|[.!?]\s+|^\W*)[\w' ]{1,30}, not [\w' ]{1,30}[.!?]\s*$/i.test(line)
   },
   {
     id: "stock-phrase",
@@ -105,13 +143,28 @@ const DOCUMENT_RULES = [
   }
 ];
 
+// Blank out fenced code (``` or ~~~, closed only by the same character at least as long)
+// so every rule sees prose only and line numbers stay true.
+function maskFences(lines) {
+  let fence = null;
+  return lines.map((line) => {
+    const marker = line.match(/^\s{0,3}(`{3,}|~{3,})/);
+    if (fence) {
+      if (marker && marker[1][0] === fence[0] && marker[1].length >= fence.length && !line.trim().slice(marker[1].length).trim()) fence = null;
+      return "";
+    }
+    if (marker) {
+      fence = marker[1];
+      return "";
+    }
+    return line;
+  });
+}
+
 export function lintFrankxVoice(text, options = {}) {
-  const lines = text.replace(/\r\n/g, "\n").split("\n");
+  const lines = maskFences(text.replace(/\r\n/g, "\n").split("\n"));
   const findings = [];
-  let inFence = false;
   for (const [index, line] of lines.entries()) {
-    if (/^\s*```/.test(line)) inFence = !inFence;
-    if (inFence) continue;
     for (const rule of RULES) {
       if (rule.test(line, options)) {
         findings.push({ rule: rule.id, severity: rule.severity, line: index + 1, excerpt: line.trim().slice(0, 120), why: rule.why });
@@ -127,22 +180,31 @@ export function lintFrankxVoice(text, options = {}) {
   return findings.sort((a, b) => a.line - b.line);
 }
 
-function main(argv) {
-  const template = argv.includes("--template");
+const KNOWN_FLAGS = new Set(["--template"]);
+
+export function main(argv, { read = (file) => readFileSync(file, "utf8"), log = console.log, error = console.error } = {}) {
+  const unknown = argv.filter((arg) => arg.startsWith("--") && !KNOWN_FLAGS.has(arg));
   const files = argv.filter((arg) => !arg.startsWith("--"));
-  if (!files.length) {
-    console.error("usage: check-frankx-voice.mjs [--template] <file> [...]");
+  if (unknown.length || !files.length) {
+    error(`${unknown.length ? `unknown option ${unknown.join(", ")}\n` : ""}usage: check-frankx-voice.mjs [--template] <file> [...]`);
     return 2;
   }
+  const template = argv.includes("--template");
   let errors = 0;
   for (const file of files) {
-    const findings = lintFrankxVoice(readFileSync(file, "utf8"), { template });
-    for (const finding of findings) {
+    let text;
+    try {
+      text = read(file);
+    } catch (cause) {
+      error(`${file}: cannot read (${cause.code ?? cause.message})`);
+      return 2;
+    }
+    for (const finding of lintFrankxVoice(text, { template })) {
       if (finding.severity === "error") errors += 1;
-      console.log(`${file}:${finding.line} ${finding.severity} ${finding.rule}: ${finding.excerpt}\n  ${finding.why}`);
+      log(`${file}:${finding.line} ${finding.severity} ${finding.rule}: ${finding.excerpt}\n  ${finding.why}`);
     }
   }
-  console.log(errors ? `FrankX voice check: ${errors} error(s).` : "FrankX voice check: no errors.");
+  log(errors ? `FrankX voice check: ${errors} error(s).` : "FrankX voice check: no errors.");
   return errors ? 1 : 0;
 }
 
