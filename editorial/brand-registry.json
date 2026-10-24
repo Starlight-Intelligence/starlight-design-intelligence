@@ -1,0 +1,40 @@
+{
+  "schema_version": "starlight.editorial_registry.v1",
+  "default_behavior": "brand_resolution_required",
+  "brands": {
+    "frankx": {
+      "display_name": "FrankX",
+      "state": "active",
+      "domains": ["frankx.ai"],
+      "repositories": ["frankxai/frankx.ai-vercel-website"],
+      "profile": "brand-packs/frankx/COPY.md"
+    },
+    "sis": {
+      "display_name": "Starlight Intelligence Systems",
+      "state": "active",
+      "domains": ["starlightintelligence.ai", "starlightintelligence.org"],
+      "repositories": ["frankxai/starlight-intelligence-web", "frankxai/Starlight-Intelligence-System"],
+      "profile": "brand-packs/sis/COPY.md"
+    },
+    "gencreator": {
+      "display_name": "GenCreator",
+      "state": "active",
+      "domains": ["gencreator.ai", "gencreator.community"],
+      "repositories": ["frankxai/gencreator.ai", "frankxai/gencreator-community", "frankxai/GenCreator-Studio"],
+      "profile": "brand-packs/gencreator/COPY.md"
+    },
+    "anime-legends": {
+      "display_name": "Anime Legends",
+      "state": "active",
+      "domains": ["animelegends.ai"],
+      "repositories": ["frankxai/AnimeLegends", "frankxai/AnimeLegends-Skills"],
+      "profile": "brand-packs/animelegends/COPY.md"
+    }
+  },
+  "aliases": {
+    "animelegends": "anime-legends",
+    "gencreator-community": "gencreator",
+    "starlight-intelligence": "sis",
+    "reality-diffusion": "gencreator"
+  }
+}
