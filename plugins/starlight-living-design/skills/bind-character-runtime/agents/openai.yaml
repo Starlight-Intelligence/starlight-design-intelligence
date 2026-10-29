@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bind character runtime"
+  short_description: "Map identities to existing app and agent infrastructure"
+  default_prompt: "Map these character and agent contracts onto the verified runtime, with connector evidence, UI states, tests, and rollback."

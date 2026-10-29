@@ -1,0 +1,4 @@
+interface:
+  display_name: "Visualize agent team"
+  short_description: "Make teams, capabilities, and evidence inspectable"
+  default_prompt: "Map this agent team with typed relationships, capability inspectors, source evidence, and truthful execution states."

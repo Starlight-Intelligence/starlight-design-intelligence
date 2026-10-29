@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design companion journey"
+  short_description: "Turn character identity into useful product interactions"
+  default_prompt: "Design a complete companion-led journey with component variants, truthful runtime states, accessibility, and recovery."

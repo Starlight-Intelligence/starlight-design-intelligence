@@ -1,0 +1,4 @@
+interface:
+  display_name: "Review living design"
+  short_description: "Check character craft, usability, and agent-state truth"
+  default_prompt: "Review this character-led AI experience against its actual user journey, identity, accessibility, and execution evidence."
