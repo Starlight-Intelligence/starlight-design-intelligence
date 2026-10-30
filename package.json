@@ -23,7 +23,9 @@
     "test": "node --test",
     "validate:experience": "node scripts/validate-experience.mjs",
     "check:frankx-voice": "node scripts/check-frankx-voice.mjs",
-    "export:brand": "node scripts/export-brand-handoff.mjs"
+    "export:brand": "node scripts/export-brand-handoff.mjs",
+    "design:toolkit": "node scripts/design-toolkit.mjs",
+    "build:plugin": "node scripts/build-design-plugin.mjs"
   },
   "engines": {
     "node": ">=24.14.0 <25"
