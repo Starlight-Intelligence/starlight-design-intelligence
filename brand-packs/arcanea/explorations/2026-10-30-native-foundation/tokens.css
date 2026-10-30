@@ -1,0 +1,24 @@
+/* Proposed study values; not a product runtime replacement. */
+:root {
+  --arcanea-canvas: #09090b;
+  --arcanea-surface: #15161b;
+  --arcanea-border: #30323b;
+  --arcanea-text: #f6f7f9;
+  --arcanea-muted: #a9adb7;
+  --arcanea-accent: #00bcd4;
+  --arcanea-blue: #0d47a1;
+  --arcanea-gold: #ffd700;
+  --arcanea-space-4: 4px;
+  --arcanea-space-8: 8px;
+  --arcanea-space-12: 12px;
+  --arcanea-space-16: 16px;
+  --arcanea-space-24: 24px;
+  --arcanea-space-32: 32px;
+  --arcanea-space-48: 48px;
+  --arcanea-space-64: 64px;
+  --arcanea-space-96: 96px;
+  --arcanea-radius-0: 0px;
+  --arcanea-radius-8: 8px;
+  --arcanea-radius-12: 12px;
+  --arcanea-radius-16: 16px;
+}
