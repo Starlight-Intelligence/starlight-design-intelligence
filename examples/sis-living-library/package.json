@@ -1,0 +1,32 @@
+{
+  "name": "sis-living-library-study",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && node scripts/build-registry.mjs && vite build",
+    "check": "tsc --noEmit",
+    "test": "node --test scripts/*.test.mjs",
+    "registry:build": "node scripts/build-registry.mjs",
+    "test:browser": "node scripts/browser-check.mjs",
+    "test:consumer": "node scripts/consumer-smoke.mjs",
+    "build:standalone": "npm run build && node scripts/standalone.mjs",
+    "test:standalone": "node scripts/standalone-check.mjs"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "@fontsource/instrument-sans": "5.3.0",
+    "@fontsource/instrument-serif": "5.3.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.51.1",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "axe-core": "4.10.3",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  }
+}
