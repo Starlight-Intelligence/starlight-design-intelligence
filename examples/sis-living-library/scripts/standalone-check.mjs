@@ -1,0 +1,16 @@
+import {chromium} from 'playwright';
+import assert from 'node:assert/strict';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+const browser=await chromium.launch({headless:true});
+const page=await browser.newPage({viewport:{width:1440,height:1000},acceptDownloads:true});
+let errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.goto(pathToFileURL(process.argv[2] || path.resolve('dist/Starlight-Living-Library.html')).href);
+await page.getByRole('heading',{name:'Intelligence, given form.'}).waitFor();
+await page.getByRole('navigation',{name:'Library',exact:true}).getByRole('button',{name:'Icons'}).click();
+const pending=page.waitForEvent('download');
+await page.getByRole('button',{name:'Download compass SVG',exact:true}).click();
+const download=await pending;assert.equal(download.suggestedFilename(),'starlight-compass.svg');
+assert.deepEqual(errors,[]);
+console.log('PASS: standalone file opens, navigates and exports SVG without network assets.');
+await browser.close();
