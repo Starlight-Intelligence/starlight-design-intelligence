@@ -69,3 +69,6 @@ Design reference research through Refero where available: Christopher Ireland Cr
 "I'm Frank Riemer, an AI Architect and musician. I build intelligent systems, creator tools and original worlds. FrankX is where I share the work, the decisions behind it, and the people who make it better."
 
 Work starts with evidence. Intellect is expressed through clarity. Exclusivity is earned through curation, craftsmanship and real participation—not invented scarcity.
+
+## Antigravity 2026 execution compatibility
+Run this as an Antigravity **agent chat/task** in the connected repository or adapt it as a current **Agent skill**. Google's official Antigravity docs report that the older custom Workflows mechanism stopped working on October 19, 2026; do not implement a new legacy `/workflow-name` as the durable entrypoint. Verify the installed version's current customization/skills format before creating any file. Official reference: https://antigravity.google/docs/ide/workflows/ (retrieved 2026-11-02). Use editor, terminal and browser verification where the connected Antigravity surface supports them; preserve the repo's own test gates.
