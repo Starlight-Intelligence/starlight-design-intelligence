@@ -46,9 +46,9 @@ export function validateFoundations({ root = process.cwd(), document } = {}) {
   }
   for (const [name, shadow] of Object.entries(css).filter(([name]) => name.startsWith("--sl-depth-") || name.startsWith("--sl-object-shadow-"))) {
     if (name === "--sl-depth-base" && shadow === "none") continue;
-    const parts = /^0(?:px)? (\d+)(?:px)? (\d+)(?:px)? rgb\(0 0 0 \/ (0(?:\.\d+)?)\)$/.exec(shadow);
+    const parts = /^0(?:px)? (0(?:px)?|[1-9]\d*px) (0(?:px)?|[1-9]\d*px) rgb\(0 0 0 \/ (0(?:\.\d+)?)\)$/.exec(shadow);
     const maxBlur = name.startsWith("--sl-object-shadow-") ? 32 : 72;
-    if (!parts || Number(parts[1]) > 24 || Number(parts[2]) > maxBlur || Number(parts[3]) > 0.36) failures.push(`${name} must remain a bounded neutral shadow`);
+    if (!parts || Number.parseInt(parts[1], 10) > 24 || Number.parseInt(parts[2], 10) > maxBlur || Number(parts[3]) > 0.36) failures.push(`${name} must remain a bounded neutral shadow`);
   }
   return failures;
 }

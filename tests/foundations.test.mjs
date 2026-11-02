@@ -42,6 +42,9 @@ test("material bounds reject excessive optics and unreadable semantic pairing", 
     (x) => { x.colorRoles.readingOnLight = "gold"; },
     (x) => { x.colorRoles.substrateDark = "paper"; },
     (x) => { x.css["--sl-object-shadow-floating"] = "0 24px 100px rgb(0 0 0 / 0.36)"; },
+    (x) => { x.css["--sl-depth-floating"] = "0 24 72 rgb(0 0 0 / 0.32)"; },
+    (x) => { x.css["--sl-object-shadow-raised"] = "0 6px 18 rgb(0 0 0 / 0.24)"; },
+    (x) => { x.css["--sl-depth-raised"] = "0 04px 16px rgb(0 0 0 / 0.24)"; },
     (x) => { x.css["--sl-depth-floating"] = "url(remote)"; },
     (x) => { x.css["--sl-radius-control"] = "999px"; },
     (x) => { x.materials.obsidian.blur = true; },
@@ -56,6 +59,7 @@ test("lower resource budgets remain valid", () => {
     x.css["--sl-glass-blur"] = "12px";
     x.css["--sl-grain-opacity"] = "0.01";
     x.css["--sl-motion-resolve"] = "1200ms";
+    x.css["--sl-depth-raised"] = "0 0 12px rgb(0 0 0 / 0.2)";
     x.limits.maxSequenceMs = 1200;
   });
   assert.deepEqual(validateFoundations({ document }), []);
