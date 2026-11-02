@@ -24,6 +24,23 @@ Read [review rubric](../../assets/living-design/docs/review-rubric.md), the actu
 7. Use an independent reviewer when a worker is available and the task scope permits it. Give them the artifact and intended journey without the desired verdict. Otherwise label the pass as self-review.
 8. Repair material defects, repeat affected checks, and issue a verdict tied to the exact revision. Do not average away a failed permission, provenance, accessibility, or content-truth gate.
 
+## Material and character continuity
+
+When the work uses the lab's Observatory Glass candidate, classify each asset
+as an identity mark, a material study of the star, or a named companion before
+review. Check the material object against the owned silhouette and companion
+dot. For a character, inspect its source lineage and test its silhouette, face
+and functional feature at 32, 64 and 160px. Preserve the character's anchors
+when its surface changes. Keep evidence of real capability beside any status.
+[Candidate material and identity rules](https://github.com/Starlight-Intelligence/starlight-design-intelligence/blob/eed60eff204574583fdfd6beb8a20a2d464d9b3b/brand-packs/sis/foundations/README.md)
+
+Compare the opaque and transparent treatments at one scale and light direction.
+Read the essential label over the brightest and darkest permitted backdrops,
+then on the solid fallback. Replay the specimen, interrupt it and enable reduced
+motion. Record whether the final still preserves recognition and task meaning.
+Flag a specular highlight or particle pulse that suggests unverified activity.
+[Material acceptance gate](https://github.com/Starlight-Intelligence/starlight-design-intelligence/blob/eed60eff204574583fdfd6beb8a20a2d464d9b3b/evals/starlight-material-foundations.md)
+
 ## Output contract
 
 Return: verdict; task/hierarchy assessment; visual and identity findings; accessibility and responsive findings; state-truth findings; provenance and authority findings; prioritized corrections; executed checks; source revision; remaining acceptance gate.
