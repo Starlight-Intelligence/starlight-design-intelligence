@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "validate": "node scripts/validate-kernel.mjs",
+    "validate:foundations": "node scripts/validate-foundations.mjs",
     "validate:observatory": "node scripts/validate-observatory.mjs",
     "index:observatory": "node scripts/build-observatory-index.mjs",
     "check:observatory-index": "node scripts/build-observatory-index.mjs --check",

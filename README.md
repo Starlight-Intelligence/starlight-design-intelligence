@@ -70,6 +70,12 @@ flag.
 
 ## Standards
 
+The [Starlight material foundations](brand-packs/sis/foundations/README.md)
+provide a candidate lab workbench for glass, porcelain, obsidian, texture,
+depth and finite star motion. Its bounded token contract is checked by
+`npm run validate:foundations` and normal kernel validation. It extends the owned
+identity through inspectable materials; it does not assert portfolio adoption.
+
 - Replace vague taste language with implementation guidance.
 - Include motion and reduced-motion rules for every high-value product surface.
 - Prefer real product screenshots, workflows, and before/after examples over abstract decoration.

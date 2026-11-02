@@ -96,3 +96,14 @@ A Starlight release should answer three visual questions:
 1. Does this feel unmistakably connected to the larger Starlight world?
 2. Does the chosen surface mode serve the person's actual task?
 3. Is there enough authored detail and craft that a competent team could not replace the work with a template in an afternoon?
+
+## Candidate material foundations
+
+[Material foundations](foundations/README.md) define a candidate lab workbench for
+obsidian, porcelain, liquid glass, depth, texture, finite particle motion and
+Starlight material objects. Its [tokens](foundations/tokens.json) are checked by
+the kernel validator. The existing mark, site-specific reading palettes and
+surface modes remain authoritative. The candidate's narrow specimen scope is
+not a new global palette, an approved character, a published Figma library or
+proof of product adoption. Use its [acceptance gate](../../evals/starlight-material-foundations.md)
+with actual rendered evidence before promotion.
