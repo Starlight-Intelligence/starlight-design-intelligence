@@ -12,7 +12,7 @@ export function exportBrandHandoff({ root = process.cwd(), brand, out, revision 
   const git = (args, encoding = "utf8") => execFileSync("git", ["-C", root, ...args], { encoding });
   const remote = git(["remote", "get-url", "origin"]).trim();
   const repository = remote.replace(/^https:\/\/github\.com\//, "").replace(/^git@github\.com:/, "").replace(/\.git$/, "");
-  if (repository.toLowerCase() !== "frankxai/starlight-design-intelligence") throw new Error("Export only from the canonical design repository's origin.");
+  if (!["frankxai/starlight-design-intelligence", "starlight-intelligence/starlight-design-intelligence"].includes(repository.toLowerCase())) throw new Error("Export only from the canonical design repository's origin.");
   const sha = revision ?? git(["rev-parse", "HEAD"]).trim();
   if (!/^[a-f0-9]{40}$/.test(sha)) throw new Error("--revision must be a full lowercase commit SHA.");
   if (git(["cat-file", "-t", sha]).trim() !== "commit") throw new Error("Revision must identify a commit.");
@@ -30,7 +30,8 @@ export function exportBrandHandoff({ root = process.cwd(), brand, out, revision 
   const domainIds = new Set(flows.map((f) => f.domain_id));
   const paths = new Set([packPath, "portfolio/design-toolchain.json", "playbooks/figma-template-pipeline.md", "templates/app-factory/README.md"]);
   const list = (prefix) => git(["ls-tree", "-r", "--name-only", sha, prefix]).trim().split("\n").filter(Boolean);
-  for (const path of list(`brand-packs/${brand}/`)) if (path.endsWith(".md")) paths.add(path);
+  for (const path of list(`brand-packs/${brand}/`)) if (path.endsWith(".md") || path.endsWith(".json")) paths.add(path);
+  if (paths.has("brand-packs/sis/foundations/tokens.json")) paths.add("schemas/starlight-foundations.schema.json");
   for (const path of list("portfolio/domains/")) {
     const profile = parse(blob(path).toString("utf8"));
     if (domainIds.has(profile.domain_id)) {

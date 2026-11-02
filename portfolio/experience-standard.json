@@ -99,6 +99,7 @@
       ],
       "gate_paths": [
         "evals/motion-purpose-gate.md",
+        "evals/starlight-material-foundations.md",
         "evals/web-release-gate.md"
       ]
     },
