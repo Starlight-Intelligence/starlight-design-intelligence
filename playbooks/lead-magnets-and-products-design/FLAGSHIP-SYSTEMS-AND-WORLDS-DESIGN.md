@@ -1,4 +1,4 @@
-# Flagship Systems, Books & Worlds — Complete `DESIGN.md` Specifications (`L3` Portfolio)
+# Flagship Systems, Books & Worlds: Complete `DESIGN.md` Specifications (`L3` Portfolio)
 
 > Covers all **9 Flagship Operating Systems, Monographs, Cohorts & Creative Worlds (`USD 147` -> `USD 497`)**.
 > High-consideration digital products fail when presented like cheap impulse widgets. At `USD 147` to `USD 497`, the page must read like an **Architectural Specification & Edition Dossier** (**Sequel** `50c47480`, **19-86** `7a8c99db`, **Warp** `40a9c295`, **MSCHF** `08e68e02`, **Robinhood Queue** `4d77351f`).
@@ -39,9 +39,9 @@ Whenever a flagship product is in pre-release or staged readiness (`status: wait
 
 ---
 
-## F-04 · World-Builder Canon & Lore Architecture Pack (`arcanea-world-seed` · `USD 197`)
+## F-04 · World-Builder Canon & Lore Architecture Pack (`world-seed-pack` · `USD 197`)
 
-- **Brand Isolation Rule:** Lives **exclusively** on its dedicated world-building surface; never cross-pollinate its lore nouns into FrankX technical copy (`brand-packs/frankx/COPY.md`).
+- **Brand Isolation Rule:** Lives **exclusively** on its dedicated world-building brand surface; never cross-pollinate its lore nouns into FrankX technical copy (`brand-packs/frankx/COPY.md`).
 - **Reference Lock:** **OHZI Interactive Studio** (`7524da9c-904a-458a-9d46-999772061d83` `#111111` Midnight Void, `#f5f5f7` Star Dust) + **Sequel** (`50c47480` light-weight display serif).
 - **Deliverable Spec:** `CANON_LOCKED.md` governance template, 12-field character sheet schema, faction tension matrix, world-consistency linter script, and visual bible token YAML.
 

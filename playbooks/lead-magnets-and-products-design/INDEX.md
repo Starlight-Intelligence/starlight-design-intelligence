@@ -1,4 +1,4 @@
-# Digital Products & Lead Magnets — Master Design Architecture (`DESIGN.md` Index)
+# Digital Products & Lead Magnets: Master Design Architecture (`DESIGN.md` Index)
 
 > **Canonical Design & Language Specification Index** for Frank's self-serve digital product ladder, lead magnets, interactive funnels, and flagship systems.
 > Grounded in live **Refero MCP** research (`refero-funnel-atlas.md`), `brand-packs/frankx/DESIGN.md`, `brand-packs/frankx/COPY.md`, and `evals/web-visual-quality-rubric.md`.
@@ -29,13 +29,13 @@ Every lead magnet connects to a specific single-pack tripwire and a core archite
 | **L2 · Core** | `bv-kit` | Solo Founder Dutch BV Operations Kit | `USD 79` | FrankX | 19-86 (`7a8c99db`) | A2 · Two-Pane Inspector | `frankx.ai-vercel-website` (`/products/bv-kit`) |
 | **L2 · Core** | `system-architect-kit` | Multi-Harness System Architect Kit | `USD 97` | FrankX | Warp (`40a9c295`) | A2 · Two-Pane Inspector | `frankx.ai-vercel-website` (`/products`) |
 | **L2 · Core** | `agentic-content-engine` | Agentic Content & Editorial Pipeline | `USD 97` | FrankX | Warp (`40a9c295`) | A2 · Two-Pane Inspector | `frankx.ai-vercel-website` (`/products`) |
-| **L2 · Bundle** | `abos-pack-bundle` | Operator Stack Bundle (`Blueprint` + `Guard` + `Vibe`) | `USD 99` *(saves USD 31)* | Agentic Income | Linear Changelog (`11d3e58a`) | A7 · Bundle Economics Desk | `agenticincome` (`/offers/abos-pack-bundle`) |
+| **L2 · Bundle** | `abos-pack-bundle` | Agentic Business OS Pack Bundle (`4 ABOS Skill Packs`: `Claims Guard` + `Business Intelligence` + `Design Contract` + `Weekly Rhythm`) | `USD 99` *(4-pack bundle)* | Agentic Income | Linear Changelog (`11d3e58a`) | A7 · Bundle Economics Desk | `agenticincome` (`/offers/abos-pack-bundle`) |
 | **L2 · Core** | `agent-team-pro` | Agent Team Pro Harness & Loop Contracts | `USD 129` | Agentic Income | Linear Changelog (`11d3e58a`) + Supabase (`28aeb534`) | A2 + A7 · Inspector + Ladder | `agenticincome` (`/offers/agent-team-pro`) |
 | **L2 · Continuity** | `private-intel` | Monthly Operator Build & Tear-Down Brief | `USD 19/mo` | Agentic Income | Linear Changelog (`11d3e58a`) | A3 + A7 · Specimen Issue | `agenticincome` (`/offers/private-intel`) |
 | **L3 · Flagship** | `architecture-field-guide` | Agentic Architecture Field Guide | `USD 147` | Starlight | 19-86 (`7a8c99db`) | A6 · Collector Monograph | `frankx.ai-vercel-website` (`/blueprint`) |
 | **L3 · Flagship** | `visual-creation-loop` | Visual Creation Loop & QA Gate System | `USD 147` | GenCreator | Endlesstools (`6589ccdf`) | A5 · Playable Specimen | `frankx.ai-vercel-website` (`/products/visual-creation-loop`) |
 | **L3 · Flagship** | `creator-launch-os` | Creator Launch & DemandSignal OS | `USD 197` | GenCreator | Endlesstools (`6589ccdf`) | A7 · Bundle Economics Desk | `frankx.ai-vercel-website` (`/products`) |
-| **L3 · Flagship** | `arcanea-world-seed` | World-Builder Canon & Lore Architecture Pack | `USD 197` | Arcanea *(own surface)* | OHZI (`7524da9c`) + Sequel (`50c47480`) | A6 · Collector Monograph | `arcanea` *(isolated brand surface)* |
+| **L3 · Flagship** | `world-seed-pack` | World-Builder Canon & Lore Architecture Pack | `USD 197` | Dedicated World Brand *(own surface)* | OHZI (`7524da9c`) + Sequel (`50c47480`) | A6 · Collector Monograph | Dedicated world-building brand surface |
 | **L3 · Flagship** | `generative-creator-os` | Generative Creator Studio OS | `USD 297` | GenCreator | Endlesstools (`6589ccdf`) | A7 · Bundle Economics Desk | `frankx.ai-vercel-website` (`/products/generative-creator-os`) |
 | **L3 · Flagship** | `agentic-creator-os` | Agentic Creator OS (Complete Repo Kit) | `USD 297` | FrankX | Warp (`40a9c295`) | A2 + A7 · Inspector + Ladder | `frankx.ai-vercel-website` (`/products/agentic-creator-os`) |
 | **L3 · Flagship** | `trinity-ai` | Executive Vault & Decision Desk Suite | `USD 397` | FrankX | Krea (`3a63b3fa`) | A6 · Edition Dossier | `frankx.ai-vercel-website` (`/products/trinity-ai`) |

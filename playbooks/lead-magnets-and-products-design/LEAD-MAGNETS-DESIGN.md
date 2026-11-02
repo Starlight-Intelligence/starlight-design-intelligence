@@ -1,4 +1,4 @@
-# Lead Magnets — Complete `DESIGN.md` Specifications (`L0` Portfolio)
+# Lead Magnets: Complete `DESIGN.md` Specifications (`L0` Portfolio)
 
 > Covers all **8 planned Lead Magnets** across `agenticincome`, `frankx.ai`, and `starlight`.
 > Every lead magnet must deliver immediate, inspectable utility in under 60 seconds, record a clean `DemandSignal` event, and present a contextual single-pack bridge on the delivery screen without dark patterns.
@@ -62,7 +62,7 @@
 - `03-pre-ship-verification.md` (12-check release gate before publishing a page)
 - `manifest.json` (byte sizes + SHA-256 checksums)
 
-### Visual Plate Specification (`plate-starter-kit.svg`, `640x400`)
+### Visual Plate Specification (`plate-starter-kit.svg`, `640x360` `16:9`)
 - Dark `#08090a` frame with `1px #23252a` border, subtle `24px` dot matrix at `4%` white opacity.
 - Three connected schematic nodes (`01 OFFER SPEC` -> `02 SKILL ARTIFACT` -> `03 VERIFIED DOOR`) rendered in `1px #34343a` strokes with `#3ecf8e` terminal node pulse and monospace file annotations.
 - Paid Bridge on `/delivery/starter-kit`: **Income Architecture Blueprint (`USD 67`)**.
@@ -74,7 +74,7 @@
 ### Reference Lock
 - **Primary Style:** **Sequel** (`50c47480-9451-420b-a372-eb42eda75e56`)
 - **Borrowed Details:** **OHZI** (`7524da9c` `#111111` hairline gallery frame) + **Mural** (`aca74dc4` two-column specimen)
-- **Tokens:** Canvas `#000000`, Surface `#161616`, Border `#2a2a2a`, Primary Text `#ffffff`, Warm Paper Accent `#f5f5f0`, Muted `#999999`, Editorial Serif (`Newsreader` / `Georgia` fallback, weight `400`, `-0.015em`) + `Inter` UI + `JetBrains Mono` note links (`[[01-North-Star]]`).
+- **Tokens:** Canvas `#000000`, Surface `#161616`, Border `#2a2a2a`, Primary Text `#ffffff`, Warm Paper Accent `#f5f5f0`, Muted `#999999`, Editorial Serif (`Newsreader` / `Georgia` fallback, weight `400`, `-0.015em`) + `Inter` UI + `JetBrains Mono` wiki-style note links (`01-North-Star.md`).
 - **Visual Plate (`plate-soulbook-vault.svg`):** Constellation node-graph of 7 linked Markdown vaults (`Daily Practice`, `Voice Calibration`, `Energy Ledger`, `Project Canon`, `Weekly Retro`, `Drafting Desk`, `Archive`) with clean `1px` silver-gray link lines (`#444444`) and warm `#f5f5f0` focal node.
 - **Paid Bridge:** **Creation Chronicles (`USD 497` cohort dossier)** or **Creative AI Toolkit (`USD 47`)**.
 
@@ -84,9 +84,9 @@
 
 ### Reference Lock
 - **Primary Style:** **Elektron** (`362d9644-ce48-40af-8c2a-35753ec54b5e`)
-- **Borrowed Details:** **Suno** (`9844e7bf` `#f7f4ef` warm prompt text + `#fd429c` play accent) + **ElevenMusic** (`Flow 12577` studio unlock)
+- **Borrowed Details:** **Suno** (`9844e7bf` `#f7f4ef` warm prompt text + `#fd429c` play accent) + **ElevenMusic** (`Flow 12577` studio upgrade gate)
 - **Tokens:** Canvas `#000000`, Control Panel `#151515`, Input `#222222`, Text `#eeeef2`, Amber LED `#ffcc00` (BPM/Key tags), Play Pill `#fd429c`.
-- **Viewport Anatomy:** Displays Prompt `#01` completely unlocked (`Style string`, `Metatags [Intro] [Drop]`, `BPM 124`, `Key F#m`, and why the phrasing avoids muddy vocals). Prompts `#02-#05` + stem naming template download immediately on email submit.
+- **Viewport Anatomy:** Displays Prompt `#01` in full (`Style string`, `Arrangement section metatags for Intro and Drop`, `BPM 124`, `Key F#m`, and why the phrasing avoids muddy vocals). Prompts `#02-#05` + stem naming template download immediately on email submit.
 - **Visual Plate (`plate-suno-sample.svg`):** Hardware-inspired 16-step sequencer grid (`4x4` pads in `#151515` with `#333337` borders, 3 lit `#ffcc00` step LEDs, waveform envelope line, and monospace parameter bar).
 - **Paid Bridge:** **Vibe OS Pack (`USD 24`)** and **Suno Prompt Library (`USD 27`)**.
 

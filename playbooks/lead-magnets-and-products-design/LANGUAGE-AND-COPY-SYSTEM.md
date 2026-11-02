@@ -93,11 +93,11 @@ All public copy in this file is engineered to pass `brand-packs/frankx/COPY.md` 
 - **Subhead:** Organized founder notes covering quarterly BTW filings, VPB prep, holding-to-operating agreements, invoice requirements, and accountant handoff checklists. Written from direct operator experience with explicit boundaries on what belongs with a licensed tax advisor.
 - **Primary CTA:** `Inspect the Dutch BV Kit ($79)`
 
-### Operator Stack Bundle (`abos-pack-bundle` · `USD 99`)
-- **Badge:** `3-pack bundle · Saves $31`
-- **Headline:** Blueprint + Claims Guard + Vibe OS in one coordinated archive
-- **Subhead:** Get the three core packs together for $99 instead of $130 separately: offer and funnel architecture, pre-publish claim verification, and media session workflows.
-- **Primary CTA:** `Inspect the 3-pack bundle ($99)`
+### Agentic Business OS Pack Bundle (`abos-pack-bundle` · `USD 99`)
+- **Badge:** `4-pack bundle · Saves $57`
+- **Headline:** Four Agentic Business OS skill packs in one versioned archive
+- **Subhead:** Get Claims Guard, Business Intelligence, Design Contract, and Weekly Rhythm together with `registry.json` and the install guide for $99 instead of $156 across four individual $39 packs.
+- **Primary CTA:** `Inspect the 4-pack bundle ($99)`
 
 ### Agent Team Pro (`agent-team-pro` · `USD 129`)
 - **Badge:** `Multi-agent kit · Loop + verifier contracts`

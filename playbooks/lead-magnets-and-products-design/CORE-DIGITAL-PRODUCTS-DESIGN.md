@@ -1,4 +1,4 @@
-# Core Digital Products & Bundles — Complete `DESIGN.md` Specifications (`L1` & `L2`)
+# Core Digital Products & Bundles: Complete `DESIGN.md` Specifications (`L1` & `L2`)
 
 > Covers all **13 Self-Serve Digital Packs, Tripwires, Core Blueprints, Bundles & Monthly Continuity Offers (`USD 19` -> `USD 129`)**.
 > Every paid product page MUST include: (1) a literal mechanism-first hero, (2) a bespoke code-exact SVG schematic plate, (3) an interactive **Two-Pane File-Tree Inspector** (`Refero Screen 618b2107`), (4) explicit "Who should skip this" honesty, and (5) Doctrine-0 fail-closed checkout/waitlist gating.
@@ -112,10 +112,10 @@ Adapted from **Cycle Template Modal (`618b2107`)**, **Convex (`d500b995`)**, and
 
 ---
 
-## P-11 · Operator Stack Bundle (`abos-pack-bundle` · `USD 99`)
+## P-11 · Agentic Business OS Pack Bundle (`abos-pack-bundle` · `USD 99`)
 
 - **Reference Lock:** **Linear Changelog** (`11d3e58a`) + **Amie** (`548f5d54` side-by-side bundle math).
-- **Transparent Math:** Combines `Income Architecture Blueprint (USD 67)` + `Claims Guard Pack (USD 39)` + `Vibe OS Pack (USD 24)` = `USD 130` standalone value for `USD 99` (`Save USD 31`, shown as exact dollar arithmetic rather than inflated percentages).
+- **Transparent Math:** Combines all **4 Agentic Business OS skill packs** (`Claims Guard` + `Business Intelligence` + `Design Contract` + `Weekly Rhythm`, plus `registry.json` and `PRODUCT-BUNDLE.md` from `frankxai/agentic-business-os`) in one packaged archive for `USD 99`, saving against buying four standalone `USD 39` packs (`USD 156` separate total, saving `USD 57` shown as exact dollar arithmetic rather than inflated percentages).
 
 ---
 
