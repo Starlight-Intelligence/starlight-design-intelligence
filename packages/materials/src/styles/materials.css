@@ -1,0 +1,183 @@
+/* @starlight/materials
+ *
+ * Import once from the app's global stylesheet, after Tailwind:
+ *
+ *   @import "tailwindcss";
+ *   @import "@starlight/materials/styles.css";
+ *   @source "../node_modules/@starlight/materials/src";
+ *
+ * theme.css and tokens.css are generated from DESIGN.md (`pnpm tokens`); edit the tokens
+ * there, never here. This file carries the shadcn semantic variables mapped onto those
+ * tokens, the glass material's tiers, and the preference rules of the state contract.
+ */
+@import "tw-animate-css";
+@import "../tokens/theme.css";
+@import "../tokens/tokens.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* The contract's hover gate: a fine pointer that can hover. Tailwind's own `hover:` only
+ * checks (hover: hover), which a touch screen with a paired stylus also satisfies. */
+@custom-variant fine-hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @slot;
+    }
+  }
+}
+
+/* shadcn's semantic palette, resolved to DESIGN.md tokens so the generated primitives
+ * (bg-background, text-foreground, border, ring) land on the Starlight palette. */
+:root {
+  --background: var(--sl-color-surface-paper);
+  --foreground: var(--sl-color-on-paper);
+  --card: var(--sl-color-surface-ivory);
+  --card-foreground: var(--sl-color-on-paper);
+  --popover: var(--sl-color-surface-ivory);
+  --popover-foreground: var(--sl-color-on-paper);
+  --primary: var(--sl-color-primary);
+  --primary-foreground: var(--sl-color-on-surface);
+  --secondary: var(--sl-color-surface-ivory);
+  --secondary-foreground: var(--sl-color-on-paper);
+  --muted: var(--sl-color-surface-ivory);
+  --muted-foreground: color-mix(in oklab, var(--sl-color-on-paper) 66%, transparent);
+  --accent: var(--sl-color-accent);
+  --accent-foreground: var(--sl-color-on-paper);
+  --destructive: var(--sl-color-error);
+  --border: color-mix(in oklab, var(--sl-color-on-paper) 10%, transparent);
+  --input: color-mix(in oklab, var(--sl-color-on-paper) 14%, transparent);
+  --ring: var(--sl-color-focus);
+  --radius: var(--sl-rounded-md);
+}
+
+.dark {
+  --background: var(--sl-color-surface);
+  --foreground: var(--sl-color-on-surface);
+  --card: var(--sl-color-glass-opaque);
+  --card-foreground: var(--sl-color-on-surface);
+  --popover: var(--sl-color-glass-opaque);
+  --popover-foreground: var(--sl-color-on-surface);
+  --primary: var(--sl-color-on-surface);
+  --primary-foreground: var(--sl-color-primary);
+  --secondary: var(--sl-color-glass-opaque);
+  --secondary-foreground: var(--sl-color-on-surface);
+  --muted: var(--sl-color-glass-opaque);
+  --muted-foreground: color-mix(in oklab, var(--sl-color-on-surface) 66%, transparent);
+  --border: var(--sl-color-hairline);
+  --input: var(--sl-color-highlight);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-xs: 6px;
+  --ease-material: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body-md), system-ui, sans-serif;
+  }
+  button, a, [role="button"] {
+    touch-action: manipulation;
+  }
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
+/* Glass, tier 1: CSS blur. Works with no script; the WebGL tier replaces it pixel for pixel. */
+.sl-glass {
+  -webkit-backdrop-filter: blur(24px) saturate(1.35);
+  backdrop-filter: blur(24px) saturate(1.35);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .sl-glass {
+    background: var(--sl-color-glass-opaque);
+  }
+}
+
+/* Glass, tier 2: the three.js pass is frosting and darkening, so the panel only tints.
+ * The wrapper sets data-glass="webgl" on the scene after the probe passes. The override
+ * is scoped to the panel itself; glass buttons inside it keep their own tint and states. */
+.sl-glass-scene {
+  position: relative;
+  isolation: isolate;
+}
+.sl-glass-scene > canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 400ms var(--ease-material);
+}
+.sl-glass-scene[data-glass="webgl"] > canvas {
+  opacity: 1;
+}
+.sl-glass-scene[data-glass="webgl"] > [data-slot="glass-panel"] {
+  background: var(--sl-color-glass-tint-webgl);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: 0 20px 60px var(--sl-color-glass-tint);
+}
+
+/* The designed still. Reduced transparency is a request for an opaque surface, so glass
+ * becomes a solid ink panel with the same hairline and bevel highlight, not a blur that
+ * quietly stopped working. The gate refuses WebGL under the same query. */
+@media (prefers-reduced-transparency: reduce) {
+  .sl-glass,
+  .sl-glass-scene[data-glass="webgl"] > [data-slot="glass-panel"] {
+    background: var(--sl-color-glass-opaque);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    box-shadow: inset 0 1px 0 var(--sl-color-highlight);
+  }
+  .sl-glass-scene > canvas {
+    display: none;
+  }
+}
+
+/* The state contract under reduced motion: the press keeps its tint change and drops the
+ * movement. Tailwind 4 writes the press to the individual `translate` and `scale`
+ * properties, so those are what is reset; `transform: none` would reset neither. The
+ * canvas fade and the sheet's slide become cuts. Nothing else in this package moves. */
+@media (prefers-reduced-motion: reduce) {
+  .sl-glass-scene > canvas {
+    transition: none;
+  }
+  [data-slot="button"]:active,
+  [data-slot="card"][data-interactive]:active,
+  [data-slot="sheet-close"]:active {
+    translate: none;
+    scale: none;
+  }
+  [data-slot="sheet-content"],
+  [data-slot="sheet-overlay"] {
+    animation: none;
+    transition: none;
+  }
+}

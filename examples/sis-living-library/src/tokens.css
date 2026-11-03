@@ -1,0 +1,104 @@
+/* Starlight Living Design — semantic tokens. Import once before components.css. */
+:root {
+  --sl-radius-sm: 8px;
+  --sl-radius-md: 14px;
+  --sl-radius-lg: 24px;
+  --sl-radius-full: 999px;
+  --sl-space-1: 4px;
+  --sl-space-2: 8px;
+  --sl-space-3: 12px;
+  --sl-space-4: 16px;
+  --sl-space-6: 24px;
+  --sl-space-8: 32px;
+  --sl-space-12: 48px;
+  --sl-space-16: 64px;
+  --sl-font-sans: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --sl-font-serif: "Instrument Serif", Georgia, serif;
+  --sl-font-mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  --sl-fast: 120ms;
+  --sl-slow: 400ms;
+  --sl-motion-enter: 240ms;
+  --sl-ease: cubic-bezier(.22, 1, .36, 1);
+  --sl-ease-exit: cubic-bezier(.4, 0, 1, 1);
+  --sl-focus-width: 2px;
+  --sl-focus-offset: 4px;
+  --sl-glass-blur: 20px;
+}
+
+:root, [data-theme="midnight"] {
+  color-scheme: dark;
+  --sl-bg: #101820;
+  --sl-panel: #18242d;
+  --sl-text: #f0f4f4;
+  --sl-muted: #adc0c9;
+  --sl-line: #5c727d;
+  --sl-accent: #9bd8cd;
+  --sl-accent-ink: #102621;
+  --sl-danger: #ffb3ad;
+  --sl-success: #a6dcb8;
+  --sl-glass: rgb(24 36 45 / 82%);
+  --sl-shadow: 0 18px 48px rgb(0 0 0 / 24%);
+}
+
+[data-theme="daylight"] {
+  color-scheme: light;
+  --sl-bg: #f2f4f1;
+  --sl-panel: #ffffff;
+  --sl-text: #182a2b;
+  --sl-muted: #506360;
+  --sl-line: #7d918b;
+  --sl-accent: #164e47;
+  --sl-accent-ink: #ffffff;
+  --sl-danger: #9e302d;
+  --sl-success: #23643f;
+  --sl-glass: rgb(255 255 255 / 82%);
+  --sl-shadow: 0 18px 48px rgb(22 42 38 / 10%);
+}
+
+[data-theme="ember"] {
+  color-scheme: dark;
+  --sl-bg: #211a18;
+  --sl-panel: #2d2320;
+  --sl-text: #f7eee8;
+  --sl-muted: #cdb9ae;
+  --sl-line: #8a6c5b;
+  --sl-accent: #e2ad8a;
+  --sl-accent-ink: #2b1b11;
+  --sl-danger: #ffb0a0;
+  --sl-success: #a0cfb4;
+  --sl-glass: rgb(45 35 32 / 82%);
+  --sl-shadow: 0 18px 48px rgb(0 0 0 / 24%);
+}
+
+/* All motion is optional. Components also suppress keyframes in reduced mode. */
+[data-motion="none"] {
+  --sl-fast: 0ms;
+  --sl-slow: 0ms;
+  --sl-motion-enter: 0ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root, [data-theme] {
+    --sl-fast: 0ms;
+    --sl-slow: 0ms;
+    --sl-motion-enter: 0ms;
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  :root, [data-theme] { --sl-glass: var(--sl-panel); --sl-glass-blur: 0px; }
+}
+@media (forced-colors: active) {
+  :root, [data-theme] {
+    --sl-bg: Canvas;
+    --sl-panel: Canvas;
+    --sl-glass: Canvas;
+    --sl-text: CanvasText;
+    --sl-muted: CanvasText;
+    --sl-line: ButtonBorder;
+    --sl-accent: Highlight;
+    --sl-accent-ink: HighlightText;
+    --sl-success: CanvasText;
+    --sl-danger: CanvasText;
+    --sl-shadow: none;
+    --sl-glass-blur: 0px;
+  }
+}
