@@ -110,3 +110,17 @@ and the current Template Studio pilot rather than creating another catalogue.
 journey contracts, committed brand exports, source-pinned Figma imports, change
 impact planning and private content/asset evidence. These are accepted substrate
 capabilities; native execution and product adoption require separate proof.
+
+## Callable design toolkit
+
+The skills-only plugin bundles the existing kernel with independently callable
+Taste, Impeccable, Playwright CLI, Awesome Design and image-to-Three.js adapters.
+All six upstream snapshots retain their original scripts, reference closure and
+licenses. `design-orchestrator` routes the full loop while preserving the owning
+brand pack. See [integration and runtime boundaries](playbooks/design-skill-integration.md).
+
+Run `npm run design:toolkit -- verify`, `npm run design:toolkit -- doctor`, or
+`npm run design:toolkit -- route taste`. Build a committed candidate with
+`npm run build:plugin -- --out /absolute/output.zip`. Runtime installation, host
+loading, browser execution and downstream production adoption require their own
+evidence.

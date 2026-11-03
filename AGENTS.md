@@ -48,6 +48,16 @@ When motion, scroll, generated media, GIF/video, or premium polish matters, use
 `skills/motion-and-interaction/SKILL.md` and verify the exported result visually.
 Optional plugins may accelerate production but are not canonical dependencies.
 
+## Integrated specialist routing
+
+Use `skills/design-orchestrator/SKILL.md` to route design work through the pinned
+specialist sources. Call `taste-studio`, `impeccable-studio`, `browser-verify`,
+`design-reference-selector` or `image-to-threejs` for a bounded stage. Read
+`playbooks/design-skill-integration.md` and verify `vendor/source-lock.json`
+before executing bundled upstream scripts. Preserve brand authority and host
+tool policy. Load modules by contribution; source packaging is not proof of
+runtime installation, host loading, rendered quality or portfolio adoption.
+
 
 ## Character reference retrieval
 

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "starlight-design-intelligence",
+  "version": "0.1.0",
+  "description": "Brand-led design execution with pinned Taste, Impeccable, Playwright CLI, Awesome Design and image-to-Three.js source modules. Skills and local tools; browser runtimes are separate dependencies.",
+  "author": {"name": "Frank Riemer"},
+  "repository": "https://github.com/Starlight-Intelligence/starlight-design-intelligence",
+  "keywords": ["design", "taste", "impeccable", "playwright", "threejs", "brand"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Starlight Design Intelligence",
+        "shortDescription": "Art direction to browser proof",
+        "longDescription": "Use one design workflow or call each specialist directly. Includes the existing Starlight design kernel, separate brand packs, licensed source snapshots and a local routing and integrity CLI. Taste shapes the direction; Impeccable critiques and refines; Awesome Design supplies selected references; Playwright CLI guides browser checks; image-to-Three.js supports pixel relief and procedural reconstruction. No hosted service, browser engine installation, hooks, telemetry configuration or production adoption is implied.",
+        "developerName": "Frank Riemer",
+        "category": "Developer Tools",
+        "capabilities": [],
+        "defaultPrompt": [
+          "Use the design toolkit to improve this surface and verify the rendered result.",
+          "Audit this interface with Impeccable against its existing brand pack.",
+          "Turn this reference into an interactive Three.js study with explicit fidelity limits."
+        ]
+      }
+    }
+  }
+}

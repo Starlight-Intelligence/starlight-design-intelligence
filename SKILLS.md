@@ -41,3 +41,16 @@ pack, the owning product repository, rights evidence, or the release contract.
 
 Actual skills live under `skills/<name>/SKILL.md`. This file is an inventory; do not create a root `skill.md`.
 <!-- STARLIGHT-REPO-CONTRACT:END -->
+
+## Integrated specialist adapters
+
+- `design-orchestrator`
+- `taste-studio`
+- `impeccable-studio`
+- `browser-verify`
+- `design-reference-selector`
+- `image-to-threejs`
+
+Read `playbooks/design-skill-integration.md` for source pins, invocation, runtime
+dependencies and candidate-release boundaries. External snapshots remain
+subordinate to the selected brand pack and canonical release contract.
