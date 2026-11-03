@@ -109,7 +109,7 @@
 - **Primary Style:** **Krea** (`3a63b3fa-dc79-4dc3-935e-3f8f4ab447a7`) *(dark telemetry)*
 - **Borrowed Details:** **Teal Analysis Walkthrough** (`Flow 2718` line-level pass/fail readout) + **19-86** (`7a8c99db` 1px tabular discipline)
 - **Tokens:** Void `#000000`, Coal `#171717`, Iron `#262626`, White `#ffffff`, Ash `#a3a3a3`, Pass `#3ecf8e`, Fail `#ef4444`.
-- **Interactive Mechanism:** Client-side config checker (`100% browser-local; zero network upload`) that flags hardcoded `Authorization: Bearer ...` tokens, Windows path-quoting bugs, daemon env-var staleness, and missing timeouts, then offers the zero-dependency stdio bridge starter script download.
+- **Interactive Mechanism:** Client-side static config checker (`100% browser-local; zero network upload`) that inspects observable JSON/TOML config properties (hardcoded `Authorization: Bearer ...` tokens, positional `$<digit>` substitution hazards, Windows path-quoting bugs, and missing timeouts), marks live daemon environment freshness as unverified in-browser (pairing with a local CLI check for running processes), and offers the zero-dependency stdio bridge starter script download.
 - **Paid Bridge:** **System Architect Starter Kit (`USD 97`)** or **Agent Team Pro (`USD 129`)**.
 
 ---
@@ -129,6 +129,6 @@
 
 ### Reference Lock
 - **Primary Style:** **19-86** (`7a8c99db-5ce7-4fa4-b491-8f1fcac18991`)
-- **Tokens:** Pure White `#ffffff` canvas, Obsidian Black `#000000` 1px borders and typography, Ash Gray `#8c8c8c` metadata. Zero shadows, zero gradients, `0px` to `2px` sharp architectural corners.
+- **Tokens:** Pure White `#ffffff` canvas, Obsidian Black `#000000` 1px borders and typography, Slate Gray `#595959` metadata (`7.0:1` contrast on `#ffffff`, passing WCAG AA and AAA). Zero shadows, zero gradients, `0px` to `2px` sharp architectural corners.
 - **Viewport Anatomy:** Printable / downloadable 8-page architectural specification specimen showing how memory vaults, lane locks, voice linters, and verification gates connect across multi-agent repos.
 - **Paid Bridge:** **Agentic Architecture Field Guide (`USD 147`)**.

@@ -31,10 +31,10 @@ Adapted from **Cycle Template Modal (`618b2107`)**, **Convex (`d500b995`)**, and
 
 ## P-01 · Aurora Glass & Dark-Mode UI Kit (`aurora-ui-kit` · `USD 19`)
 
-- **Reference Lock:** **Endlesstools** (`6589ccdf-044a-46f7-b458-724c63806a4f`) primary + **Linear Changelog** (`11d3e58a`) frosted border recipe.
-- **Tokens:** Canvas `#080808`, Surface `#1e1e1e`, Hairline `rgba(255,255,255,0.08)`, Text `#ffffff` / `#959595`, CTA `#b8ff45` (`#080808` ink).
+- **Reference Lock:** **FrankX Flagship** (`brand-packs/frankx/DESIGN.md` + **Warp** `40a9c295-7a6f-48b3-ae15-2c4d171cf8fb`) primary + **Linear Changelog** (`11d3e58a`) frosted border recipe.
+- **Tokens:** Canvas `#0a0a0b`, Surface `#1e1e1d`, Hairline `rgba(255,255,255,0.08)`, Text `#faf9f6` / `#868684`, CTA `#10b981` (`#090909` ink).
 - **Deliverable Tree:** `tokens/aurora-tokens.css`, `tailwind.preset.js`, `components/{SurfaceCard,CommandBar,MetricStrip,ComparisonTable,InspectorTabs}.tsx`, `docs/contrast-verification.md` (WCAG AA contrast table for every dark surface).
-- **SVG Plate (`plate-aurora-ui-kit.svg`):** Precision wireframe layer stack (`z-0` canvas `#080808`, `z-10` surface `#141516`, `z-20` elevated control bar with `1px` specular top edge and token callout leader lines).
+- **SVG Plate (`plate-aurora-ui-kit.svg`):** Precision wireframe layer stack (`z-0` canvas `#0a0a0b`, `z-10` surface `#141516`, `z-20` elevated control bar with `1px` specular top edge and token callout leader lines).
 
 ---
 
@@ -65,7 +65,7 @@ Adapted from **Cycle Template Modal (`618b2107`)**, **Convex (`d500b995`)**, and
 
 ## P-05 · Creative AI Builder Toolkit (`creative-ai-toolkit` · `USD 47`)
 
-- **Reference Lock:** **Craftwork** (`6d71e1ea-d306-4a0b-b9ab-64454cfac0cd`) for light specimen cards inside **Warp** (`40a9c295`) dark host shell (`#121212` outer, crisp `#1e1e1d` modular grid, `#cafc00` / `#10b981` role-locked primary CTA).
+- **Reference Lock:** On GenCreator surfaces, lock to `brand-packs/gencreator/DESIGN.md` **Territory B** (`#fbf9f5` light paper, `#221f1b` ink >=90%, `#c8322a` spot red once per object, `Instrument Serif` + `Instrument Sans`) with **Craftwork** (`6d71e1ea-d306-4a0b-b9ab-64454cfac0cd`) desk structure; when hosted inside `frankx.ai/products`, render inside **Warp** (`40a9c295`) dark host tokens (`#121212` outer, `#1e1e1d` modular grid, `#10b981` primary CTA).
 - **Deliverable Tree:** `workflows/research-to-essay.md`, `workflows/spec-to-component.md`, `workflows/visual-brief-packet.md`, `prompts/100-structured-prompts.json`, `rubrics/anti-slop-self-check.md`.
 
 ---
@@ -81,11 +81,10 @@ Adapted from **Cycle Template Modal (`618b2107`)**, **Convex (`d500b995`)**, and
 ## P-07 · Income Architecture Blueprint v2 (`blueprint` · `USD 67` · O2 Flagship Pack)
 
 - **Reference Lock:** **Linear Changelog** (`11d3e58a`) primary + **Convex** (`d500b995` syntax-highlighted workbench) + **Amie** (`548f5d54` value breakdown rail).
-- **Deliverable Tree (Verified against existing `agenticincome/products/blueprint/`):**
-  - `00-README.md` ( Execution order & weekend sprint schedule)
-  - `AGENTIC_INCOME_BLUEPRINT.md` (Master system architecture & unit economics)
-  - `product-kit.md` (Digital pack scoping, packaging, pricing bands & Polar staging)
+- **Deliverable Tree (Verified against `agenticincome/products/catalog.json`):**
+  - `00-README.md` (Execution order & weekend sprint schedule)
   - `service-kit.md` (Scoped technical audit & implementation sprint boundaries)
+  - `product-kit.md` (Digital pack scoping, packaging, pricing bands & Polar staging)
   - `system-kit.md` (Multi-agent routing, DemandSignal telemetry & verification gates)
 - **SVG Plate (`plate-blueprint.svg`):** Three-lane blueprint schematic (`KIT 01 · PRODUCT` + `KIT 02 · SERVICE` + `KIT 03 · SYSTEM`) converging into a single verified receipt ledger (`SHA-256` + `DemandSignal` + `Fail-Closed Money Gate`).
 

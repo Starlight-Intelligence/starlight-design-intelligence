@@ -18,7 +18,7 @@ Whenever a flagship product is in pre-release or staged readiness (`status: wait
 
 ## F-01 · Agentic Architecture Field Guide (`architecture-field-guide` · `USD 147`)
 
-- **Reference Lock:** **19-86** (`7a8c99db-5ce7-4fa4-b491-8f1fcac18991`) primary light monograph (`#ffffff` canvas, `#000000` 1px tabular rules, `#8c8c8c` muted index) with optional dark reader toggle (`#0a0a0b`).
+- **Reference Lock:** **19-86** (`7a8c99db-5ce7-4fa4-b491-8f1fcac18991`) primary light monograph (`#ffffff` canvas, `#000000` 1px tabular rules, `#595959` contrast-safe muted index at `7.0:1`) with optional dark reader toggle (`#0a0a0b`).
 - **Deliverable Spec:** 12-chapter technical monograph + 18 editable SVG/Mermaid system topologies covering memory vaults, MCP stdio sidecars, cross-harness lane locking, independent verification loops, and fail-closed money boundaries.
 - **Hero Visual (`plate-field-guide.svg`):** Blueprint isometric cross-section of a 4-layer agentic stack (`01 SUBSTRATE`, `02 MEMORY VAULTS`, `03 HARNESS ADAPTERS`, `04 HUMAN MONEY GATE`) drawn with `1px` crisp vector lines and numeric callout pins.
 
@@ -26,7 +26,7 @@ Whenever a flagship product is in pre-release or staged readiness (`status: wait
 
 ## F-02 · Visual Creation Loop & QA Gate System (`visual-creation-loop` · `USD 147`)
 
-- **Reference Lock:** **Endlesstools** (`6589ccdf-044a-46f7-b458-724c63806a4f`) (`#080808` Midnight Ink, `#1e1e1e` surface, `#ffffff` type, `#b8ff45` primary action pill).
+- **Reference Lock:** On GenCreator surfaces, lock to `brand-packs/gencreator/DESIGN.md` **Territory B** (`#fbf9f5` light paper, `#221f1b` ink >=90%, `#c8322a` spot red once per object, `Instrument Serif` + `Instrument Sans`) paired with **Craftwork** (`6d71e1ea`) specimen structure; when hosted inside `frankx.ai/products`, render inside **Warp** (`40a9c295`) dark host tokens.
 - **Deliverable Spec:** Complete visual production pipeline: Refero style research protocol, asset-lock schemas, code-native SVG overlay templates, 30-point Visual QA Gate rubric (`>=26/30` ship floor), and provenance sidecar scripts (`register-media-asset.mjs` pattern).
 - **Hero Pattern:** Side-by-side "Before Slop vs After Reference-Locked Plate" interactive comparison slider with annotated callouts explaining why the right side wins (palette restraint, real hierarchy, crisp vector text).
 
@@ -34,7 +34,7 @@ Whenever a flagship product is in pre-release or staged readiness (`status: wait
 
 ## F-03 · Creator Launch & DemandSignal OS (`creator-launch-os` · `USD 197`)
 
-- **Reference Lock:** **Endlesstools** (`6589ccdf`) primary + **Amie** (`548f5d54`) split tier/deliverable inspector.
+- **Reference Lock:** `brand-packs/gencreator/DESIGN.md` **Territory B** (`#fbf9f5` paper, `#221f1b` ink, `#c8322a` spot red, `Instrument Serif` + `Instrument Sans`) on GenCreator surfaces (`Warp` `40a9c295` host on `frankx.ai/products`) + **Amie** (`548f5d54`) split tier/deliverable inspector.
 - **Deliverable Spec:** Next.js App Router offer pages, deterministic 4-step Fit-Check quiz component, `DemandSignal` API route + JSONL schema, Polar webhook & fail-closed catalog sync script, and 5-email plain-text onboarding sequence.
 
 ---
@@ -49,7 +49,7 @@ Whenever a flagship product is in pre-release or staged readiness (`status: wait
 
 ## F-05 · Generative Creator Studio OS (`generative-creator-os` · `USD 297`)
 
-- **Reference Lock:** **Endlesstools** (`6589ccdf`) dark console + **Suno** (`9844e7bf`) warm `#f7f4ef` media specimen cards.
+- **Reference Lock:** `brand-packs/gencreator/DESIGN.md` **Territory B** (`#fbf9f5` paper, `#221f1b` ink, `#c8322a` spot red, `Instrument Serif` + `Instrument Sans`) on GenCreator surfaces (`Warp` `40a9c295` host on `frankx.ai/products`) + **Suno** (`9844e7bf`) warm `#f7f4ef` media specimen cards.
 - **Deliverable Spec:** Unified multi-modal production workspace combining prose drafting gates, Suno sonic prompt rigs, visual plate briefs, and cross-channel asset packaging in one structured repository template.
 
 ---

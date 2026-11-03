@@ -44,7 +44,7 @@ All public copy in this file is engineered to pass `brand-packs/frankx/COPY.md` 
 ### MCP Config Doctor (`mcp-doctor-audit`)
 - **Badge:** `Free config check · Zero server upload`
 - **Headline:** Audit your MCP config for exposed keys and broken paths in ten seconds
-- **Subhead:** Paste your sanitized `mcp_config.json` or `config.toml` block to catch hardcoded bearer tokens, Windows path-escaping bugs, and stale daemon environment variables, then grab our zero-dependency Node stdio bridge script.
+- **Subhead:** Paste your sanitized `mcp_config.json` or `config.toml` block to catch hardcoded bearer tokens, positional argument substitution hazards, and Windows path-escaping bugs. Live local daemon freshness stays marked unverified in the browser, with a companion CLI check and zero-dependency Node stdio bridge script included.
 - **Primary CTA:** `Run local config check`
 
 ---
@@ -82,7 +82,7 @@ All public copy in this file is engineered to pass `brand-packs/frankx/COPY.md` 
 - **Primary CTA:** `Get the Creative AI Toolkit ($47)`
 
 ### Income Architecture Blueprint v2 (`blueprint` · `USD 67`)
-- **Badge:** `Core system · 3 kits · 5 Markdown specs`
+- **Badge:** `Core system · 3 kits · 4 Markdown specs`
 - **Headline:** The three-kit operating blueprint for shipping verifiable digital products
 - **Subhead:** Inside one `.zip` archive you get the Product Kit (offer narrowing, file-tree packaging, pricing bands), the Service Kit (fixed-scope technical audit templates), and the System Kit (cross-harness routing, DemandSignal tracking, and human-gated checkout). Inspect every file in the browser before you decide.
 - **Primary CTA:** `Inspect Blueprint files ($67)`

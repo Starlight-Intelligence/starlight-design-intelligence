@@ -17,8 +17,9 @@ Use this skill whenever an agent builds or upgrades a digital product page, lead
 ## Six-Step Execution Protocol
 
 ### 1. Lock the Brand World & Funnel Archetype First
+- Resolve the owning `brand-packs/<brand>/DESIGN.md` contract first; Refero references inform layout, flow, and interaction mechanics and never override an approved brand pack.
 - Never average multiple visual references into a warm-cream or purple-gradient middle.
-- Pick **one** Primary Refero Style Foundation from `playbooks/refero-funnel-atlas.md` (`Linear Changelog` for Agentic Income, `Warp` for FrankX Flagship, `Endlesstools` or `Craftwork` for GenCreator, `Elektron` for Vibe OS, `Sequel` for Literary/Chronicles, `19-86` or `Krea` for Starlight Substrate).
+- Pick **one** Primary Style & Structural Reference from `playbooks/refero-funnel-atlas.md` (`Linear Changelog` for Agentic Income, `Warp` for FrankX Flagship, `GenCreator Territory B` `#fbf9f5`/`#221f1b`/`#c8322a` paired with `Craftwork` light-desk structure for GenCreator surfaces, `Elektron` for Vibe OS, `Sequel` for Literary/Chronicles, `19-86` or `Krea` for Starlight Substrate).
 - Borrow at most two bounded interaction details (such as `Cycle` two-pane preview `618b2107`, `Polaroid` 4-step fit-check `Flow 9471`, `Amie` split tier selector `548f5d54`, or `Contra` savings readout `4d16a81a`).
 
 ### 2. Enforce "Inspect Before You Buy" Transparency
