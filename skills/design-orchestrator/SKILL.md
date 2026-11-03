@@ -27,6 +27,26 @@ Do not invent a 3D feature merely to exercise a module. On a narrow task, use th
 relevant adapter directly. Never execute six complete upstream playbooks in
 parallel against the same surface.
 
+## Starlight lab material studies
+
+For a lab brief involving liquid glass, texture, depth, particles or a Starlight
+object, resolve the candidate foundation against the owning product revision.
+Use the material contract for limits and the original identity manifest for the
+mark. Record both revisions and any disagreement before rendering.
+[Observatory Glass candidate](https://github.com/Starlight-Intelligence/starlight-design-intelligence/blob/eed60eff204574583fdfd6beb8a20a2d464d9b3b/brand-packs/sis/foundations/README.md) · [material tokens](https://github.com/Starlight-Intelligence/starlight-design-intelligence/blob/eed60eff204574583fdfd6beb8a20a2d464d9b3b/brand-packs/sis/foundations/tokens.json)
+
+Hold the object, viewpoint and light direction fixed while comparing materials.
+Give porcelain a broad opaque reflection, obsidian a dark body with a narrow
+edge and glass a transparent center with a second thin rim. Inspect the three
+side by side with their labels hidden. If hue is the only reliable distinction,
+revise the reflections. Keep essential reading on the opaque substrate.
+
+Exercise finite replay, interruption, static reduced motion and the solid
+fallback on the actual component. Compare the Figma specimen with the same
+material and depth in the product. Record visual defects separately from token
+validation and use the product's release checks for promotion.
+[Material acceptance gate](https://github.com/Starlight-Intelligence/starlight-design-intelligence/blob/eed60eff204574583fdfd6beb8a20a2d464d9b3b/evals/starlight-material-foundations.md)
+
 ## Resolve conflicts
 
 User instructions and the owning product contract govern scope. The selected
