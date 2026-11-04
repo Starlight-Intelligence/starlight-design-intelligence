@@ -1,0 +1,100 @@
+{
+  "$description": "Proposed projection of the supplied Observatory kit; not deployed or a replacement brand pack.",
+  "color": {
+    "canvas": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.937255,
+          0.929412,
+          0.905882
+        ],
+        "alpha": 1
+      }
+    },
+    "panel": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.980392,
+          0.976471,
+          0.964706
+        ],
+        "alpha": 1
+      }
+    },
+    "ink": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.027451,
+          0.039216,
+          0.062745
+        ],
+        "alpha": 1
+      }
+    },
+    "muted": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.32549,
+          0.356863,
+          0.396078
+        ],
+        "alpha": 1
+      }
+    },
+    "brass": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.788235,
+          0.631373,
+          0.360784
+        ],
+        "alpha": 1
+      }
+    },
+    "focus": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.141176,
+          0.298039,
+          0.47451
+        ],
+        "alpha": 1
+      }
+    }
+  },
+  "space": {
+    "small": {
+      "$type": "dimension",
+      "$value": {
+        "value": 8,
+        "unit": "px"
+      }
+    },
+    "medium": {
+      "$type": "dimension",
+      "$value": {
+        "value": 16,
+        "unit": "px"
+      }
+    },
+    "large": {
+      "$type": "dimension",
+      "$value": {
+        "value": 24,
+        "unit": "px"
+      }
+    }
+  }
+}

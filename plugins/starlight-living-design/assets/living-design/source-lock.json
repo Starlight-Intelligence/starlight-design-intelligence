@@ -1,0 +1,33 @@
+{
+  "schema": "starlight.living-design.source-lock.v1",
+  "date": "2026-10-29",
+  "registry_revision": "d98f814ccafe8b6ab4d87d42360a78a07bf4d41b",
+  "design_base_revision": "851a11be31a0640df64baabcf2b1fc1afb9ce849",
+  "design_repository": "Starlight-Intelligence/starlight-design-intelligence",
+  "registry_record_repository": "frankxai/starlight-design-intelligence",
+  "repository_identity_note": "Provider redirect preserves repository ID 1261966539 after organization transfer; Registry path is dated.",
+  "state": "proposal",
+  "reference_bytes_in_public_source": false,
+  "standards": [
+    {
+      "name": "Agent Plugins",
+      "version": "1.0.0",
+      "url": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
+    },
+    {
+      "name": "Agent Skills",
+      "version": "retrieved-2026-10-29",
+      "url": "https://agentskills.io/specification"
+    },
+    {
+      "name": "MCP",
+      "version": "2026-07-28",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28"
+    },
+    {
+      "name": "DTCG",
+      "version": "2025.10",
+      "url": "https://www.designtokens.org/tr/2025.10/format/"
+    }
+  ]
+}

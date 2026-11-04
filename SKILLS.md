@@ -24,6 +24,12 @@ Contract: `starlight.repo_profile.v2` · Team: `frankx-product-revenue-team` · 
   - `landing-page-polish`
   - `product-ui-polish`
   - `frank-brand-editor` (editorial contract gate for public copy)
+  - `design-character-lineage` (proposed character and visual-family design)
+  - `compose-agent-identity` (linked role, character, values and personality contracts)
+  - `design-companion-journey` (AI companion states and useful product journeys)
+  - `visualize-agent-team` (typed role, skill, playbook and connector views)
+  - `bind-character-runtime` (existing-infrastructure integration handoff)
+  - `review-living-design` (identity, utility and evidence review)
 - Plugins:
   - `product-design`
   - `motion-design-studio` when a real installable adapter is available
