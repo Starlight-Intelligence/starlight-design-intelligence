@@ -1,0 +1,26 @@
+command=corepack pnpm verify:consumer-themes
+working_directory=/tmp/living-design-v3/packages/materials/examples/next-app
+BASE_URL=http://127.0.0.1:33319
+CHROME_BIN=/usr/bin/chromium
+EVIDENCE_DIR=/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v3
+started=2026-11-04T08:22:29Z
+$ node scripts/verify-consumer-themes.mjs
+Browser evidence: /home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v3
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: {"route":"/glass","profile":"paper","viewport":{"width":1440,"height":900},"touch":false,"attributes":{"theme":"paper","mode":null},"heading":{"text":"Glass that earns its refraction.","color":"rgb(14, 19, 27)","background":[239,237,231],"effectiveForeground":[14,19,27],"font":"sans, \"sans Fallback\", system-ui, sans-serif","fontSize":24,"weight":"600","style":"normal","foreground":[14,19,27,1],"opacity":1,"outline":"rgb(14, 19, 27) none 3px","outlineColor":[14,19,27,1],"boxShadow":"none"},"accent":{"text":"earns","color":"rgb(138, 101, 34)","background":[239,237,231],"effectiveForeground":[138,101,34],"font":"\"serif\", \"serif Fallback\", Georgia, serif","fontSize":24,"weight":"400","style":"italic","foreground":[138,101,34,1],"opacity":1,"outline":"rgb(138, 101, 34) none 3px","outlineColor":[138,101,34,1],"boxShadow":"none"},"control":{"text":"InkPaperOperator","color":"rgb(14, 19, 27)","background":[239,237,231],"effectiveForeground":[14,19,27],"font":"sans, \"sans Fallback\", system-ui, sans-serif","fontSize":16,"weight":"400","style":"normal","foreground":[14,19,27,1],"opacity":1,"outline":"rgb(138, 101, 34) solid 2px","outlineColor":[138,101,34,1],"boxShadow":"none"},"detector":{"failures":[],"inspected_elements":38,"inspected_open_shadow_roots":1,"complete":true},"headingContrast":8.876344264210333,"accentContrast":2.738456052446184,"headingBackdrop":{"method":"nominal foreground against every rendered backdrop pixel with glyphs hidden","selector":"h1","foreground":[14,19,27,1],"file":"desktop-glass-paper-heading-backdrop.png","sha256":"fa154664e7bf11d95b7ac95a344f91c8476c0beb6cf02f0ed0f8cd1910a81651","bytes":1851,"contrast":8.876344264210333,"worst":{"rgb":[176,180,177],"x":183,"y":31},"sampledPixels":16056,"width":446,"height":36},"accentBackdrop":{"method":"nominal foreground against every rendered backdrop pixel with glyphs hidden","selector":"h1 em","foreground":[138,101,34,1],"file":"desktop-glass-paper-accent-backdrop.png","sha256":"175bc5160d72e77d91ba9cc63b118f656a8c18c1008433458b1f7be4a2eae283","bytes":322,"contrast":2.738456052446184,"worst":{"rgb":[181,188,185],"x":0,"y":29},"sampledPixels":1519,"width":49,"height":31},"shaderInk":[0.9372549019607843,0.9294117647058824,0.9058823529411765],"controlContrast":15.907204872762142,"focusContrast":4.523758726870089}
+    at file:///tmp/living-design-v3/packages/materials/examples/next-app/scripts/verify-consumer-themes.mjs:255:18 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1
+[ELIFECYCLE] Command failed with exit code 1.
+exit=1
+finished=2026-11-04T08:23:02Z
