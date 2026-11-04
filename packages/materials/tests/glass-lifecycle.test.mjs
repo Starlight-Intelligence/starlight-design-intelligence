@@ -4,26 +4,30 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 test('glass mounts reuse one live canvas context and cancel stale async mounts', async (t) => {
+  try {
+    import.meta.resolve('three');
+  } catch (err) {
+    const missing = /Cannot find package '([^']+)'/.exec(String(err?.message))?.[1];
+    if (err?.code !== 'ERR_MODULE_NOT_FOUND' || missing !== 'three') throw err;
+    t.skip('three is not installed here; run pnpm test in packages/materials');
+    return;
+  }
+
   if (typeof t.mock.module !== 'function') {
     const child = spawnSync(process.execPath, [
       '--experimental-test-module-mocks',
+      '--test-reporter=tap',
       '--test',
       fileURLToPath(import.meta.url),
     ], {
       encoding: 'utf8',
+      timeout: 30_000,
       env: Object.fromEntries(Object.entries(process.env).filter(([name]) => name !== 'NODE_TEST_CONTEXT')),
     });
-    assert.ifError(child.error);
     const output = `${child.stdout}${child.stderr}`;
-    assert.equal(child.status, 0, output);
+    assert.equal(child.status, 0, `${child.error ?? ''}\n${output}`);
     assert.match(output, /# pass 1/);
     assert.match(output, /# skipped 0/);
-    return;
-  }
-  try {
-    import.meta.resolve('three');
-  } catch {
-    t.skip('the existing three dev dependency is not installed in this checkout');
     return;
   }
 
