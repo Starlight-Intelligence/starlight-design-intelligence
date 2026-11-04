@@ -112,7 +112,8 @@
 
   /* Contrast-Tuned Brand Accents */
   --sl-gold: #8a6522;
-  --sl-gold-bright: var(--sl-gold);
+  /* Large accent text also crosses the darker poster-backed glass surface. */
+  --sl-gold-bright: #6b4c19;
   --sl-companion: #16697a;
   --sl-companion-bright: #1f859b;
   --sl-star-body: #9e732c;

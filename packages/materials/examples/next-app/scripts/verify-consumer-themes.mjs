@@ -298,8 +298,8 @@ try {
             state.paperButtonFocus = await sample(page, '[data-slot="button"][data-material="paper"]');
             assert.notEqual(state.paperButtonFocus.boxShadow, 'none');
           }
-          if (route === '/' || route === '/paper') {
-            await screenshot(page, `${mobile ? 'mobile' : 'desktop'}-${route === '/' ? 'home' : 'paper'}-${profile}`);
+          if (route === '/' || route === '/paper' || route === '/glass') {
+            await screenshot(page, `${mobile ? 'mobile' : 'desktop'}-${route === '/' ? 'home' : route.slice(1)}-${profile}`);
           }
         }
         const specimens = [

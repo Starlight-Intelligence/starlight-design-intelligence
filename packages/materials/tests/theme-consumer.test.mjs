@@ -95,6 +95,15 @@ test('Tailwind palette utilities resolve through the unified semantic theme alia
   assert.match(paperPage, /font-serif font-normal text-on-paper/);
 });
 
+test('Paper headline accent stays readable over the rendered Glass backdrop', () => {
+  const paper = themeTokens('[data-theme="paper"]');
+  const accent = resolve('var(--sl-color-accent-bright)', paper);
+  // Exact worst pixel from the failed production browser sweep at 2e36fe1 (report v3).
+  assert.ok(contrast(accent, '#b5bcb9') >= 3, 'Paper accent must pass the observed image/canvas backdrop');
+  // Conservative black-poster bound: 50% shader tint, then 40% DOM tint = 70% Paper.
+  assert.ok(contrast(accent, '#a7a5a1') >= 3, 'Paper accent must also pass the darker tinted-poster bound');
+});
+
 test('focus treatment retains contrast on both light and dark material surroundings', () => {
   const paper = themeTokens('[data-theme="paper"]');
   const ink = themeTokens(inkSelector);
