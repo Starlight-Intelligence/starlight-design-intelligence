@@ -94,7 +94,7 @@ spacing:
   2xl: 64px
   gutter: 24px
   margin: 32px
-  measure: 46
+  measure: 68ch
 rounded:
   xs: 4px
   sm: 8px
@@ -192,14 +192,14 @@ Warm Starlight Gold (`#C9A15C` / `#F0C87E`) is reserved strictly for **human sov
 
 ## 2. Refero Mode Locks (Architecture & Grammars)
 
-Live Refero extractions establish authoritative external benchmarks with bounded borrows and explicit anti-slop rejections:
+External benchmarks and bounded borrows are cataloged in [REFERENCE-LOCKS.md](REFERENCE-LOCKS.md) and [refero-funnel-atlas.md](../../playbooks/refero-funnel-atlas.md):
 
 | Surface Mode | Primary Refero Lock | Bounded Secondary Borrow | Explicit Anti-Slop Rejects |
 |---|---|---|---|
-| **Horizon Mode** *(Home, Manifesto, Brand Lab)* | **Lusion** (`15c1f822`) — Contained `24px`-radius interactive 3D/WebGL focal stage inside generous negative space, display tracking (`-0.025em`), whisper-quiet chrome. | **Midjourney** (`1e85631f`) — Deep cosmic void ground, `20%`-opacity translucent specimen pills, `8px`-radius high-density artifact specimen grids. | Reject Lusion's electric-lime accents and custom Aeonik license; reject full-bleed uncontained WebGL behind body prose. |
-| **Paper Mode** *(`/constitution`, `/sip`, `/research`, `DESIGN.md`)* | **OpenAI Developers** (`44317718`) — Warm architectural stone/paper discipline (`#EFEDE7`), `1px` hairline tables, `8px` specimen cards, `9999px` pill controls. | **Midjourney** (`1e85631f`) — Whisper-weight `400` monospace labels (`IBM Plex Mono`) for commit SHAs, SIP receipts, and timestamps. | Reject cold `#FFFFFF` hospital white; reject decorative pull-quote clip art. |
-| **Operator Mode** *(Console, `/verify`, Command Center)* | **Linear Changelog** (`11d3e58a`) — Value-stepped dark surfaces (`#070A10` → `#0D1119` → `#141926`), hairline borders (`rgba(237,230,216,0.12)`), keyboard-first focus rings. | **Warp `/code`** (`3aff8b9c`) — Structured command output, diff panes, and cryptographic receipt trays. | Reject neon cyberpunk dashboards, 5-color rainbow status badges, and animated chart gimmicks. |
-| **Academy & Cultural** *(`.academy`, Agent Lab, Constellation)* | **Ableton Push** (`c293f913`) / **Elektron** (`362d9644`) — Tactile studio instrumentation, hardware-grade specimen plates for agent codex. | **Starlight Identity Master** (`identity.json`) — Instrument Serif italic editorial grace notes + 4-star GSAP cursor trail. | Reject gamified XP popups and cartoon mascot takeovers on protocol surfaces. |
+| **Horizon Mode** *(Home, Manifesto, Brand Lab)* | **Drepute** (`aa138c1f`, [REFERENCE-LOCKS.md](REFERENCE-LOCKS.md)) — One authored night scene per fold, serif display line, flat dark surfaces, minimal chrome; stage containers follow [refero-funnel-atlas.md](../../playbooks/refero-funnel-atlas.md). | **Chantlings** (`1c90b38a`, [REFERENCE-LOCKS.md](REFERENCE-LOCKS.md)) — Single warm gold accent per fold marking human arrival or commitment. | Reject generic starfield backgrounds, floating monoliths (`7524da9c`), iridescent particle storms (`9d795615`), and uncontained WebGL behind body prose. |
+| **Paper Mode** *(`/constitution`, `/sip`, `/research`, `DESIGN.md`)* | **Warm Architectural Paper** (`#EFEDE7`) — `1px` hairline tables, `8px` specimen cards, `9999px` pill controls, and OpenAI developer onboarding clarity ([REFERENCE-LOCKS.md](REFERENCE-LOCKS.md) flow `4178`). | **IBM Plex Mono** (`400` weight) — Quiet monospace labels for commit SHAs, SIP receipts, and timestamps. | Reject cold `#FFFFFF` hospital white; reject decorative pull-quote clip art. |
+| **Operator Mode** *(Console, `/verify`, Command Center)* | **Linear Changelog** (`11d3e58a-87d7-4a9a-bbf5-720f4fd3ffc6`, [REFERENCE-LOCKS.md](REFERENCE-LOCKS.md)) — Value-stepped dark surfaces (`#070A10` → `#0D1119` → `#141926`), hairline borders (`rgba(237,230,216,0.12)`), keyboard-first focus rings. | **Warp `/code`** (`3aff8b9c-ac69-4392-9862-c82e9db2dec7`, [REFERENCE-LOCKS.md](REFERENCE-LOCKS.md)) — Structured command output, diff panes, and cryptographic receipt trays. | Reject Lemni payment-first order (flow `4573`), neon cyberpunk dashboards, 5-color rainbow status badges, and animated chart gimmicks. |
+| **Academy & Cultural** *(`.academy`, Agent Lab, Constellation)* | **Ableton Push** (`c293f913-7c99-4c41-8d92-2c6d9f0f12e7`) / **Elektron** (`362d9644-ce48-40af-8c2a-35753ec54b5e`, [REFERENCE-LOCKS.md](REFERENCE-LOCKS.md)) — Tactile studio instrumentation, hardware-grade specimen plates for agent codex. | **Starlight Identity Master** ([identity.json](../../tokens/brands/starlight/identity.json)) — Instrument Serif italic editorial grace notes + 4-star cursor geometry. | Reject billing toggles on one-time packs, gamified XP popups, and cartoon mascot takeovers on protocol surfaces. |
 
 ---
 
@@ -250,7 +250,7 @@ Color is never the sole differentiator. Every status token carries dual encoding
 
 ### 3.3 Typography Triad
 
-- **Interface & Reading:** `Instrument Sans` (Self-hosted WOFF2, 400 & 600 weight, sentence case).
+- **Interface & Reading:** `Instrument Sans` (OFL-licensed via `next/font/google` or host-bundled WOFF2; OFL license notices in `fonts/`, 400 & 600 weight, sentence case).
 - **Editorial & Accent:** `Instrument Serif (italic)` (400 weight; reserved for titles, quotes, chapter marks).
 - **Code & Identifiers:** `IBM Plex Mono` (400 & 500 weight; commit SHAs, prompt hashes, JSON keys, telemetry).
 
@@ -295,12 +295,12 @@ Twenty-four original vector icons designed on a crisp 24-unit grid with 1.6-unit
 
 ---
 
-## 7. Two-Register Agent Visual System (151 Agents × 50 Constellations)
+## 7. Three-Register Agent Visual System
 
-To eliminate ungrounded slop while giving visual identity to all 151 SIS agents:
-- **Register 1 (Sovereign Core, 14 Agents):** Geometric Vector Sigil + harness accent ring + art-directed portraits curated in `/queen` and `/visuals/brand-lab`.
-- **Register 2 (10 Universal IS Houses, 18 Agents):** Orbital House Crest SVGs with metric and skill overlays.
-- **Register 3 (119 Domain Specialists):** Parametric `<AgentSigil id="..." />` generator deriving crisp vector sacred geometry from `{tier, domain, voice, activeSkills}` scaling from 16px to 512px.
+Downstream SIS surfaces (such as `Starlight-Intelligence-System` `site/src/components/living-design/AgentSigil.tsx`) map registered agents across three visual registers rather than generating ungrounded raster avatars:
+- **Register 1 (Sovereign Core):** Geometric Vector Sigil + harness accent ring + curated art-directed portraits in `/queen` and `/visuals/brand-lab`.
+- **Register 2 (Universal IS & Leadership):** Orbital House Crest SVGs with metric and skill overlays.
+- **Register 3 (Domain Specialists):** Parametric `<AgentSigil id="..." />` generator deriving crisp vector geometry from `{tier, domain, voice, activeSkills}` scaling from 16px to 512px.
 - **Anti-Slop Overlay Rule:** AI-generated raster/video plates supply atmosphere, lighting, and architectural mood only—never baked-in text or pseudo-diagrams. All text, numbers, and badges are rendered as live HTML/SVG code overlays.
 
 ---
