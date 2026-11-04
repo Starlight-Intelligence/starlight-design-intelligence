@@ -107,6 +107,14 @@
   }
 }
 
+@layer utilities {
+  [data-slot="button"]:focus-visible,
+  [data-slot="card"][data-interactive]:focus-visible,
+  [data-slot="sheet-close"]:focus-visible {
+    box-shadow: 0 0 0 2px var(--sl-color-on-surface), 0 0 0 4px var(--sl-color-surface);
+  }
+}
+
 /* Glass, tier 1: CSS blur. Works with no script; the WebGL tier replaces it pixel for pixel. */
 .sl-glass {
   -webkit-backdrop-filter: blur(24px) saturate(1.35);

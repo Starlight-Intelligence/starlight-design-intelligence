@@ -1,11 +1,12 @@
 import type { Metadata, Viewport } from 'next';
-import { IBM_Plex_Mono, Instrument_Sans, Instrument_Serif } from 'next/font/google';
+import localFont from 'next/font/local';
 import Link from 'next/link';
+import { ThemeSwitcher } from '../components/ThemeSwitcher';
 import './globals.css';
 
-const sans = Instrument_Sans({ subsets: ['latin'], variable: '--font-instrument-sans', display: 'swap' });
-const serif = Instrument_Serif({ subsets: ['latin'], weight: '400', style: 'italic', variable: '--font-instrument-serif', display: 'swap' });
-const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400'], variable: '--font-plex-mono', display: 'swap' });
+const sans = localFont({ src: './fonts/InstrumentSans[wdth,wght].ttf', weight: '400 700', style: 'normal', variable: '--font-instrument-sans', display: 'swap' });
+const serif = localFont({ src: './fonts/InstrumentSerif-Italic.ttf', weight: '400', style: 'italic', variable: '--font-instrument-serif', display: 'swap' });
+const mono = localFont({ src: './fonts/IBMPlexMono-Regular.ttf', weight: '400', style: 'normal', variable: '--font-plex-mono', display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'Starlight materials',
@@ -32,9 +33,9 @@ const routes = [
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
+    <html lang="en" data-theme="ink" className={`${sans.variable} ${serif.variable} ${mono.variable}`}>
       <body className="font-sans antialiased">
-        <header className="flex h-16 items-center justify-between px-4 pt-[env(safe-area-inset-top)] md:px-8">
+        <header className="flex min-h-16 flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-3 pt-[max(0.75rem,env(safe-area-inset-top))] md:px-8">
           <Link href="/" className="text-label-md font-medium focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-focus">
             Starlight materials
           </Link>
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Link>
             ))}
           </nav>
+          <ThemeSwitcher />
         </header>
         {children}
       </body>

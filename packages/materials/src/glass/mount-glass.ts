@@ -208,9 +208,11 @@ export async function mountGlass({ scene, canvas, panel, poster, plan, signal, o
     checkpoint();
 
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'low-power' });
-    // One release per resource, so a throwing disposer cannot skip the one beside it.
-    acquire(() => renderer.forceContextLoss());
-    acquire(() => renderer.dispose());
+    acquire(() => {
+      // The next renderer creates empty 3D textures on this same canvas context.
+      // Return unpack flags to their defaults after the poster's texture upload.
+      try { renderer.resetState(); } finally { renderer.dispose(); }
+    });
     renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 
     let texture: ThreeNS.Texture;
@@ -266,7 +268,12 @@ export async function mountGlass({ scene, canvas, panel, poster, plan, signal, o
     let intersecting = true;
     let hidden = document.hidden;
     const canDraw = () => active && intersecting && !hidden;
-    const draw = () => { queued = 0; if (canDraw()) renderer.render(glScene, camera); };
+    const draw = () => {
+      queued = 0;
+      if (!canDraw()) return;
+      uniforms.uInk.value.set(...inkFromTokens(scene));
+      renderer.render(glScene, camera);
+    };
     const request = () => { if (canDraw() && !queued) queued = requestAnimationFrame(draw); };
 
     // Probe: the frame budget is measured on this device, not assumed. gl.finish() times
@@ -289,6 +296,16 @@ export async function mountGlass({ scene, canvas, panel, poster, plan, signal, o
     checkpoint();
 
     const remeasure = () => { measure(); request(); };
+    // Theme tokens may be inherited from any ancestor, including a nested profile.
+    // Observe only that path and schedule one frame; do not poll or watch descendants.
+    const profiles = new MutationObserver(request);
+    for (let ancestor: HTMLElement | null = scene; ancestor; ancestor = ancestor.parentElement) {
+      profiles.observe(ancestor, {
+        attributes: true,
+        attributeFilter: ['data-theme', 'data-mode', 'data-material', 'class', 'style'],
+      });
+    }
+    acquire(() => profiles.disconnect());
     const ro = new ResizeObserver(remeasure);
     ro.observe(scene);
     ro.observe(panel);

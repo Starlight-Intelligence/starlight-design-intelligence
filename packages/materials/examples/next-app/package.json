@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "poster": "node scripts/make-poster.mjs"
+    "poster": "node scripts/make-poster.mjs",
+    "verify:consumer-themes": "node scripts/verify-consumer-themes.mjs"
   },
   "dependencies": {
     "@starlight/materials": "link:../..",

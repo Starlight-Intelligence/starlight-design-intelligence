@@ -1,0 +1,3 @@
+# Provenance hashes refer to the original upstream bytes on every platform.
+*.ttf binary
+*-OFL.txt -text

@@ -9,7 +9,8 @@
  */
 
 :root,
-[data-theme="ink"] {
+[data-theme="ink"],
+[data-mode="operator"] {
   color-scheme: dark;
 
   /* Canvas & Surfaces (Ink Ground) */
@@ -75,33 +76,13 @@
   --sl-bevel-highlight: inset 0 1px 0 rgba(251, 246, 235, 0.18);
 
   /* Compatibility Aliases */
-  --sl-color-primary: var(--sl-bg);
   --sl-color-secondary: #efede7;
-  --sl-color-tertiary: var(--sl-gold);
-  --sl-color-neutral: var(--sl-fg);
-  --sl-color-surface: var(--sl-bg);
   --sl-color-surface-paper: #efede7;
-  --sl-color-surface-ivory: var(--sl-fg);
+  --sl-color-surface-ivory: #ede6d8;
   --sl-color-on-surface: var(--sl-star-core);
-  --sl-color-on-paper: var(--sl-bg);
-  --sl-color-accent: var(--sl-gold);
-  --sl-color-accent-bright: var(--sl-gold-bright);
-  --sl-color-signal: var(--sl-companion);
-  --sl-color-glass-tint: var(--sl-glass-bg);
-  --sl-color-glass-tint-webgl: var(--sl-glass-bg-webgl);
-  --sl-color-glass-opaque: var(--sl-surface-1);
-  --sl-color-hairline: var(--sl-border);
+  --sl-color-on-paper: #070a10;
   --sl-color-highlight: rgba(251, 246, 235, 0.18);
-  --sl-color-focus: var(--sl-gold-bright);
-  --sl-color-error: var(--sl-status-breach);
-  --sl-text: var(--sl-fg);
-  --sl-muted: var(--sl-fg-muted);
-  --sl-panel: var(--sl-surface-1);
-  --sl-line: var(--sl-border);
-  --sl-accent: var(--sl-gold);
   --sl-accent-ink: var(--sl-bg);
-  --sl-glass: var(--sl-glass-bg);
-  --sl-shadow: var(--sl-depth-raised);
 }
 
 [data-theme="paper"] {
@@ -131,7 +112,8 @@
 
   /* Contrast-Tuned Brand Accents */
   --sl-gold: #8a6522;
-  --sl-gold-bright: #ad8234;
+  /* Large accent text also crosses the darker poster-backed glass surface. */
+  --sl-gold-bright: #6b4c19;
   --sl-companion: #16697a;
   --sl-companion-bright: #1f859b;
   --sl-star-body: #9e732c;
@@ -162,36 +144,17 @@
   --sl-bevel-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.6);
 
   /* Compatibility Aliases */
-  --sl-color-primary: var(--sl-bg);
   --sl-color-secondary: var(--sl-surface-1);
-  --sl-color-tertiary: var(--sl-gold);
-  --sl-color-neutral: var(--sl-fg);
-  --sl-color-surface: var(--sl-bg);
   --sl-color-surface-paper: var(--sl-bg);
   --sl-color-surface-ivory: var(--sl-surface-1);
   --sl-color-on-surface: var(--sl-fg);
   --sl-color-on-paper: var(--sl-fg);
-  --sl-color-accent: var(--sl-gold);
-  --sl-color-accent-bright: var(--sl-gold-bright);
-  --sl-color-signal: var(--sl-companion);
-  --sl-color-glass-tint: var(--sl-glass-bg);
-  --sl-color-glass-tint-webgl: var(--sl-glass-bg-webgl);
-  --sl-color-glass-opaque: var(--sl-surface-1);
-  --sl-color-hairline: var(--sl-border);
   --sl-color-highlight: rgba(255, 255, 255, 0.6);
-  --sl-color-focus: var(--sl-gold);
-  --sl-color-error: var(--sl-status-breach);
-  --sl-text: var(--sl-fg);
-  --sl-muted: var(--sl-fg-muted);
-  --sl-panel: var(--sl-surface-1);
-  --sl-line: var(--sl-border);
-  --sl-accent: var(--sl-gold);
   --sl-accent-ink: #ffffff;
-  --sl-glass: var(--sl-glass-bg);
-  --sl-shadow: var(--sl-depth-raised);
 }
 
 [data-mode="operator"] {
+  color-scheme: dark;
   /* Operator Cockpit Profile (High Density, Value-Stepped Dark) */
   --sl-bg: #0b0d12;
   --sl-surface-1: #11141c;
@@ -206,6 +169,42 @@
   --sl-gold-bright: #f0c87e;
   --sl-companion: #73e6ff;
   --sl-companion-bright: #9feeff;
+
+  --sl-color-secondary: #efede7;
+  --sl-color-surface-paper: #efede7;
+  --sl-color-surface-ivory: #ede6d8;
+  --sl-color-on-surface: var(--sl-fg);
+  --sl-color-on-paper: #070a10;
+  --sl-color-highlight: rgba(251, 246, 235, 0.18);
+  --sl-accent-ink: var(--sl-bg);
+}
+
+/* Rebind aliases at each profile boundary: inherited var() values are already resolved.
+ * Paper material colors remain a light/dark pair even inside a dark outer profile. */
+:root,
+[data-theme="ink"],
+[data-theme="paper"],
+[data-mode="operator"] {
+  --sl-color-primary: var(--sl-bg);
+  --sl-color-tertiary: var(--sl-gold);
+  --sl-color-neutral: var(--sl-fg);
+  --sl-color-surface: var(--sl-bg);
+  --sl-color-accent: var(--sl-gold);
+  --sl-color-accent-bright: var(--sl-gold-bright);
+  --sl-color-signal: var(--sl-companion);
+  --sl-color-glass-tint: var(--sl-glass-bg);
+  --sl-color-glass-tint-webgl: var(--sl-glass-bg-webgl);
+  --sl-color-glass-opaque: var(--sl-surface-1);
+  --sl-color-hairline: var(--sl-border);
+  --sl-color-focus: var(--sl-border-focus);
+  --sl-color-error: var(--sl-status-breach);
+  --sl-text: var(--sl-fg);
+  --sl-muted: var(--sl-fg-muted);
+  --sl-panel: var(--sl-surface-1);
+  --sl-line: var(--sl-border);
+  --sl-accent: var(--sl-gold);
+  --sl-glass: var(--sl-glass-bg);
+  --sl-shadow: var(--sl-depth-raised);
 }
 
 :root {

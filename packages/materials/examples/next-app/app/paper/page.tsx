@@ -16,7 +16,7 @@ export default function PaperPage() {
         <header className="grid gap-3">
           <p className="text-label-sm opacity-70">Paper</p>
           <h1 className="text-headline-lg font-semibold tracking-headline-lg text-balance md:text-display md:tracking-display">
-            The reading <em className="font-serif font-normal text-accent">surface.</em>
+            The reading <em className="font-serif font-normal text-on-paper">surface.</em>
           </h1>
           <p className="max-w-[46ch] text-body-lg opacity-80 md:max-w-[70ch]">
             Warm limestone rather than white, so a page feels like a studio page and not a blank template. Nothing on this
