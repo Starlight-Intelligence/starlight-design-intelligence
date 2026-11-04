@@ -117,6 +117,7 @@ try {
         await control.selectOption('ink');
         for (const profile of ['ink', 'paper', 'operator']) {
           await control.selectOption(profile);
+          await page.keyboard.press('Tab');
           await control.focus();
           const state = {
             route, profile, viewport, touch: mobile,
@@ -147,11 +148,11 @@ try {
               outer.dataset.theme = 'paper';
               const nested = document.createElement('div');
               nested.dataset.mode = 'operator';
-              nested.style.cssText = 'background:var(--sl-color-surface);color:var(--sl-color-on-surface)';
+              nested.style.cssText = 'background:var(--sl-color-surface);color:var(--sl-color-on-surface);border-color:var(--sl-color-glass-tint-webgl)';
               outer.append(nested);
               document.body.append(outer);
               const style = getComputedStyle(nested);
-              const operator = { color: style.color, background: style.backgroundColor, glass: style.getPropertyValue('--sl-color-glass-tint-webgl').trim() };
+              const operator = { color: style.color, background: style.backgroundColor, glass: style.borderTopColor };
               delete nested.dataset.mode;
               nested.dataset.theme = 'ink';
               const ink = { color: style.color, background: style.backgroundColor };
@@ -160,11 +161,15 @@ try {
               outer.remove();
               return { operator, ink, paper };
             });
-            assert.deepEqual(state.nestedProfiles, {
-              operator: { color: 'rgb(232, 235, 242)', background: 'rgb(11, 13, 18)', glass: 'rgba(7, 10, 16, 0.30)' },
+            const { glass, ...operator } = state.nestedProfiles.operator;
+            assert.deepEqual({ ...state.nestedProfiles, operator }, {
+              operator: { color: 'rgb(232, 235, 242)', background: 'rgb(11, 13, 18)' },
               ink: { color: 'rgb(251, 246, 235)', background: 'rgb(7, 10, 16)' },
               paper: { color: 'rgb(14, 19, 27)', background: 'rgb(239, 237, 231)' },
             });
+            const channels = glass.match(/[\d.]+/g).map(Number);
+            assert.deepEqual(channels.slice(0, 3), [7, 10, 16]);
+            assert.ok(Math.abs(channels[3] - 0.3) <= 1 / 255, glass);
           }
           if (route === '/paper') {
             state.paperButton = await sample(page, '[data-slot="button"][data-material="paper"]');
@@ -206,7 +211,10 @@ try {
 
       await page.emulateMedia({ reducedMotion: 'reduce' });
       await page.goto(new URL('/glass', baseURL).href);
-      await page.waitForFunction(() => document.querySelector('[data-glass]')?.getAttribute('data-glass') === 'css');
+      await page.waitForFunction(() => {
+        const scene = document.querySelector('[data-glass]');
+        return scene?.getAttribute('data-glass') === 'css' && scene.getAttribute('data-glass-reason') === 'reduced motion requested';
+      });
       await screenshot(page, `${mobile ? 'mobile' : 'desktop'}-glass-reduced-motion`);
       receipt.states.push({ viewport, reducedMotion: true, glass: await page.locator('[data-glass]').evaluate((node) => ({ ...node.dataset })) });
       await page.emulateMedia({ reducedMotion: 'no-preference' });
@@ -261,6 +269,7 @@ try {
   } finally { await noScript.close(); }
   assert.equal(receipt.errors.length, 0, receipt.errors.join('\n'));
   assert.ok(!receipt.consoleDiagnostics.some((message) => /hydration|react error/i.test(message.text)), JSON.stringify(receipt.consoleDiagnostics));
+  assert.ok(!receipt.consoleDiagnostics.some((message) => /WebGL.*INVALID_OPERATION/i.test(message.text)), JSON.stringify(receipt.consoleDiagnostics));
   assert.ok(receipt.fontRequests.length > 0);
   assert.ok(receipt.fontRequests.every((url) => new URL(url).origin === new URL(baseURL).origin), JSON.stringify(receipt.fontRequests));
   receipt.verdict = 'PASS — bounded local production consumer checks, not release approval';

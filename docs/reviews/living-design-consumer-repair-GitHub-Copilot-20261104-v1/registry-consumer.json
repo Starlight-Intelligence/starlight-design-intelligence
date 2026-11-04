@@ -1,0 +1,207 @@
+{
+  "cli": "4.22.1",
+  "consumerWorkspaceLinkPresent": false,
+  "files": [
+    {
+      "entry": "materials-styles",
+      "source": "src/tokens/tokens.css",
+      "target": "~/components/starlight-materials/tokens/tokens.css",
+      "bytes": 9763,
+      "installedSha256": "b8d395dc478cdda970253cb231e7fd2beb49e00ce5aab591c91dc3d12e0768db",
+      "generatedContentSha256": "b8d395dc478cdda970253cb231e7fd2beb49e00ce5aab591c91dc3d12e0768db",
+      "exactContent": true,
+      "structurallyEqual": true
+    },
+    {
+      "entry": "materials-styles",
+      "source": "src/tokens/theme.css",
+      "target": "~/components/starlight-materials/tokens/theme.css",
+      "bytes": 2328,
+      "installedSha256": "21fec17e17c5dc9d8ad26c175371c5a679e2be5060e4aceba2a8548d749ddb13",
+      "generatedContentSha256": "21fec17e17c5dc9d8ad26c175371c5a679e2be5060e4aceba2a8548d749ddb13",
+      "exactContent": true,
+      "structurallyEqual": true
+    },
+    {
+      "entry": "materials-styles",
+      "source": "src/styles/materials.css",
+      "target": "~/components/starlight-materials/styles/materials.css",
+      "bytes": 6587,
+      "installedSha256": "f41e1c6bb7bcab490f01bc3e01e955499549518509cc86ea6a5effe03e891973",
+      "generatedContentSha256": "f41e1c6bb7bcab490f01bc3e01e955499549518509cc86ea6a5effe03e891973",
+      "exactContent": true,
+      "structurallyEqual": true
+    },
+    {
+      "entry": "material",
+      "source": "src/primitives/material.ts",
+      "target": "~/components/starlight-materials/primitives/material.ts",
+      "bytes": 2768,
+      "installedSha256": "421941eac9dbc139190b004ab743831f3ae63d051c07405e594900fbbc934ef0",
+      "generatedContentSha256": "70065851d58efc4db21cf6bb11f15e9bf75d4203886b32e31c19a59422537277",
+      "exactContent": false,
+      "structurallyEqual": true
+    },
+    {
+      "entry": "glass-gate",
+      "source": "src/gate/glass-gate.ts",
+      "target": "~/components/starlight-materials/gate/glass-gate.ts",
+      "bytes": 3871,
+      "installedSha256": "ffcdf5a62156546431c67e067d14d8f210906f09fbf4d1c697e64d82fb4c831c",
+      "generatedContentSha256": "517885b73e93553435c991c0ddc811ae23cc09b0e22ad125961bb8d979b4b3d2",
+      "exactContent": false,
+      "structurallyEqual": true
+    },
+    {
+      "entry": "glass-gate",
+      "source": "src/gate/use-glass-plan.ts",
+      "target": "~/components/starlight-materials/gate/use-glass-plan.ts",
+      "bytes": 1821,
+      "installedSha256": "0729ef1bccd1af0313950482dcaf82ee8e7c4a1e5b52974781916844e9b5baa9",
+      "generatedContentSha256": "0729ef1bccd1af0313950482dcaf82ee8e7c4a1e5b52974781916844e9b5baa9",
+      "exactContent": true,
+      "structurallyEqual": true
+    },
+    {
+      "entry": "glass-gate",
+      "source": "src/gate/index.ts",
+      "target": "~/components/starlight-materials/gate/index.ts",
+      "bytes": 377,
+      "installedSha256": "d6fb6bae3a6303095fb9d6b1ea5bb467b257e14936d8d1d6995e3d6b418ba948",
+      "generatedContentSha256": "d6fb6bae3a6303095fb9d6b1ea5bb467b257e14936d8d1d6995e3d6b418ba948",
+      "exactContent": true,
+      "structurallyEqual": true
+    },
+    {
+      "entry": "glass-surface",
+      "source": "src/glass/mount-glass.ts",
+      "target": "~/components/starlight-materials/glass/mount-glass.ts",
+      "bytes": 12326,
+      "installedSha256": "febd3c0648ff15d2dee032135f9981249ee7ce3a3e9b21ab6dd3ea9f63d3798b",
+      "generatedContentSha256": "fa161753a21f81ad918db7b2d5a27f0a46922b7214d4b5d3cfd5f866406f1abc",
+      "exactContent": false,
+      "structurallyEqual": true
+    },
+    {
+      "entry": "glass-surface",
+      "source": "src/glass/GlassSurface.tsx",
+      "target": "~/components/starlight-materials/glass/GlassSurface.tsx",
+      "bytes": 4040,
+      "installedSha256": "5ec0d6346deb5bb87cb26f022e8a2b3232787b74799f8cf7de000867a498e601",
+      "generatedContentSha256": "5ec0d6346deb5bb87cb26f022e8a2b3232787b74799f8cf7de000867a498e601",
+      "exactContent": true,
+      "structurallyEqual": true
+    },
+    {
+      "entry": "glass-surface",
+      "source": "src/glass/index.ts",
+      "target": "~/components/starlight-materials/glass/index.ts",
+      "bytes": 243,
+      "installedSha256": "6e3a6c4423e03559b93c16a9705f65fc5941aa10d146ddcccbefca9c99dedf2f",
+      "generatedContentSha256": "6e3a6c4423e03559b93c16a9705f65fc5941aa10d146ddcccbefca9c99dedf2f",
+      "exactContent": true,
+      "structurallyEqual": true
+    },
+    {
+      "entry": "material-button",
+      "source": "src/primitives/ui/button.tsx",
+      "target": "~/components/starlight-materials/primitives/ui/button.tsx",
+      "bytes": 1663,
+      "installedSha256": "8345bea5efe9f6e06acbaa0d2a5ecb77a31847ffa3b488208c9fdec2e4ff66d3",
+      "generatedContentSha256": "8345bea5efe9f6e06acbaa0d2a5ecb77a31847ffa3b488208c9fdec2e4ff66d3",
+      "exactContent": true,
+      "structurallyEqual": true
+    },
+    {
+      "entry": "material-card",
+      "source": "src/primitives/ui/card.tsx",
+      "target": "~/components/starlight-materials/primitives/ui/card.tsx",
+      "bytes": 3130,
+      "installedSha256": "7af318520e006c0f0453bde6b033928184ab804f52bb1b13bf91316ae3101cb9",
+      "generatedContentSha256": "7af318520e006c0f0453bde6b033928184ab804f52bb1b13bf91316ae3101cb9",
+      "exactContent": true,
+      "structurallyEqual": true
+    },
+    {
+      "entry": "material-sheet",
+      "source": "src/primitives/ui/sheet.tsx",
+      "target": "~/components/starlight-materials/primitives/ui/sheet.tsx",
+      "bytes": 5332,
+      "installedSha256": "dd0948fa0355bfd2ba6edd1511a63c25cb221afad13a95f3983c7a5db2b85493",
+      "generatedContentSha256": "dd0948fa0355bfd2ba6edd1511a63c25cb221afad13a95f3983c7a5db2b85493",
+      "exactContent": true,
+      "structurallyEqual": true
+    }
+  ],
+  "installTransform": "shadcn 4.22.1 strips leading comments in three TypeScript files; comparison uses TypeScript 5.9.3 parse/print with removeComments, not content markers",
+  "resolvedVersions": [
+    {
+      "name": "class-variance-authority",
+      "version": "0.7.1"
+    },
+    {
+      "name": "cn",
+      "version": "0.5.0"
+    },
+    {
+      "name": "lucide-react",
+      "version": "1.53.0"
+    },
+    {
+      "name": "next",
+      "version": "16.4.2"
+    },
+    {
+      "name": "radix-ui",
+      "version": "1.8.1"
+    },
+    {
+      "name": "react",
+      "version": "19.3.1"
+    },
+    {
+      "name": "react-dom",
+      "version": "19.3.1"
+    },
+    {
+      "name": "three",
+      "version": "0.186.1"
+    },
+    {
+      "name": "tw-animate-css",
+      "version": "1.4.0"
+    },
+    {
+      "name": "@tailwindcss/postcss",
+      "version": "4.3.3"
+    },
+    {
+      "name": "@types/node",
+      "version": "22.20.5"
+    },
+    {
+      "name": "@types/react",
+      "version": "19.3.0"
+    },
+    {
+      "name": "@types/react-dom",
+      "version": "19.3.0"
+    },
+    {
+      "name": "@types/three",
+      "version": "0.186.0"
+    },
+    {
+      "name": "tailwindcss",
+      "version": "4.3.3"
+    },
+    {
+      "name": "typescript",
+      "version": "5.9.3"
+    }
+  ],
+  "node": "v24.22.1",
+  "sourceSha": "a9f73785353a35ab3f47064dacae13e4b7a2c3c3",
+  "consumerMode": "Isolated Next dev compiler and browser; not a third production build",
+  "disclosure": "Extra verification-only copy of current workspace EvidenceDisclosure; not claimed as a registry item"
+}
