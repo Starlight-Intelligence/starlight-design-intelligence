@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
@@ -12,16 +13,15 @@ const styles = read('src/styles/materials.css');
 const material = read('src/primitives/material.ts');
 const disclosure = read('src/primitives/ui/evidence-disclosure.tsx');
 const paperPage = read('examples/next-app/app/paper/page.tsx');
+const inkSelector = ':root, [data-theme="ink"], [data-mode="operator"]';
 
 function block(css, selector) {
-  const escaped = selector
-    .split(/\s+/)
-    .map((part) => part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
-    .join('\\s*');
-  const match = new RegExp(`${escaped}\\s*\\{([^}]*)\\}`).exec(css);
+  const normalize = (value) => value.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s+/g, '');
+  const match = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)]
+    .find(([, head]) => normalize(head) === normalize(selector));
   assert.ok(match, `missing CSS block ${selector}`);
   return Object.fromEntries(
-    [...match[1].matchAll(/(--[\w-]+)\s*:\s*([^;]+);/g)].map(([, name, value]) => [name, value.trim()])
+    [...match[2].matchAll(/(--[\w-]+)\s*:\s*([^;]+);/g)].map(([, name, value]) => [name, value.trim()])
   );
 }
 
@@ -52,7 +52,11 @@ function contrast(foreground, background) {
 }
 
 function themeTokens(selector) {
-  return { ...block(tokens, ':root, [data-theme="ink"]'), ...block(tokens, selector) };
+  return {
+    ...block(tokens, inkSelector),
+    ...block(tokens, selector),
+    ...block(tokens, ':root, [data-theme="ink"], [data-theme="paper"], [data-mode="operator"]'),
+  };
 }
 
 test('Tailwind palette utilities resolve through the unified semantic theme aliases', () => {
@@ -67,10 +71,15 @@ test('Tailwind palette utilities resolve through the unified semantic theme alia
   }
 
   const paper = themeTokens('[data-theme="paper"]');
-  const ink = themeTokens(':root, [data-theme="ink"]');
+  const ink = themeTokens(inkSelector);
+  const operator = themeTokens('[data-mode="operator"]');
   assert.equal(resolve(palette['--color-on-surface'], paper), '#0e131b');
   assert.equal(resolve(palette['--color-glass-tint-webgl'], paper), 'rgba(239, 237, 231, 0.40)');
+  assert.ok(contrast(resolve(palette['--color-accent-bright'], paper), resolve(palette['--color-surface'], paper)) >= 3);
   assert.equal(resolve(palette['--color-on-surface'], ink), '#fbf6eb');
+  assert.equal(resolve(palette['--color-on-surface'], operator), '#e8ebf2');
+  assert.equal(resolve(palette['--color-primary'], operator), '#0b0d12');
+  assert.equal(resolve(palette['--color-glass-tint'], operator), 'rgba(17, 20, 28, 0.78)');
   assert.equal(resolve(palette['--color-glass-tint-webgl'], ink), 'rgba(7, 10, 16, 0.30)');
 
   const paperForeground = resolve(palette['--color-on-paper'], paper);
@@ -78,19 +87,24 @@ test('Tailwind palette utilities resolve through the unified semantic theme alia
   assert.ok(contrast(paperForeground, paperBackground) >= 4.5);
   assert.ok(contrast(paperForeground, resolve(palette['--color-surface-ivory'], paper)) >= 4.5);
   assert.ok(contrast(resolve(palette['--color-on-surface'], ink), resolve(palette['--color-primary'], ink)) >= 4.5);
+  for (const profile of [ink, paper, operator]) {
+    assert.ok(contrast(resolve('var(--sl-color-on-paper)', profile), resolve('var(--sl-color-surface-paper)', profile)) >= 4.5);
+    assert.ok(contrast(resolve('var(--sl-color-on-paper)', profile), resolve('var(--sl-color-surface-ivory)', profile)) >= 4.5);
+  }
   assert.match(paperPage, /<main className="bg-surface-paper text-on-paper">/);
   assert.match(paperPage, /font-serif font-normal text-on-paper/);
 });
 
 test('focus treatment retains contrast on both light and dark material surroundings', () => {
   const paper = themeTokens('[data-theme="paper"]');
-  const ink = themeTokens(':root, [data-theme="ink"]');
+  const ink = themeTokens(inkSelector);
+  const operator = themeTokens('[data-mode="operator"]');
   assert.match(styles, /@layer utilities\s*\{[\s\S]*?\[data-slot="button"\]:focus-visible/);
   assert.match(styles, /\[data-slot="card"\]\[data-interactive\]:focus-visible/);
   assert.match(styles, /\[data-slot="sheet-close"\]:focus-visible/);
   assert.match(styles, /box-shadow: 0 0 0 2px var\(--sl-color-on-surface\), 0 0 0 4px var\(--sl-color-surface\)/);
 
-  for (const variables of [paper, ink]) {
+  for (const variables of [paper, ink, operator]) {
     const ringColors = [
       resolve('var(--sl-color-on-surface)', variables),
       resolve('var(--sl-color-surface)', variables),
@@ -109,4 +123,28 @@ test('evidence disclosure inherits material text and keeps its state legible wit
   assert.match(disclosure, /group-open:rotate-45/);
   assert.match(material, /paper: 'bg-surface-paper text-on-paper/);
   assert.match(material, /ink: 'bg-primary text-on-surface/);
+});
+
+test('example fonts are unchanged licensed originals with pinned provenance and no Google font loader', () => {
+  const directory = 'examples/next-app/app/fonts';
+  const provenance = JSON.parse(read(`${directory}/provenance.json`));
+  assert.match(provenance.revision, /^[a-f0-9]{40}$/);
+  assert.equal(provenance.files.length, 3);
+  let bytes = 0;
+  for (const font of provenance.files) {
+    const data = fs.readFileSync(path.join(root, directory, font.file));
+    const license = fs.readFileSync(path.join(root, directory, font.licenseFile));
+    assert.equal(data.length, font.bytes);
+    assert.equal(createHash('sha256').update(data).digest('hex'), font.sha256);
+    assert.equal(createHash('sha256').update(license).digest('hex'), font.licenseSha256);
+    assert.match(license.toString(), /SIL OPEN FONT LICENSE Version 1\.1/);
+    assert.ok(font.source.startsWith(`https://raw.githubusercontent.com/google/fonts/${provenance.revision}/ofl/`));
+    assert.ok(font.licenseSource.startsWith(`https://raw.githubusercontent.com/google/fonts/${provenance.revision}/ofl/`));
+    bytes += data.length;
+  }
+  assert.equal(bytes, provenance.totalFontBytes);
+  assert.ok(bytes <= 2_000_000);
+  const layout = read('examples/next-app/app/layout.tsx');
+  assert.match(layout, /from 'next\/font\/local'/);
+  assert.doesNotMatch(layout, /next\/font\/google/);
 });

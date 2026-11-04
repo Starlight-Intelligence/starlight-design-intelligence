@@ -1,0 +1,3 @@
+{"file":"IBMPlexMono-Regular.ttf","family":"IBM Plex Mono","subfamily":"Regular","postscript":"IBMPlexMono-Regular","axes":{},"glyphs":1033}
+{"file":"InstrumentSans[wdth,wght].ttf","family":"Instrument Sans","subfamily":"Regular","postscript":"InstrumentSans-Regular","axes":{"wdth":{"name":"Width","min":75,"default":100,"max":100},"wght":{"name":"Weight","min":400,"default":400,"max":700}},"glyphs":501}
+{"file":"InstrumentSerif-Italic.ttf","family":"Instrument Serif","subfamily":"Italic","postscript":"InstrumentSerif-Italic","axes":{},"glyphs":377}
