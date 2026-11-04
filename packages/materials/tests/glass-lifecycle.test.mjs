@@ -39,6 +39,11 @@ test('glass mounts reuse one live canvas context and cancel stale async mounts',
   let stateResets = 0;
   let throwOnReset = false;
   let textureLoad = async () => texture();
+  let shaderUniforms;
+  let ink = '#070a10';
+  const frames = new Map();
+  const profileObservers = [];
+  let nextFrame = 0;
 
   function texture() {
     return {
@@ -138,6 +143,7 @@ test('glass mounts reuse one live canvas context and cancel stale async mounts',
       dispose() {}
     },
     ShaderMaterial: class {
+      constructor({ uniforms }) { shaderUniforms = uniforms; }
       dispose() {}
     },
     Scene,
@@ -185,8 +191,15 @@ test('glass mounts reuse one live canvas context and cancel stale async mounts',
   setGlobal('window', window);
   setGlobal('document', document);
   setGlobal('navigator', navigator);
-  setGlobal('requestAnimationFrame', () => 1);
-  setGlobal('cancelAnimationFrame', () => {});
+  setGlobal('requestAnimationFrame', (callback) => { frames.set(++nextFrame, callback); return nextFrame; });
+  setGlobal('cancelAnimationFrame', (id) => frames.delete(id));
+  setGlobal('MutationObserver', class {
+    observed = [];
+    disconnected = false;
+    constructor(callback) { this.callback = callback; profileObservers.push(this); }
+    observe(target, options) { this.observed.push({ target, options }); }
+    disconnect() { this.disconnected = true; }
+  });
   setGlobal('ResizeObserver', class {
     observe() {}
     disconnect() {}
@@ -198,11 +211,12 @@ test('glass mounts reuse one live canvas context and cancel stale async mounts',
   });
   setGlobal('getComputedStyle', () => ({
     borderTopLeftRadius: '40px',
-    getPropertyValue: () => '#070a10',
+    getPropertyValue: () => ink,
   }));
 
   const rect = () => ({ left: 0, top: 0, width: 1200, height: 800 });
-  const scene = Object.assign(new EventTarget(), { dataset: {}, getBoundingClientRect: rect });
+  const root = { parentElement: null };
+  const scene = Object.assign(new EventTarget(), { dataset: {}, parentElement: root, getBoundingClientRect: rect });
   const panel = Object.assign(new EventTarget(), { getBoundingClientRect: rect });
   const canvas = new EventTarget();
   const { mountGlass } = await import('../src/glass/mount-glass.ts');
@@ -211,7 +225,31 @@ test('glass mounts reuse one live canvas context and cancel stale async mounts',
   const first = await mountGlass({ scene, canvas, panel, poster: '/poster-a.png', plan: webglPlan });
   assert.equal(first.mode, 'webgl', first.reason);
   const firstContext = contexts.get(canvas);
+  const flushFrames = () => {
+    const pending = [...frames.values()];
+    frames.clear();
+    for (const callback of pending) callback();
+  };
+  flushFrames();
+  const profileObserver = profileObservers.at(-1);
+  assert.ok(profileObserver, 'a running shader observes inherited profile changes');
+  assert.deepEqual(profileObserver.observed.map(({ target }) => target), [scene, root]);
+  for (const { options } of profileObserver.observed) {
+    assert.equal(options.attributes, true);
+    assert.equal(options.subtree, undefined, 'unrelated descendants do not keep the renderer drawing');
+    assert.ok(options.attributeFilter.includes('data-theme'));
+    assert.ok(!options.attributeFilter.includes('data-glass'));
+  }
+  ink = '#efede7';
+  profileObserver.callback();
+  profileObserver.callback();
+  assert.equal(frames.size, 1, 'profile changes coalesce into one requested frame');
+  flushFrames();
+  assert.deepEqual([shaderUniforms.uInk.value.x, shaderUniforms.uInk.value.y, shaderUniforms.uInk.value.z], [239 / 255, 237 / 255, 231 / 255]);
   first.teardown();
+  assert.equal(profileObserver.disconnected, true);
+  profileObserver.callback();
+  assert.equal(frames.size, 0, 'a late observer callback cannot restart a torn-down mount');
   assert.equal(rendererDisposals, 1);
   assert.equal(stateResets, 1, 'teardown returns the reusable context with default unpack state');
   assert.equal(contextLosses, 0, 'teardown must leave the React-owned canvas context reusable');

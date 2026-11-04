@@ -76,10 +76,110 @@ async function sample(page, selector) {
       text: element.textContent.trim().slice(0, 100),
       color: style.color, background: background.slice(0, 3),
       effectiveForeground: foreground.slice(0, 3).map((value, i) => value * opacity + background[i] * (1 - opacity)),
-      font: style.fontFamily, weight: style.fontWeight, style: style.fontStyle,
+      font: style.fontFamily, fontSize: parseFloat(style.fontSize), weight: style.fontWeight, style: style.fontStyle,
+      foreground, opacity,
       outline: style.outline, outlineColor: rgb(style.outlineColor), boxShadow: style.boxShadow,
     };
   });
+}
+
+// Read the actual image/canvas backdrop with the glyphs hidden. The full bounding box
+// is conservative: every sampled background pixel must support the nominal text color.
+async function renderedBackdrop(page, selector, name, hideSelector = selector) {
+  const foreground = await sample(page, selector);
+  assert.equal(foreground.foreground[3], 1, 'rendered contrast requires opaque text');
+  assert.equal(foreground.opacity, 1, 'rendered contrast requires opaque ancestors');
+  const mask = await page.addStyleTag({ content: `${hideSelector}, ${hideSelector} * { color: transparent !important; -webkit-text-fill-color: transparent !important; text-shadow: none !important; text-decoration-color: transparent !important; }` });
+  let bytes;
+  try {
+    bytes = await page.locator(selector).first().screenshot({ animations: 'disabled', caret: 'hide' });
+  } finally { await mask.evaluate((node) => node.remove()); }
+  const file = `${name}-backdrop.png`;
+  await writeFile(join(output, file), bytes);
+  const measurement = await page.evaluate(async ({ encoded, foreground }) => {
+    const data = Uint8Array.from(atob(encoded), (character) => character.charCodeAt(0));
+    const image = await createImageBitmap(new Blob([data], { type: 'image/png' }));
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = image.width;
+      canvas.height = image.height;
+      const context = canvas.getContext('2d', { willReadFrequently: true });
+      context.drawImage(image, 0, 0);
+      const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
+      const luminance = (rgb) => rgb.reduce((sum, value, index) => {
+        const channel = value / 255;
+        return sum + [0.2126, 0.7152, 0.0722][index] * (channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4);
+      }, 0);
+      const ink = luminance(foreground);
+      let minimum = Infinity;
+      let worst;
+      for (let offset = 0; offset < pixels.length; offset += 4) {
+        if (pixels[offset + 3] !== 255) throw new Error('backdrop screenshot contains uncomposited pixels');
+        const rgb = Array.from(pixels.slice(offset, offset + 3));
+        const background = luminance(rgb);
+        const ratio = (Math.max(ink, background) + 0.05) / (Math.min(ink, background) + 0.05);
+        if (ratio < minimum) {
+          minimum = ratio;
+          worst = { rgb, x: (offset / 4) % canvas.width, y: Math.floor(offset / 4 / canvas.width) };
+        }
+      }
+      return { contrast: minimum, worst, sampledPixels: pixels.length / 4, width: canvas.width, height: canvas.height };
+    } finally { image.close(); }
+  }, { encoded: bytes.toString('base64'), foreground: foreground.foreground.slice(0, 3) });
+  return { method: 'nominal foreground against every rendered backdrop pixel with glyphs hidden', selector, foreground: foreground.foreground, file, sha256: createHash('sha256').update(bytes).digest('hex'), bytes: bytes.length, ...measurement };
+}
+
+async function verifyBackdropFixture() {
+  const context = await browser.newContext({ viewport: { width: 240, height: 120 }, deviceScaleFactor: 1 });
+  try {
+    const page = await context.newPage();
+    await page.setContent('<style>body{margin:0}canvas,img{position:absolute;inset:0;width:240px;height:120px}#specimen{position:absolute;inset:20px;color:rgb(0,0,0);font-size:24px}</style><canvas width="240" height="120"></canvas><img alt=""><div id="specimen">Backdrop fixture</div>');
+    const results = [];
+    for (const kind of ['poster', 'canvas']) {
+      for (const [label, value, expected] of [['white', 255, 21], ['black', 0, 1]]) {
+        await page.evaluate(async ({ kind, value }) => {
+          const canvas = document.querySelector('canvas');
+          const context = canvas.getContext('2d');
+          context.fillStyle = `rgb(${value},${value},${value})`;
+          context.fillRect(0, 0, canvas.width, canvas.height);
+          const image = document.querySelector('img');
+          image.style.display = kind === 'poster' ? 'block' : 'none';
+          if (kind === 'poster') { image.src = canvas.toDataURL(); await image.decode(); }
+        }, { kind, value });
+        const measured = await renderedBackdrop(page, '#specimen', `fixture-${kind}-${label}`);
+        assert.ok(Math.abs(measured.contrast - expected) < 0.001, JSON.stringify(measured));
+        results.push({ kind, label, expected, ...measured });
+      }
+    }
+    receipt.states.push({ journey: 'rendered backdrop detector rejects unreadable poster and canvas fixtures', results });
+  } finally { await context.close(); }
+}
+
+function traceShaderUniforms() {
+  const names = new WeakMap();
+  const uploads = new WeakMap();
+  Object.defineProperty(window, '__materialsUniformTrace', { value: uploads });
+  for (const constructor of [window.WebGLRenderingContext, window.WebGL2RenderingContext]) {
+    if (!constructor) continue;
+    const prototype = constructor.prototype;
+    const locate = prototype.getUniformLocation;
+    prototype.getUniformLocation = function (...args) {
+      const location = Reflect.apply(locate, this, args);
+      if (location) names.set(location, args[1]);
+      return location;
+    };
+    for (const method of ['uniform3f', 'uniform3fv']) {
+      const original = prototype[method];
+      prototype[method] = function (...args) {
+        const result = Reflect.apply(original, this, args);
+        if (names.get(args[0]) === 'uInk') {
+          const vector = method === 'uniform3f' ? args.slice(1, 4) : Array.from(args[1]).slice(args[2] || 0, (args[2] || 0) + 3);
+          uploads.set(this.canvas, vector);
+        }
+        return result;
+      };
+    }
+  }
 }
 
 async function platformFonts(page, selector) {
@@ -95,10 +195,12 @@ async function platformFonts(page, selector) {
 }
 
 try {
+  await verifyBackdropFixture();
   for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844 }]) {
     const mobile = viewport.width < 900;
     const context = await browser.newContext({ viewport, deviceScaleFactor: 1, hasTouch: mobile, isMobile: mobile });
     try {
+      await context.addInitScript(traceShaderUniforms);
       const page = await context.newPage();
       page.on('pageerror', (error) => receipt.errors.push(String(error)));
       page.on('console', (message) => {
@@ -117,6 +219,15 @@ try {
         await control.selectOption('ink');
         for (const profile of ['ink', 'paper', 'operator']) {
           await control.selectOption(profile);
+          if (route === '/glass' && !mobile) {
+            await page.waitForFunction(() => {
+              const scene = document.querySelector('[data-glass]');
+              const canvas = scene?.querySelector('canvas');
+              const uploaded = window.__materialsUniformTrace?.get(canvas);
+              const token = scene && /^#([0-9a-f]{6})$/i.exec(getComputedStyle(scene).getPropertyValue('--sl-color-primary').trim());
+              return scene?.dataset.glass === 'webgl' && token && uploaded && [0, 2, 4].every((index, channel) => Math.abs(uploaded[channel] - parseInt(token[1].slice(index, index + 2), 16) / 255) < 0.000001);
+            }, undefined, { timeout: 30_000 });
+          }
           await page.keyboard.press('Tab');
           await control.focus();
           const state = {
@@ -129,12 +240,21 @@ try {
           };
           state.headingContrast = contrast(state.heading.effectiveForeground, state.heading.background);
           state.accentContrast = contrast(state.accent.effectiveForeground, state.accent.background);
+          if (route === '/glass') {
+            const name = `${mobile ? 'mobile' : 'desktop'}-glass-${profile}`;
+            state.headingBackdrop = await renderedBackdrop(page, 'h1', `${name}-heading`, 'h1');
+            state.accentBackdrop = await renderedBackdrop(page, 'h1 em', `${name}-accent`, 'h1');
+            state.headingContrast = state.headingBackdrop.contrast;
+            state.accentContrast = state.accentBackdrop.contrast;
+            if (!mobile) state.shaderInk = await page.locator('canvas').evaluate((canvas) => window.__materialsUniformTrace.get(canvas));
+          }
           state.controlContrast = contrast(state.control.effectiveForeground, state.control.background);
           state.focusContrast = contrast(state.control.outlineColor, state.control.background);
           receipt.states.push(state);
           assert.ok(state.headingContrast >= 4.5, JSON.stringify(state));
           assert.ok(state.accentContrast >= 3, JSON.stringify(state));
           assert.ok(state.controlContrast >= 4.5, JSON.stringify(state));
+          assert.ok(state.control.fontSize >= 16, `theme selector must remain at least 16px: ${state.control.fontSize}`);
           assert.ok(state.focusContrast >= 3, JSON.stringify(state));
           assert.match(state.control.outline, /2px/);
           assert.deepEqual(state.detector.failures, []);
