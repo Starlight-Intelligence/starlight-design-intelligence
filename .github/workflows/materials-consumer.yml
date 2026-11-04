@@ -1,0 +1,116 @@
+name: Living materials consumer
+
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, labeled, unlabeled]
+    paths:
+      - "packages/materials/**"
+      - "scripts/inspect-interface-foundations.mjs"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/materials-consumer.yml"
+  push:
+    branches: [main]
+    paths:
+      - "packages/materials/**"
+      - "scripts/inspect-interface-foundations.mjs"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/materials-consumer.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: materials-consumer-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  consumer:
+    # Maintainers can request the bounded proof while keeping a PR in draft.
+    if: >-
+      github.event_name != 'pull_request' ||
+      !github.event.pull_request.draft ||
+      contains(github.event.pull_request.labels.*.name, 'materials-proof')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 24.22.1
+          cache: npm
+      - name: Bind evidence to the actual checkout
+        run: |
+          proof_dir="$RUNNER_TEMP/materials-consumer-proof"
+          mkdir -p "$proof_dir"
+          printf 'EVIDENCE_DIR=%s\n' "$proof_dir" >> "$GITHUB_ENV"
+          git rev-parse HEAD > "$proof_dir/source-head.txt"
+          git status --short > "$proof_dir/source-before.txt"
+          node --version > "$proof_dir/node-version.txt"
+      - name: Install existing locked dependencies
+        run: |
+          npm ci --ignore-scripts
+          npx --yes pnpm@12.16.1 --dir packages/materials install --frozen-lockfile
+          npx --yes pnpm@12.16.1 --dir packages/materials/examples/next-app install --frozen-lockfile
+      - name: Execute the installed materials suite without optional-dependency skips
+        working-directory: packages/materials
+        run: |
+          node --input-type=module -e "for (const name of ['three', 'react', 'shadcn/package.json']) console.log(name, import.meta.resolve(name))"
+          node --test --test-reporter=tap 'tests/**/*.test.mjs' | tee "$EVIDENCE_DIR/materials-tests.log"
+          grep -Eq '^# skipped 0$' "$EVIDENCE_DIR/materials-tests.log"
+      - name: Check types, source-backed registry and plugin regressions
+        run: |
+          npx --yes pnpm@12.16.1 --dir packages/materials typecheck
+          npx --yes pnpm@12.16.1 --dir packages/materials/examples/next-app typecheck
+          npx --yes pnpm@12.16.1 --dir packages/materials registry:build
+          git diff --exit-code -- packages/materials/public/r
+          node --test tests/living-design.test.mjs tests/font-artifact.test.mjs | tee "$EVIDENCE_DIR/plugin-tests.log"
+      - name: Build the production example
+        run: |
+          npx --yes pnpm@12.16.1 --dir packages/materials/examples/next-app build | tee "$EVIDENCE_DIR/production-build.log"
+          git diff -- packages/materials/examples/next-app/tsconfig.json > "$EVIDENCE_DIR/next-generated-tsconfig.diff"
+          git status --short > "$EVIDENCE_DIR/source-after-build.txt"
+      - name: Install the locked Playwright browser
+        run: npx --no-install playwright install --with-deps chromium
+      - name: Exercise the complete production consumer journey
+        working-directory: packages/materials/examples/next-app
+        run: |
+          server_pid=
+          trap 'if [[ -n "$server_pid" ]] && kill -0 "$server_pid" 2>/dev/null; then kill "$server_pid"; wait "$server_pid" || true; fi' EXIT
+          node node_modules/next/dist/bin/next start --hostname 127.0.0.1 --port 3100 > "$EVIDENCE_DIR/production-server.log" 2>&1 &
+          server_pid=$!
+          ready=0
+          for attempt in {1..60}; do
+            if ! kill -0 "$server_pid" 2>/dev/null; then
+              cat "$EVIDENCE_DIR/production-server.log"
+              exit 1
+            fi
+            if curl --fail --silent --max-time 2 --output /dev/null http://127.0.0.1:3100/; then
+              ready=1
+              break
+            fi
+            sleep 1
+          done
+          if [[ "$ready" != 1 ]]; then
+            cat "$EVIDENCE_DIR/production-server.log"
+            exit 1
+          fi
+          BASE_URL=http://127.0.0.1:3100 node scripts/verify-consumer-themes.mjs | tee "$EVIDENCE_DIR/browser-command.log"
+      - name: Preserve failures, measured pixels and rendered exports
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: materials-consumer-${{ github.event.pull_request.head.sha || github.sha }}
+          path: ${{ runner.temp }}/materials-consumer-proof/
+          if-no-files-found: error
+          retention-days: 7
