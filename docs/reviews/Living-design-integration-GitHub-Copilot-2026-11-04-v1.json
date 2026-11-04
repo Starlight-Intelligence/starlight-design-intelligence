@@ -49,6 +49,11 @@
         "purpose": "Portable regression entry points"
       },
       {
+        "pr": 75,
+        "sha": "d4319599b48771632138d1f87097e9e357f8011d",
+        "purpose": "Test-only Node lifecycle entry-point correction; not included in combined integration checkout"
+      },
+      {
         "pr": 77,
         "sha": "970e848d309863d0b7851f3988ea6f93efb72856",
         "purpose": "Theme, accessibility, and style registry"
@@ -287,6 +292,101 @@
     "job_count": 0,
     "failed_job_count": 0,
     "interpretation": "No job records or logs were available; this is neither a CI pass nor a CI failure."
+  },
+  "follow_up_reviews": {
+    "pr_74_windows_fixture": {
+      "sha": "423166821449fddefc348d166eece5d728f80ee0",
+      "verdict": "PASS, bounded to code review and Linux execution; Windows was not run",
+      "command": "node --test tests/living-design.test.mjs",
+      "working_directory": "/tmp/living-pr74-review",
+      "passed": 32,
+      "failed": 0,
+      "skipped": 0,
+      "real_linux_directory_symlink": true,
+      "windows_execution": false,
+      "requested_attestation": "starlight-signoff: harness=copilot verdict=pass sha=423166821449fddefc348d166eece5d728f80ee0",
+      "attestation_comment_posted": false,
+      "comment_transport": "No tool for creating a new PR review comment was available; exact verdict and SHA recorded here."
+    },
+    "pr_75_test_only_correction": {
+      "previous_test_sha": "32abde8cf5a6aaf8c4ba0bf15e7874259a724fce",
+      "corrected_head_sha": "d4319599b48771632138d1f87097e9e357f8011d",
+      "diff": {
+        "files": [
+          "packages/materials/tests/glass-lifecycle.test.mjs"
+        ],
+        "additions": 12,
+        "deletions": 8,
+        "runtime_source_changed": false,
+        "changes": [
+          "Check resolution of the exact three package before spawning and explicitly skip only when three itself is missing.",
+          "Set the child test reporter to TAP.",
+          "Set a 30-second timeout, preserve child error/output, and assert one pass with zero skips."
+        ]
+      },
+      "reported_old_revision_failure": {
+        "sha": "32abde8cf5a6aaf8c4ba0bf15e7874259a724fce",
+        "reported_by": "Lead Codex in PR comment 6623598017; not independently reproduced on this host.",
+        "environment": "Node 24.22.1 / Windows, no optional materials dependencies",
+        "result": "Parent failed after the child skipped for missing three; parent also expected TAP while Node 24 defaulted to the spec reporter."
+      },
+      "corrected_revision_tests": [
+        {
+          "command": "npm test --prefix packages/materials",
+          "working_directory": "/tmp/living-pr75-review",
+          "dependency_state": "three and react absent",
+          "result": "PASS",
+          "passed": 13,
+          "failed": 0,
+          "skipped": 2,
+          "skips": [
+            "Expected missing-three lifecycle skip",
+            "Pre-existing missing-React skip"
+          ]
+        },
+        {
+          "command": "node --test packages/materials/tests/glass-lifecycle.test.mjs",
+          "working_directory": "/tmp/living-pr75-review",
+          "dependency_state": "three absent",
+          "result": "PASS with explicit intended skip",
+          "passed": 0,
+          "failed": 0,
+          "skipped": 1
+        },
+        {
+          "command": "corepack pnpm install --frozen-lockfile",
+          "working_directory": "/tmp/living-pr75-review/packages/materials",
+          "result": "PASS; existing lockfile only"
+        },
+        {
+          "command": "corepack pnpm test",
+          "working_directory": "/tmp/living-pr75-review/packages/materials",
+          "node": "v22.23.4",
+          "result": "PASS",
+          "passed": 15,
+          "failed": 0,
+          "skipped": 0,
+          "lifecycle_test_ran_with_installed_three": true
+        }
+      ],
+      "node_24_available": false,
+      "node_24_corrected_candidate_verification": "NOT RUN; Node 24 was unavailable on this host.",
+      "combined_browser_evidence_sha": "fa549486c1bb9204b006ab297720aca3e41fd7d3",
+      "combined_browser_evidence_used_test_sha": "32abde8cf5a6aaf8c4ba0bf15e7874259a724fce",
+      "combined_browser_evidence_relabelled_as_d431959": false
+    },
+    "candidate_actions": {
+      "head_sha": "d4319599b48771632138d1f87097e9e357f8011d",
+      "run_ids": [
+        41781186259,
+        41781186539,
+        41781186309
+      ],
+      "status": "action_required",
+      "job_count": 0,
+      "failed_job_count": 0,
+      "interpretation": "No job records or logs; not a CI pass or failure."
+    }
   },
   "limits": {
     "complete_public_release_gate_claimed": false,

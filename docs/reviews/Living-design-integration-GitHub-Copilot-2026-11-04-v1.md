@@ -40,6 +40,7 @@ This report verifies the bounded package journey against the requested candidate
 - Candidate commits, verified against GitHub and fetched locally:
   - #74 `423166821449fddefc348d166eece5d728f80ee0` — Windows directory-link test fixture.
   - #75 `9aab5814a179b02f32af5bde35afa2a981d7f913`, then `32abde8cf5a6aaf8c4ba0bf15e7874259a724fce` — client boundary, context lifecycle, and regression entry points.
+  - #75 follow-up `d4319599b48771632138d1f87097e9e357f8011d` — test-only correction; this arrived after the combined integration checkout below.
   - #77 `970e848d309863d0b7851f3988ea6f93efb72856` — theme, accessibility, and style registry changes.
 - No empty initial agent commits were included.
 - Temporary combined checkout commit: `fa549486c1bb9204b006ab297720aca3e41fd7d3`
@@ -104,9 +105,30 @@ The detector inspected actual hydrated DOM at both viewports. It reported one `i
 
 Sources reviewed include `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/AGENTS.md`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/SYSTEM.md`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/SCHEMA.md`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/SKILLS.md`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/packages/materials/README.md`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/packages/materials/DESIGN.md`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/brand-packs/sis/DESIGN.md:272-283`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/evals/starlight-material-foundations.md:40-62`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/evals/interface-foundations.md:63-76`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/evals/web-release-gate.md`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/evals/product-outcome-release-standard.md:11-21`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/skills/world-class-web-release/SKILL.md`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/skills/motion-and-interaction/SKILL.md`, `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/evals/typography-quality-gate.md`, and `/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/evals/motion-purpose-gate.md`.
 
+## Follow-up candidate reviews
+
+These bounded reviews were performed after the original combined browser run. They do not change its source identity or browser evidence.
+
+### #74 Windows directory-link fixture
+
+- **Verdict: PASS, bounded to code review and Linux execution.** At exact head `423166821449fddefc348d166eece5d728f80ee0`, `tests/living-design.test.mjs:13-15` uses `junction` on Windows and `dir` elsewhere. On this Linux host the existing fixture therefore created a real directory symlink; both the symlinked-input and symlinked-output-ancestor rejection tests ran, and cleanup succeeded.
+- Command: `node --test tests/living-design.test.mjs`, working directory `/tmp/living-pr74-review` at the exact #74 SHA; **32 passed, 0 failed, 0 skipped**.
+- No Windows execution was available or attempted. This is not a Windows CI result.
+- Requested attestation: `starlight-signoff: harness=copilot verdict=pass sha=423166821449fddefc348d166eece5d728f80ee0`
+- The available GitHub interface exposed reading and replying to existing comments, but no tool for creating a new PR review comment. The attestation was **not posted on #74**; this report records the exact SHA and bounded verdict instead.
+
+### #75 Node 24 test-entry correction
+
+- The lead reported the failure at old test head `32abde8cf5a6aaf8c4ba0bf15e7874259a724fce` on Node `24.22.1` / Windows in comment `6623598017`: the no-`three` child skipped, then the parent incorrectly expected TAP pass output; Node 24's default reporter also differed. I preserve this as the lead's reproduced failure, not as a failure independently rerun on this Linux host.
+- Current head is `d4319599b48771632138d1f87097e9e357f8011d`. Its exact diff against `32abde8` is one file only, `packages/materials/tests/glass-lifecycle.test.mjs` (**12 additions, 8 deletions**): resolve `three` before spawning and skip only when that exact package is missing; force the child TAP reporter; bound it to 30 seconds; retain child error/output and assert one pass with zero skips. `git diff 32abde8..d431959 -- packages/materials/src` is empty: **runtime source is unchanged**.
+- At exact `d431959` with dependencies absent, `npm test --prefix packages/materials` passed with **13 passed, 0 failed, 2 skipped** (the intended missing-`three` skip and the pre-existing missing-React skip). Direct `node --test packages/materials/tests/glass-lifecycle.test.mjs` reported **0 passed, 0 failed, 1 intended missing-`three` skip**.
+- Installed only the existing materials lockfile in `/tmp/living-pr75-review/packages/materials` with `corepack pnpm install --frozen-lockfile` (pass), then ran `corepack pnpm test` at exact `d431959` on Node `v22.23.4`: **15 passed, 0 failed, 0 skipped**, including the lifecycle test with installed `three`.
+- Node 24 was not available on this runner. Therefore the corrected candidate's dependency-present behavior is independently verified on the package-supported Node 22 runtime, but its exact Node 24 reporter path is **not independently verified here**. GitHub Actions for the old and current heads showed `action_required`, zero jobs and no failure logs.
+- The previous combined integration commit `fa549486c1bb9204b006ab297720aca3e41fd7d3` used #75 head `32abde8`, not `d431959`. Its screenshots/browser results are not relabeled as testing the new test-file revision. Since the diff confirms no runtime-source changes, the rendered-source evidence remains relevant; the test-entry correction is covered by the separate results above.
+
 ## CI status, risks, and next bounded action
 
-GitHub Actions runs for the candidate design-kernel workflows were `action_required`; `list_workflow_jobs` returned zero jobs and `get_job_logs` reported zero failed jobs / no job logs for runs `41778038825`, `41778239372`, `41779787759`, and the later #75 runs `41781186539` / `41781186309`. These are **not** CI passes or CI failures.
+GitHub Actions runs for the candidate design-kernel workflows were `action_required`; `list_workflow_jobs` returned zero jobs and `get_job_logs` reported zero failed jobs / no job logs for runs `41778038825`, `41778239372`, `41779787759`, and the later #75 runs `41781186259`, `41781186539`, and `41781186309`. These are **not** CI passes or CI failures.
 
 **Next bounded action for the implementation owner:** regenerate the two runtime registry entries and broaden registry parity tests; then run a clean shadcn consumer install, user-visible theme switching including Operator, and a production-mode interface inspection with fonts available or locally sourced. A separate verifier should inspect the resulting evidence. Measure hardware performance only on an appropriate real device.
 
