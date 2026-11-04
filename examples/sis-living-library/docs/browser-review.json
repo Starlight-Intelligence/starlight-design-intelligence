@@ -1,0 +1,432 @@
+{
+  "at": "2026-10-31T05:05:58.313Z",
+  "url": "http://127.0.0.1:5173",
+  "tests": [
+    {
+      "name": "desktop-midnight-overview: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop-midnight-overview: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "desktop-midnight-components: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop-midnight-components: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "desktop-midnight-icons: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop-midnight-icons: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "desktop-midnight-motion: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop-midnight-motion: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "desktop-daylight-overview: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop-daylight-overview: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "desktop-daylight-components: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop-daylight-components: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "desktop-daylight-icons: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop-daylight-icons: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "desktop-daylight-motion: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop-daylight-motion: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "desktop-ember-overview: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop-ember-overview: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "desktop-ember-components: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop-ember-components: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "desktop-ember-icons: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop-ember-icons: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "desktop-ember-motion: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "desktop-ember-motion: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "mobile-midnight-overview: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-midnight-overview: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "mobile-midnight-components: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-midnight-components: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "mobile-midnight-icons: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-midnight-icons: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "mobile-midnight-motion: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-midnight-motion: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "mobile-daylight-overview: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-daylight-overview: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "mobile-daylight-components: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-daylight-components: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "mobile-daylight-icons: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-daylight-icons: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "mobile-daylight-motion: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-daylight-motion: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "mobile-ember-overview: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-ember-overview: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "mobile-ember-components: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-ember-components: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "mobile-ember-icons: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-ember-icons: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "mobile-ember-motion: no horizontal overflow",
+      "passed": true
+    },
+    {
+      "name": "mobile-ember-motion: no serious/critical axe findings",
+      "passed": true
+    },
+    {
+      "name": "Agent defaults to unknown and synthetic provenance is inspectable",
+      "passed": true
+    },
+    {
+      "name": "Glass toggle removes backdrop filtering",
+      "passed": true
+    },
+    {
+      "name": "desktop: command empty, selection, Escape and focus return",
+      "passed": true
+    },
+    {
+      "name": "mobile: command empty, selection, Escape and focus return",
+      "passed": true
+    },
+    {
+      "name": "Command selection from a removed in-content trigger focuses main",
+      "passed": true
+    },
+    {
+      "name": "Tabs ArrowRight, End and Home update selection and focus",
+      "passed": true
+    },
+    {
+      "name": "Invalid and valid email paths preserve input and truthful outcome",
+      "passed": true
+    },
+    {
+      "name": "SVG download is a real vector and icon empty search recovers",
+      "passed": true
+    },
+    {
+      "name": "Motion reaches result and resets",
+      "passed": true
+    },
+    {
+      "name": "Reduced motion suppresses rendered animation and transitions",
+      "passed": true
+    },
+    {
+      "name": "No JavaScript errors",
+      "passed": true
+    }
+  ],
+  "axe": [
+    {
+      "viewport": "desktop",
+      "theme": "Midnight",
+      "view": "Overview",
+      "violations": []
+    },
+    {
+      "viewport": "desktop",
+      "theme": "Midnight",
+      "view": "Components",
+      "violations": []
+    },
+    {
+      "viewport": "desktop",
+      "theme": "Midnight",
+      "view": "Icons",
+      "violations": []
+    },
+    {
+      "viewport": "desktop",
+      "theme": "Midnight",
+      "view": "Motion",
+      "violations": []
+    },
+    {
+      "viewport": "desktop",
+      "theme": "Daylight",
+      "view": "Overview",
+      "violations": []
+    },
+    {
+      "viewport": "desktop",
+      "theme": "Daylight",
+      "view": "Components",
+      "violations": []
+    },
+    {
+      "viewport": "desktop",
+      "theme": "Daylight",
+      "view": "Icons",
+      "violations": []
+    },
+    {
+      "viewport": "desktop",
+      "theme": "Daylight",
+      "view": "Motion",
+      "violations": []
+    },
+    {
+      "viewport": "desktop",
+      "theme": "Ember",
+      "view": "Overview",
+      "violations": []
+    },
+    {
+      "viewport": "desktop",
+      "theme": "Ember",
+      "view": "Components",
+      "violations": []
+    },
+    {
+      "viewport": "desktop",
+      "theme": "Ember",
+      "view": "Icons",
+      "violations": []
+    },
+    {
+      "viewport": "desktop",
+      "theme": "Ember",
+      "view": "Motion",
+      "violations": []
+    },
+    {
+      "viewport": "mobile",
+      "theme": "Midnight",
+      "view": "Overview",
+      "violations": []
+    },
+    {
+      "viewport": "mobile",
+      "theme": "Midnight",
+      "view": "Components",
+      "violations": []
+    },
+    {
+      "viewport": "mobile",
+      "theme": "Midnight",
+      "view": "Icons",
+      "violations": []
+    },
+    {
+      "viewport": "mobile",
+      "theme": "Midnight",
+      "view": "Motion",
+      "violations": []
+    },
+    {
+      "viewport": "mobile",
+      "theme": "Daylight",
+      "view": "Overview",
+      "violations": []
+    },
+    {
+      "viewport": "mobile",
+      "theme": "Daylight",
+      "view": "Components",
+      "violations": []
+    },
+    {
+      "viewport": "mobile",
+      "theme": "Daylight",
+      "view": "Icons",
+      "violations": []
+    },
+    {
+      "viewport": "mobile",
+      "theme": "Daylight",
+      "view": "Motion",
+      "violations": []
+    },
+    {
+      "viewport": "mobile",
+      "theme": "Ember",
+      "view": "Overview",
+      "violations": []
+    },
+    {
+      "viewport": "mobile",
+      "theme": "Ember",
+      "view": "Components",
+      "violations": []
+    },
+    {
+      "viewport": "mobile",
+      "theme": "Ember",
+      "view": "Icons",
+      "violations": []
+    },
+    {
+      "viewport": "mobile",
+      "theme": "Ember",
+      "view": "Motion",
+      "violations": []
+    }
+  ],
+  "screenshots": [
+    "desktop-midnight-overview.png",
+    "desktop-midnight-components.png",
+    "desktop-midnight-icons.png",
+    "desktop-midnight-motion.png",
+    "desktop-daylight-overview.png",
+    "desktop-daylight-components.png",
+    "desktop-daylight-icons.png",
+    "desktop-daylight-motion.png",
+    "desktop-ember-overview.png",
+    "desktop-ember-components.png",
+    "desktop-ember-icons.png",
+    "desktop-ember-motion.png",
+    "mobile-midnight-overview.png",
+    "mobile-midnight-components.png",
+    "mobile-midnight-icons.png",
+    "mobile-midnight-motion.png",
+    "mobile-daylight-overview.png",
+    "mobile-daylight-components.png",
+    "mobile-daylight-icons.png",
+    "mobile-daylight-motion.png",
+    "mobile-ember-overview.png",
+    "mobile-ember-components.png",
+    "mobile-ember-icons.png",
+    "mobile-ember-motion.png",
+    "mobile-reduced-motion-result.png"
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "sourceHashes": {
+    "src/App.tsx": "fbdd04b7d28a38af4992bebb46146b5a86e4cce1e1e977630cc69b6ad2a04f0c",
+    "src/components.tsx": "a3c2ddf3c647537a922969a2cfc77c06214cc2101aeeb49c43d4afadfb91dfb3",
+    "src/components.css": "82b1edee5642431d193f16ec102e586fab35eb20f681de03211805164d0ac66d",
+    "src/icons.tsx": "7dffd8934d85e30e14bfac9a4accb073eb6fdb843d4cace046470236b885fcc7",
+    "src/tokens.css": "3a600d7d97a73f800bb994eb6f4c5d7a99351481a534813b04ab8a8a43026d98",
+    "src/studio.css": "e956edaf955a44b076c7e3bf6fe806851ab67b662d8e1e3a9ea5d857079932f4"
+  },
+  "summary": {
+    "tests": 59,
+    "passed": 59,
+    "failed": 0,
+    "seriousCriticalAxeFindings": 0,
+    "screenshots": 25
+  }
+}
