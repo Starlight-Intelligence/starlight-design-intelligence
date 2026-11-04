@@ -1,0 +1,47 @@
+{
+  "browser": "156.0.8078.0",
+  "startedAt": "2026-11-04T05:45:31.683Z",
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "cycles": [
+    {
+      "cycle": 0,
+      "route": "/glass",
+      "state": {
+        "mode": "webgl",
+        "reason": "capable"
+      }
+    },
+    {
+      "cycle": 1,
+      "awayStatus": 200,
+      "backStatus": 200,
+      "route": "/glass",
+      "state": {
+        "mode": "webgl",
+        "reason": "capable"
+      }
+    },
+    {
+      "cycle": 2,
+      "awayStatus": 200,
+      "backStatus": 200,
+      "route": "/glass",
+      "state": {
+        "mode": "webgl",
+        "reason": "capable"
+      }
+    }
+  ],
+  "cancellation": {
+    "interceptedPosterRequests": 1,
+    "glassStateWhilePosterPending": {
+      "mode": "css",
+      "reason": "server"
+    },
+    "awayStatus": 200,
+    "finalRoute": "http://127.0.0.1:3001/paper",
+    "pageErrors": []
+  },
+  "pageErrors": [],
+  "completedAt": "2026-11-04T05:45:36.923Z"
+}

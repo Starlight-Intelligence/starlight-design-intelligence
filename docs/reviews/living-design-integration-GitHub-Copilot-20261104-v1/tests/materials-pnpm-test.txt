@@ -1,0 +1,125 @@
+$ node --test "tests/**/*.test.mjs"
+TAP version 13
+# Subtest: public server-safe barrels expose gpuPlan without an unmarked hook module
+ok 1 - public server-safe barrels expose gpuPlan without an unmarked hook module
+  ---
+  duration_ms: 17.770782
+  type: 'test'
+  ...
+# Subtest: a capable desktop gets WebGL
+ok 2 - a capable desktop gets WebGL
+  ---
+  duration_ms: 1.506386
+  type: 'test'
+  ...
+# Subtest: every refusal keeps the CSS glass and says why
+ok 3 - every refusal keeps the CSS glass and says why
+  ---
+  duration_ms: 0.289096
+  type: 'test'
+  ...
+# Subtest: unknown device memory (Safari, Firefox) is not treated as low
+ok 4 - unknown device memory (Safari, Firefox) is not treated as low
+  ---
+  duration_ms: 0.163998
+  type: 'test'
+  ...
+# Subtest: the 900px boundary matches the prototype breakpoint
+ok 5 - the 900px boundary matches the prototype breakpoint
+  ---
+  duration_ms: 0.135575
+  type: 'test'
+  ...
+# Subtest: one slow shader-compile frame does not fail the budget
+ok 6 - one slow shader-compile frame does not fail the budget
+  ---
+  duration_ms: 0.286904
+  type: 'test'
+  ...
+# Subtest: a consistently slow device fails the budget
+ok 7 - a consistently slow device fails the budget
+  ---
+  duration_ms: 0.183707
+  type: 'test'
+  ...
+# Subtest: no valid samples means no budget, so CSS wins
+ok 8 - no valid samples means no budget, so CSS wins
+  ---
+  duration_ms: 0.224199
+  type: 'test'
+  ...
+# Subtest: glass mounts reuse one live canvas context and cancel stale async mounts
+ok 9 - glass mounts reuse one live canvas context and cancel stale async mounts
+  ---
+  duration_ms: 307.114376
+  type: 'test'
+  ...
+# Subtest: published materials-style registry embeds the current source files byte for byte
+ok 10 - published materials-style registry embeds the current source files byte for byte
+  ---
+  duration_ms: 4.179362
+  type: 'test'
+  ...
+# Subtest: 24 Signal SVG icons: exported paths and names match exact 24-icon set
+ok 11 - 24 Signal SVG icons: exported paths and names match exact 24-icon set
+  ---
+  duration_ms: 0.991007
+  type: 'test'
+  ...
+# Subtest: 24 Signal SVG icons: standalone SVG files in icons/signal match 24 count
+ok 12 - 24 Signal SVG icons: standalone SVG files in icons/signal match 24 count
+  ---
+  duration_ms: 2.042044
+  type: 'test'
+  ...
+# Subtest: 24 Signal SVG icons: standalone SVG files in packages/materials/src/icons/svg match 24 count
+ok 13 - 24 Signal SVG icons: standalone SVG files in packages/materials/src/icons/svg match 24 count
+  ---
+  duration_ms: 0.233693
+  type: 'test'
+  ...
+# Subtest: unified tokens.css: zero collisions and all core tokens declared
+ok 14 - unified tokens.css: zero collisions and all core tokens declared
+  ---
+  duration_ms: 0.306213
+  type: 'test'
+  ...
+# Subtest: Tailwind palette utilities resolve through the unified semantic theme aliases
+ok 15 - Tailwind palette utilities resolve through the unified semantic theme aliases
+  ---
+  duration_ms: 3.979591
+  type: 'test'
+  ...
+# Subtest: focus treatment retains contrast on both light and dark material surroundings
+ok 16 - focus treatment retains contrast on both light and dark material surroundings
+  ---
+  duration_ms: 2.041824
+  type: 'test'
+  ...
+# Subtest: evidence disclosure inherits material text and keeps its state legible without motion
+ok 17 - evidence disclosure inherits material text and keeps its state legible without motion
+  ---
+  duration_ms: 0.245812
+  type: 'test'
+  ...
+# Subtest: useGlassPlan answers css on the server without touching window
+ok 18 - useGlassPlan answers css on the server without touching window
+  ---
+  duration_ms: 7.23618
+  type: 'test'
+  ...
+# Subtest: the server plan is the css tier, stated as such
+ok 19 - the server plan is the css tier, stated as such
+  ---
+  duration_ms: 0.78104
+  type: 'test'
+  ...
+1..19
+# tests 19
+# suites 0
+# pass 19
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 430.278848
