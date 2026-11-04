@@ -1,9 +1,23 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
 
 test('glass mounts reuse one live canvas context and cancel stale async mounts', async (t) => {
   if (typeof t.mock.module !== 'function') {
-    t.skip('run with --experimental-test-module-mocks to exercise the mocked WebGL lifecycle');
+    const child = spawnSync(process.execPath, [
+      '--experimental-test-module-mocks',
+      '--test',
+      fileURLToPath(import.meta.url),
+    ], {
+      encoding: 'utf8',
+      env: Object.fromEntries(Object.entries(process.env).filter(([name]) => name !== 'NODE_TEST_CONTEXT')),
+    });
+    assert.ifError(child.error);
+    const output = `${child.stdout}${child.stderr}`;
+    assert.equal(child.status, 0, output);
+    assert.match(output, /# pass 1/);
+    assert.match(output, /# skipped 0/);
     return;
   }
   try {

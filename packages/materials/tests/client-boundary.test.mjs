@@ -6,6 +6,11 @@ import { fileURLToPath } from 'node:url';
 
 const sourceRoot = resolve(dirname(fileURLToPath(import.meta.url)), '../src');
 
+function portableRelativePath(path, root = sourceRoot) {
+  const normalize = (value) => value.replaceAll('\\', '/');
+  return normalize(path).slice(normalize(root).length + 1);
+}
+
 async function localExportGraph(entry, visited = new Map()) {
   const path = resolve(sourceRoot, entry);
   if (visited.has(path)) return visited;
@@ -24,8 +29,12 @@ test('public server-safe barrels expose gpuPlan without an unmarked hook module'
     localExportGraph('index.ts'),
     localExportGraph('gate/index.ts'),
   ]);
-  const hook = [...rootGraph].find(([path]) => path.endsWith('/gate/use-glass-plan.ts'));
+  const hook = [...rootGraph].find(([path]) => portableRelativePath(path) === 'gate/use-glass-plan.ts');
+  const windowsRoot = sourceRoot.replaceAll('/', '\\');
+  const windowsHook = `${windowsRoot}\\gate\\use-glass-plan.ts`;
 
+  assert.equal(portableRelativePath(windowsHook, windowsRoot), 'gate/use-glass-plan.ts');
+  assert.equal(portableRelativePath(`${sourceRoot}/gate/use-glass-plan.ts`), 'gate/use-glass-plan.ts');
   assert.ok(rootGraph.has(resolve(sourceRoot, 'gate/glass-gate.ts')));
   assert.ok(gateGraph.has(resolve(sourceRoot, 'gate/glass-gate.ts')));
   assert.ok(hook, 'the public barrels should continue to expose useGlassPlan');
