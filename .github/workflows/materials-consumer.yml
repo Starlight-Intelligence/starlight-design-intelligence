@@ -65,7 +65,7 @@ jobs:
       - name: Execute the installed materials suite without optional-dependency skips
         working-directory: packages/materials
         run: |
-          node --input-type=module -e "for (const name of ['three', 'react', 'shadcn/package.json']) console.log(name, import.meta.resolve(name))"
+          node -e "for (const name of ['three', 'react', 'shadcn']) console.log(name, require.resolve(name))"
           node --test --test-reporter=tap 'tests/**/*.test.mjs' | tee "$EVIDENCE_DIR/materials-tests.log"
           grep -Eq '^# skipped 0$' "$EVIDENCE_DIR/materials-tests.log"
       - name: Check types, source-backed registry and plugin regressions
