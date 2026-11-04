@@ -4,6 +4,7 @@ import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
 import { validatePortfolioRegistry } from "./validate-adoption.mjs";
 import { validateAssetRegistry } from "./register-media-asset.mjs";
+import { validateFoundations } from "./validate-foundations.mjs";
 
 const root = process.cwd();
 const failures = [];
@@ -81,6 +82,7 @@ for (const path of required) {
 }
 
 failures.push(...validatePortfolioRegistry({ kernelRoot: root }));
+failures.push(...validateFoundations({ root }));
 failures.push(...validateAssetRegistry(json("brand-image-system/runtime/asset-registry.json"), {
   assetRoot: process.env.STARLIGHT_ASSET_ROOT
 }));

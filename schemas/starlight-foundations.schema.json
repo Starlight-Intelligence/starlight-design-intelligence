@@ -1,0 +1,533 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://starlightintelligence.ai/schemas/starlight-foundations.schema.json",
+  "title": "Candidate Starlight lab material foundation contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "contract",
+    "version",
+    "status",
+    "scope",
+    "authority",
+    "colorRoles",
+    "css",
+    "materials",
+    "limits",
+    "identity"
+  ],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract": {
+      "const": "starlight.material_foundations.v1"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^0\\.\\d+\\.\\d+$"
+    },
+    "status": {
+      "const": "candidate"
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kernelRevision",
+        "identityRepository",
+        "identityPolicyRevision",
+        "identityManifestPath",
+        "identityManifestSha256"
+      ],
+      "properties": {
+        "kernelRevision": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "identityRepository": {
+          "const": "frankxai/starlightintelligence.ai"
+        },
+        "identityPolicyRevision": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "identityManifestPath": {
+          "const": "public/brand/identity.json"
+        },
+        "identityManifestSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "colorRoles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "substrateDark",
+        "substrateLight",
+        "readingOnDark",
+        "readingOnLight",
+        "warmEdge",
+        "coolEdge",
+        "starBody",
+        "starCore"
+      ],
+      "properties": {
+        "substrateDark": {
+          "enum": [
+            "ink",
+            "paper",
+            "ivory",
+            "gold",
+            "goldBright",
+            "starlight",
+            "companion",
+            "starCore"
+          ]
+        },
+        "substrateLight": {
+          "enum": [
+            "ink",
+            "paper",
+            "ivory",
+            "gold",
+            "goldBright",
+            "starlight",
+            "companion",
+            "starCore"
+          ]
+        },
+        "readingOnDark": {
+          "enum": [
+            "ink",
+            "paper",
+            "ivory",
+            "gold",
+            "goldBright",
+            "starlight",
+            "companion",
+            "starCore"
+          ]
+        },
+        "readingOnLight": {
+          "enum": [
+            "ink",
+            "paper",
+            "ivory",
+            "gold",
+            "goldBright",
+            "starlight",
+            "companion",
+            "starCore"
+          ]
+        },
+        "warmEdge": {
+          "enum": [
+            "ink",
+            "paper",
+            "ivory",
+            "gold",
+            "goldBright",
+            "starlight",
+            "companion",
+            "starCore"
+          ]
+        },
+        "coolEdge": {
+          "enum": [
+            "ink",
+            "paper",
+            "ivory",
+            "gold",
+            "goldBright",
+            "starlight",
+            "companion",
+            "starCore"
+          ]
+        },
+        "starBody": {
+          "enum": [
+            "ink",
+            "paper",
+            "ivory",
+            "gold",
+            "goldBright",
+            "starlight",
+            "companion",
+            "starCore"
+          ]
+        },
+        "starCore": {
+          "enum": [
+            "ink",
+            "paper",
+            "ivory",
+            "gold",
+            "goldBright",
+            "starlight",
+            "companion",
+            "starCore"
+          ]
+        }
+      }
+    },
+    "css": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "--sl-glass-blur",
+        "--sl-glass-saturation",
+        "--sl-grain-opacity",
+        "--sl-rim-width",
+        "--sl-radius-panel",
+        "--sl-radius-control",
+        "--sl-depth-base",
+        "--sl-depth-raised",
+        "--sl-depth-floating",
+        "--sl-motion-micro",
+        "--sl-motion-base",
+        "--sl-motion-system",
+        "--sl-motion-explain",
+        "--sl-motion-resolve",
+        "--sl-ease-enter",
+        "--sl-ease-exit",
+        "--sl-object-shadow-base",
+        "--sl-object-shadow-raised",
+        "--sl-object-shadow-floating"
+      ],
+      "properties": {
+        "--sl-glass-blur": {
+          "type": "string",
+          "pattern": "^\\d+(\\.\\d+)?px$"
+        },
+        "--sl-glass-saturation": {
+          "type": "string",
+          "pattern": "^\\d+%$"
+        },
+        "--sl-grain-opacity": {
+          "type": "string",
+          "pattern": "^0(\\.\\d+)?$"
+        },
+        "--sl-rim-width": {
+          "type": "string",
+          "pattern": "^\\d+(\\.\\d+)?px$"
+        },
+        "--sl-radius-panel": {
+          "type": "string",
+          "pattern": "^\\d+(\\.\\d+)?px$"
+        },
+        "--sl-radius-control": {
+          "type": "string",
+          "pattern": "^\\d+(\\.\\d+)?px$"
+        },
+        "--sl-depth-base": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "--sl-depth-raised": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "--sl-depth-floating": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "--sl-motion-micro": {
+          "type": "string",
+          "pattern": "^\\d+ms$"
+        },
+        "--sl-motion-base": {
+          "type": "string",
+          "pattern": "^\\d+ms$"
+        },
+        "--sl-motion-system": {
+          "type": "string",
+          "pattern": "^\\d+ms$"
+        },
+        "--sl-motion-explain": {
+          "type": "string",
+          "pattern": "^\\d+ms$"
+        },
+        "--sl-motion-resolve": {
+          "type": "string",
+          "pattern": "^\\d+ms$"
+        },
+        "--sl-ease-enter": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "--sl-ease-exit": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "--sl-object-shadow-base": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "--sl-object-shadow-raised": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        },
+        "--sl-object-shadow-floating": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 100
+        }
+      }
+    },
+    "materials": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "obsidian",
+        "porcelain",
+        "liquid-glass"
+      ],
+      "properties": {
+        "obsidian": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "substrate",
+            "reading",
+            "blur",
+            "texture",
+            "highlight"
+          ],
+          "properties": {
+            "substrate": {
+              "enum": [
+                "substrateDark",
+                "substrateLight"
+              ]
+            },
+            "reading": {
+              "enum": [
+                "readingOnDark",
+                "readingOnLight"
+              ]
+            },
+            "blur": {
+              "type": "boolean"
+            },
+            "texture": {
+              "enum": [
+                "none",
+                "grain"
+              ]
+            },
+            "highlight": {
+              "enum": [
+                "warmEdge",
+                "coolEdge"
+              ]
+            }
+          }
+        },
+        "porcelain": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "substrate",
+            "reading",
+            "blur",
+            "texture",
+            "highlight"
+          ],
+          "properties": {
+            "substrate": {
+              "enum": [
+                "substrateDark",
+                "substrateLight"
+              ]
+            },
+            "reading": {
+              "enum": [
+                "readingOnDark",
+                "readingOnLight"
+              ]
+            },
+            "blur": {
+              "type": "boolean"
+            },
+            "texture": {
+              "enum": [
+                "none",
+                "grain"
+              ]
+            },
+            "highlight": {
+              "enum": [
+                "warmEdge",
+                "coolEdge"
+              ]
+            }
+          }
+        },
+        "liquid-glass": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "substrate",
+            "reading",
+            "blur",
+            "texture",
+            "highlight"
+          ],
+          "properties": {
+            "substrate": {
+              "enum": [
+                "substrateDark",
+                "substrateLight"
+              ]
+            },
+            "reading": {
+              "enum": [
+                "readingOnDark",
+                "readingOnLight"
+              ]
+            },
+            "blur": {
+              "type": "boolean"
+            },
+            "texture": {
+              "enum": [
+                "none",
+                "grain"
+              ]
+            },
+            "highlight": {
+              "enum": [
+                "warmEdge",
+                "coolEdge"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "maxVisibleBackdropSurfaces",
+        "allowNestedBackdrop",
+        "readingSubstrateOpacity",
+        "maxTextureOpacity",
+        "particlesDesktop",
+        "particlesMobile",
+        "mobileBelowPx",
+        "maxAnimatedParticleDiameterPx",
+        "maxSequenceMs",
+        "iterations",
+        "autoplay",
+        "reducedMotion",
+        "forcedColors",
+        "hiddenDocument",
+        "pointerEvents"
+      ],
+      "properties": {
+        "maxVisibleBackdropSurfaces": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "allowNestedBackdrop": {
+          "const": false
+        },
+        "readingSubstrateOpacity": {
+          "const": 1
+        },
+        "maxTextureOpacity": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.025
+        },
+        "particlesDesktop": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 24
+        },
+        "particlesMobile": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 12
+        },
+        "mobileBelowPx": {
+          "const": 768
+        },
+        "maxAnimatedParticleDiameterPx": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 3
+        },
+        "maxSequenceMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 1800
+        },
+        "iterations": {
+          "const": 1
+        },
+        "autoplay": {
+          "const": false
+        },
+        "reducedMotion": {
+          "const": "static-final"
+        },
+        "forcedColors": {
+          "const": "opaque-system-colors"
+        },
+        "hiddenDocument": {
+          "const": "settle-final"
+        },
+        "pointerEvents": {
+          "const": "none"
+        }
+      }
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minimumColorMarkPx",
+        "monochromeBelowPx",
+        "clearSpaceRatio",
+        "geometry",
+        "objectStatus"
+      ],
+      "properties": {
+        "minimumColorMarkPx": {
+          "const": 24
+        },
+        "monochromeBelowPx": {
+          "const": 24
+        },
+        "clearSpaceRatio": {
+          "const": 0.25
+        },
+        "geometry": {
+          "const": "preserve-owned-master"
+        },
+        "objectStatus": {
+          "const": "material-application-not-logo"
+        }
+      }
+    }
+  }
+}

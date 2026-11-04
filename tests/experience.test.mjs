@@ -48,7 +48,7 @@ test("review dates and blockers cannot imply unperformed future work", () => {
 });
 test("bundle hashes committed bytes and excludes subsequent working-tree edits", () => {
   const fixture = mkdtempSync(join(tmpdir(), "brand-handoff-test-"));
-  for (const path of ["brand-packs", "brand-image-system/runtime/brands", "portfolio", "evals", "playbooks", "templates/app-factory"]) cpSync(join(root, path), join(fixture, path), { recursive: true });
+  for (const path of ["brand-packs", "brand-image-system/runtime/brands", "portfolio", "evals", "playbooks", "schemas", "templates/app-factory"]) cpSync(join(root, path), join(fixture, path), { recursive: true });
   const git = (args) => execFileSync("git", args, { cwd: fixture, encoding: "utf8" }).trim();
   git(["init", "-q"]); git(["config", "user.name", "Handoff test"]); git(["config", "user.email", "tests@frankx.ai"]);
   git(["remote", "add", "origin", "https://github.com/frankxai/starlight-design-intelligence.git"]);
@@ -73,4 +73,27 @@ test("bundle hashes committed bytes and excludes subsequent working-tree edits",
   const rejected = join(fixture, "rejected");
   assert.throws(() => exportBrandHandoff({ root: fixture, brand: "frankx", out: rejected, revision: "main" }), /full lowercase/);
   assert.equal(existsSync(rejected), false);
+});
+
+test("SIS brand handoff bundle includes material foundation tokens, schema and acceptance gate", () => {
+  const fixture = mkdtempSync(join(tmpdir(), "sis-handoff-test-"));
+  for (const path of ["brand-packs", "brand-image-system/runtime/brands", "portfolio", "evals", "playbooks", "schemas", "templates/app-factory"]) cpSync(join(root, path), join(fixture, path), { recursive: true });
+  const git = (args) => execFileSync("git", args, { cwd: fixture, encoding: "utf8" }).trim();
+  git(["init", "-q"]); git(["config", "user.name", "Handoff test"]); git(["config", "user.email", "tests@frankx.ai"]);
+  git(["remote", "add", "origin", "https://github.com/Starlight-Intelligence/starlight-design-intelligence.git"]);
+  git(["add", "."]); git(["commit", "-qm", "sis source fixture"]);
+  const out = join(fixture, "bundle-sis");
+  const manifest = exportBrandHandoff({ root: fixture, brand: "sis", out });
+  for (const requiredPath of [
+    "brand-packs/sis/foundations/README.md",
+    "brand-packs/sis/foundations/PROMPTS.md",
+    "brand-packs/sis/foundations/tokens.json",
+    "schemas/starlight-foundations.schema.json",
+    "evals/starlight-material-foundations.md"
+  ]) {
+    const record = manifest.sources.find((s) => s.path === requiredPath);
+    assert.ok(record, `Expected ${requiredPath} in SIS handoff manifest`);
+    const exported = readFileSync(join(out, "sources", requiredPath));
+    assert.equal(createHash("sha256").update(exported).digest("hex"), record.sha256);
+  }
 });
