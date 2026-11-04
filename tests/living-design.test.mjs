@@ -10,6 +10,9 @@ import {profileFiles,zipStore} from '../plugins/starlight-living-design/scripts/
 import {sync} from '../scripts/sync-living-design-skills.mjs';
 const base=()=>structuredClone(readContracts());
 const mutate=(fn)=>{const rs=base();fn(rs);return ()=>compile(rs);};
+// Directory junctions exercise the same rejection on Windows without requiring
+// Developer Mode or an elevated symbolic-link privilege.
+const linkDirectory=(target,link)=>fs.symlinkSync(target,link,process.platform==='win32'?'junction':'dir');
 test('living design compiles twelve coherent profiles and four families deterministically',()=>{const a=compile(base()),b=compile(base().reverse());assert.equal(a.characters.length,12);assert.equal(a.families.length,4);assert.deepEqual(a,b);assert.equal(a.meta.runtime_connected,false);});
 test('inspection gives all five source contracts for the selected identity',()=>{const r=inspect('candidate.nacre');assert.equal(r.contracts.length,5);assert.equal(r.character.family_id,'prismatic-tide');});
 test('unknown IDs cannot silently select a fallback',()=>assert.throws(()=>inspect('candidate.missing'),/Unknown character/));
@@ -24,7 +27,7 @@ test('connector cannot assert connected account',()=>assert.throws(mutate(r=>r.f
 test('bad CLI input never changes to build mode',()=>assert.throws(()=>main(['build','--out','x','--overwrite']),/Usage/));
 test('JSON embed escapes closing script injection',()=>assert.ok(!renderAtlas({text:'</script><script>alert(1)</script>'},'__CATALOG_JSON__').includes('<')));
 test('export retains contract bytes and protects existing output',()=>{const dir=fs.mkdtempSync(path.join(os.tmpdir(),'living-test-'));try{const out=path.join(dir,'output');build(defaultBundle,out);assert.equal(fs.readFileSync(path.join(out,'contracts/characters/nacre/SOUL.md'),'utf8'),fs.readFileSync(path.join(defaultBundle,'contracts/characters/nacre/SOUL.md'),'utf8'));assert.throws(()=>build(defaultBundle,out),/Output exists/);}finally{fs.rmSync(dir,{recursive:true,force:true});}});
-test('symlinked contract input is rejected',()=>{const dir=fs.mkdtempSync(path.join(os.tmpdir(),'living-link-'));try{fs.symlinkSync(defaultBundle,path.join(dir,'bundle'));assert.throws(()=>readContracts(path.join(dir,'bundle')),/Symlink/);}finally{fs.rmSync(dir,{recursive:true,force:true});}});
+test('symlinked contract input is rejected',()=>{const dir=fs.mkdtempSync(path.join(os.tmpdir(),'living-link-'));try{linkDirectory(defaultBundle,path.join(dir,'bundle'));assert.throws(()=>readContracts(path.join(dir,'bundle')),/Symlink/);}finally{fs.rmSync(dir,{recursive:true,force:true});}});
 const now=Date.parse('2026-10-29T12:00:00Z');
 const expected={tenant_id:'fixture.tenant',agent_id:'fixture.agent',run_id:'fixture.run',last_sequence:2};
 const event={schema:'starlight.living-design.view-event.v1',...expected,sequence:3,state:'running',observed_at:'2026-10-29T11:59:30Z',expires_at:'2026-10-29T12:01:00Z',permission_state:'authorized'};
@@ -38,7 +41,7 @@ test('completion requires artifact references',()=>{assert.equal(projectRuntimeS
 test('expired revocation is unknown presentation state',()=>assert.equal(projectRuntimeState({...event,permission_state:'revoked',expires_at:'2026-10-29T11:00:00Z'},expected,now).state,'unknown'));
 test('catalog strings with replacement tokens roundtrip unchanged',()=>{for(const text of ["Nacre $&","Nacre $'",'Nacre $`','Nacre $$'])assert.deepEqual(JSON.parse(renderAtlas({text},'__CATALOG_JSON__')),{text});});
 test('catalog strings cannot be interpreted as template placeholders',()=>{const text='Nacre __PROFILE_EXPORT_JS__ __ART_TIDE__ __CATALOG_JSON__';assert.deepEqual(JSON.parse(renderAtlas({text},'__CATALOG_JSON__')),{text});});
-test('output symlink ancestors cannot bypass source protection',()=>{const dir=fs.mkdtempSync(path.join(os.tmpdir(),'living-out-'));try{fs.symlinkSync(defaultBundle,path.join(dir,'alias'));assert.throws(()=>build(defaultBundle,path.join(dir,'alias','must-not-exist')),/Symlink/);assert.equal(fs.existsSync(path.join(defaultBundle,'must-not-exist')),false);}finally{fs.rmSync(dir,{recursive:true,force:true});}});
+test('output symlink ancestors cannot bypass source protection',()=>{const dir=fs.mkdtempSync(path.join(os.tmpdir(),'living-out-'));try{linkDirectory(defaultBundle,path.join(dir,'alias'));assert.throws(()=>build(defaultBundle,path.join(dir,'alias','must-not-exist')),/Symlink/);assert.equal(fs.existsSync(path.join(defaultBundle,'must-not-exist')),false);}finally{fs.rmSync(dir,{recursive:true,force:true});}});
 test('package skills match canonical source projection',()=>assert.equal(sync(true).skills,6));
 test('committed catalog matches source contracts',()=>assert.deepEqual(JSON.parse(fs.readFileSync(path.join(defaultBundle,'catalog.json'),'utf8')),compile(base())));
 test('profile download contains five exact source identities and reference closure',()=>{const catalog=compile(base()),files=profileFiles(catalog,'candidate.nacre');for(const name of ['AGENT','CHARACTER','DESIGN','SOUL','PERSONALITY']){const p='contracts/characters/nacre/'+name+'.md';assert.equal(files.find(x=>x.path===p)?.text,fs.readFileSync(path.join(defaultBundle,p),'utf8'));}assert.ok(files.some(x=>x.path.includes('connectors/')));assert.ok(files.some(x=>x.path.includes('families/')));assert.ok(!files.some(x=>x.path.includes('characters/cyra/')));});

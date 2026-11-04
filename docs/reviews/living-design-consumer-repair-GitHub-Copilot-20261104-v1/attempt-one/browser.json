@@ -1,0 +1,231 @@
+{
+  "capturedAt": "2026-11-04T06:08:57.757Z",
+  "source": "1451279c5517911ebc1ce12a6637b4adb6689afe",
+  "node": "v24.22.1",
+  "baseURL": "http://127.0.0.1:33179",
+  "rendering": "Hosted Chromium with SwiftShader software rendering; not hardware performance proof",
+  "states": [
+    {
+      "route": "/",
+      "profile": "ink",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "ink",
+        "mode": null
+      },
+      "heading": {
+        "text": "Three materials, one contract.",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(251, 246, 235) none 3px",
+        "outlineColor": [
+          251,
+          246,
+          235,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "one contract.",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 18.38209435501343,
+      "accentContrast": 12.517808123466587,
+      "controlContrast": 18.38209435501343,
+      "focusContrast": 12.517808123466587
+    },
+    {
+      "route": "/",
+      "profile": "paper",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "paper",
+        "mode": null
+      },
+      "heading": {
+        "text": "Three materials, one contract.",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "one contract.",
+        "color": "rgb(173, 130, 52)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          173,
+          130,
+          52
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(173, 130, 52) none 3px",
+        "outlineColor": [
+          173,
+          130,
+          52,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(138, 101, 34) solid 2px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 15.907204872762142,
+      "accentContrast": 2.97994237908669,
+      "controlContrast": 15.907204872762142,
+      "focusContrast": 4.523758726870089
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "desktop-home-ink.png",
+      "sha256": "40b32a6a9701e91cecec6e5537d9ea665baa5b052ab8d6d61ef501089b84b857",
+      "bytes": 89679,
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33179/",
+      "capturedAt": "2026-11-04T06:09:24.035Z"
+    }
+  ],
+  "errors": [],
+  "fontRequests": [
+    "http://127.0.0.1:33179/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33179/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33179/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33179/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf"
+  ],
+  "browser": "156.0.8078.47",
+  "verdict": "FAIL",
+  "failure": "AssertionError [ERR_ASSERTION]: {\"route\":\"/\",\"profile\":\"paper\",\"viewport\":{\"width\":1440,\"height\":900},\"touch\":false,\"attributes\":{\"theme\":\"paper\",\"mode\":null},\"heading\":{\"text\":\"Three materials, one contract.\",\"color\":\"rgb(14, 19, 27)\",\"background\":[239,237,231],\"effectiveForeground\":[14,19,27],\"font\":\"sans, \\\"sans Fallback\\\", system-ui, sans-serif\",\"weight\":\"600\",\"style\":\"normal\",\"outline\":\"rgb(14, 19, 27) none 3px\",\"outlineColor\":[14,19,27,1],\"boxShadow\":\"none\"},\"accent\":{\"text\":\"one contract.\",\"color\":\"rgb(173, 130, 52)\",\"background\":[239,237,231],\"effectiveForeground\":[173,130,52],\"font\":\"\\\"serif\\\", \\\"serif Fallback\\\", Georgia, serif\",\"weight\":\"400\",\"style\":\"italic\",\"outline\":\"rgb(173, 130, 52) none 3px\",\"outlineColor\":[173,130,52,1],\"boxShadow\":\"none\"},\"control\":{\"text\":\"InkPaperOperator\",\"color\":\"rgb(14, 19, 27)\",\"background\":[239,237,231],\"effectiveForeground\":[14,19,27],\"font\":\"sans, \\\"sans Fallback\\\", system-ui, sans-serif\",\"weight\":\"400\",\"style\":\"normal\",\"outline\":\"rgb(138, 101, 34) solid 2px\",\"outlineColor\":[138,101,34,1],\"boxShadow\":\"none\"},\"detector\":{\"failures\":[],\"inspected_elements\":38,\"inspected_open_shadow_roots\":1,\"complete\":true},\"headingContrast\":15.907204872762142,\"accentContrast\":2.97994237908669,\"controlContrast\":15.907204872762142,\"focusContrast\":4.523758726870089}\n    at file:///home/runner/work/starlight-design-intelligence/starlight-design-intelligence/packages/materials/examples/next-app/scripts/verify-consumer-themes.mjs:128:18"
+}

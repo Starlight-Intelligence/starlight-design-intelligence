@@ -1,0 +1,51 @@
+{
+  "repository": "https://github.com/google/fonts",
+  "revision": "2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc",
+  "retrieved": "2026-11-04",
+  "modifications": "None. Original upstream TTF bytes; no conversion or subsetting.",
+  "totalFontBytes": 401508,
+  "files": [
+    {
+      "file": "InstrumentSans[wdth,wght].ttf",
+      "family": "Instrument Sans",
+      "style": "normal",
+      "weight": "400 700",
+      "source": "https://raw.githubusercontent.com/google/fonts/2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc/ofl/instrumentsans/InstrumentSans%5Bwdth%2Cwght%5D.ttf",
+      "gitBlob": "3589b81b22d3defc725dfdcdf16b5da7c9adc691",
+      "sha256": "b24f1812584816958afcf22e22d08e44318c5e51651e25d2438efdde389b33b1",
+      "bytes": 194336,
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "InstrumentSans-OFL.txt",
+      "licenseSource": "https://raw.githubusercontent.com/google/fonts/2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc/ofl/instrumentsans/OFL.txt",
+      "licenseSha256": "9e27a72ed30eb49a08678f6a5d6ed98ec7ba5368f541637ee0683ec9134ef966"
+    },
+    {
+      "file": "InstrumentSerif-Italic.ttf",
+      "family": "Instrument Serif",
+      "style": "italic",
+      "weight": "400",
+      "source": "https://raw.githubusercontent.com/google/fonts/2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc/ofl/instrumentserif/InstrumentSerif-Italic.ttf",
+      "gitBlob": "192c3eda9864241ad280e9bcc84e258c80a4a588",
+      "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385",
+      "bytes": 71592,
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "InstrumentSerif-OFL.txt",
+      "licenseSource": "https://raw.githubusercontent.com/google/fonts/2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc/ofl/instrumentserif/OFL.txt",
+      "licenseSha256": "129ed7618959716959f2941fdd5b49e0ad6e6c1d78726761786a00253d865521"
+    },
+    {
+      "file": "IBMPlexMono-Regular.ttf",
+      "family": "IBM Plex Mono",
+      "style": "normal",
+      "weight": "400",
+      "source": "https://raw.githubusercontent.com/google/fonts/2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc/ofl/ibmplexmono/IBMPlexMono-Regular.ttf",
+      "gitBlob": "0c9770d5183ba60dc4350d3e011b782a320761ae",
+      "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "bytes": 135580,
+      "license": "SIL Open Font License 1.1",
+      "licenseFile": "IBMPlexMono-OFL.txt",
+      "licenseSource": "https://raw.githubusercontent.com/google/fonts/2fe1e8c6b137fb13041a7cfca6fdcd8a910ea4dc/ofl/ibmplexmono/OFL.txt",
+      "licenseSha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+    }
+  ]
+}

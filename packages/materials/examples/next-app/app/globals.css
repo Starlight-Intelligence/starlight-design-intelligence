@@ -19,3 +19,7 @@ body {
   font-family: var(--font-sans);
   min-height: 100dvh;
 }
+
+.theme-select {
+  font: inherit;
+}

@@ -1,0 +1,180 @@
+[
+  {
+    "file": "InstrumentSans[wdth,wght].ttf",
+    "sha256": "b24f1812584816958afcf22e22d08e44318c5e51651e25d2438efdde389b33b1",
+    "result": {
+      "ok": true,
+      "metadata": {
+        "decoder": "fontkit@2.0.4",
+        "family": "Instrument Sans",
+        "subfamily": "Regular",
+        "postscriptName": "InstrumentSans-Regular",
+        "fullName": "Instrument Sans Regular",
+        "version": "Version 1.000;gftools[0.9.28]",
+        "copyright": "Copyright 2022 The Instrument Sans Project Authors (https://github.com/Instrument/instrument-sans)",
+        "unitsPerEm": 1000,
+        "glyphCount": 501,
+        "italicAngle": 0,
+        "variationAxes": {
+          "wdth": {
+            "name": "Width",
+            "min": 75,
+            "default": 100,
+            "max": 100
+          },
+          "wght": {
+            "name": "Weight",
+            "min": 400,
+            "default": 400,
+            "max": 700
+          }
+        },
+        "mappedCodepoints": 343,
+        "codepointsSha256": "9fe832c034ff767c7a9da4d66e46e627e1804611a4744cd63cb3a1e9a6b1c346",
+        "printableAscii": true,
+        "sampledGlyphs": [
+          {
+            "codepoint": 32,
+            "glyph": 341,
+            "commands": 0
+          },
+          {
+            "codepoint": 8722,
+            "glyph": 437,
+            "commands": 5
+          },
+          {
+            "codepoint": 248,
+            "glyph": 221,
+            "commands": 31
+          },
+          {
+            "codepoint": 65,
+            "glyph": 1,
+            "commands": 15
+          },
+          {
+            "codepoint": 103,
+            "glyph": 182,
+            "commands": 37
+          },
+          {
+            "codepoint": 49,
+            "glyph": 320,
+            "commands": 13
+          }
+        ]
+      }
+    }
+  },
+  {
+    "file": "InstrumentSerif-Italic.ttf",
+    "sha256": "08939b8bdf534afec24ae0ef5e03f948940cd9a8fe08e7fecbad040e62327385",
+    "result": {
+      "ok": true,
+      "metadata": {
+        "decoder": "fontkit@2.0.4",
+        "family": "Instrument Serif",
+        "subfamily": "Italic",
+        "postscriptName": "InstrumentSerif-Italic",
+        "fullName": "Instrument Serif Italic",
+        "version": "Version 1.000; ttfautohint (v1.8.4.7-5d5b);gftools[0.9.27]",
+        "copyright": "Copyright 2022 The Instrument Serif Project Authors (https://github.com/Instrument/instrument-serif)",
+        "unitsPerEm": 1000,
+        "glyphCount": 377,
+        "italicAngle": -13,
+        "variationAxes": {},
+        "mappedCodepoints": 333,
+        "codepointsSha256": "115d6b6c483248d1093404e0b3836c8f1b93645520e6de011f4900ec1a62ddc0",
+        "printableAscii": true,
+        "sampledGlyphs": [
+          {
+            "codepoint": 32,
+            "glyph": 282,
+            "commands": 0
+          },
+          {
+            "codepoint": 8722,
+            "glyph": 338,
+            "commands": 9
+          },
+          {
+            "codepoint": 243,
+            "glyph": 180,
+            "commands": 36
+          },
+          {
+            "codepoint": 65,
+            "glyph": 1,
+            "commands": 42
+          },
+          {
+            "codepoint": 103,
+            "glyph": 147,
+            "commands": 73
+          },
+          {
+            "codepoint": 49,
+            "glyph": 273,
+            "commands": 23
+          }
+        ]
+      }
+    }
+  },
+  {
+    "file": "IBMPlexMono-Regular.ttf",
+    "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+    "result": {
+      "ok": true,
+      "metadata": {
+        "decoder": "fontkit@2.0.4",
+        "family": "IBM Plex Mono",
+        "subfamily": "Regular",
+        "postscriptName": "IBMPlexMono-Regular",
+        "fullName": "IBM Plex Mono Regular",
+        "version": "Version 2.3",
+        "copyright": "Copyright 2017 IBM Corp. All rights reserved.",
+        "unitsPerEm": 1000,
+        "glyphCount": 1033,
+        "italicAngle": 0,
+        "variationAxes": {},
+        "mappedCodepoints": 930,
+        "codepointsSha256": "820aeca2a24b47f1c78ec8f0ebf35e4e2fc202e60e46d14c5127ed33c4fb5fa5",
+        "printableAscii": true,
+        "sampledGlyphs": [
+          {
+            "codepoint": 0,
+            "glyph": 1031,
+            "commands": 0
+          },
+          {
+            "codepoint": 64258,
+            "glyph": 176,
+            "commands": 22
+          },
+          {
+            "codepoint": 1104,
+            "glyph": 609,
+            "commands": 44
+          },
+          {
+            "codepoint": 65,
+            "glyph": 30,
+            "commands": 14
+          },
+          {
+            "codepoint": 103,
+            "glyph": 8,
+            "commands": 68
+          },
+          {
+            "codepoint": 49,
+            "glyph": 59,
+            "commands": 13
+          }
+        ]
+      }
+    }
+  }
+]

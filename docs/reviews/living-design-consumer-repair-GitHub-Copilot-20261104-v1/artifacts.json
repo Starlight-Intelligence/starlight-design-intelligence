@@ -1,0 +1,226 @@
+{
+  "createdAt": "2026-11-04T06:27:54.092Z",
+  "source": "fe783f7d52253abb49794cc6e49c54ce1aa25d28",
+  "totalArtifactBytesExcludingIndex": 801480,
+  "files": [
+    {
+      "path": "attempt-one/browser-attempt-one.txt",
+      "sha256": "5d2d0de9082d82739b6917ffef8009b155a467c2e4bfe1830c83a2791dff4645",
+      "bytes": 1767,
+      "mime": "text/plain"
+    },
+    {
+      "path": "attempt-one/browser.json",
+      "sha256": "a465c499688224a650bf2b0855efdb5350d66832f3a371a89e5b078148914e27",
+      "bytes": 7285,
+      "mime": "application/json"
+    },
+    {
+      "path": "attempt-one/desktop-home-ink.png",
+      "sha256": "40b32a6a9701e91cecec6e5537d9ea665baa5b052ab8d6d61ef501089b84b857",
+      "bytes": 89679,
+      "mime": "image/png",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "source": "Dirty pre-correction repair tree based on 1451279; not final proof",
+      "capturedAt": "2026-11-04T06:09:24.033Z",
+      "visualReview": "Not performed: image-viewing tool limit"
+    },
+    {
+      "path": "attempt-two/browser-attempt-two.txt",
+      "sha256": "ac73b94fb09114c0eeda707229d3352c6d0fe2a688d4f4b0dd2bddd23a414f36",
+      "bytes": 1506,
+      "mime": "text/plain"
+    },
+    {
+      "path": "attempt-two/browser.json",
+      "sha256": "8fb4c67fee76c95c55e9e317594cc1cc71fbf4ecc60657c24a745679c305c2bd",
+      "bytes": 4235,
+      "mime": "application/json"
+    },
+    {
+      "path": "before-registry-rebuild.txt",
+      "sha256": "d883187b24e15e5bdfd9c7c4a9861d6d682f425f96fa2bf86392153eeba38550",
+      "bytes": 1888,
+      "mime": "text/plain"
+    },
+    {
+      "path": "diagnostics.json",
+      "sha256": "4d70287c894eeb39419700359b5e2f55c778f6e434c93c13d1115039458f1ccc",
+      "bytes": 7725,
+      "mime": "application/json"
+    },
+    {
+      "path": "example-typecheck.txt",
+      "sha256": "8366207267355d3e3d5bf3bf6e8c94c5f93f6078c34f08973fa2b38cdda6cc92",
+      "bytes": 15,
+      "mime": "text/plain"
+    },
+    {
+      "path": "font-artifacts.json",
+      "sha256": "0f92cf15bb7307f446a5c124b891eabe07d35f4d38cee81711f22c33d3f634bb",
+      "bytes": 4829,
+      "mime": "application/json"
+    },
+    {
+      "path": "font-decoding.txt",
+      "sha256": "d139276b87490da7e2a905ff0f48d22c343006bfc66c36b20b3c4f83e565fdd7",
+      "bytes": 555,
+      "mime": "text/plain"
+    },
+    {
+      "path": "materials-tests.txt",
+      "sha256": "dbbf557295c62d92f2b79b132ff4e98def452aa02a2924ac80900c3f6ef4e90d",
+      "bytes": 1818,
+      "mime": "text/plain"
+    },
+    {
+      "path": "materials-typecheck.txt",
+      "sha256": "38ac890c60e7f38d59ddfb410325cdfb5fca83c9411765c5481754e01c021630",
+      "bytes": 32,
+      "mime": "text/plain"
+    },
+    {
+      "path": "plugin-tests.txt",
+      "sha256": "b26f5e508f8fbc47d8abd2c05ab08117a927d6860072677ba740e89c109c6593",
+      "bytes": 2190,
+      "mime": "text/plain"
+    },
+    {
+      "path": "production-build-two.txt",
+      "sha256": "1628c25c017c89537e2372c554abe96e0b698c4a8572c2efa496fbd19d3904b9",
+      "bytes": 1112,
+      "mime": "text/plain"
+    },
+    {
+      "path": "production-fonts.json",
+      "sha256": "9e673c557b57b2cedeab77daf330d62f71257311151637964e791f5b2137b361",
+      "bytes": 1629,
+      "mime": "application/json"
+    },
+    {
+      "path": "registry-consumer.json",
+      "sha256": "582693bea6f963f50a3b2d76e7e7875ce09a88b892012d11388dc0ab7ceaba3f",
+      "bytes": 7312,
+      "mime": "application/json"
+    },
+    {
+      "path": "root-full.txt",
+      "sha256": "1a2dbaa2a5dce5b6ef11860882ae7bc96939225b385cb22df6f2b33d939ab2d4",
+      "bytes": 24594,
+      "mime": "text/plain"
+    },
+    {
+      "path": "root-targeted.txt",
+      "sha256": "bb940b01cec9e93903798c0604594ab6d2d13dfb7b2572e6f4c0be695df56d8a",
+      "bytes": 2760,
+      "mime": "text/plain"
+    },
+    {
+      "path": "screenshots/materials-desktop-glass-operator.png",
+      "sha256": "6dab96f5974211aaa3f9ac0fa99dba9ae3b6d6e3004e0d9590ba7ac16c682555",
+      "bytes": 268351,
+      "mime": "image/png",
+      "width": 1440,
+      "height": 958,
+      "dpr": 1,
+      "source": "a9f73785353a35ab3f47064dacae13e4b7a2c3c3 runtime",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "mode": "Local Next production",
+      "capturedAt": "2026-11-04T06:18:54.481Z",
+      "visualReview": "Not performed: image-viewing tool limit"
+    },
+    {
+      "path": "screenshots/materials-desktop-home-ink.png",
+      "sha256": "5e4eb53fa462fd4ec601ef7a973000511fbae6f427add9957c017bc23e42ae44",
+      "bytes": 84087,
+      "mime": "image/png",
+      "width": 1280,
+      "height": 720,
+      "dpr": 1,
+      "source": "a9f73785353a35ab3f47064dacae13e4b7a2c3c3 runtime",
+      "viewport": null,
+      "viewportBoundary": "Initial browser-tool default viewport not recorded; diagnostic export only",
+      "mode": "Local Next production",
+      "capturedAt": "2026-11-04T06:15:48.200Z",
+      "visualReview": "Not performed: image-viewing tool limit"
+    },
+    {
+      "path": "screenshots/materials-desktop-home-operator.png",
+      "sha256": "a6a523f1634917e552cc2fef67af5635b51d3d995bb0a1e527d7957edd3c955b",
+      "bytes": 92844,
+      "mime": "image/png",
+      "width": 1440,
+      "height": 900,
+      "dpr": 1,
+      "source": "a9f73785353a35ab3f47064dacae13e4b7a2c3c3 runtime",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "mode": "Local Next production",
+      "capturedAt": "2026-11-04T06:16:14.861Z",
+      "visualReview": "Not performed: image-viewing tool limit"
+    },
+    {
+      "path": "screenshots/materials-installed-consumer-disclosure.png",
+      "sha256": "1e6f800f0d5fc47157c4671c32c0e4e63c801ecbc0d9aa3a521e92edbdd374f6",
+      "bytes": 46553,
+      "mime": "image/png",
+      "width": 1447,
+      "height": 900,
+      "dpr": 1,
+      "source": "a9f73785353a35ab3f47064dacae13e4b7a2c3c3 runtime",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "mode": "Isolated Next dev consumer",
+      "untriagedFixtureOverflowPixels": 7,
+      "capturedAt": "2026-11-04T06:20:03.334Z",
+      "visualReview": "Not performed: image-viewing tool limit"
+    },
+    {
+      "path": "screenshots/materials-mobile-home-operator.png",
+      "sha256": "9d386332e3832c67356856f49bb6867a325e3907ed05adedb0e7ed805a35ea90",
+      "bytes": 71987,
+      "mime": "image/png",
+      "width": 390,
+      "height": 1045,
+      "dpr": 1,
+      "source": "a9f73785353a35ab3f47064dacae13e4b7a2c3c3 runtime",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "mode": "Local Next production",
+      "capturedAt": "2026-11-04T06:16:46.439Z",
+      "visualReview": "Not performed: image-viewing tool limit"
+    },
+    {
+      "path": "screenshots/materials-mobile-paper-operator-focus.png",
+      "sha256": "36851c98c16a74046a80290b0430bce1d176519715ae5d36a2c056c3dc96a88f",
+      "bytes": 76727,
+      "mime": "image/png",
+      "width": 390,
+      "height": 1071,
+      "dpr": 1,
+      "source": "a9f73785353a35ab3f47064dacae13e4b7a2c3c3 runtime",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "mode": "Local Next production",
+      "capturedAt": "2026-11-04T06:18:34.397Z",
+      "visualReview": "Not performed: image-viewing tool limit"
+    }
+  ]
+}
