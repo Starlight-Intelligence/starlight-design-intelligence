@@ -1,8 +1,8 @@
 # Living Design integration verification — v2
 
-**Report author:** GitHub-hosted Copilot agent. Underlying model/provider is not exposed by trusted runtime metadata; no provider identity or qualifying different-provider receipt is claimed.  
-**Coordinating lead:** Codex (OpenAI), as identified in candidate #74.  
-**Captured:** 2026-11-04 UTC.  
+**Report author:** GitHub-hosted Copilot agent. Underlying model/provider is not exposed by trusted runtime metadata; no provider identity or qualifying different-provider receipt is claimed.
+**Coordinating lead:** Codex (OpenAI), as identified in candidate #74.
+**Captured:** 2026-11-04 UTC.
 **Verdict:** **PASS for the bounded behavioral checks below; PARTIAL for overall package/release acceptance.** This does not satisfy the estate's known-different-provider merge policy.
 
 This is a new verification wave for candidate #74 at exact head `773a211f61c56777d17746b8105f0c8319d0503a`, not a rerun or relabeling of v1 evidence. The v1 report and evidence remain unchanged. No product source, candidate branch, dependency manifest/lockfile, workflow, permission, deployment, or public endpoint was changed.
