@@ -1,0 +1,11 @@
+diff --git a/packages/materials/public/r/glass-surface.json b/packages/materials/public/r/glass-surface.json
+index adf3b42..633faa0 100644
+--- a/packages/materials/public/r/glass-surface.json
++++ b/packages/materials/public/r/glass-surface.json
+@@ -34,4 +34,4 @@
+   ],
+   "docs": "Relative imports between the installed files use .ts extensions; set allowImportingTsExtensions: true in tsconfig (Next.js has noEmit, so it is allowed). Needs the @starlight namespace in components.json registries, which resolves glass-gate, material and materials-styles.",
+   "type": "registry:component"
+-}
++}
+\ No newline at end of file
