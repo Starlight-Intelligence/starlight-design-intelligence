@@ -208,9 +208,11 @@ export async function mountGlass({ scene, canvas, panel, poster, plan, signal, o
     checkpoint();
 
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, powerPreference: 'low-power' });
-    // One release per resource, so a throwing disposer cannot skip the one beside it.
-    acquire(() => renderer.forceContextLoss());
-    acquire(() => renderer.dispose());
+    acquire(() => {
+      // The next renderer creates empty 3D textures on this same canvas context.
+      // Return unpack flags to their defaults after the poster's texture upload.
+      try { renderer.resetState(); } finally { renderer.dispose(); }
+    });
     renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 
     let texture: ThreeNS.Texture;
