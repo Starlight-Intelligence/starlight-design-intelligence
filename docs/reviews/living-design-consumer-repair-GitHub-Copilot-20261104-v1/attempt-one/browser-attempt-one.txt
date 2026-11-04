@@ -1,0 +1,16 @@
+Browser evidence: /tmp/materials-consumer-repair/browser-attempt-one
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: {"route":"/","profile":"paper","viewport":{"width":1440,"height":900},"touch":false,"attributes":{"theme":"paper","mode":null},"heading":{"text":"Three materials, one contract.","color":"rgb(14, 19, 27)","background":[239,237,231],"effectiveForeground":[14,19,27],"font":"sans, \"sans Fallback\", system-ui, sans-serif","weight":"600","style":"normal","outline":"rgb(14, 19, 27) none 3px","outlineColor":[14,19,27,1],"boxShadow":"none"},"accent":{"text":"one contract.","color":"rgb(173, 130, 52)","background":[239,237,231],"effectiveForeground":[173,130,52],"font":"\"serif\", \"serif Fallback\", Georgia, serif","weight":"400","style":"italic","outline":"rgb(173, 130, 52) none 3px","outlineColor":[173,130,52,1],"boxShadow":"none"},"control":{"text":"InkPaperOperator","color":"rgb(14, 19, 27)","background":[239,237,231],"effectiveForeground":[14,19,27],"font":"sans, \"sans Fallback\", system-ui, sans-serif","weight":"400","style":"normal","outline":"rgb(138, 101, 34) solid 2px","outlineColor":[138,101,34,1],"boxShadow":"none"},"detector":{"failures":[],"inspected_elements":38,"inspected_open_shadow_roots":1,"complete":true},"headingContrast":15.907204872762142,"accentContrast":2.97994237908669,"controlContrast":15.907204872762142,"focusContrast":4.523758726870089}
+    at file:///home/runner/work/starlight-design-intelligence/starlight-design-intelligence/packages/materials/examples/next-app/scripts/verify-consumer-themes.mjs:128:18 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.22.1

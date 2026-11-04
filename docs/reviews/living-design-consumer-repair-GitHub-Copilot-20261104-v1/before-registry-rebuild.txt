@@ -1,0 +1,43 @@
+✖ every published source-backed entry matches the locked generator and its file mapping (784.557356ms)
+✔ Tailwind palette utilities resolve through the unified semantic theme aliases (2.916674ms)
+✔ focus treatment retains contrast on both light and dark material surroundings (1.39057ms)
+✔ evidence disclosure inherits material text and keeps its state legible without motion (0.184318ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 836.695041
+
+✖ failing tests:
+
+test at tests/registry-parity.test.mjs:13:1
+✖ every published source-backed entry matches the locked generator and its file mapping (784.557356ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      'glass-gate.json',
+      'glass-surface.json',
+      'material-button.json',
+      'material-card.json',
+  ...
+      'materials-styles.json',
+  +   'registry.json'
+    ]
+  
+      at TestContext.<anonymous> (file:///home/runner/work/starlight-design-intelligence/starlight-design-intelligence/packages/materials/tests/registry-parity.test.mjs:25:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.start (node:internal/test_runner/test:1262:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'glass-gate.json', 'glass-surface.json', 'material-button.json', 'material-card.json', 'material-sheet.json', 'material.json', 'materials-styles.json', 'registry.json' ],
+    expected: [ 'glass-gate.json', 'glass-surface.json', 'material-button.json', 'material-card.json', 'material-sheet.json', 'material.json', 'materials-styles.json' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

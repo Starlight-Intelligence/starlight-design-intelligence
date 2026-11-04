@@ -1,0 +1,40 @@
+✔ living design compiles twelve coherent profiles and four families deterministically (24.775357ms)
+✔ inspection gives all five source contracts for the selected identity (4.717835ms)
+✔ unknown IDs cannot silently select a fallback (7.411308ms)
+✔ unresolved connector blocks a map (5.909517ms)
+✔ duplicate identifiers block compilation (5.76575ms)
+✔ narrative contracts cannot include permissions (4.017225ms)
+✔ character cannot bind another character personality (4.34383ms)
+✔ cyclic family ancestry is rejected (4.907051ms)
+✔ runtime grants cannot be embedded in recipes (4.344821ms)
+✔ profile cannot self-promote to approved (3.228723ms)
+✔ connector cannot assert connected account (3.22046ms)
+✔ bad CLI input never changes to build mode (0.227043ms)
+✔ JSON embed escapes closing script injection (0.294996ms)
+✔ export retains contract bytes and protects existing output (34.068912ms)
+✔ symlinked contract input is rejected (0.480546ms)
+✔ run evidence projects state but never independent acceptance (0.234034ms)
+✔ no telemetry stays unknown (0.10599ms)
+✔ tenant or run mismatch stays unknown (0.070406ms)
+✔ stale and future events stay unknown (0.091097ms)
+✔ revocation shows blocked (0.062835ms)
+✔ replayed event is ignored (0.052529ms)
+✔ completion requires artifact references (0.193503ms)
+✔ expired revocation is unknown presentation state (0.077648ms)
+✔ catalog strings with replacement tokens roundtrip unchanged (0.135955ms)
+✔ catalog strings cannot be interpreted as template placeholders (0.073641ms)
+✔ output symlink ancestors cannot bypass source protection (4.461928ms)
+✔ package skills match canonical source projection (0.530242ms)
+✔ committed catalog matches source contracts (5.355589ms)
+✔ profile download contains five exact source identities and reference closure (4.234313ms)
+✔ ZIP export has deterministic UTF-8 entries and standard CRC32 (0.563382ms)
+✔ ZIP export rejects traversal and duplicate paths (0.199151ms)
+✔ private reference index enforces path and exact hash (1.576274ms)
+ℹ tests 32
+ℹ suites 0
+ℹ pass 32
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 217.149629

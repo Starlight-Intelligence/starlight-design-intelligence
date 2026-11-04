@@ -1,0 +1,52 @@
+$ node scripts/verify-consumer-themes.mjs
+Browser evidence: /tmp/materials-consumer-repair/browser-attempt-two
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    ink: {
+      background: 'rgb(7, 10, 16)',
+      color: 'rgb(251, 246, 235)'
+    },
+...
+      color: 'rgb(232, 235, 242)',
++     glass: '#070a104d'
+-     glass: 'rgba(7, 10, 16, 0.30)'
+    },
+    paper: {
+      background: 'rgb(239, 237, 231)',
+      color: 'rgb(14, 19, 27)'
+    }
+
+    at file:///home/runner/work/starlight-design-intelligence/starlight-design-intelligence/packages/materials/examples/next-app/scripts/verify-consumer-themes.mjs:163:20 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: {
+    operator: {
+      color: 'rgb(232, 235, 242)',
+      background: 'rgb(11, 13, 18)',
+      glass: '#070a104d'
+    },
+    ink: { color: 'rgb(251, 246, 235)', background: 'rgb(7, 10, 16)' },
+    paper: { color: 'rgb(14, 19, 27)', background: 'rgb(239, 237, 231)' }
+  },
+  expected: {
+    operator: {
+      color: 'rgb(232, 235, 242)',
+      background: 'rgb(11, 13, 18)',
+      glass: 'rgba(7, 10, 16, 0.30)'
+    },
+    ink: { color: 'rgb(251, 246, 235)', background: 'rgb(7, 10, 16)' },
+    paper: { color: 'rgb(14, 19, 27)', background: 'rgb(239, 237, 231)' }
+  },
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.22.1
+[ELIFECYCLE] Command failed with exit code 1.

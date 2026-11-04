@@ -1,0 +1,55 @@
+{
+  "source": "fe783f7d52253abb49794cc6e49c54ce1aa25d28",
+  "productionBuildSource": "a9f73785353a35ab3f47064dacae13e4b7a2c3c3",
+  "scope": "Targeted font identity diagnostic, not another full browser sweep",
+  "time": "2026-11-04T06:22:09.070Z",
+  "requests": [
+    "http://127.0.0.1:33179/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33179/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33179/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33179/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf"
+  ],
+  "fonts": [
+    {
+      "selector": "h1",
+      "fonts": [
+        {
+          "familyName": "Instrument Sans",
+          "postScriptName": "InstrumentSans-Regular",
+          "isCustomFont": true,
+          "glyphCount": 10
+        },
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": "h1 em",
+      "fonts": [
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "selector": ".font-mono",
+      "fonts": [
+        {
+          "familyName": "IBM Plex Mono",
+          "postScriptName": "IBMPlexMono-Regular",
+          "isCustomFont": true,
+          "glyphCount": 35
+        }
+      ]
+    }
+  ],
+  "browser": "156.0.8078.47",
+  "allFontRequestsLocal": true
+}

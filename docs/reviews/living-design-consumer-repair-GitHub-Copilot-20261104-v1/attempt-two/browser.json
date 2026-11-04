@@ -1,0 +1,140 @@
+{
+  "capturedAt": "2026-11-04T06:14:51.442Z",
+  "source": "a9f73785353a35ab3f47064dacae13e4b7a2c3c3",
+  "node": "v24.22.1",
+  "baseURL": "http://127.0.0.1:33179",
+  "rendering": "Hosted Chromium with SwiftShader software rendering; not hardware performance proof",
+  "states": [
+    {
+      "route": "/",
+      "profile": "ink",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "ink",
+        "mode": null
+      },
+      "heading": {
+        "text": "Three materials, one contract.",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(251, 246, 235) none 3px",
+        "outlineColor": [
+          251,
+          246,
+          235,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "one contract.",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 18.38209435501343,
+      "accentContrast": 12.517808123466587,
+      "controlContrast": 18.38209435501343,
+      "focusContrast": 12.517808123466587,
+      "nestedProfiles": {
+        "operator": {
+          "color": "rgb(232, 235, 242)",
+          "background": "rgb(11, 13, 18)",
+          "glass": "#070a104d"
+        },
+        "ink": {
+          "color": "rgb(251, 246, 235)",
+          "background": "rgb(7, 10, 16)"
+        },
+        "paper": {
+          "color": "rgb(14, 19, 27)",
+          "background": "rgb(239, 237, 231)"
+        }
+      }
+    }
+  ],
+  "screenshots": [],
+  "errors": [],
+  "consoleDiagnostics": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "route": "http://127.0.0.1:33179/"
+    }
+  ],
+  "fontRequests": [
+    "http://127.0.0.1:33179/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33179/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33179/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33179/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf"
+  ],
+  "browser": "156.0.8078.47",
+  "verdict": "FAIL",
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n... Skipped lines\n\n  {\n    ink: {\n      background: 'rgb(7, 10, 16)',\n      color: 'rgb(251, 246, 235)'\n    },\n...\n      color: 'rgb(232, 235, 242)',\n+     glass: '#070a104d'\n-     glass: 'rgba(7, 10, 16, 0.30)'\n    },\n    paper: {\n      background: 'rgb(239, 237, 231)',\n      color: 'rgb(14, 19, 27)'\n    }\n\n    at file:///home/runner/work/starlight-design-intelligence/starlight-design-intelligence/packages/materials/examples/next-app/scripts/verify-consumer-themes.mjs:163:20"
+}
