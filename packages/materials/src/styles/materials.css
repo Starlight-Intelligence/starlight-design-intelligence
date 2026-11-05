@@ -141,6 +141,26 @@
   --sl-muted: #525b68;
   --sl-line: rgba(7, 10, 16, 0.14);
   --sl-accent: #8a6522;
+  /* Surfaces and status move with the foregrounds, so a nested component that paints its own
+   * surface (AgentPresence, StatusBadge) keeps a coherent pair inside the scope. */
+  --sl-bg: #efede7;
+  --sl-surface-1: #f7f5f0;
+  --sl-surface-2: #ffffff;
+  --sl-surface-inset: #e5e3dc;
+  --sl-glass-bg: rgba(247, 245, 240, 0.72);
+  --sl-panel: #f7f5f0;
+  --sl-status-ok: #1e7a4b;
+  --sl-status-ok-border: rgba(30, 122, 75, 0.4);
+  --sl-status-ok-tint: rgba(30, 122, 75, 0.08);
+  --sl-status-warn: #8a6522;
+  --sl-status-warn-border: rgba(138, 101, 34, 0.4);
+  --sl-status-warn-tint: rgba(138, 101, 34, 0.08);
+  --sl-status-breach: #b82d2d;
+  --sl-status-breach-border: rgba(184, 45, 45, 0.4);
+  --sl-status-breach-tint: rgba(184, 45, 45, 0.08);
+  --sl-status-unknown: #5d48a8;
+  --sl-status-unknown-border: rgba(93, 72, 168, 0.4);
+  --sl-status-unknown-tint: rgba(93, 72, 168, 0.08);
 }
 .sl-ink {
   color-scheme: dark;
@@ -164,6 +184,24 @@
   --sl-muted: #8b93a1;
   --sl-line: rgba(237, 230, 216, 0.12);
   --sl-accent: #c9a15c;
+  --sl-bg: #070a10;
+  --sl-surface-1: #0d1119;
+  --sl-surface-2: #141926;
+  --sl-surface-inset: #04060a;
+  --sl-glass-bg: rgba(13, 17, 25, 0.58);
+  --sl-panel: #0d1119;
+  --sl-status-ok: #77f0bf;
+  --sl-status-ok-border: rgba(119, 240, 191, 0.42);
+  --sl-status-ok-tint: rgba(119, 240, 191, 0.10);
+  --sl-status-warn: #e8c36a;
+  --sl-status-warn-border: rgba(232, 195, 106, 0.46);
+  --sl-status-warn-tint: rgba(232, 195, 106, 0.14);
+  --sl-status-breach: #ff7b7b;
+  --sl-status-breach-border: rgba(255, 123, 123, 0.55);
+  --sl-status-breach-tint: rgba(255, 123, 123, 0.16);
+  --sl-status-unknown: #b7a2ff;
+  --sl-status-unknown-border: rgba(183, 162, 255, 0.42);
+  --sl-status-unknown-tint: rgba(183, 162, 255, 0.10);
 }
 @media (forced-colors: active) {
   .sl-paper,
@@ -173,7 +211,25 @@
     --sl-border: ButtonBorder;
     --sl-gold: Highlight;
     --sl-companion: Highlight;
+    --sl-bg: Canvas;
+    --sl-surface-1: Canvas;
+    --sl-glass-bg: Canvas;
+    --sl-status-ok: CanvasText;
+    --sl-status-warn: CanvasText;
+    --sl-status-breach: CanvasText;
+    --sl-status-unknown: CanvasText;
   }
+}
+/* The scopes set their own glass tint, so a page-level opaque request must reach them too. */
+@media (prefers-reduced-transparency: reduce) {
+  .sl-paper,
+  .sl-ink {
+    --sl-glass-bg: var(--sl-surface-1);
+  }
+}
+[data-transparency="opaque"] .sl-paper,
+[data-transparency="opaque"] .sl-ink {
+  --sl-glass-bg: var(--sl-surface-1);
 }
 
 @layer base {
