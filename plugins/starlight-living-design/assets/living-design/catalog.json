@@ -3,7 +3,7 @@
     "schema": "starlight.living-design.catalog.v1",
     "version": "0.1.0",
     "release_state": "proposal",
-    "source_digest": "cf8639eaa86d50306d3578bc2c50f8d8ec6046b9c3f301dba2fa7797fcf25cca",
+    "source_digest": "f679eabe7b8aa1da47331a0f2c5b5f16658da5ef9acf4acc92414fcc38be6311",
     "runtime_connected": false
   },
   "families": [
@@ -1876,12 +1876,12 @@
     {
       "id": "candidate.cyra",
       "path": "contracts/characters/cyra/CHARACTER.md",
-      "sha256": "d26021dbbfb788ad39a26eb2f3d05bfbf101d952957b186b7ccf81b093a5a796"
+      "sha256": "cd156933e87e1797b231f40c18442f0a49c341e72b94443562868547b6d47f90"
     },
     {
       "id": "design.cyra",
       "path": "contracts/characters/cyra/DESIGN.md",
-      "sha256": "450086b656101be45f092e2e571b84c9d42d02ba5efc1f2798f8bb4f2aae96ae"
+      "sha256": "c869eea5c0c926526e0a8c7cdff6a4d37b72b75c4abafd0723544475ad1c25e9"
     },
     {
       "id": "personality.cyra",
@@ -1951,12 +1951,12 @@
     {
       "id": "candidate.maker",
       "path": "contracts/characters/maker/CHARACTER.md",
-      "sha256": "3369e3b5b32d3f5d0a1660a08036cd835f00816d062215e05efdafff0521338e"
+      "sha256": "89463cf2cb5f34d4adda2ac2eba2e42620c44e7f869c46fb3a8e386e01589736"
     },
     {
       "id": "design.maker",
       "path": "contracts/characters/maker/DESIGN.md",
-      "sha256": "ea94f15a57b5aef2ff9eb5babe9255d62d628c8cf5786e13bdf452c8b9eb6b23"
+      "sha256": "558a6960dff7f97cf0e76f791c4f9320bf726679578c81196ccbb4d8b6eb8f82"
     },
     {
       "id": "personality.maker",
@@ -2235,8 +2235,8 @@
     {
       "id": "candidate.cyra",
       "path": "contracts/characters/cyra/CHARACTER.md",
-      "sha256": "d26021dbbfb788ad39a26eb2f3d05bfbf101d952957b186b7ccf81b093a5a796",
-      "markdown": "---\n{\n  \"kind\": \"character\",\n  \"id\": \"candidate.cyra\",\n  \"name\": \"Cyra\",\n  \"family_id\": \"noble-machines\",\n  \"agent_id\": \"example.agent.cyra\",\n  \"design_id\": \"design.cyra\",\n  \"soul_id\": \"soul.cyra\",\n  \"personality_id\": \"personality.cyra\",\n  \"classification\": \"companion-candidate\",\n  \"source_status\": \"new-name-proposal\",\n  \"version\": \"0.1.0\",\n  \"status\": \"proposal\"\n}\n---\n\n# Cyra\n\nCyra is a proposed visual identity for a experience architect experience. Sapphire-winged heron is the form anchor.\n\n## Identity boundaries\nThe character can represent a role in several authorized products. It is not a model, a live worker, a human professional or a canonical runtime identity. The existing Queen, Maker and Reviewer labels are preserved as role archetypes. New names are naming proposals.\n\n## Character sheet deliverables\nFront, three-quarter, side and back; neutral and attentive poses; light and dark 32/64/256px avatars; static reduced-detail version; exact asset IDs and immutable renditions. Do not describe a family scene as an approved individual portrait.\n\n## Product job\nTurn a multi-agent task into a comprehensible user journey.\n"
+      "sha256": "cd156933e87e1797b231f40c18442f0a49c341e72b94443562868547b6d47f90",
+      "markdown": "---\n{\n  \"kind\": \"character\",\n  \"id\": \"candidate.cyra\",\n  \"name\": \"Cyra\",\n  \"family_id\": \"noble-machines\",\n  \"agent_id\": \"example.agent.cyra\",\n  \"design_id\": \"design.cyra\",\n  \"soul_id\": \"soul.cyra\",\n  \"personality_id\": \"personality.cyra\",\n  \"classification\": \"companion-candidate\",\n  \"source_status\": \"new-name-proposal\",\n  \"version\": \"0.1.0\",\n  \"status\": \"proposal\"\n}\n---\n\n# Cyra\n\nCyra is a proposed visual identity for an experience architect experience. Sapphire-winged heron is the form anchor.\n\n## Identity boundaries\nThe character can represent a role in several authorized products. It is not a model, a live worker, a human professional or a canonical runtime identity. The existing Queen, Maker and Reviewer labels are preserved as role archetypes. New names are naming proposals.\n\n## Character sheet deliverables\nFront, three-quarter, side and back; neutral and attentive poses; light and dark 32/64/256px avatars; static reduced-detail version; exact asset IDs and immutable renditions. Do not describe a family scene as an approved individual portrait.\n\n## Product job\nTurn a multi-agent task into a comprehensible user journey.\n"
     },
     {
       "id": "candidate.fern",
@@ -2253,8 +2253,8 @@
     {
       "id": "candidate.maker",
       "path": "contracts/characters/maker/CHARACTER.md",
-      "sha256": "3369e3b5b32d3f5d0a1660a08036cd835f00816d062215e05efdafff0521338e",
-      "markdown": "---\n{\n  \"kind\": \"character\",\n  \"id\": \"candidate.maker\",\n  \"name\": \"Maker\",\n  \"family_id\": \"porcelain-observatory\",\n  \"agent_id\": \"example.agent.maker\",\n  \"design_id\": \"design.maker\",\n  \"soul_id\": \"soul.maker\",\n  \"personality_id\": \"personality.maker\",\n  \"classification\": \"role-avatar\",\n  \"source_status\": \"existing-role-label\",\n  \"version\": \"0.1.0\",\n  \"status\": \"proposal\"\n}\n---\n\n# Maker\n\nMaker is a proposed visual identity for a artifact builder experience. Porcelain craftsperson is the form anchor.\n\n## Identity boundaries\nThe character can represent a role in several authorized products. It is not a model, a live worker, a human professional or a canonical runtime identity. The existing Queen, Maker and Reviewer labels are preserved as role archetypes. New names are naming proposals.\n\n## Character sheet deliverables\nFront, three-quarter, side and back; neutral and attentive poses; light and dark 32/64/256px avatars; static reduced-detail version; exact asset IDs and immutable renditions. Do not describe a family scene as an approved individual portrait.\n\n## Product job\nProduce an editable artifact that can be inspected and revised.\n"
+      "sha256": "89463cf2cb5f34d4adda2ac2eba2e42620c44e7f869c46fb3a8e386e01589736",
+      "markdown": "---\n{\n  \"kind\": \"character\",\n  \"id\": \"candidate.maker\",\n  \"name\": \"Maker\",\n  \"family_id\": \"porcelain-observatory\",\n  \"agent_id\": \"example.agent.maker\",\n  \"design_id\": \"design.maker\",\n  \"soul_id\": \"soul.maker\",\n  \"personality_id\": \"personality.maker\",\n  \"classification\": \"role-avatar\",\n  \"source_status\": \"existing-role-label\",\n  \"version\": \"0.1.0\",\n  \"status\": \"proposal\"\n}\n---\n\n# Maker\n\nMaker is a proposed visual identity for an artifact builder experience. Porcelain craftsperson is the form anchor.\n\n## Identity boundaries\nThe character can represent a role in several authorized products. It is not a model, a live worker, a human professional or a canonical runtime identity. The existing Queen, Maker and Reviewer labels are preserved as role archetypes. New names are naming proposals.\n\n## Character sheet deliverables\nFront, three-quarter, side and back; neutral and attentive poses; light and dark 32/64/256px avatars; static reduced-detail version; exact asset IDs and immutable renditions. Do not describe a family scene as an approved individual portrait.\n\n## Product job\nProduce an editable artifact that can be inspected and revised.\n"
     },
     {
       "id": "candidate.moss",
@@ -2337,8 +2337,8 @@
     {
       "id": "design.cyra",
       "path": "contracts/characters/cyra/DESIGN.md",
-      "sha256": "450086b656101be45f092e2e571b84c9d42d02ba5efc1f2798f8bb4f2aae96ae",
-      "markdown": "---\n{\n  \"kind\": \"design\",\n  \"id\": \"design.cyra\",\n  \"character_id\": \"candidate.cyra\",\n  \"primary_family_id\": \"noble-machines\",\n  \"mixin_family_ids\": [],\n  \"form\": \"sapphire-winged heron\",\n  \"recognition_anchors\": [\n    \"sapphire-winged heron\",\n    \"experience architect instrument\",\n    \"one restrained optical highlight\"\n  ],\n  \"silhouette_min_px\": 32,\n  \"portrait_min_px\": 256,\n  \"version\": \"0.1.0\",\n  \"status\": \"proposal\"\n}\n---\n\n# Cyra: visual contract\n\n## Art direction\nUse the Noble Machines parent. Preserve the sapphire-winged heron silhouette. Keep one functional prop appropriate to experience architect; avoid ornament that competes with controls.\n\n## Generation prompt\nOriginal sapphire-winged heron, a experience architect companion, precise, curious, spatial presence, tactile material from the parent family, legible joints, believable material thickness, quiet architectural lighting, one clear silhouette, plain neutral study background, no text or UI. Use the authorized family reference and retain its source hash. Generate one subject with front/side/back views as separate renders.\n\n## UI placement\nUse 32px identity glyph for dense lists; 64px portrait in an inspector; 256px study in onboarding. Full family art belongs to an optional discovery panel. Controls and text sit on opaque backgrounds.\n\n## Motion\nA restrained gaze can orient a deliberate selection. Status is shown with a separate labelled indicator from verified runtime events. No ambient animation in reduced-motion mode; use a still pose.\n\n## Forbidden drift\nDo not introduce vendor marks, copyrighted mascots, new horns, face replacements or unrecorded color mutations. A material change becomes a versioned edition, not a silent replacement.\n"
+      "sha256": "c869eea5c0c926526e0a8c7cdff6a4d37b72b75c4abafd0723544475ad1c25e9",
+      "markdown": "---\n{\n  \"kind\": \"design\",\n  \"id\": \"design.cyra\",\n  \"character_id\": \"candidate.cyra\",\n  \"primary_family_id\": \"noble-machines\",\n  \"mixin_family_ids\": [],\n  \"form\": \"sapphire-winged heron\",\n  \"recognition_anchors\": [\n    \"sapphire-winged heron\",\n    \"experience architect instrument\",\n    \"one restrained optical highlight\"\n  ],\n  \"silhouette_min_px\": 32,\n  \"portrait_min_px\": 256,\n  \"version\": \"0.1.0\",\n  \"status\": \"proposal\"\n}\n---\n\n# Cyra: visual contract\n\n## Art direction\nUse the Noble Machines parent. Preserve the sapphire-winged heron silhouette. Keep one functional prop appropriate to experience architect; avoid ornament that competes with controls.\n\n## Generation prompt\nOriginal sapphire-winged heron, an experience architect companion, precise, curious, spatial presence, tactile material from the parent family, legible joints, believable material thickness, quiet architectural lighting, one clear silhouette, plain neutral study background, no text or UI. Use the authorized family reference and retain its source hash. Generate one subject with front/side/back views as separate renders.\n\n## UI placement\nUse 32px identity glyph for dense lists; 64px portrait in an inspector; 256px study in onboarding. Full family art belongs to an optional discovery panel. Controls and text sit on opaque backgrounds.\n\n## Motion\nA restrained gaze can orient a deliberate selection. Status is shown with a separate labelled indicator from verified runtime events. No ambient animation in reduced-motion mode; use a still pose.\n\n## Forbidden drift\nDo not introduce vendor marks, copyrighted mascots, new horns, face replacements or unrecorded color mutations. A material change becomes a versioned edition, not a silent replacement.\n"
     },
     {
       "id": "design.fern",
@@ -2355,8 +2355,8 @@
     {
       "id": "design.maker",
       "path": "contracts/characters/maker/DESIGN.md",
-      "sha256": "ea94f15a57b5aef2ff9eb5babe9255d62d628c8cf5786e13bdf452c8b9eb6b23",
-      "markdown": "---\n{\n  \"kind\": \"design\",\n  \"id\": \"design.maker\",\n  \"character_id\": \"candidate.maker\",\n  \"primary_family_id\": \"porcelain-observatory\",\n  \"mixin_family_ids\": [],\n  \"form\": \"porcelain craftsperson\",\n  \"recognition_anchors\": [\n    \"porcelain craftsperson\",\n    \"artifact builder instrument\",\n    \"one restrained optical highlight\"\n  ],\n  \"silhouette_min_px\": 32,\n  \"portrait_min_px\": 256,\n  \"version\": \"0.1.0\",\n  \"status\": \"proposal\"\n}\n---\n\n# Maker: visual contract\n\n## Art direction\nUse the Porcelain Observatory parent. Preserve the porcelain craftsperson silhouette. Keep one functional prop appropriate to artifact builder; avoid ornament that competes with controls.\n\n## Generation prompt\nOriginal porcelain craftsperson, a artifact builder companion, inventive, concrete, quietly playful presence, tactile material from the parent family, legible joints, believable material thickness, quiet architectural lighting, one clear silhouette, plain neutral study background, no text or UI. Use the authorized family reference and retain its source hash. Generate one subject with front/side/back views as separate renders.\n\n## UI placement\nUse 32px identity glyph for dense lists; 64px portrait in an inspector; 256px study in onboarding. Full family art belongs to an optional discovery panel. Controls and text sit on opaque backgrounds.\n\n## Motion\nA restrained gaze can orient a deliberate selection. Status is shown with a separate labelled indicator from verified runtime events. No ambient animation in reduced-motion mode; use a still pose.\n\n## Forbidden drift\nDo not introduce vendor marks, copyrighted mascots, new horns, face replacements or unrecorded color mutations. A material change becomes a versioned edition, not a silent replacement.\n"
+      "sha256": "558a6960dff7f97cf0e76f791c4f9320bf726679578c81196ccbb4d8b6eb8f82",
+      "markdown": "---\n{\n  \"kind\": \"design\",\n  \"id\": \"design.maker\",\n  \"character_id\": \"candidate.maker\",\n  \"primary_family_id\": \"porcelain-observatory\",\n  \"mixin_family_ids\": [],\n  \"form\": \"porcelain craftsperson\",\n  \"recognition_anchors\": [\n    \"porcelain craftsperson\",\n    \"artifact builder instrument\",\n    \"one restrained optical highlight\"\n  ],\n  \"silhouette_min_px\": 32,\n  \"portrait_min_px\": 256,\n  \"version\": \"0.1.0\",\n  \"status\": \"proposal\"\n}\n---\n\n# Maker: visual contract\n\n## Art direction\nUse the Porcelain Observatory parent. Preserve the porcelain craftsperson silhouette. Keep one functional prop appropriate to artifact builder; avoid ornament that competes with controls.\n\n## Generation prompt\nOriginal porcelain craftsperson, an artifact builder companion, inventive, concrete, quietly playful presence, tactile material from the parent family, legible joints, believable material thickness, quiet architectural lighting, one clear silhouette, plain neutral study background, no text or UI. Use the authorized family reference and retain its source hash. Generate one subject with front/side/back views as separate renders.\n\n## UI placement\nUse 32px identity glyph for dense lists; 64px portrait in an inspector; 256px study in onboarding. Full family art belongs to an optional discovery panel. Controls and text sit on opaque backgrounds.\n\n## Motion\nA restrained gaze can orient a deliberate selection. Status is shown with a separate labelled indicator from verified runtime events. No ambient animation in reduced-motion mode; use a still pose.\n\n## Forbidden drift\nDo not introduce vendor marks, copyrighted mascots, new horns, face replacements or unrecorded color mutations. A material change becomes a versioned edition, not a silent replacement.\n"
     },
     {
       "id": "design.moss",
