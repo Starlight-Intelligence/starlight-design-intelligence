@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@import "@starlight/materials/styles.css";
+@source "../../../src";
+
+/* next/font registers each family under a generated name and exposes it as a variable
+ * on <html> (layout.tsx). The package's theme names the real families; bind the three
+ * Tailwind font utilities to the loaded ones so font-sans, font-serif and font-mono are
+ * Instrument Sans, Instrument Serif and IBM Plex Mono here. */
+@theme inline {
+  --font-sans: var(--font-instrument-sans), system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+/* App shell on ink; the paper route sets its own surface. */
+body {
+  background: var(--sl-color-surface);
+  color: var(--sl-color-on-surface);
+  font-family: var(--font-sans);
+  min-height: 100dvh;
+}

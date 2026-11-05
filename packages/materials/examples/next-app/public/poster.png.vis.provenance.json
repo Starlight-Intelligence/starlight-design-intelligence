@@ -1,0 +1,24 @@
+{
+  "$schema": "https://frankx.ai/schemas/vis-provenance-sidecar.schema.json",
+  "asset": "poster.png",
+  "created_at": "2026-10-20T19:54:24.117Z",
+  "brand": "starlight",
+  "prompt": "Procedural night studio window: ink sky lifting toward a gold horizon band, warm lamp low left, companion-cyan glow upper right, dark desk plane with a lit rim, two mullions. No grain, so the PNG stays small; the shader frosts it. Drawn from DESIGN.md tokens.",
+  "negative_prompt": null,
+  "model": "procedural",
+  "provider": "node (scripts/make-poster.mjs)",
+  "seed": 20261020,
+  "settings": {
+    "width": 1440,
+    "height": 900,
+    "format": "png",
+    "colour_type": "rgb",
+    "grain": 0
+  },
+  "agent": {
+    "coding_agent": "Claude Fable 5.1 (Claude Code)",
+    "session_ref": "claude-skills-library#76 materials package"
+  },
+  "evaluation": "Example poster for the glass route; not a brand asset. Reviewed by eye in the example app.",
+  "rights_status": "generated-owned"
+}

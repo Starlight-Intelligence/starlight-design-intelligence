@@ -16,6 +16,8 @@ Starlight Design Intelligence turns that judgment into reusable brand packs, ski
 | --- | --- |
 | `brand-packs/` | Brand-specific design, copy, product, token, and motion doctrine. |
 | `skills/` | Canonical executable design-intelligence skills. Personal/plugin installations are derived snapshots. |
+| `plugins/` | Derived installable packages, supporting contracts and offline design tools. |
+| `packages/materials/` | Living materials (@starlight/materials) and 24 Signal SVG icons. |
 | `evals/` | Rubrics and checklists for anti-slop review, premium brand scoring, and UI quality. |
 | `benchmarks/` | Dated external-skill and tool comparisons with explicit adoption boundaries. |
 | `examples/` | Before/after examples showing the quality delta this system should produce. |
@@ -42,6 +44,14 @@ Starlight Design Intelligence turns that judgment into reusable brand packs, ski
 - `starlight-agent-skills`: portable substrate skills for Starlight/SIS runtime consumption.
 
 There is no separate `starlight-design-agent-skills` authority. Creating another canonical layer would increase drift. Installations must retain a source reference to this repository and pass `npm test` before release.
+
+## Living Design Plugin
+
+[Starlight Living Design](plugins/starlight-living-design/README.md) connects four proposed visual families to twelve character/role recipes, six design skills, and an offline identity and capability atlas. The six skills under `skills/` are canonical; `node scripts/sync-living-design-skills.mjs` regenerates their package copies. Source tests enforce matching content. Private reference artwork is excluded from Git. Runtime binding, brand acceptance, and product deployment remain separate integration work.
+
+## Material Foundations
+
+The [Starlight material foundations](brand-packs/sis/foundations/README.md) provide a candidate lab workbench for glass, porcelain, obsidian, texture, depth and finite star motion. Its bounded token contract is checked by `npm run validate:foundations` and normal kernel validation. It extends the owned identity through inspectable materials; it does not assert portfolio adoption.
 
 ## Design Observatory
 

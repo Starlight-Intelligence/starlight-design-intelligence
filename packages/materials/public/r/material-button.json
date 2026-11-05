@@ -1,0 +1,23 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "material-button",
+  "title": "Button",
+  "description": "shadcn button with a material prop (glass, paper, ink) and the shared state contract. 44px pill by default.",
+  "dependencies": [
+    "cn",
+    "radix-ui",
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "@starlight/material"
+  ],
+  "files": [
+    {
+      "path": "src/primitives/ui/button.tsx",
+      "content": "import * as React from \"react\"\nimport { cva, type VariantProps } from \"class-variance-authority\"\nimport { cn } from \"cn\"\nimport { Slot } from \"radix-ui\"\nimport { type Material, materialClasses } from \"../material.ts\"\n\n// shadcn's button with one change: `material` replaces `variant` as the surface, and the\n// state contract (press, focus ring, gated hover) comes from material.ts rather than from a\n// per-variant hover class. Sizes keep shadcn's names; the default is the 44px pill from\n// DESIGN.md so a thumb lands on it.\nconst buttonVariants = cva(\n  \"inline-flex shrink-0 items-center justify-center gap-2 rounded-full text-label-md font-medium whitespace-nowrap aria-invalid:border-destructive [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",\n  {\n    variants: {\n      size: {\n        default: \"h-11 px-5 has-[>svg]:px-4\",\n        sm: \"h-9 gap-1.5 px-4 has-[>svg]:px-3\",\n        lg: \"h-12 px-6 text-body-md has-[>svg]:px-5\",\n        icon: \"size-11\",\n        \"icon-sm\": \"size-9\",\n        \"icon-lg\": \"size-12\",\n      },\n    },\n    defaultVariants: {\n      size: \"default\",\n    },\n  }\n)\n\nfunction Button({\n  className,\n  material = \"ink\",\n  size = \"default\",\n  asChild = false,\n  ...props\n}: React.ComponentProps<\"button\"> &\n  VariantProps<typeof buttonVariants> & {\n    material?: Material\n    asChild?: boolean\n  }) {\n  const Comp = asChild ? Slot.Root : \"button\"\n\n  return (\n    <Comp\n      data-slot=\"button\"\n      data-material={material}\n      data-size={size}\n      className={cn(buttonVariants({ size }), materialClasses(material, true), className)}\n      {...props}\n    />\n  )\n}\n\nexport { Button, buttonVariants }\n",
+      "type": "registry:ui",
+      "target": "~/components/starlight-materials/primitives/ui/button.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
