@@ -32,7 +32,9 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint:design": "npx --yes @google/design.md lint DESIGN.md",
     "tokens": "npx --yes @google/design.md export DESIGN.md --format css-vars --prefix sl > src/tokens/tokens.css && npx --yes @google/design.md export DESIGN.md --format css-tailwind > src/tokens/theme.css",
-    "registry:build": "shadcn build registry.json --output public/r"
+    "registry:build": "shadcn build registry.json --output public/r",
+    "registry:sync": "node scripts/sync-registry-payload.mjs",
+    "registry:check": "node scripts/sync-registry-payload.mjs --check"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",

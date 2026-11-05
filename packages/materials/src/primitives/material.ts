@@ -11,9 +11,11 @@ export const MATERIALS: readonly Material[] = ['glass', 'paper', 'ink'];
 // src/styles/materials.css swaps it for the opaque designed still.
 export const materialSurface: Record<Material, string> = {
   glass:
-    'sl-glass bg-glass-tint text-on-surface border border-hairline shadow-[inset_0_1px_0_var(--color-highlight),0_20px_60px_var(--color-glass-tint)]',
-  paper: 'bg-surface-paper text-on-paper border border-on-paper/10',
-  ink: 'bg-primary text-on-surface border border-hairline',
+    'sl-glass bg-glass-tint text-on-surface border border-hairline shadow-[inset_0_1px_0_var(--sl-color-highlight),0_20px_60px_var(--sl-color-glass-tint)]',
+  // sl-paper and sl-ink (materials.css) give the surface its own reading tokens, so the
+  // material stays legible on a page of the other theme.
+  paper: 'sl-paper bg-surface-paper text-on-paper border border-on-paper/10',
+  ink: 'sl-ink bg-primary text-on-surface border border-hairline',
 };
 
 // The state contract, shared by every interactive primitive.

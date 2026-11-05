@@ -24,7 +24,7 @@
 Use the Porcelain Observatory parent. Preserve the porcelain craftsperson silhouette. Keep one functional prop appropriate to artifact builder; avoid ornament that competes with controls.
 
 ## Generation prompt
-Original porcelain craftsperson, a artifact builder companion, inventive, concrete, quietly playful presence, tactile material from the parent family, legible joints, believable material thickness, quiet architectural lighting, one clear silhouette, plain neutral study background, no text or UI. Use the authorized family reference and retain its source hash. Generate one subject with front/side/back views as separate renders.
+Original porcelain craftsperson, an artifact builder companion, inventive, concrete, quietly playful presence, tactile material from the parent family, legible joints, believable material thickness, quiet architectural lighting, one clear silhouette, plain neutral study background, no text or UI. Use the authorized family reference and retain its source hash. Generate one subject with front/side/back views as separate renders.
 
 ## UI placement
 Use 32px identity glyph for dense lists; 64px portrait in an inspector; 256px study in onboarding. Full family art belongs to an optional discovery panel. Controls and text sit on opaque backgrounds.

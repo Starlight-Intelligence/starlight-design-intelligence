@@ -17,7 +17,7 @@
 
 # Maker
 
-Maker is a proposed visual identity for a artifact builder experience. Porcelain craftsperson is the form anchor.
+Maker is a proposed visual identity for an artifact builder experience. Porcelain craftsperson is the form anchor.
 
 ## Identity boundaries
 The character can represent a role in several authorized products. It is not a model, a live worker, a human professional or a canonical runtime identity. The existing Queen, Maker and Reviewer labels are preserved as role archetypes. New names are naming proposals.
