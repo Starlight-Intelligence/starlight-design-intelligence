@@ -1,0 +1,10 @@
+command=corepack pnpm verify:consumer-themes
+working_directory=/tmp/living-design-v4/packages/materials/examples/next-app
+BASE_URL=http://127.0.0.1:33321
+CHROME_BIN=/usr/bin/chromium
+EVIDENCE_DIR=/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v4
+started=2026-11-04T08:41:56Z
+$ node scripts/verify-consumer-themes.mjs
+Browser evidence: /home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v4
+exit=0
+finished=2026-11-04T08:43:03Z

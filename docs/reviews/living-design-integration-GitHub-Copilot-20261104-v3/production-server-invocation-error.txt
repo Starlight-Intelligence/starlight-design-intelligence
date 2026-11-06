@@ -1,0 +1,21 @@
+Progress: resolved 0, reused 1, downloaded 0, added 0
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: /home/runner/.local/share/pnpm/store/v11
+  Virtual store is at:             node_modules/.pnpm
+Packages: +22
+++++++++++++++++++++++
+Progress: resolved 22, reused 5, downloaded 17, added 22, done
+
+devDependencies:
++ ajv 8.18.0
++ ajv-formats 3.0.1
++ fontkit 2.0.4
++ playwright 1.62.1
++ pngjs 7.0.0
++ yaml 2.8.3
+
+Done in 1.9s using pnpm v12.16.1
+Error: ERR_PNPM_NO_SCRIPT_OR_SERVER
+
+  × Missing script start or file server.js
+

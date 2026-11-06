@@ -1,0 +1,355 @@
+{
+  "report_version": "v2",
+  "report_author": "GitHub-hosted Copilot agent",
+  "underlying_model_or_provider": "Not exposed by trusted runtime metadata; not inferred",
+  "coordinating_lead": "Codex (OpenAI), identified in candidate #74",
+  "captured_at": "2026-11-04",
+  "report_pr": 78,
+  "tracking": [
+    "frankxai/agentic-ops-hub#437",
+    "Starlight-Intelligence/starlight-design-intelligence#61"
+  ],
+  "candidate": {
+    "repository": "Starlight-Intelligence/starlight-design-intelligence",
+    "base_branch": "agent/antigravity/living-design-trunk",
+    "base_sha": "2ab4ffd4db3513c018563de01e76e49da88592b9",
+    "pr": 74,
+    "branch": "agent/codex/agy-sdi-windows-tests-20261104",
+    "sha": "773a211f61c56777d17746b8105f0c8319d0503a",
+    "parent_sha": "423166821449fddefc348d166eece5d728f80ee0",
+    "tree_sha": "1d610848052ee885df5ea245e005de2d6c3bcb69",
+    "imported_pr_79_source_reference": "ffb3e08b6ac536e0586b6da78d520e785fcafff3",
+    "isolated_checkout": "/tmp/living-design-v2",
+    "isolated_checkout_clean_at_final_sha": true,
+    "report_branch_product_source_modified": false,
+    "origin": "http://localhost:26831/Starlight-Intelligence/starlight-design-intelligence",
+    "origin_rewritten": false
+  },
+  "verdicts": {
+    "overall": "PARTIAL",
+    "availability": {
+      "verdict": "PASS, local only",
+      "basis": "Current local registry entries installed into a temporary consumer and compiled with Next.js; no npm publication, public endpoint or deployment."
+    },
+    "functional_behavior": {
+      "verdict": "PASS, bounded",
+      "basis": "Materials, registry parity and typechecks passed; the committed production browser sweep passed; no texImage3D INVALID_OPERATION occurred. Real browser poster-change/cancellation and hardware GPU behavior are not established."
+    },
+    "design_visual_review": {
+      "verdict": "PARTIAL",
+      "basis": "Rendered contrast, focus, profiles, fonts, fallbacks and interface detector passed in the tested journey; only one desktop screenshot was visually inspected, with mobile exports pending lead review."
+    },
+    "user_value_commercial_sustainability": {
+      "verdict": "NOT EVALUATED",
+      "basis": "No user-acceptance, repeat-use, acquisition, support-cost, revenue or margin evidence."
+    },
+    "production_public_release_approval": {
+      "verdict": "OUT OF SCOPE",
+      "basis": "A local production build/start is not a public deployment, production receipt or release approval."
+    },
+    "different_provider_merge_policy": {
+      "verdict": "NOT SATISFIED BY THIS REPORT",
+      "basis": "The underlying provider is not exposed by trusted runtime metadata; no qualifying different-provider identity is claimed."
+    }
+  },
+  "environment": {
+    "node": "v24.22.1",
+    "npm": "11.19.1",
+    "pnpm": "12.16.1",
+    "next": "16.4.2",
+    "playwright": "1.62.1",
+    "browser": "Chromium 156.0.8078.0",
+    "browser_executable": "/usr/bin/chromium",
+    "webgl_renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "webgl_classification": "Real browser WebGL using SwiftShader software rendering; not physical GPU/Arc performance evidence",
+    "viewports_css_px": [
+      [1440, 900],
+      [390, 844]
+    ],
+    "dpr": 1,
+    "mobile_context": "Playwright isMobile/hasTouch emulation; not a physical phone and no physical touch gesture"
+  },
+  "setup_and_tests": {
+    "locked_dependency_setup": [
+      {
+        "command": "npm ci",
+        "working_directory": "/tmp/living-design-v2",
+        "result": "PASS",
+        "exit_code": 0,
+        "audit_vulnerabilities": 0
+      },
+      {
+        "command": "corepack pnpm install --frozen-lockfile",
+        "working_directory": "/tmp/living-design-v2/packages/materials",
+        "result": "PASS",
+        "exit_code": 0
+      },
+      {
+        "command": "corepack pnpm install --frozen-lockfile",
+        "working_directory": "/tmp/living-design-v2/packages/materials/examples/next-app",
+        "result": "PASS",
+        "exit_code": 0
+      }
+    ],
+    "registry_build": {
+      "command": "corepack pnpm registry:build",
+      "working_directory": "/tmp/living-design-v2/packages/materials",
+      "result": "PASS; semantic registry output equivalent",
+      "exit_code": 0,
+      "only_raw_diff": "packages/materials/public/r/glass-surface.json differs by a missing terminal newline in generated output",
+      "diff_artifact": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v2/registry-generation.diff",
+      "restored_after_capture": true
+    },
+    "materials_test": {
+      "command": "corepack pnpm test",
+      "working_directory": "/tmp/living-design-v2/packages/materials",
+      "node": "v24.22.1",
+      "result": "PASS",
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "coverage": [
+        "Installed shadcn generator parity across all source-backed entries and index",
+        "Lifecycle regression",
+        "Server/client boundary",
+        "Theme semantics and focus contrast",
+        "Font hashes, provenance and local-font loader"
+      ]
+    },
+    "typechecks": [
+      {
+        "command": "corepack pnpm typecheck",
+        "working_directory": "/tmp/living-design-v2/packages/materials",
+        "result": "PASS",
+        "exit_code": 0
+      },
+      {
+        "command": "corepack pnpm typecheck",
+        "working_directory": "/tmp/living-design-v2/packages/materials/examples/next-app",
+        "result": "PASS",
+        "exit_code": 0
+      }
+    ],
+    "plugin_font_tests": {
+      "command": "node --test tests/living-design.test.mjs tests/font-artifact.test.mjs",
+      "working_directory": "/tmp/living-design-v2",
+      "result": "PASS with explicit skips",
+      "passed": 36,
+      "failed": 0,
+      "skipped": 2,
+      "skips": [
+        "Missing-decoder denial case skipped because the decoder is installed",
+        "Opt-in nine pinned public WOFF2 observations not run"
+      ]
+    },
+    "root_suite_clean_tree": {
+      "command": "npm test",
+      "working_directory": "/tmp/living-design-v2",
+      "result": "FAIL, two environment-origin assertions",
+      "passed": 278,
+      "failed": 2,
+      "skipped": 2,
+      "total": 282,
+      "failures": [
+        "tests/adoption.test.mjs:204 valid adoption: kernel remote must be Starlight-Intelligence/starlight-design-intelligence",
+        "tests/adoption.test.mjs:271 transferred canonical namespace: kernel remote must be Starlight-Intelligence/starlight-design-intelligence"
+      ],
+      "actual_origin": "http://localhost:26831/Starlight-Intelligence/starlight-design-intelligence",
+      "tests_or_identity_modified": false,
+      "raw_log": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v2/root-test-clean-working-tree.txt"
+    },
+    "root_suite_transient_dirty_run": {
+      "tracked_change": "Newline-only registry generator output in glass-surface.json",
+      "result": "Two origin failures also observed the transient tracked modification",
+      "raw_log": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v2/root-test-dirty-working-tree.txt",
+      "candidate_file_restored_before_clean_tree_run": true
+    }
+  },
+  "production_build": {
+    "command": "corepack pnpm build",
+    "working_directory": "/tmp/living-design-v2/packages/materials/examples/next-app",
+    "result": "PASS",
+    "exit_code": 0,
+    "attempts": 1,
+    "next": "16.4.2 Turbopack",
+    "prerendered_routes": [
+      "/",
+      "/glass",
+      "/ink",
+      "/paper"
+    ],
+    "next_generated_tracked_change": "Next rewrote the example tsconfig.json during build; captured then restored.",
+    "generated_diff": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v2/next-generated-tsconfig.diff",
+    "final_source_checkout_clean": true
+  },
+  "browser_sweep": {
+    "command": "corepack pnpm verify:consumer-themes",
+    "working_directory": "/tmp/living-design-v2/packages/materials/examples/next-app",
+    "base_url": "http://127.0.0.1:33317",
+    "evidence_directory": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v2",
+    "result": "PASS — bounded local production consumer checks, not release approval",
+    "exit_code": 0,
+    "attempts": 1,
+    "receipt_source_sha": "773a211f61c56777d17746b8105f0c8319d0503a",
+    "receipt_started_at": "2026-11-04T07:33:08.963Z",
+    "screenshot_interval": [
+      "2026-11-04T07:33:25.634Z",
+      "2026-11-04T07:33:49.276Z"
+    ],
+    "routes": [
+      "/",
+      "/paper",
+      "/ink",
+      "/glass"
+    ],
+    "profiles": [
+      "ink",
+      "paper",
+      "operator"
+    ],
+    "route_profile_viewport_states": 24,
+    "recorded_states_total": 50,
+    "screenshots": {
+      "count": 17,
+      "metadata_and_sha256": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v2/browser.json"
+    },
+    "interface_detector": "Complete, zero failures in route/profile states",
+    "contrast_minima": {
+      "heading": 15.631109214868511,
+      "accent": 4.523758726870089,
+      "theme_control": 15.907204872762142,
+      "theme_control_focus": 4.523758726870089
+    },
+    "operator": {
+      "foreground": "rgb(232, 235, 242)",
+      "background": "rgb(11, 13, 18)"
+    },
+    "keyboard": {
+      "select_arrow_down_enter": "pass",
+      "sheet_enter_escape": "pass",
+      "trigger_focus_restored": true
+    },
+    "no_javascript": {
+      "glass_tier": "css",
+      "selector_disabled": true,
+      "default_theme": "ink"
+    },
+    "reduced_motion": "css fallback at desktop and mobile emulated contexts",
+    "reduced_transparency": "css fallback then WebGL recovery in desktop context",
+    "glass_recovery": [
+      "desktop WebGL",
+      "phone-width CSS",
+      "desktop WebGL",
+      "reduced-transparency CSS",
+      "WebGL recovery",
+      "two Glass route remounts"
+    ],
+    "poster_change_browser_assertion": false,
+    "delayed_texture_cancellation_browser_assertion": false,
+    "font_failure": {
+      "fresh_contexts": 2,
+      "blocked_requests_per_context": 4,
+      "fallback_platform_font_asserted": true,
+      "ordinary_run_requests_local_only": true,
+      "rendered_custom_font_glyphs": [
+        "Instrument Sans",
+        "Instrument Serif",
+        "IBM Plex Mono"
+      ]
+    },
+    "errors": {
+      "page_errors": 0,
+      "console_diagnostics": [
+        "favicon.ico 404"
+      ],
+      "texImage3D_invalid_operation": false,
+      "hydration_or_react_error": false
+    },
+    "rendering": "SwiftShader software WebGL; no hardware performance proof",
+    "mobile_touch": "Playwright isMobile/hasTouch context; profile values selected programmatically; not physical touch interaction",
+    "visual_inspection": {
+      "inspected": [
+        "desktop-home-operator.png"
+      ],
+      "remaining": "Image viewer limit prevented inspecting more; mobile images remain for lead review."
+    }
+  },
+  "registry_consumer": {
+    "registry_source": "http://127.0.0.1:33319/r/{name}.json",
+    "cli": "Locked shadcn 4.22.1",
+    "entries_requested": [
+      "@starlight/glass-surface",
+      "@starlight/material-button",
+      "@starlight/material-card",
+      "@starlight/material-sheet"
+    ],
+    "installed_files": 13,
+    "consumer_directory": "/tmp/living-design-v2-consumer",
+    "registry_requests": "All requested entries and dependencies returned HTTP 200",
+    "disposable_dependency_resolution": "CLI's automatic npm step resolved registry dependency ranges in the disposable consumer. Its lockfile/node_modules were discarded before compile and replaced with an overlay of dependencies already installed from the exact candidate's existing locks.",
+    "typescript_compile": {
+      "command": "TypeScript 5.9.3 tsc --noEmit -p /tmp/living-design-v2-consumer/tsconfig.json",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    "next_app_router_compile": {
+      "next": "16.4.2",
+      "server_import": "gpuPlan from the registry-installed gate module",
+      "client_import": "GlassSurface from the registry-installed glass module",
+      "http_status": 200,
+      "result": "PASS after correcting temporary harness dependency-root/PostCSS configuration",
+      "first_minimal_harness_http_status": 500,
+      "first_failure": "Incomplete temporary harness: dependency symlink was outside Turbopack root, then tw-animate-css/PostCSS config was absent; resolved with existing locked packages/config only."
+    },
+    "source_manifests_or_locks_changed": false
+  },
+  "github_actions": {
+    "base_sha": "2ab4ffd4db3513c018563de01e76e49da88592b9",
+    "candidate_sha": "773a211f61c56777d17746b8105f0c8319d0503a",
+    "candidate_completed_success_runs": [
+      {
+        "workflow": "Media registry",
+        "run_id": 41792090859,
+        "conclusion": "success"
+      },
+      {
+        "workflow": "Font artifact decoding",
+        "run_id": 41792091022,
+        "conclusion": "success"
+      },
+      {
+        "workflow": "Design kernel",
+        "run_id": 41792091148,
+        "conclusion": "success"
+      }
+    ],
+    "interpretation": "Actions success is corroboration, not a substitute for this independent execution."
+  },
+  "task_owned_processes_stopped": true,
+  "evidence_bundle": {
+    "directory": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v2",
+    "bytes": 1907487,
+    "max_bytes": 15728640,
+    "within_limit": true,
+    "contains_screenshot_metadata_and_hashes": true,
+    "contains_root_test_logs": true,
+    "contains_build_and_generator_diffs": true
+  },
+  "preserved_previous_report": {
+    "markdown": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/Living-design-integration-GitHub-Copilot-2026-11-04-v1.md",
+    "json": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/Living-design-integration-GitHub-Copilot-2026-11-04-v1.json",
+    "modified": false
+  },
+  "not_claimed": [
+    "Physical phone or touch gesture",
+    "Hardware GPU or Frank/Arc performance",
+    "Browser-driven pending poster cancellation",
+    "Browser-driven poster URL change",
+    "Full parent #73 design gate",
+    "Visual approval of all exported images",
+    "Production deployment or public release approval",
+    "Commercial sustainability or user acceptance",
+    "Different-provider merge attestation"
+  ],
+  "next_bounded_action": "Lead reviews the mobile exports and expected localhost-origin root-suite failures, then obtains any required different-provider review before deciding whether to reconcile or promote."
+}

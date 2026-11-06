@@ -1,0 +1,31 @@
+$ node --test "tests/**/*.test.mjs"
+✔ public server-safe barrels expose gpuPlan without an unmarked hook module (85.708822ms)
+✔ a capable desktop gets WebGL (2.619708ms)
+✔ every refusal keeps the CSS glass and says why (4.343619ms)
+✔ unknown device memory (Safari, Firefox) is not treated as low (0.301866ms)
+✔ the 900px boundary matches the prototype breakpoint (0.298659ms)
+✔ one slow shader-compile frame does not fail the budget (0.340629ms)
+✔ a consistently slow device fails the budget (0.214232ms)
+✔ no valid samples means no budget, so CSS wins (0.865222ms)
+✔ glass mounts reuse one live canvas context and cancel stale async mounts (695.555659ms)
+✔ every published source-backed entry matches the locked generator and its file mapping (2503.935376ms)
+✔ 24 Signal SVG icons: exported paths and names match exact 24-icon set (1.826703ms)
+✔ 24 Signal SVG icons: standalone SVG files in icons/signal match 24 count (3.324981ms)
+✔ 24 Signal SVG icons: standalone SVG files in packages/materials/src/icons/svg match 24 count (0.419887ms)
+✔ unified tokens.css: zero collisions and all core tokens declared (0.433362ms)
+✔ Tailwind palette utilities resolve through the unified semantic theme aliases (7.450981ms)
+✔ Paper headline accent stays readable over the rendered Glass backdrop (0.770334ms)
+✔ focus treatment retains contrast on both light and dark material surroundings (3.231395ms)
+✔ evidence disclosure inherits material text and keeps its state legible without motion (0.344055ms)
+✔ example fonts are unchanged licensed originals with pinned provenance and no Google font loader (2.811538ms)
+✔ useGlassPlan answers css on the server without touching window (21.47004ms)
+✔ the server plan is the css tier, stated as such (13.867054ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3052.749292
+materials tests exit=0

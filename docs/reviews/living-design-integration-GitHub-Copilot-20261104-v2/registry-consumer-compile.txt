@@ -1,0 +1,5 @@
+command: locked TypeScript 5.9.3 tsc --noEmit -p /tmp/living-design-v2-consumer/tsconfig.json
+tsc_exit=0
+command: curl http://127.0.0.1:33320/
+http_status=200
+registry_surface_rendered=1
