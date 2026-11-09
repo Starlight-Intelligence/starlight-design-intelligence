@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "material-card",
+  "title": "Card",
+  "description": "shadcn card with a material prop and an interactive flag that opts a card into the state contract.",
+  "dependencies": [
+    "cn",
+    "radix-ui"
+  ],
+  "registryDependencies": [
+    "@starlight/material"
+  ],
+  "files": [
+    {
+      "path": "src/primitives/ui/card.tsx",
+      "content": "import * as React from \"react\"\nimport { cn } from \"cn\"\nimport { Slot } from \"radix-ui\"\nimport { type Material, materialClasses } from \"../material.ts\"\n\n// shadcn's card with a `material` prop. `interactive` opts a card into the state contract\n// (press, focus ring, gated hover) and must be paired with `asChild` over a link or a\n// button, so the card has keyboard activation and semantics; a bare interactive div is\n// refused at the type level. A static card never gets a hover state, because a surface\n// that reacts and does nothing is a lie. On paper a card rests on ivory, one tonal step\n// above the page, and presses down to paper (DESIGN.md, Elevation & Depth).\ntype CardProps = React.ComponentProps<\"div\"> & { material?: Material } & (\n  | { interactive?: false; asChild?: boolean }\n  | { interactive: true; asChild: true }\n)\n\nfunction Card({ className, material = \"paper\", interactive = false, asChild = false, ...props }: CardProps) {\n  const Comp = asChild ? Slot.Root : \"div\"\n  return (\n    <Comp\n      data-slot=\"card\"\n      data-material={material}\n      data-interactive={interactive ? \"\" : undefined}\n      className={cn(\n        \"flex flex-col gap-6 rounded-lg py-6\",\n        materialClasses(material, interactive),\n        material === \"paper\" && \"bg-surface-ivory\",\n        material === \"paper\" && interactive && \"active:bg-surface-paper fine-hover:bg-surface-paper\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction CardHeader({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-header\"\n      className={cn(\n        \"@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-2 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction CardTitle({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-title\"\n      className={cn(\"text-headline-md leading-tight font-semibold tracking-headline-md text-balance\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction CardDescription({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-description\"\n      className={cn(\"text-body-sm opacity-70\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction CardAction({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-action\"\n      className={cn(\n        \"col-start-2 row-span-2 row-start-1 self-start justify-self-end\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction CardContent({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-content\"\n      className={cn(\"px-6\", className)}\n      {...props}\n    />\n  )\n}\n\nfunction CardFooter({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"card-footer\"\n      className={cn(\"flex items-center px-6 [.border-t]:pt-6\", className)}\n      {...props}\n    />\n  )\n}\n\nexport {\n  Card,\n  CardHeader,\n  CardFooter,\n  CardTitle,\n  CardAction,\n  CardDescription,\n  CardContent,\n}\n",
+      "type": "registry:ui",
+      "target": "~/components/starlight-materials/primitives/ui/card.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
