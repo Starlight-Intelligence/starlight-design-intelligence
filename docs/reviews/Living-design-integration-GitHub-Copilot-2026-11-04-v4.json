@@ -1,0 +1,265 @@
+{
+  "report_version": "v4",
+  "report_author": "GitHub-hosted Copilot agent",
+  "underlying_model_or_provider": "Not exposed by trusted runtime metadata; not inferred",
+  "coordinating_lead": "Codex (OpenAI), identified in candidate PR",
+  "captured_at": "2026-11-04T08:43:03Z",
+  "report_pr": 78,
+  "tracking": [
+    "frankxai/agentic-ops-hub#437",
+    "Starlight-Intelligence/starlight-design-intelligence#61"
+  ],
+  "candidate": {
+    "repository": "Starlight-Intelligence/starlight-design-intelligence",
+    "pr": 74,
+    "base_branch": "agent/antigravity/living-design-trunk",
+    "base_sha": "2ab4ffd4db3513c018563de01e76e49da88592b9",
+    "base_tree_sha": "042c57681cc0afacca73490d3d3df4b1d89b64fa",
+    "sha": "924d615f06fdf88a1306731e9ae94a3d56d93167",
+    "parent_sha": "2e36fe1836881fb6060c852693d629a544215a17",
+    "tree_sha": "b6a66ee93d3cf05e0c7ecd91a7c3c2a4f2c3abef",
+    "isolated_checkout": "/tmp/living-design-v4",
+    "isolated_checkout_clean_at_final_sha": true,
+    "report_branch_product_source_modified": false,
+    "previous_report_sha256": {
+      "v1_markdown": "7970ccdbb07c6cf1d0473093ca0ec40380ae858fa90ebfa306799b42761653ee",
+      "v1_json": "d0e02aa2b8bca27909b37bc95449d2546d83f33c6d6c7fb09e2f4dcae40d6aeb",
+      "v2_markdown": "9bd87b9641e661e91f9f696077da9ad47bfe9df04eaa58400c065cc05d085b36",
+      "v2_json": "b8c1555bc571af22260cc54ea7798b49d309c79486abc8e708a818adad946c1c",
+      "v3_markdown": "635b2a3d210cbaf65097bc5c02f19822451e8403b9e968d6598d7acc21384a23",
+      "v3_json": "5e3beebec888f1071ac72ff3bc84a9b10257c0e13f3edbcdc91f01762f2438e6"
+    }
+  },
+  "verdicts": {
+    "overall": {
+      "verdict": "PASS for bounded v4 regression journey; PARTIAL for visual/release acceptance",
+      "basis": "The full committed browser script passed once on exact v4 source; image exports could not be visually reviewed due viewer quota."
+    },
+    "availability": {
+      "verdict": "PASS, local generation/parity only",
+      "basis": "Frozen installs, installed generator parity, and current registry build passed without a diff. No current-head registry consumer installation/compile, publication, or deployment is claimed."
+    },
+    "functional_behavior": {
+      "verdict": "PASS, bounded",
+      "basis": "Materials tests, typechecks, and full browser sweep passed with all 24 route/profile/viewport states and required theme, font, fallback, keyboard, contrast, and recovery assertions."
+    },
+    "design_visual_review": {
+      "verdict": "PARTIAL",
+      "basis": "Actual rendered contrast passed and detector findings were zero in swept states; human visual inspection of desktop/mobile Glass exports remains pending."
+    },
+    "user_value_commercial_sustainability": {
+      "verdict": "NOT EVALUATED"
+    },
+    "production_public_release_approval": {
+      "verdict": "OUT OF SCOPE"
+    },
+    "different_provider_merge_policy": {
+      "verdict": "NOT SATISFIED BY THIS REPORT",
+      "basis": "Underlying provider is not exposed by trusted runtime metadata."
+    }
+  },
+  "checks": {
+    "node": "v24.22.1",
+    "npm": "11.19.1",
+    "pnpm": "12.16.1",
+    "npm_ci": {
+      "command": "npm ci",
+      "result": "PASS",
+      "exit_code": 0,
+      "packages_added": 22,
+      "audit_vulnerabilities": 0
+    },
+    "materials_install": {
+      "command": "corepack pnpm install --frozen-lockfile",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    "example_install": {
+      "command": "corepack pnpm install --frozen-lockfile",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    "materials_tests": {
+      "command": "corepack pnpm test",
+      "result": "PASS",
+      "passed": 21,
+      "failed": 0,
+      "skipped": 0,
+      "installed_registry_parity_skipped": false
+    },
+    "typechecks": {
+      "materials": {
+        "command": "corepack pnpm typecheck",
+        "result": "PASS",
+        "exit_code": 0
+      },
+      "next_example": {
+        "command": "corepack pnpm typecheck",
+        "result": "PASS",
+        "exit_code": 0
+      }
+    },
+    "plugin_font_tests": {
+      "command": "node --test tests/living-design.test.mjs tests/font-artifact.test.mjs",
+      "result": "PASS",
+      "passed": 36,
+      "failed": 0,
+      "skipped": 2,
+      "skips": [
+        "missing decoder denies structurally valid fonts (decoder installed)",
+        "nine pinned public WOFF2 resources decode with expected internal metadata (opt-in remote observation)"
+      ]
+    },
+    "root_npm_test": {
+      "result": "NOT RERUN",
+      "reason": "The request explicitly limited re-diagnosis of the previously established hosted localhost-origin adoption-test failure. The previous failure remains in v3; successful CI workflows are not treated as an npm test result for this head."
+    },
+    "registry_build": {
+      "command": "corepack pnpm registry:build",
+      "result": "PASS",
+      "exit_code": 0,
+      "entries_built": 7,
+      "generated_public_registry_diff_bytes": 0
+    },
+    "production_build": {
+      "command": "corepack pnpm build",
+      "result": "PASS",
+      "exit_code": 0,
+      "next_version": "16.4.2",
+      "routes": ["/", "/glass", "/ink", "/paper"],
+      "incidental_tsconfig_change": "Captured and restored in next-generated-tsconfig.diff"
+    },
+    "production_start": {
+      "command": "corepack pnpm start --hostname 127.0.0.1 --port 33321",
+      "result": "PASS",
+      "exit_code": 0,
+      "ready_at": "2026-11-04T08:41:49Z",
+      "stopped": true
+    },
+    "browser_sweep": {
+      "command": "corepack pnpm verify:consumer-themes",
+      "result": "PASS",
+      "runs": 1,
+      "exit_code": 0,
+      "started_at": "2026-11-04T08:41:56.534Z",
+      "finished_at": "2026-11-04T08:43:03Z",
+      "source_sha": "924d615f06fdf88a1306731e9ae94a3d56d93167",
+      "playwright": "1.62.1",
+      "browser": "Chromium 156.0.8078.0",
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "renderer_classification": "Real browser WebGL with SwiftShader software rendering, not hardware GPU/Arc performance evidence",
+      "viewports_css_px": [[1440, 900], [390, 844]],
+      "dpr": 1,
+      "mobile_context": "Playwright isMobile/hasTouch emulation; no physical phone or touch gesture",
+      "route_profile_viewport_states": 24,
+      "state_records": 51,
+      "full_page_screenshots": 23,
+      "additional_backdrop_fixture_pngs": 16,
+      "all_screenshot_hashes_dimensions_verified": true,
+      "selector_font_px": {
+        "minimum": 16,
+        "asserted_all_states": true
+      },
+      "glass_accent_contrast": {
+        "threshold": 3,
+        "desktop": {
+          "ink": 10.04128183624185,
+          "paper": 4.062365031512609,
+          "operator": 9.913735025143328
+        },
+        "mobile": {
+          "ink": 10.82401152013448,
+          "paper": 4.111535230134573,
+          "operator": 11.14283026253543
+        }
+      },
+      "glass_heading_contrast": {
+        "threshold": 4.5,
+        "desktop": {
+          "ink": 13.863043189981036,
+          "paper": 8.876344264210333,
+          "operator": 12.235099519478194
+        },
+        "mobile": {
+          "ink": 13.13062604860745,
+          "paper": 9.77583612985795,
+          "operator": 13.492604803946303
+        }
+      },
+      "shader_ink_uploads_rgb_over_255": {
+        "desktop_ink": [7, 10, 16],
+        "desktop_paper": [239, 237, 231],
+        "desktop_operator": [11, 13, 18]
+      },
+      "poster_canvas_fixtures": {
+        "white_background_contrast": 21,
+        "black_background_contrast": 1,
+        "poster_and_canvas_both_tested": true
+      },
+      "interface_detector_failures_in_route_profile_states": 0,
+      "font_requests": 56,
+      "font_requests_local_origin_only": true,
+      "computed_custom_families": [
+        "Instrument Sans",
+        "Instrument Serif",
+        "IBM Plex Mono"
+      ],
+      "font_failure_contexts": 2,
+      "fallback_blocked_font_requests_per_context": 4,
+      "journeys_passed": [
+        "keyboard theme selector and Sheet open/Escape/focus return",
+        "local font glyph use",
+        "fresh-context font network failure fallback",
+        "reduced motion CSS tier",
+        "reduced transparency fallback and WebGL recovery",
+        "desktop to phone-width to desktop",
+        "two route remounts",
+        "no-JavaScript CSS glass/readable default Ink/disabled selector"
+      ],
+      "page_errors": 0,
+      "console_diagnostics": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "cause": "Example favicon"
+        }
+      ],
+      "final_hydration_webgl_diagnostic_assertions_passed": true
+    },
+    "github_actions": {
+      "base_sha": "2ab4ffd4db3513c018563de01e76e49da88592b9",
+      "base_successful_runs": {
+        "media_registry": 41761515832,
+        "font_artifact_decoding": 41761515726,
+        "design_kernel": 41761515744
+      },
+      "candidate_sha": "924d615f06fdf88a1306731e9ae94a3d56d93167",
+      "candidate_successful_runs": {
+        "media_registry": 41800650858,
+        "font_artifact_decoding": 41800650782,
+        "design_kernel": 41800650845
+      }
+    }
+  },
+  "visual_review": {
+    "verdict": "PENDING LEAD INSPECTION",
+    "reason": "Image viewer quota was exhausted in the previous wave; desktop and mobile exports are preserved but were not visually inspected by this report author.",
+    "priority_files": [
+      "desktop-glass-paper.png",
+      "mobile-glass-paper.png",
+      "desktop-glass-ink.png",
+      "mobile-glass-ink.png",
+      "desktop-glass-operator.png",
+      "mobile-glass-operator.png"
+    ]
+  },
+  "evidence_directory": {
+    "path": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v4/",
+    "bytes": 3113716,
+    "limit_bytes": 15728640,
+    "manifest": "browser.json",
+    "full_command_and_exit": "browser-sweep-command.txt",
+    "all_39_png_hashes_dimensions_rechecked": true
+  },
+  "next_bounded_action": "Lead visually inspects preserved desktop/mobile Glass screenshots, especially the repaired Paper profile. Do not infer public release, commercial, physical GPU, or different-provider acceptance."
+}

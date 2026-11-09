@@ -1,0 +1,8 @@
+candidate=924d615f06fdf88a1306731e9ae94a3d56d93167
+tree-before=b6a66ee93d3cf05e0c7ecd91a7c3c2a4f2c3abef
+status-before=
+started=2026-11-04T08:41:20Z
+status-after-build:
+ M packages/materials/examples/next-app/tsconfig.json
+tree-after-build=b6a66ee93d3cf05e0c7ecd91a7c3c2a4f2c3abef
+finished=2026-11-04T08:41:31Z

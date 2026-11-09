@@ -1,0 +1,642 @@
+{
+  "browser": "156.0.8078.0",
+  "executable": "/usr/bin/chromium",
+  "startedAt": "2026-11-04T05:43:42.045Z",
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "routeChecks": [
+    {
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "status": 200,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "Three materials, one contract.",
+        "headingFont": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "headingFontSize": "56px",
+        "headingColor": "rgb(251, 246, 235)",
+        "mainBackground": "rgba(0, 0, 0, 0)",
+        "mainColor": "rgb(251, 246, 235)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "cssFontLoaded": true,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "glass": null,
+        "renderer": "not-mounted"
+      }
+    },
+    {
+      "route": "/glass",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "status": 200,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "Glass that earns its refraction.",
+        "headingFont": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "headingFontSize": "24px",
+        "headingColor": "rgb(251, 246, 235)",
+        "mainBackground": "rgba(0, 0, 0, 0)",
+        "mainColor": "rgb(251, 246, 235)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "cssFontLoaded": true,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "glass": {
+          "mode": "webgl",
+          "reason": "capable"
+        },
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    {
+      "route": "/paper",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "status": 200,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "The reading surface.",
+        "headingFont": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "headingFontSize": "56px",
+        "headingColor": "rgb(7, 10, 16)",
+        "mainBackground": "rgb(239, 237, 231)",
+        "mainColor": "rgb(7, 10, 16)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "cssFontLoaded": true,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "glass": null,
+        "renderer": "not-mounted"
+      }
+    },
+    {
+      "route": "/ink",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "status": 200,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "The night shell.",
+        "headingFont": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "headingFontSize": "56px",
+        "headingColor": "rgb(251, 246, 235)",
+        "mainBackground": "rgba(0, 0, 0, 0)",
+        "mainColor": "rgb(251, 246, 235)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "cssFontLoaded": true,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "glass": null,
+        "renderer": "not-mounted"
+      }
+    },
+    {
+      "route": "/barrel-probe",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "status": 200,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "Server-safe package import",
+        "headingFont": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "headingFontSize": "16px",
+        "headingColor": "rgb(251, 246, 235)",
+        "mainBackground": "rgba(0, 0, 0, 0)",
+        "mainColor": "rgb(251, 246, 235)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "cssFontLoaded": true,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "glass": {
+          "mode": "webgl",
+          "reason": "capable"
+        },
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    {
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "status": 200,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "Three materials, one contract.",
+        "headingFont": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "headingFontSize": "36px",
+        "headingColor": "rgb(251, 246, 235)",
+        "mainBackground": "rgba(0, 0, 0, 0)",
+        "mainColor": "rgb(251, 246, 235)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "cssFontLoaded": true,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "glass": null,
+        "renderer": "not-mounted"
+      }
+    },
+    {
+      "route": "/glass",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "status": 200,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "Glass that earns its refraction.",
+        "headingFont": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "headingFontSize": "24px",
+        "headingColor": "rgb(251, 246, 235)",
+        "mainBackground": "rgba(0, 0, 0, 0)",
+        "mainColor": "rgb(251, 246, 235)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "cssFontLoaded": true,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "glass": {
+          "mode": "css",
+          "reason": "phone layout"
+        },
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    {
+      "route": "/paper",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "status": 200,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "The reading surface.",
+        "headingFont": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "headingFontSize": "36px",
+        "headingColor": "rgb(7, 10, 16)",
+        "mainBackground": "rgb(239, 237, 231)",
+        "mainColor": "rgb(7, 10, 16)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "cssFontLoaded": true,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "glass": null,
+        "renderer": "not-mounted"
+      }
+    },
+    {
+      "route": "/ink",
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "status": 200,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "The night shell.",
+        "headingFont": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "headingFontSize": "36px",
+        "headingColor": "rgb(251, 246, 235)",
+        "mainBackground": "rgba(0, 0, 0, 0)",
+        "mainColor": "rgb(251, 246, 235)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "cssFontLoaded": true,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "glass": null,
+        "renderer": "not-mounted"
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "route": "/",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "filename": "desktop-home.png",
+      "sha256": "7e1e61171df557528f9680c9a6b18b1203ef39296725d5ae75ed360efc9f09dc",
+      "bytes": 90273,
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "route": "/glass",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "filename": "desktop-glass.png",
+      "sha256": "53135ef1a8fd986e71f557c90fddbd937b9335bbec10704198f2a7e51fb87f81",
+      "bytes": 269626,
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "route": "/paper",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "filename": "desktop-paper.png",
+      "sha256": "bd488d363d4f00a683cc35ed9b1e8c58406cd5f018768ccfa08753077f5e67d3",
+      "bytes": 81861,
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "route": "/ink",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "filename": "desktop-ink.png",
+      "sha256": "fdedbe6a8f12cc523b95c3d6353d0436ff7ca83203043661d7b45ce83d72571b",
+      "bytes": 68552,
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "route": "/barrel-probe",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "filename": "desktop-barrel-probe.png",
+      "sha256": "97fb66b3cce396232da71aead4f798d51ea7a1c9a1dcf7fec6c17791bd23f3b8",
+      "bytes": 48541,
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    {
+      "route": "/",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "filename": "mobile-home.png",
+      "sha256": "b22f59685c32dc3cd0e53836bac05cf2f87cbff3e51c5d1c5148e9ee1cb7f80f",
+      "bytes": 63386,
+      "dimensions": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "route": "/glass",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "filename": "mobile-glass.png",
+      "sha256": "e426eb9baf84c7578a304f63c73a100025904c645813beb7d958eeedfd833f68",
+      "bytes": 117288,
+      "dimensions": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "route": "/paper",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "filename": "mobile-paper.png",
+      "sha256": "090142d48589ca92e2204b9c6f2031d599dc9e83822e64fae5452fb0544f3456",
+      "bytes": 58395,
+      "dimensions": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "route": "/ink",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "filename": "mobile-ink.png",
+      "sha256": "be6e0e5d513389984607b7de6d0e75f8e53879da97e5d3b0ff0e394642709648",
+      "bytes": 58143,
+      "dimensions": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "route": "/ink",
+      "state": "data-theme=ink,data-mode=operator",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "filename": "mobile-operator.png",
+      "sha256": "79d095b1b465e9c6a488bad6063f9a67e080bd01ab3346a22eb9108aabcaa006",
+      "bytes": 59624,
+      "dimensions": {
+        "width": 390,
+        "height": 844
+      }
+    },
+    {
+      "route": "/glass",
+      "state": "reduced-motion-after-desktop-return",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "filename": "desktop-glass-reduced-motion.png",
+      "sha256": "fe875388c48930ced68cdfc0ae8a2ae9e15b9e1b60b0a7e5658520c763a78e13",
+      "bytes": 269604,
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      }
+    }
+  ],
+  "findings": {
+    "desktop:/": {
+      "failures": [
+        {
+          "code": "icon-semantics",
+          "selector": "body > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > svg:nth-of-type(1)",
+          "message": "Hide decorative SVGs from assistive technology; give meaningful graphics role=img and a name."
+        }
+      ],
+      "inspected_elements": 74,
+      "inspected_open_shadow_roots": 2,
+      "complete": true
+    },
+    "desktop:/glass": {
+      "failures": [
+        {
+          "code": "icon-semantics",
+          "selector": "body > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > svg:nth-of-type(1)",
+          "message": "Hide decorative SVGs from assistive technology; give meaningful graphics role=img and a name."
+        }
+      ],
+      "inspected_elements": 74,
+      "inspected_open_shadow_roots": 2,
+      "complete": true
+    },
+    "desktop:/paper": {
+      "failures": [
+        {
+          "code": "icon-semantics",
+          "selector": "body > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > svg:nth-of-type(1)",
+          "message": "Hide decorative SVGs from assistive technology; give meaningful graphics role=img and a name."
+        }
+      ],
+      "inspected_elements": 81,
+      "inspected_open_shadow_roots": 2,
+      "complete": true
+    },
+    "desktop:/ink": {
+      "failures": [
+        {
+          "code": "icon-semantics",
+          "selector": "body > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > svg:nth-of-type(1)",
+          "message": "Hide decorative SVGs from assistive technology; give meaningful graphics role=img and a name."
+        }
+      ],
+      "inspected_elements": 75,
+      "inspected_open_shadow_roots": 2,
+      "complete": true
+    },
+    "desktop:/barrel-probe": {
+      "failures": [
+        {
+          "code": "icon-semantics",
+          "selector": "body > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > svg:nth-of-type(1)",
+          "message": "Hide decorative SVGs from assistive technology; give meaningful graphics role=img and a name."
+        }
+      ],
+      "inspected_elements": 69,
+      "inspected_open_shadow_roots": 2,
+      "complete": true
+    },
+    "mobile:/": {
+      "failures": [
+        {
+          "code": "icon-semantics",
+          "selector": "body > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > svg:nth-of-type(1)",
+          "message": "Hide decorative SVGs from assistive technology; give meaningful graphics role=img and a name."
+        }
+      ],
+      "inspected_elements": 74,
+      "inspected_open_shadow_roots": 2,
+      "complete": true
+    },
+    "mobile:/glass": {
+      "failures": [
+        {
+          "code": "icon-semantics",
+          "selector": "body > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > svg:nth-of-type(1)",
+          "message": "Hide decorative SVGs from assistive technology; give meaningful graphics role=img and a name."
+        }
+      ],
+      "inspected_elements": 74,
+      "inspected_open_shadow_roots": 2,
+      "complete": true
+    },
+    "mobile:/paper": {
+      "failures": [
+        {
+          "code": "icon-semantics",
+          "selector": "body > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > svg:nth-of-type(1)",
+          "message": "Hide decorative SVGs from assistive technology; give meaningful graphics role=img and a name."
+        }
+      ],
+      "inspected_elements": 81,
+      "inspected_open_shadow_roots": 2,
+      "complete": true
+    },
+    "mobile:/ink": {
+      "failures": [
+        {
+          "code": "icon-semantics",
+          "selector": "body > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > button:nth-of-type(1) > svg:nth-of-type(1)",
+          "message": "Hide decorative SVGs from assistive technology; give meaningful graphics role=img and a name."
+        }
+      ],
+      "inspected_elements": 75,
+      "inspected_open_shadow_roots": 2,
+      "complete": true
+    }
+  },
+  "interactions": {
+    "evidenceDisclosure": {
+      "rendered": true,
+      "keyboardOpened": true,
+      "keyboardClosed": true,
+      "accessibleSummary": "Evidence: synthetic public fixture\n+",
+      "content": "Evidence: synthetic public fixture\n+\n\nSource commit and browser conditions are captured in the verification receipt."
+    },
+    "keyboardFocus": {
+      "tag": "A",
+      "text": "Glass",
+      "href": "/glass",
+      "focusVisible": true,
+      "outline": "solid 2px rgb(240, 200, 126)",
+      "boxShadow": "none",
+      "slot": null
+    },
+    "themeAttributeStates": [
+      {
+        "dataTheme": "ink",
+        "dataMode": null,
+        "tokenBg": "#070a10",
+        "tokenFg": "#ede6d8",
+        "tokenOnSurface": "#fbf6eb",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "headingColor": "rgb(251, 246, 235)",
+        "controls": 3
+      },
+      {
+        "dataTheme": "paper",
+        "dataMode": null,
+        "tokenBg": "#efede7",
+        "tokenFg": "#0e131b",
+        "tokenOnSurface": "#0e131b",
+        "bodyBackground": "rgb(239, 237, 231)",
+        "bodyColor": "rgb(14, 19, 27)",
+        "headingColor": "rgb(14, 19, 27)",
+        "controls": 3
+      },
+      {
+        "dataTheme": "ink",
+        "dataMode": "operator",
+        "tokenBg": "#0b0d12",
+        "tokenFg": "#e8ebf2",
+        "tokenOnSurface": "#fbf6eb",
+        "bodyBackground": "rgb(11, 13, 18)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "headingColor": "rgb(251, 246, 235)",
+        "controls": 3
+      }
+    ],
+    "glassStates": [
+      {
+        "state": "desktop-initial",
+        "viewport": "1440x900",
+        "mode": "webgl",
+        "reason": "capable"
+      },
+      {
+        "state": "phone",
+        "viewport": "390x844",
+        "mode": "css",
+        "reason": "phone layout"
+      },
+      {
+        "state": "desktop-return",
+        "viewport": "1440x900",
+        "mode": "webgl",
+        "reason": "capable"
+      },
+      {
+        "state": "reduced-motion",
+        "mediaMatches": true,
+        "mode": "css",
+        "reason": "reduced motion requested"
+      },
+      {
+        "state": "reduced-transparency",
+        "supported": true,
+        "mediaMatches": true,
+        "mode": "css",
+        "reason": "reduced transparency requested"
+      }
+    ],
+    "glassContext": {
+      "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+      "canvas": 1,
+      "errors": []
+    },
+    "glassRemounts": [
+      {
+        "cycle": 1,
+        "awayStatus": 200,
+        "backStatus": 200,
+        "mode": "css",
+        "reason": "reduced motion requested"
+      },
+      {
+        "cycle": 2,
+        "awayStatus": 200,
+        "backStatus": 200,
+        "mode": "css",
+        "reason": "reduced motion requested"
+      }
+    ]
+  },
+  "pageErrors": [],
+  "failedRequests": [],
+  "completedAt": "2026-11-04T05:43:58.225Z"
+}

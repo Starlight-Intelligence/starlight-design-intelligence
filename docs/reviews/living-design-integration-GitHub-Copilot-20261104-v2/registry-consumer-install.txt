@@ -1,0 +1,23 @@
+- Checking registry.
+✔ Checking registry.
+- Installing dependencies.
+- Installing dependencies.
+✔ Installing dependencies.
+- Updating files.
+✔ Created 13 files:
+  - components/starlight-materials/gate/glass-gate.ts
+  - components/starlight-materials/gate/use-glass-plan.ts
+  - components/starlight-materials/gate/index.ts
+  - components/starlight-materials/tokens/tokens.css
+  - components/starlight-materials/tokens/theme.css
+  - components/starlight-materials/styles/materials.css
+  - components/starlight-materials/primitives/material.ts
+  - components/starlight-materials/glass/mount-glass.ts
+  - components/starlight-materials/glass/GlassSurface.tsx
+  - components/starlight-materials/glass/index.ts
+  - components/starlight-materials/primitives/ui/button.tsx
+  - components/starlight-materials/primitives/ui/card.tsx
+  - components/starlight-materials/primitives/ui/sheet.tsx
+Add to your global CSS, after @import "tailwindcss": @import "@/components/starlight-materials/styles/materials.css";
+Relative imports between the installed files use .ts extensions; set allowImportingTsExtensions: true in tsconfig (Next.js has noEmit, so it is allowed). Needs the @starlight namespace in components.json registries, which resolves glass-gate, material and materials-styles.
+
