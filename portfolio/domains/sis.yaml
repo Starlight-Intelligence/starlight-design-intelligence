@@ -10,7 +10,7 @@ domains:
   - starlightintelligence.org
 brand_id: sis
 canonical_repositories:
-  - Arcanea-Labs/Starlight-Intelligence-System
+  - Starlight-Intelligence/Starlight-Intelligence-System
 surface_ids:
   - homepage
 approved_pattern_ids:
