@@ -386,7 +386,7 @@
     {
       "domain_id": "sis",
       "brand_id": "sis",
-      "repository": "Arcanea-Labs/Starlight-Intelligence-System",
+      "repository": "Starlight-Intelligence/Starlight-Intelligence-System",
       "surface_id": "homepage",
       "mode": "operations",
       "recipient": "An operator evaluating governed intelligence and decisions.",
