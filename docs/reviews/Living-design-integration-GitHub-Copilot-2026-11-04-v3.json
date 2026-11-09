@@ -1,0 +1,213 @@
+{
+  "report_version": "v3",
+  "report_author": "GitHub-hosted Copilot agent",
+  "underlying_model_or_provider": "Not exposed by trusted runtime metadata; not inferred",
+  "coordinating_lead": "Codex (OpenAI), identified in candidate PR",
+  "captured_at": "2026-11-04T08:23:02Z",
+  "report_pr": 78,
+  "tracking": [
+    "frankxai/agentic-ops-hub#437",
+    "Starlight-Intelligence/starlight-design-intelligence#61"
+  ],
+  "candidate": {
+    "repository": "Starlight-Intelligence/starlight-design-intelligence",
+    "pr": 74,
+    "base_branch": "agent/antigravity/living-design-trunk",
+    "base_sha": "2ab4ffd4db3513c018563de01e76e49da88592b9",
+    "base_tree_sha": "042c57681cc0afacca73490d3d3df4b1d89b64fa",
+    "sha": "2e36fe1836881fb6060c852693d629a544215a17",
+    "parent_sha": "773a211f61c56777d17746b8105f0c8319d0503a",
+    "tree_sha": "e0406116c815f3ad22941e8c139357be15a04410",
+    "isolated_checkout": "/tmp/living-design-v3",
+    "isolated_checkout_clean_at_final_sha": true,
+    "report_branch_product_source_modified": false,
+    "previous_reports_preserved": true
+  },
+  "verdicts": {
+    "overall": {
+      "verdict": "BLOCKED",
+      "basis": "The one complete committed browser sweep failed an actual Glass/Paper accent contrast assertion: 2.738:1 versus the unchanged 3:1 minimum."
+    },
+    "availability": {
+      "verdict": "PARTIAL, local",
+      "basis": "Frozen installs, installed generator parity and fresh registry generation passed with no diff; a current-head fresh consumer install/compile was not repeated."
+    },
+    "functional_behavior": {
+      "verdict": "PARTIAL",
+      "basis": "Materials tests and typechecks passed; selector size and actual Ink/Paper uInk uploads passed in desktop browser states; the full journey aborted before the remaining assertions."
+    },
+    "design_visual_review": {
+      "verdict": "BLOCKED",
+      "finding": {
+        "route": "/glass",
+        "profile": "paper",
+        "viewport_css_px": [1440, 900],
+        "accent_foreground_rgb": [138, 101, 34],
+        "minimum_contrast": 2.738456052446184,
+        "required_minimum": 3,
+        "worst_backdrop_rgb": [181, 188, 185],
+        "worst_pixel_xy": [0, 29],
+        "sampled_pixels": 1519
+      }
+    },
+    "user_value_commercial_sustainability": {
+      "verdict": "NOT EVALUATED"
+    },
+    "production_public_release_approval": {
+      "verdict": "OUT OF SCOPE"
+    },
+    "different_provider_merge_policy": {
+      "verdict": "NOT SATISFIED BY THIS REPORT",
+      "basis": "Underlying provider is not exposed by trusted runtime metadata."
+    }
+  },
+  "environment": {
+    "node": "v24.22.1",
+    "npm": "11.19.1",
+    "pnpm": "12.16.1",
+    "next": "16.4.2",
+    "playwright": "1.62.1",
+    "browser": "Chromium 156.0.8078.0",
+    "browser_executable": "/usr/bin/chromium",
+    "webgl_requested_args": [
+      "--use-angle=swiftshader",
+      "--enable-unsafe-swiftshader"
+    ],
+    "webgl_renderer_receipt": "Not captured: sweep stopped before unmasked-renderer collection. No physical GPU evidence.",
+    "browser_started_at": "2026-11-04T08:22:30.277Z",
+    "browser_finished_at": "2026-11-04T08:23:02Z",
+    "viewports_css_px_reached": [[1440, 900]],
+    "dpr": 1,
+    "touch_contexts_reached": false
+  },
+  "checks": {
+    "root_npm_ci": {
+      "command": "npm ci",
+      "result": "PASS",
+      "exit_code": 0,
+      "packages_added": 22,
+      "audit_vulnerabilities": 0
+    },
+    "materials_install": {
+      "command": "corepack pnpm install --frozen-lockfile",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    "example_install": {
+      "command": "corepack pnpm install --frozen-lockfile",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    "materials_tests": {
+      "command": "corepack pnpm test",
+      "result": "PASS",
+      "passed": 20,
+      "failed": 0,
+      "skipped": 0,
+      "registry_parity_skipped": false
+    },
+    "materials_typecheck": {
+      "command": "corepack pnpm typecheck",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    "example_typecheck": {
+      "command": "corepack pnpm typecheck",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    "root_tests": {
+      "command": "npm test",
+      "result": "FAIL, hosted origin limitation",
+      "passed": 278,
+      "failed": 2,
+      "skipped": 2,
+      "failed_tests": [
+        "valid adoption binds caller, kernel, brand blob, surfaces, and local files",
+        "transferred canonical namespace accepts its fully qualified workflow path"
+      ],
+      "failure": "kernel remote must be Starlight-Intelligence/starlight-design-intelligence",
+      "skips": [
+        "missing decoder denies structurally valid fonts (decoder installed)",
+        "nine pinned public WOFF2 resources decode with expected internal metadata (opt-in remote observation)"
+      ]
+    },
+    "registry_build": {
+      "command": "corepack pnpm registry:build",
+      "result": "PASS",
+      "exit_code": 0,
+      "generated_diff_bytes": 0
+    },
+    "production_build": {
+      "command": "corepack pnpm build",
+      "result": "PASS",
+      "exit_code": 0,
+      "routes": ["/", "/glass", "/ink", "/paper"],
+      "incidental_next_tsconfig_rewrite": "Captured in next-generated-tsconfig.diff and restored."
+    },
+    "full_browser_sweep": {
+      "command": "corepack pnpm verify:consumer-themes",
+      "result": "FAIL",
+      "runs": 1,
+      "exit_code": 1,
+      "failure_location": "packages/materials/examples/next-app/scripts/verify-consumer-themes.mjs:255",
+      "failure": "Paper Glass accent measured 2.738456052446184:1, below 3:1.",
+      "fixtures": {
+        "poster_white": 21,
+        "poster_black": 1,
+        "canvas_white": 21,
+        "canvas_black": 1
+      },
+      "reached_routes_profiles": {
+        "/": ["ink", "paper", "operator"],
+        "/paper": ["ink", "paper", "operator"],
+        "/ink": ["ink", "paper", "operator"],
+        "/glass": ["ink", "paper"]
+      },
+      "selector_font_size_px": 16,
+      "shader_ink_uploads": {
+        "ink_rgb_over_255": [7, 10, 16],
+        "paper_rgb_over_255": [239, 237, 231]
+      },
+      "states_in_receipt": 19,
+      "full_page_screenshots": 6,
+      "page_errors": 0,
+      "console_diagnostics": [
+        {
+          "type": "error",
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "cause": "Example favicon"
+        }
+      ],
+      "later_assertions_not_reached": [
+        "Operator /glass shader upload",
+        "mobile/touch sweep",
+        "reduced motion/transparency",
+        "desktop-phone-desktop fallback/recovery",
+        "remount and no-JavaScript checks",
+        "final diagnostic assertions"
+      ]
+    },
+    "github_actions": {
+      "base_runs": {
+        "media_registry": 41761515832,
+        "font_artifact_decoding": 41761515726,
+        "design_kernel": 41761515744,
+        "conclusions": ["success", "success", "success"]
+      },
+      "candidate_runs": {
+        "media_registry": 41797926438,
+        "font_artifact_decoding": 41797926483,
+        "design_kernel": 41797926460,
+        "conclusions": ["success", "success", "success"]
+      }
+    }
+  },
+  "evidence_directory": {
+    "path": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v3/",
+    "bytes": 604799,
+    "limit_bytes": 15728640,
+    "screenshot_hashes_dimensions": "Recorded per file in browser.json; actual full-page PNGs and backdrop/fixture PNGs are content-addressed."
+  },
+  "next_bounded_action": "Repair Paper Glass accent contrast against actual backdrop pixels without lowering the threshold, then request a fresh complete exact-head sweep."
+}

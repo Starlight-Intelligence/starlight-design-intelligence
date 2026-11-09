@@ -1,0 +1,3579 @@
+{
+  "capturedAt": "2026-11-04T07:33:08.963Z",
+  "source": "773a211f61c56777d17746b8105f0c8319d0503a",
+  "node": "v24.22.1",
+  "baseURL": "http://127.0.0.1:33317",
+  "rendering": "Hosted Chromium with SwiftShader software rendering; not hardware performance proof",
+  "states": [
+    {
+      "route": "/",
+      "profile": "ink",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "ink",
+        "mode": null
+      },
+      "heading": {
+        "text": "Three materials, one contract.",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(251, 246, 235) none 3px",
+        "outlineColor": [
+          251,
+          246,
+          235,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "one contract.",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 18.38209435501343,
+      "accentContrast": 12.517808123466587,
+      "controlContrast": 18.38209435501343,
+      "focusContrast": 12.517808123466587,
+      "nestedProfiles": {
+        "operator": {
+          "color": "rgb(232, 235, 242)",
+          "background": "rgb(11, 13, 18)",
+          "glass": "rgba(7, 10, 16, 0.3)"
+        },
+        "ink": {
+          "color": "rgb(251, 246, 235)",
+          "background": "rgb(7, 10, 16)"
+        },
+        "paper": {
+          "color": "rgb(14, 19, 27)",
+          "background": "rgb(239, 237, 231)"
+        }
+      }
+    },
+    {
+      "route": "/",
+      "profile": "paper",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "paper",
+        "mode": null
+      },
+      "heading": {
+        "text": "Three materials, one contract.",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "one contract.",
+        "color": "rgb(138, 101, 34)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          138,
+          101,
+          34
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(138, 101, 34) none 3px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(138, 101, 34) solid 2px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 15.907204872762142,
+      "accentContrast": 4.523758726870089,
+      "controlContrast": 15.907204872762142,
+      "focusContrast": 4.523758726870089,
+      "nestedProfiles": {
+        "operator": {
+          "color": "rgb(232, 235, 242)",
+          "background": "rgb(11, 13, 18)",
+          "glass": "rgba(7, 10, 16, 0.3)"
+        },
+        "ink": {
+          "color": "rgb(251, 246, 235)",
+          "background": "rgb(7, 10, 16)"
+        },
+        "paper": {
+          "color": "rgb(14, 19, 27)",
+          "background": "rgb(239, 237, 231)"
+        }
+      }
+    },
+    {
+      "route": "/",
+      "profile": "operator",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "ink",
+        "mode": "operator"
+      },
+      "heading": {
+        "text": "Three materials, one contract.",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(232, 235, 242) none 3px",
+        "outlineColor": [
+          232,
+          235,
+          242,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "one contract.",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 16.285153300329366,
+      "accentContrast": 12.279151728863752,
+      "controlContrast": 16.285153300329366,
+      "focusContrast": 12.279151728863752,
+      "nestedProfiles": {
+        "operator": {
+          "color": "rgb(232, 235, 242)",
+          "background": "rgb(11, 13, 18)",
+          "glass": "rgba(7, 10, 16, 0.3)"
+        },
+        "ink": {
+          "color": "rgb(251, 246, 235)",
+          "background": "rgb(7, 10, 16)"
+        },
+        "paper": {
+          "color": "rgb(14, 19, 27)",
+          "background": "rgb(239, 237, 231)"
+        }
+      }
+    },
+    {
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "selector": "h1",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Sans",
+          "postScriptName": "InstrumentSans-Regular",
+          "isCustomFont": true,
+          "glyphCount": 17
+        },
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "selector": "h1 em",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "route": "/paper",
+      "profile": "ink",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "ink",
+        "mode": null
+      },
+      "heading": {
+        "text": "The reading surface.",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(7, 10, 16) none 3px",
+        "outlineColor": [
+          7,
+          10,
+          16,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "surface.",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(7, 10, 16) none 3px",
+        "outlineColor": [
+          7,
+          10,
+          16,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 45,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 16.923453778487968,
+      "accentContrast": 16.923453778487968,
+      "controlContrast": 18.38209435501343,
+      "focusContrast": 12.517808123466587,
+      "paperButton": {
+        "text": "Paper button",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "500",
+        "style": "normal",
+        "outline": "rgb(7, 10, 16) none 3px",
+        "outlineColor": [
+          7,
+          10,
+          16,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "paperButtonFocus": {
+        "text": "Paper button",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "500",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "rgb(251, 246, 235) 0px 0px 0px 2px, rgb(7, 10, 16) 0px 0px 0px 4px"
+      }
+    },
+    {
+      "route": "/paper",
+      "profile": "paper",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "paper",
+        "mode": null
+      },
+      "heading": {
+        "text": "The reading surface.",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "surface.",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(138, 101, 34) solid 2px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 45,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 15.907204872762142,
+      "accentContrast": 15.907204872762142,
+      "controlContrast": 15.907204872762142,
+      "focusContrast": 4.523758726870089,
+      "paperButton": {
+        "text": "Paper button",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "500",
+        "style": "normal",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "paperButtonFocus": {
+        "text": "Paper button",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "500",
+        "style": "normal",
+        "outline": "rgb(138, 101, 34) solid 2px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "rgb(14, 19, 27) 0px 0px 0px 2px, rgb(239, 237, 231) 0px 0px 0px 4px"
+      }
+    },
+    {
+      "route": "/paper",
+      "profile": "operator",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "ink",
+        "mode": "operator"
+      },
+      "heading": {
+        "text": "The reading surface.",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(7, 10, 16) none 3px",
+        "outlineColor": [
+          7,
+          10,
+          16,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "surface.",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(7, 10, 16) none 3px",
+        "outlineColor": [
+          7,
+          10,
+          16,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 45,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 16.923453778487968,
+      "accentContrast": 16.923453778487968,
+      "controlContrast": 16.285153300329366,
+      "focusContrast": 12.279151728863752,
+      "paperButton": {
+        "text": "Paper button",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "500",
+        "style": "normal",
+        "outline": "rgb(7, 10, 16) none 3px",
+        "outlineColor": [
+          7,
+          10,
+          16,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "paperButtonFocus": {
+        "text": "Paper button",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "500",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "rgb(232, 235, 242) 0px 0px 0px 2px, rgb(11, 13, 18) 0px 0px 0px 4px"
+      }
+    },
+    {
+      "route": "/paper",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "selector": "h1",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Sans",
+          "postScriptName": "InstrumentSans-Regular",
+          "isCustomFont": true,
+          "glyphCount": 12
+        },
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 8
+        }
+      ]
+    },
+    {
+      "route": "/paper",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "selector": "h1 em",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 8
+        }
+      ]
+    },
+    {
+      "route": "/ink",
+      "profile": "ink",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "ink",
+        "mode": null
+      },
+      "heading": {
+        "text": "The night shell.",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(251, 246, 235) none 3px",
+        "outlineColor": [
+          251,
+          246,
+          235,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "shell.",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 39,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 18.38209435501343,
+      "accentContrast": 12.517808123466587,
+      "controlContrast": 18.38209435501343,
+      "focusContrast": 12.517808123466587
+    },
+    {
+      "route": "/ink",
+      "profile": "paper",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "paper",
+        "mode": null
+      },
+      "heading": {
+        "text": "The night shell.",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "shell.",
+        "color": "rgb(138, 101, 34)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          138,
+          101,
+          34
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(138, 101, 34) none 3px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(138, 101, 34) solid 2px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 39,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 15.907204872762142,
+      "accentContrast": 4.523758726870089,
+      "controlContrast": 15.907204872762142,
+      "focusContrast": 4.523758726870089
+    },
+    {
+      "route": "/ink",
+      "profile": "operator",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "ink",
+        "mode": "operator"
+      },
+      "heading": {
+        "text": "The night shell.",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(232, 235, 242) none 3px",
+        "outlineColor": [
+          232,
+          235,
+          242,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "shell.",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 39,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 16.285153300329366,
+      "accentContrast": 12.279151728863752,
+      "controlContrast": 16.285153300329366,
+      "focusContrast": 12.279151728863752
+    },
+    {
+      "route": "/ink",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "selector": "h1",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Sans",
+          "postScriptName": "InstrumentSans-Regular",
+          "isCustomFont": true,
+          "glyphCount": 10
+        },
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "route": "/ink",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "selector": "h1 em",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "route": "/ink",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "selector": ".font-mono",
+      "platformFonts": [
+        {
+          "familyName": "IBM Plex Mono",
+          "postScriptName": "IBMPlexMono-Regular",
+          "isCustomFont": true,
+          "glyphCount": 35
+        }
+      ]
+    },
+    {
+      "route": "/glass",
+      "profile": "ink",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "ink",
+        "mode": null
+      },
+      "heading": {
+        "text": "Glass that earns its refraction.",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(251, 246, 235) none 3px",
+        "outlineColor": [
+          251,
+          246,
+          235,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "earns",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 18.38209435501343,
+      "accentContrast": 12.517808123466587,
+      "controlContrast": 18.38209435501343,
+      "focusContrast": 12.517808123466587
+    },
+    {
+      "route": "/glass",
+      "profile": "paper",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "paper",
+        "mode": null
+      },
+      "heading": {
+        "text": "Glass that earns its refraction.",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "earns",
+        "color": "rgb(138, 101, 34)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          138,
+          101,
+          34
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(138, 101, 34) none 3px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(138, 101, 34) solid 2px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 15.907204872762142,
+      "accentContrast": 4.523758726870089,
+      "controlContrast": 15.907204872762142,
+      "focusContrast": 4.523758726870089
+    },
+    {
+      "route": "/glass",
+      "profile": "operator",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "touch": false,
+      "attributes": {
+        "theme": "ink",
+        "mode": "operator"
+      },
+      "heading": {
+        "text": "Glass that earns its refraction.",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          9.799999999999999,
+          12.1,
+          17.4
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(232, 235, 242) none 3px",
+        "outlineColor": [
+          232,
+          235,
+          242,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "earns",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          9.799999999999999,
+          12.1,
+          17.4
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 16.38315730023574,
+      "accentContrast": 12.353047624265704,
+      "controlContrast": 16.285153300329366,
+      "focusContrast": 12.279151728863752
+    },
+    {
+      "route": "/glass",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "selector": "h1",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Sans",
+          "postScriptName": "InstrumentSans-Regular",
+          "isCustomFont": true,
+          "glyphCount": 27
+        },
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 5
+        }
+      ]
+    },
+    {
+      "route": "/glass",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "selector": "h1 em",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 5
+        }
+      ]
+    },
+    {
+      "route": "/glass",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "selector": ".font-mono",
+      "platformFonts": [
+        {
+          "familyName": "IBM Plex Mono",
+          "postScriptName": "IBMPlexMono-Regular",
+          "isCustomFont": true,
+          "glyphCount": 190
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "reducedMotion": true,
+      "glass": {
+        "glass": "css",
+        "glassReason": "reduced motion requested"
+      }
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "journey": "desktop-phone-desktop, transparency fallback/recovery and two route remounts",
+      "glass": {
+        "glass": "webgl",
+        "glassReason": "capable",
+        "glassMs": "0.10"
+      }
+    },
+    {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "journey": "font network failure",
+      "blockedFonts": [
+        {
+          "url": "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+          "error": "net::ERR_FAILED"
+        },
+        {
+          "url": "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+          "error": "net::ERR_FAILED"
+        },
+        {
+          "url": "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+          "error": "net::ERR_FAILED"
+        },
+        {
+          "url": "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+          "error": "net::ERR_FAILED"
+        }
+      ],
+      "heading": {
+        "text": "Three materials, one contract.",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(251, 246, 235) none 3px",
+        "outlineColor": [
+          251,
+          246,
+          235,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      }
+    },
+    {
+      "route": "/",
+      "profile": "ink",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "attributes": {
+        "theme": "ink",
+        "mode": null
+      },
+      "heading": {
+        "text": "Three materials, one contract.",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(251, 246, 235) none 3px",
+        "outlineColor": [
+          251,
+          246,
+          235,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "one contract.",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 18.38209435501343,
+      "accentContrast": 12.517808123466587,
+      "controlContrast": 18.38209435501343,
+      "focusContrast": 12.517808123466587,
+      "nestedProfiles": {
+        "operator": {
+          "color": "rgb(232, 235, 242)",
+          "background": "rgb(11, 13, 18)",
+          "glass": "rgba(7, 10, 16, 0.3)"
+        },
+        "ink": {
+          "color": "rgb(251, 246, 235)",
+          "background": "rgb(7, 10, 16)"
+        },
+        "paper": {
+          "color": "rgb(14, 19, 27)",
+          "background": "rgb(239, 237, 231)"
+        }
+      }
+    },
+    {
+      "route": "/",
+      "profile": "paper",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "attributes": {
+        "theme": "paper",
+        "mode": null
+      },
+      "heading": {
+        "text": "Three materials, one contract.",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "one contract.",
+        "color": "rgb(138, 101, 34)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          138,
+          101,
+          34
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(138, 101, 34) none 3px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(138, 101, 34) solid 2px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 15.907204872762142,
+      "accentContrast": 4.523758726870089,
+      "controlContrast": 15.907204872762142,
+      "focusContrast": 4.523758726870089,
+      "nestedProfiles": {
+        "operator": {
+          "color": "rgb(232, 235, 242)",
+          "background": "rgb(11, 13, 18)",
+          "glass": "rgba(7, 10, 16, 0.3)"
+        },
+        "ink": {
+          "color": "rgb(251, 246, 235)",
+          "background": "rgb(7, 10, 16)"
+        },
+        "paper": {
+          "color": "rgb(14, 19, 27)",
+          "background": "rgb(239, 237, 231)"
+        }
+      }
+    },
+    {
+      "route": "/",
+      "profile": "operator",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "attributes": {
+        "theme": "ink",
+        "mode": "operator"
+      },
+      "heading": {
+        "text": "Three materials, one contract.",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(232, 235, 242) none 3px",
+        "outlineColor": [
+          232,
+          235,
+          242,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "one contract.",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 16.285153300329366,
+      "accentContrast": 12.279151728863752,
+      "controlContrast": 16.285153300329366,
+      "focusContrast": 12.279151728863752,
+      "nestedProfiles": {
+        "operator": {
+          "color": "rgb(232, 235, 242)",
+          "background": "rgb(11, 13, 18)",
+          "glass": "rgba(7, 10, 16, 0.3)"
+        },
+        "ink": {
+          "color": "rgb(251, 246, 235)",
+          "background": "rgb(7, 10, 16)"
+        },
+        "paper": {
+          "color": "rgb(14, 19, 27)",
+          "background": "rgb(239, 237, 231)"
+        }
+      }
+    },
+    {
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "selector": "h1",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Sans",
+          "postScriptName": "InstrumentSans-Regular",
+          "isCustomFont": true,
+          "glyphCount": 16
+        },
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "selector": "h1 em",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 13
+        }
+      ]
+    },
+    {
+      "route": "/paper",
+      "profile": "ink",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "attributes": {
+        "theme": "ink",
+        "mode": null
+      },
+      "heading": {
+        "text": "The reading surface.",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(7, 10, 16) none 3px",
+        "outlineColor": [
+          7,
+          10,
+          16,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "surface.",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(7, 10, 16) none 3px",
+        "outlineColor": [
+          7,
+          10,
+          16,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 45,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 16.923453778487968,
+      "accentContrast": 16.923453778487968,
+      "controlContrast": 18.38209435501343,
+      "focusContrast": 12.517808123466587,
+      "paperButton": {
+        "text": "Paper button",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "500",
+        "style": "normal",
+        "outline": "rgb(7, 10, 16) none 3px",
+        "outlineColor": [
+          7,
+          10,
+          16,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "paperButtonFocus": {
+        "text": "Paper button",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "500",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "rgb(251, 246, 235) 0px 0px 0px 2px, rgb(7, 10, 16) 0px 0px 0px 4px"
+      }
+    },
+    {
+      "route": "/paper",
+      "profile": "paper",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "attributes": {
+        "theme": "paper",
+        "mode": null
+      },
+      "heading": {
+        "text": "The reading surface.",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "surface.",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(138, 101, 34) solid 2px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 45,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 15.907204872762142,
+      "accentContrast": 15.907204872762142,
+      "controlContrast": 15.907204872762142,
+      "focusContrast": 4.523758726870089,
+      "paperButton": {
+        "text": "Paper button",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "500",
+        "style": "normal",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "paperButtonFocus": {
+        "text": "Paper button",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "500",
+        "style": "normal",
+        "outline": "rgb(138, 101, 34) solid 2px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "rgb(14, 19, 27) 0px 0px 0px 2px, rgb(239, 237, 231) 0px 0px 0px 4px"
+      }
+    },
+    {
+      "route": "/paper",
+      "profile": "operator",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "attributes": {
+        "theme": "ink",
+        "mode": "operator"
+      },
+      "heading": {
+        "text": "The reading surface.",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(7, 10, 16) none 3px",
+        "outlineColor": [
+          7,
+          10,
+          16,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "surface.",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(7, 10, 16) none 3px",
+        "outlineColor": [
+          7,
+          10,
+          16,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 45,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 16.923453778487968,
+      "accentContrast": 16.923453778487968,
+      "controlContrast": 16.285153300329366,
+      "focusContrast": 12.279151728863752,
+      "paperButton": {
+        "text": "Paper button",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "500",
+        "style": "normal",
+        "outline": "rgb(7, 10, 16) none 3px",
+        "outlineColor": [
+          7,
+          10,
+          16,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "paperButtonFocus": {
+        "text": "Paper button",
+        "color": "rgb(7, 10, 16)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          7,
+          10,
+          16
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "500",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "rgb(232, 235, 242) 0px 0px 0px 2px, rgb(11, 13, 18) 0px 0px 0px 4px"
+      }
+    },
+    {
+      "route": "/paper",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "selector": "h1",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Sans",
+          "postScriptName": "InstrumentSans-Regular",
+          "isCustomFont": true,
+          "glyphCount": 12
+        },
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 8
+        }
+      ]
+    },
+    {
+      "route": "/paper",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "selector": "h1 em",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 8
+        }
+      ]
+    },
+    {
+      "route": "/ink",
+      "profile": "ink",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "attributes": {
+        "theme": "ink",
+        "mode": null
+      },
+      "heading": {
+        "text": "The night shell.",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(251, 246, 235) none 3px",
+        "outlineColor": [
+          251,
+          246,
+          235,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "shell.",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 39,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 18.38209435501343,
+      "accentContrast": 12.517808123466587,
+      "controlContrast": 18.38209435501343,
+      "focusContrast": 12.517808123466587
+    },
+    {
+      "route": "/ink",
+      "profile": "paper",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "attributes": {
+        "theme": "paper",
+        "mode": null
+      },
+      "heading": {
+        "text": "The night shell.",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "shell.",
+        "color": "rgb(138, 101, 34)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          138,
+          101,
+          34
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(138, 101, 34) none 3px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(138, 101, 34) solid 2px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 39,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 15.907204872762142,
+      "accentContrast": 4.523758726870089,
+      "controlContrast": 15.907204872762142,
+      "focusContrast": 4.523758726870089
+    },
+    {
+      "route": "/ink",
+      "profile": "operator",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "attributes": {
+        "theme": "ink",
+        "mode": "operator"
+      },
+      "heading": {
+        "text": "The night shell.",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(232, 235, 242) none 3px",
+        "outlineColor": [
+          232,
+          235,
+          242,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "shell.",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 39,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 16.285153300329366,
+      "accentContrast": 12.279151728863752,
+      "controlContrast": 16.285153300329366,
+      "focusContrast": 12.279151728863752
+    },
+    {
+      "route": "/ink",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "selector": "h1",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Sans",
+          "postScriptName": "InstrumentSans-Regular",
+          "isCustomFont": true,
+          "glyphCount": 10
+        },
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "route": "/ink",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "selector": "h1 em",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 6
+        }
+      ]
+    },
+    {
+      "route": "/ink",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "selector": ".font-mono",
+      "platformFonts": [
+        {
+          "familyName": "IBM Plex Mono",
+          "postScriptName": "IBMPlexMono-Regular",
+          "isCustomFont": true,
+          "glyphCount": 35
+        }
+      ]
+    },
+    {
+      "route": "/glass",
+      "profile": "ink",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "attributes": {
+        "theme": "ink",
+        "mode": null
+      },
+      "heading": {
+        "text": "Glass that earns its refraction.",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          10.48,
+          14.059999999999999,
+          21.22
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(251, 246, 235) none 3px",
+        "outlineColor": [
+          251,
+          246,
+          235,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "earns",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          10.48,
+          14.059999999999999,
+          21.22
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 17.913469503371797,
+      "accentContrast": 12.19868474930449,
+      "controlContrast": 18.38209435501343,
+      "focusContrast": 12.517808123466587
+    },
+    {
+      "route": "/glass",
+      "profile": "paper",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "attributes": {
+        "theme": "paper",
+        "mode": null
+      },
+      "heading": {
+        "text": "Glass that earns its refraction.",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          244.76,
+          242.76,
+          237.48
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(14, 19, 27) none 3px",
+        "outlineColor": [
+          14,
+          19,
+          27,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "earns",
+        "color": "rgb(138, 101, 34)",
+        "background": [
+          244.76,
+          242.76,
+          237.48
+        ],
+        "effectiveForeground": [
+          138,
+          101,
+          34
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(138, 101, 34) none 3px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(14, 19, 27)",
+        "background": [
+          239,
+          237,
+          231
+        ],
+        "effectiveForeground": [
+          14,
+          19,
+          27
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(138, 101, 34) solid 2px",
+        "outlineColor": [
+          138,
+          101,
+          34,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 16.755141267568398,
+      "accentContrast": 4.764898493190927,
+      "controlContrast": 15.907204872762142,
+      "focusContrast": 4.523758726870089
+    },
+    {
+      "route": "/glass",
+      "profile": "operator",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "touch": true,
+      "attributes": {
+        "theme": "ink",
+        "mode": "operator"
+      },
+      "heading": {
+        "text": "Glass that earns its refraction.",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          15.68,
+          18.46,
+          25.8
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(232, 235, 242) none 3px",
+        "outlineColor": [
+          232,
+          235,
+          242,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "accent": {
+        "text": "earns",
+        "color": "rgb(240, 200, 126)",
+        "background": [
+          15.68,
+          18.46,
+          25.8
+        ],
+        "effectiveForeground": [
+          240,
+          200,
+          126
+        ],
+        "font": "\"serif\", \"serif Fallback\", Georgia, serif",
+        "weight": "400",
+        "style": "italic",
+        "outline": "rgb(240, 200, 126) none 3px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "control": {
+        "text": "InkPaperOperator",
+        "color": "rgb(232, 235, 242)",
+        "background": [
+          11,
+          13,
+          18
+        ],
+        "effectiveForeground": [
+          232,
+          235,
+          242
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "400",
+        "style": "normal",
+        "outline": "rgb(240, 200, 126) solid 2px",
+        "outlineColor": [
+          240,
+          200,
+          126,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      },
+      "headingContrast": 15.631109214868511,
+      "accentContrast": 11.785996619137068,
+      "controlContrast": 16.285153300329366,
+      "focusContrast": 12.279151728863752
+    },
+    {
+      "route": "/glass",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "selector": "h1",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Sans",
+          "postScriptName": "InstrumentSans-Regular",
+          "isCustomFont": true,
+          "glyphCount": 26
+        },
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 5
+        }
+      ]
+    },
+    {
+      "route": "/glass",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "selector": "h1 em",
+      "platformFonts": [
+        {
+          "familyName": "Instrument Serif",
+          "postScriptName": "InstrumentSerif-Italic",
+          "isCustomFont": true,
+          "glyphCount": 5
+        }
+      ]
+    },
+    {
+      "route": "/glass",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "selector": ".font-mono",
+      "platformFonts": [
+        {
+          "familyName": "IBM Plex Mono",
+          "postScriptName": "IBMPlexMono-Regular",
+          "isCustomFont": true,
+          "glyphCount": 189
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "reducedMotion": true,
+      "glass": {
+        "glass": "css",
+        "glassReason": "reduced motion requested"
+      }
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "journey": "font network failure",
+      "blockedFonts": [
+        {
+          "url": "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+          "error": "net::ERR_FAILED"
+        },
+        {
+          "url": "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+          "error": "net::ERR_FAILED"
+        },
+        {
+          "url": "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+          "error": "net::ERR_FAILED"
+        },
+        {
+          "url": "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+          "error": "net::ERR_FAILED"
+        }
+      ],
+      "heading": {
+        "text": "Three materials, one contract.",
+        "color": "rgb(251, 246, 235)",
+        "background": [
+          7,
+          10,
+          16
+        ],
+        "effectiveForeground": [
+          251,
+          246,
+          235
+        ],
+        "font": "sans, \"sans Fallback\", system-ui, sans-serif",
+        "weight": "600",
+        "style": "normal",
+        "outline": "rgb(251, 246, 235) none 3px",
+        "outlineColor": [
+          251,
+          246,
+          235,
+          1
+        ],
+        "boxShadow": "none"
+      },
+      "detector": {
+        "failures": [],
+        "inspected_elements": 38,
+        "inspected_open_shadow_roots": 1,
+        "complete": true
+      }
+    },
+    {
+      "journey": "no JavaScript",
+      "glass": "server CSS still",
+      "themeControl": "disabled until hydration; default Ink remains readable"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "desktop-home-ink.png",
+      "sha256": "40b32a6a9701e91cecec6e5537d9ea665baa5b052ab8d6d61ef501089b84b857",
+      "bytes": 89679,
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/",
+      "capturedAt": "2026-11-04T07:33:25.634Z"
+    },
+    {
+      "file": "desktop-home-paper.png",
+      "sha256": "37c48c8421ccc6006ee2e1465f4fc99cede104e385c04c16fb47e65af81b93cd",
+      "bytes": 99199,
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/",
+      "capturedAt": "2026-11-04T07:33:25.951Z"
+    },
+    {
+      "file": "desktop-home-operator.png",
+      "sha256": "1f52b19278ad92de834906ba91ab3dd05e571d09f9ab04f51c23ee6f5f34bc59",
+      "bytes": 94115,
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/",
+      "capturedAt": "2026-11-04T07:33:26.239Z"
+    },
+    {
+      "file": "desktop-paper-ink.png",
+      "sha256": "ce5ef91bb8a1f27262fd1b681acb15999967dfc51736274e173972be9448db69",
+      "bytes": 75648,
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/paper",
+      "capturedAt": "2026-11-04T07:33:26.677Z"
+    },
+    {
+      "file": "desktop-paper-paper.png",
+      "sha256": "4337278991ec0a518f0eef0fa56a23396fd9c4bb677dc64950e7d7943382c125",
+      "bytes": 75697,
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/paper",
+      "capturedAt": "2026-11-04T07:33:26.965Z"
+    },
+    {
+      "file": "desktop-paper-operator.png",
+      "sha256": "137a7cdfca026dcbb04080ed28ed986729d06b69773a6aa57de04a8fcf727492",
+      "bytes": 76714,
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/paper",
+      "capturedAt": "2026-11-04T07:33:27.203Z"
+    },
+    {
+      "file": "desktop-glass-reduced-motion.png",
+      "sha256": "87858a778b62db4f3d170c7db577a0c6372ab865771fe56c49bf87368768ed15",
+      "bytes": 263570,
+      "width": 1440,
+      "height": 958,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/glass",
+      "capturedAt": "2026-11-04T07:33:32.472Z"
+    },
+    {
+      "file": "desktop-glass-recovered.png",
+      "sha256": "2265b904b81e60274b7b5587bc0bb114c8bdcb5977d9e8106b235a6156e13346",
+      "bytes": 264174,
+      "width": 1440,
+      "height": 958,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/glass",
+      "capturedAt": "2026-11-04T07:33:41.602Z"
+    },
+    {
+      "file": "desktop-font-fallback.png",
+      "sha256": "a690b1b07fa37e8b6bee42531b2525e7abec41669032b1de94c6300e0e9f1f52",
+      "bytes": 92077,
+      "width": 1440,
+      "height": 900,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/",
+      "capturedAt": "2026-11-04T07:33:42.509Z"
+    },
+    {
+      "file": "mobile-home-ink.png",
+      "sha256": "dd65bf43e9847d2f65ead91c8359cfbdb01e8fd297e2384ebea755c6404d579a",
+      "bytes": 70414,
+      "width": 390,
+      "height": 1045,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/",
+      "capturedAt": "2026-11-04T07:33:43.599Z"
+    },
+    {
+      "file": "mobile-home-paper.png",
+      "sha256": "82904f68e8c0715d047c3dfae7e00baf934455c349f952ea3c2f6e2718f5d595",
+      "bytes": 75421,
+      "width": 390,
+      "height": 1045,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/",
+      "capturedAt": "2026-11-04T07:33:43.956Z"
+    },
+    {
+      "file": "mobile-home-operator.png",
+      "sha256": "2a4115435febcc2036d6abf6c2a9ee89fe75ca54de7e3decea1d1d3aef5e74a7",
+      "bytes": 72853,
+      "width": 390,
+      "height": 1045,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/",
+      "capturedAt": "2026-11-04T07:33:44.282Z"
+    },
+    {
+      "file": "mobile-paper-ink.png",
+      "sha256": "48c6683eab87468432407969fb66f6b743100f378ada6e64fef4fe2fb4001d83",
+      "bytes": 70478,
+      "width": 390,
+      "height": 1071,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/paper",
+      "capturedAt": "2026-11-04T07:33:44.763Z"
+    },
+    {
+      "file": "mobile-paper-paper.png",
+      "sha256": "15b51a0cc31787f445ebcecc6cce242d084cbab8d36ef51e75fea9a066f5c419",
+      "bytes": 70324,
+      "width": 390,
+      "height": 1071,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/paper",
+      "capturedAt": "2026-11-04T07:33:45.046Z"
+    },
+    {
+      "file": "mobile-paper-operator.png",
+      "sha256": "8b96f8ac9607c5f504e9fdd417d572137959ec61590d8b23ae858d24875dd533",
+      "bytes": 71438,
+      "width": 390,
+      "height": 1071,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/paper",
+      "capturedAt": "2026-11-04T07:33:45.369Z"
+    },
+    {
+      "file": "mobile-glass-reduced-motion.png",
+      "sha256": "ca74f20d9cb59b04329c102f9f8811bb1c2946621a750788d8837bd30962fca1",
+      "bytes": 128445,
+      "width": 390,
+      "height": 1047,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/glass",
+      "capturedAt": "2026-11-04T07:33:48.393Z"
+    },
+    {
+      "file": "mobile-font-fallback.png",
+      "sha256": "5f5dae2d65e236eb264c01987c7ebd785af3897fa177d61a93115f3ba21a4522",
+      "bytes": 75010,
+      "width": 390,
+      "height": 1086,
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dpr": 1,
+      "url": "http://127.0.0.1:33317/",
+      "capturedAt": "2026-11-04T07:33:49.276Z"
+    }
+  ],
+  "errors": [],
+  "consoleDiagnostics": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "route": "http://127.0.0.1:33317/"
+    }
+  ],
+  "fontRequests": [
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/IBMPlexMono_Regular-s.p.21pssk39-cz7l.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans%5Bwdth%2Cwght%5D-s.p.2r19_nnnp7853.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSerif_Italic-s.p.0ujh2vjvx3ucu.ttf",
+    "http://127.0.0.1:33317/_next/static/media/InstrumentSans[wdth,wght]-s.p.2r19_nnnp7853.ttf"
+  ],
+  "browser": "156.0.8078.0",
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "verdict": "PASS — bounded local production consumer checks, not release approval"
+}

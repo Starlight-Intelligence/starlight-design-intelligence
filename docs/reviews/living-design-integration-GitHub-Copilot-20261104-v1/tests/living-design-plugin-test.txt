@@ -1,0 +1,202 @@
+TAP version 13
+# Subtest: living design compiles twelve coherent profiles and four families deterministically
+ok 1 - living design compiles twelve coherent profiles and four families deterministically
+  ---
+  duration_ms: 31.063971
+  type: 'test'
+  ...
+# Subtest: inspection gives all five source contracts for the selected identity
+ok 2 - inspection gives all five source contracts for the selected identity
+  ---
+  duration_ms: 9.44732
+  type: 'test'
+  ...
+# Subtest: unknown IDs cannot silently select a fallback
+ok 3 - unknown IDs cannot silently select a fallback
+  ---
+  duration_ms: 15.553333
+  type: 'test'
+  ...
+# Subtest: unresolved connector blocks a map
+ok 4 - unresolved connector blocks a map
+  ---
+  duration_ms: 10.963611
+  type: 'test'
+  ...
+# Subtest: duplicate identifiers block compilation
+ok 5 - duplicate identifiers block compilation
+  ---
+  duration_ms: 9.898802
+  type: 'test'
+  ...
+# Subtest: narrative contracts cannot include permissions
+ok 6 - narrative contracts cannot include permissions
+  ---
+  duration_ms: 8.171022
+  type: 'test'
+  ...
+# Subtest: character cannot bind another character personality
+ok 7 - character cannot bind another character personality
+  ---
+  duration_ms: 17.938706
+  type: 'test'
+  ...
+# Subtest: cyclic family ancestry is rejected
+ok 8 - cyclic family ancestry is rejected
+  ---
+  duration_ms: 4.946532
+  type: 'test'
+  ...
+# Subtest: runtime grants cannot be embedded in recipes
+ok 9 - runtime grants cannot be embedded in recipes
+  ---
+  duration_ms: 4.282348
+  type: 'test'
+  ...
+# Subtest: profile cannot self-promote to approved
+ok 10 - profile cannot self-promote to approved
+  ---
+  duration_ms: 5.152834
+  type: 'test'
+  ...
+# Subtest: connector cannot assert connected account
+ok 11 - connector cannot assert connected account
+  ---
+  duration_ms: 7.367348
+  type: 'test'
+  ...
+# Subtest: bad CLI input never changes to build mode
+ok 12 - bad CLI input never changes to build mode
+  ---
+  duration_ms: 0.237509
+  type: 'test'
+  ...
+# Subtest: JSON embed escapes closing script injection
+ok 13 - JSON embed escapes closing script injection
+  ---
+  duration_ms: 0.314625
+  type: 'test'
+  ...
+# Subtest: export retains contract bytes and protects existing output
+ok 14 - export retains contract bytes and protects existing output
+  ---
+  duration_ms: 56.908239
+  type: 'test'
+  ...
+# Subtest: symlinked contract input is rejected
+ok 15 - symlinked contract input is rejected
+  ---
+  duration_ms: 0.587607
+  type: 'test'
+  ...
+# Subtest: run evidence projects state but never independent acceptance
+ok 16 - run evidence projects state but never independent acceptance
+  ---
+  duration_ms: 0.265381
+  type: 'test'
+  ...
+# Subtest: no telemetry stays unknown
+ok 17 - no telemetry stays unknown
+  ---
+  duration_ms: 0.114624
+  type: 'test'
+  ...
+# Subtest: tenant or run mismatch stays unknown
+ok 18 - tenant or run mismatch stays unknown
+  ---
+  duration_ms: 0.115475
+  type: 'test'
+  ...
+# Subtest: stale and future events stay unknown
+ok 19 - stale and future events stay unknown
+  ---
+  duration_ms: 0.137147
+  type: 'test'
+  ...
+# Subtest: revocation shows blocked
+ok 20 - revocation shows blocked
+  ---
+  duration_ms: 0.113751
+  type: 'test'
+  ...
+# Subtest: replayed event is ignored
+ok 21 - replayed event is ignored
+  ---
+  duration_ms: 0.099761
+  type: 'test'
+  ...
+# Subtest: completion requires artifact references
+ok 22 - completion requires artifact references
+  ---
+  duration_ms: 0.172891
+  type: 'test'
+  ...
+# Subtest: expired revocation is unknown presentation state
+ok 23 - expired revocation is unknown presentation state
+  ---
+  duration_ms: 0.129896
+  type: 'test'
+  ...
+# Subtest: catalog strings with replacement tokens roundtrip unchanged
+ok 24 - catalog strings with replacement tokens roundtrip unchanged
+  ---
+  duration_ms: 0.17235
+  type: 'test'
+  ...
+# Subtest: catalog strings cannot be interpreted as template placeholders
+ok 25 - catalog strings cannot be interpreted as template placeholders
+  ---
+  duration_ms: 0.123496
+  type: 'test'
+  ...
+# Subtest: output symlink ancestors cannot bypass source protection
+ok 26 - output symlink ancestors cannot bypass source protection
+  ---
+  duration_ms: 14.815027
+  type: 'test'
+  ...
+# Subtest: package skills match canonical source projection
+ok 27 - package skills match canonical source projection
+  ---
+  duration_ms: 2.887442
+  type: 'test'
+  ...
+# Subtest: committed catalog matches source contracts
+ok 28 - committed catalog matches source contracts
+  ---
+  duration_ms: 22.299302
+  type: 'test'
+  ...
+# Subtest: profile download contains five exact source identities and reference closure
+ok 29 - profile download contains five exact source identities and reference closure
+  ---
+  duration_ms: 12.918654
+  type: 'test'
+  ...
+# Subtest: ZIP export has deterministic UTF-8 entries and standard CRC32
+ok 30 - ZIP export has deterministic UTF-8 entries and standard CRC32
+  ---
+  duration_ms: 0.592845
+  type: 'test'
+  ...
+# Subtest: ZIP export rejects traversal and duplicate paths
+ok 31 - ZIP export rejects traversal and duplicate paths
+  ---
+  duration_ms: 0.237319
+  type: 'test'
+  ...
+# Subtest: private reference index enforces path and exact hash
+ok 32 - private reference index enforces path and exact hash
+  ---
+  duration_ms: 4.83237
+  type: 'test'
+  ...
+1..32
+# tests 32
+# suites 0
+# pass 32
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 444.70266

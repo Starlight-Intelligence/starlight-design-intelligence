@@ -1,0 +1,8 @@
+head=2e36fe1836881fb6060c852693d629a544215a17
+tree=e0406116c815f3ad22941e8c139357be15a04410
+status-begin=
+status-after-build:
+ M packages/materials/examples/next-app/tsconfig.json
+ packages/materials/examples/next-app/tsconfig.json | 30 +++++++++++++++++-----
+ 1 file changed, 24 insertions(+), 6 deletions(-)
+tree-after-build=e0406116c815f3ad22941e8c139357be15a04410

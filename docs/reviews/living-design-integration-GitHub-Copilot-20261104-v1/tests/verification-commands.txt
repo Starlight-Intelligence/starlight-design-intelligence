@@ -1,0 +1,11 @@
+All commands were run in /tmp/living-design-integration unless stated otherwise.
+
+PASS — cd packages/materials/examples/next-app && corepack pnpm install --frozen-lockfile
+PASS — cd packages/materials && corepack pnpm install --frozen-lockfile
+PASS — cd /tmp/living-design-integration && npm ci (exit 0; root package engine warning: Node 22.23.4 vs >=24.14.0 <25)
+PASS — cd packages/materials && corepack pnpm test (19 pass, 0 fail, 0 skipped)
+PASS — cd packages/materials && corepack pnpm typecheck
+PASS — cd /tmp/living-design-integration && node --test tests/living-design.test.mjs (32 pass, 0 fail, 0 skipped; Linux directory symlink exercised)
+PASS WITH GENERATED FILE DELTA — cd packages/materials && corepack pnpm registry:build (exit 0; public/r/glass-gate.json and public/r/glass-surface.json differ from checked-in candidate output; see report)
+PASS — Next.js 16.4.2 dev/Turbopack App Router integration: baseline RSC hook import returned 500 with use-client diagnostic; repaired composed consumer returned 200 at /barrel-probe, /, /glass, /paper, /ink.
+NOT RUN — next build / production deployment; constrained to two end-to-end browser attempts and no production proof requested.
