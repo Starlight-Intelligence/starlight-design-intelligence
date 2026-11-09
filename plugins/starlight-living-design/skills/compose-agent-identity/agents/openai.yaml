@@ -1,0 +1,4 @@
+interface:
+  display_name: "Compose agent identity"
+  short_description: "Join character, behavior, role, and capability contracts"
+  default_prompt: "Compose this agent's identity documents and map its character, personality, skills, playbooks, and permission boundaries."
