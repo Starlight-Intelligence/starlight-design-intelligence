@@ -16,6 +16,7 @@ Independent technical verdict: **PASS for the bounded rigid-link prototype and G
 | GLB key angle error | 4.777676e-07 rad |
 | Dense USD world-matrix error | 6.380133e-05; 10,806 comparisons |
 | USD key matrix error | 4.677393e-07 |
+| Rebuild reproducibility | Two fresh builds: identical vertex attributes, triangle connectivity, hierarchy/materials and animation; static triangle order differs |
 | Asset/schema graphs | Valid, unique IDs, acyclic attachments/dependencies |
 | Web UI | Source/bundle and embedded asset checked; browser GPU, mobile and frame-time unverified |
 | Provider generation | 0 paid image/3D/video generation calls; 0 such provider credits |
