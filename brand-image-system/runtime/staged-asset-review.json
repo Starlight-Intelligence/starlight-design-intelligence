@@ -1,0 +1,190 @@
+{
+  "schema_version": "starlight.staged_asset_review.v1",
+  "evidence_cutoff": "2026-08-06",
+  "asset_root": "C:/Users/frank/brand-assets",
+  "authority": "candidate-staging-only",
+  "review_method": "All 16 staged files were dimension/hash inventoried and reviewed as a labeled contact sheet against evals/generated-asset-quality-gate.md. Scores are triage, not release approval; final-size export, source prompt, rights, responsive crop, and rendered-surface evidence remain required.",
+  "summary": {
+    "files": 16,
+    "unique_payloads": 14,
+    "total_mib": 3.555,
+    "keep": 0,
+    "rework": 9,
+    "archive": 7,
+    "production_usage_proven": 0,
+    "release_approved": 0
+  },
+  "reviews": [
+    {
+      "path": "animelegends/heroes/animelegends-hero-2026-07-17.png",
+      "sha256": "c5526f8fd6ae24b7d45c53c7ee09f5ea6a09a43802b8e546399729b3ac135785",
+      "dimensions": [1280, 720],
+      "brand": "animelegends",
+      "role": "website-hero-candidate",
+      "score_30": 17,
+      "verdict": "archive",
+      "reason": "Atmospheric silhouette scene, but generic anime-training imagery without ownable character, sigil, product proof, or a coherent franchise identity."
+    },
+    {
+      "path": "arcanea/heroes/arcanea-hero-2026-07-14.png",
+      "sha256": "9f7f85c45faa47b4a1c1dbccca5e81a3ae3fa87b85842047e33327b0107cfc63",
+      "dimensions": [1280, 720],
+      "brand": "arcanea",
+      "role": "website-hero-candidate",
+      "score_30": 21,
+      "verdict": "rework",
+      "reason": "Strong mythic-library register and composition, but literal fantasy-AI staging, fragile embedded lettering, and no product-specific Arcanea interaction or proof."
+    },
+    {
+      "path": "arcanea/heroes/arcanea-hero-2026-07-17.png",
+      "sha256": "9f65758a18793a98bad8121c26adbead0700bd517e124a3f990d8bbd7dbc728c",
+      "dimensions": [1280, 720],
+      "brand": "arcanea",
+      "role": "website-hero-candidate",
+      "score_30": 22,
+      "verdict": "rework",
+      "reason": "The crystalline figure is more ownable and cinematic, but remains a generic fantasy center-piece. Develop a canonical character/sigil system and remove any generated text dependency."
+    },
+    {
+      "path": "frankx/marketing/frankx-marketing-hero-2026-07-17.png",
+      "sha256": "b1a167235d2f3e172f50ec1ed631be538741887f644612b547c5118792eb3ac8",
+      "dimensions": [1280, 720],
+      "brand": "frankx",
+      "role": "marketing-hero-candidate",
+      "score_30": 17,
+      "verdict": "archive",
+      "reason": "Dark workstation and floating-code trope reads as generic AI consulting. Fake interface detail is not credible product proof and the image has weak founder-led differentiation."
+    },
+    {
+      "path": "frankx.ai/heroes/frankx-hero-2026-07-14.png",
+      "sha256": "a508c643d6d6c419aa7457850df60190f34684a3ef28869305c2159c3f37c659",
+      "dimensions": [1280, 720],
+      "brand": "frankx",
+      "role": "website-hero-candidate",
+      "score_30": 14,
+      "verdict": "archive",
+      "reason": "Man holding a glowing digital globe is a saturated AI-consultant cliché; the image is not ownable, product-specific, or credible enough for a premium founder brand."
+    },
+    {
+      "path": "frankx.ai/heroes/frankx-hero-2026-07-17.png",
+      "sha256": "c6758511ccd77182858fd057888cef4be9bb8623f1dad71fb62da9b59963a9e0",
+      "dimensions": [1280, 720],
+      "brand": "frankx",
+      "role": "website-hero-candidate",
+      "score_30": 20,
+      "verdict": "rework",
+      "reason": "More controlled executive-command register, but still depends on generated pseudo-UI. Replace it with exact product/case-study evidence and real founder photography or authored diagrams."
+    },
+    {
+      "path": "frankx.ai/marketing/frankx-marketing-hero-2026-07-17.png",
+      "sha256": "b1a167235d2f3e172f50ec1ed631be538741887f644612b547c5118792eb3ac8",
+      "dimensions": [1280, 720],
+      "brand": "frankx",
+      "role": "duplicate-staging-location",
+      "score_30": 17,
+      "verdict": "archive",
+      "duplicate_of": "frankx/marketing/frankx-marketing-hero-2026-07-17.png",
+      "reason": "Byte-identical duplicate of an archived generic workstation candidate; retain one archival record, not two authorities."
+    },
+    {
+      "path": "gencreator/archive/gc-homepage-proof-field-2026-07-28-v01-register-hold.jpg",
+      "sha256": "bc1db1546ec72e0b685cc22586e7c82241bc1a1677901ffd4a6708babaa3a5b6",
+      "dimensions": [1280, 720],
+      "brand": "gencreator",
+      "role": "archived-hero-candidate",
+      "score_30": 16,
+      "verdict": "archive",
+      "reason": "Clean origami-like object, but wrong violet/amber register and too abstract to prove the GenCreator product. Existing archive decision remains correct."
+    },
+    {
+      "path": "gencreator/heroes/gc-homepage-proof-field-2026-07-28-v02.jpg",
+      "sha256": "d2c065ccea2f61167be3ca8f5ad2ed37c909237a006822acb847802761bc7441",
+      "dimensions": [1280, 720],
+      "brand": "gencreator",
+      "role": "website-hero-candidate",
+      "score_30": 20,
+      "verdict": "rework",
+      "reason": "Palette aligns better and the material is clean, but it remains an anonymous geometric object. Candidate PR evidence exists; production release and rendered proof do not."
+    },
+    {
+      "path": "gencreator/heroes/gencreator-hero-2026-07-14.png",
+      "sha256": "800c82b41847f8f5bc652d450f1c4c9056f9eee501c410ba47e17e6877fe4357",
+      "dimensions": [1280, 720],
+      "brand": "gencreator",
+      "role": "website-hero-candidate",
+      "score_30": 15,
+      "verdict": "archive",
+      "reason": "Humanoid robot plus pseudo-dashboards is generic AI-generation imagery, with unreliable embedded text and weak relation to the actual creator workflow."
+    },
+    {
+      "path": "gencreator/heroes/gencreator-hero-2026-07-17.png",
+      "sha256": "02ae7e51ad679d77e7e4270c1d783b57d5e4f14d54e083695e86c4491db74454",
+      "dimensions": [1280, 720],
+      "brand": "gencreator",
+      "role": "website-hero-candidate",
+      "score_30": 21,
+      "verdict": "rework",
+      "reason": "Restrained glass-and-data composition is usable directionally, but still resembles generic enterprise 3D. Tie forms to real GenCreator capabilities and pair with actual product proof."
+    },
+    {
+      "path": "gencreator/heroes/gencreator-r1-bridge-2026-07-17.png",
+      "sha256": "e296597890b123fab672872ac58194d88041b8bd42fc516807517aa4a5c65215",
+      "dimensions": [1280, 720],
+      "brand": "gencreator",
+      "role": "bridge-diagram-candidate",
+      "score_30": 22,
+      "verdict": "rework",
+      "reason": "The bridge concept has a real communication job, but tiny pseudo-UI and text are too fragile. Rebuild deterministically with real screenshots, exact labels, and accessible HTML/diagram fallback."
+    },
+    {
+      "path": "gencreator/marketing/gencreator-marketing-product-2026-07-17.png",
+      "sha256": "d2623d4f9d10f92f50d7221c5c5ae1816eb92c37baf3d403d601a7713804dfd4",
+      "dimensions": [1280, 720],
+      "brand": "gencreator",
+      "role": "marketing-proof-candidate",
+      "score_30": 19,
+      "verdict": "rework",
+      "reason": "Structured product-board composition, but all product evidence appears generated. Replace with exact UI captures and authored annotations before any proof claim."
+    },
+    {
+      "path": "gencreator/marketing/gencreator-r1-bridge-banner-2026-07-17.png",
+      "sha256": "eddbe21d65c0b100c4dd51d313ef4c32728fc13ecc3ea0eabfca8a6b6b0de48e",
+      "dimensions": [1280, 720],
+      "brand": "gencreator",
+      "role": "marketing-bridge-candidate",
+      "score_30": 22,
+      "verdict": "rework",
+      "reason": "The signal-ribbon and two-station metaphor is the strongest staged bridge direction, but it needs real interface evidence, exact copy, and a brand-owned graphic language."
+    },
+    {
+      "path": "marketing/gencreator-r1-bridge-banner-2026-07-17.png",
+      "sha256": "eddbe21d65c0b100c4dd51d313ef4c32728fc13ecc3ea0eabfca8a6b6b0de48e",
+      "dimensions": [1280, 720],
+      "brand": "gencreator",
+      "role": "duplicate-staging-location",
+      "score_30": 22,
+      "verdict": "rework",
+      "duplicate_of": "gencreator/marketing/gencreator-r1-bridge-banner-2026-07-17.png",
+      "reason": "Byte-identical duplicate location. Keep one canonical candidate record and represent intended cross-brand use through metadata."
+    },
+    {
+      "path": "vibeclub/heroes/vibeclub-hero-2026-07-17.png",
+      "sha256": "fc5b00d93271daf61184af26ffc5c434301e9607eb1d501e84fab91e71ebf012",
+      "dimensions": [1280, 720],
+      "brand": "vibeclub",
+      "role": "website-hero-candidate",
+      "score_30": 13,
+      "verdict": "archive",
+      "reason": "Pleasant beach lifestyle image, but it is stock-like and says nothing specific about music, community, creation, or the Vibeclubs product."
+    }
+  ],
+  "production_evidence": {
+    "tracked_local_filename_matches": 0,
+    "note": "No exact staged filename was found in tracked files of the sampled local FrankX production, GenCreator, Arcanea, AnimeLegends, or Vibeclubs repositories. This is not proof of absence from every branch or deployment.",
+    "known_candidate": {
+      "path": "gencreator/heroes/gc-homepage-proof-field-2026-07-28-v02.jpg",
+      "pr": "https://github.com/frankxai/gencreator.ai/pull/34",
+      "state": "candidate-held-no-production-proof"
+    }
+  }
+}

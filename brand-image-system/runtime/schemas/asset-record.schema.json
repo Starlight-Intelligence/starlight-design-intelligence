@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://starlight.local/schemas/asset-record.schema.json",
+  "title": "Starlight approved asset registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "updated_at", "authority", "candidate_registry", "assets"],
+  "properties": {
+    "schema_version": {"const": "starlight.asset_registry.v1"},
+    "updated_at": {"type": "string", "format": "date-time"},
+    "authority": {"const": "tracked-approved-released-only"},
+    "description": {"type": "string", "minLength": 10, "maxLength": 500},
+    "candidate_registry": {"type": "string", "minLength": 3, "maxLength": 500},
+    "assets": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/asset"}
+    }
+  },
+  "$defs": {
+    "actor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id"],
+      "properties": {
+        "kind": {"enum": ["human", "cli", "service"]},
+        "id": {"type": "string", "minLength": 2, "maxLength": 120}
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_id", "brand_id", "surface_mode", "role", "lifecycle", "decision",
+        "maker", "reviewer", "approver", "integrator", "source", "rights", "file",
+        "brand_pack", "intended_destination", "accessibility", "quality", "used_in",
+        "retention"
+      ],
+      "properties": {
+        "asset_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{5,127}$"},
+        "brand_id": {"enum": ["ai-coe", "animelegends", "arcanea", "frankx", "gencreator", "reality-architect", "sis", "vibeclubs"]},
+        "surface_mode": {"type": "string", "minLength": 2, "maxLength": 120},
+        "role": {"type": "string", "minLength": 2, "maxLength": 120},
+        "lifecycle": {"const": "released"},
+        "decision": {"const": "approved"},
+        "maker": {"$ref": "#/$defs/actor"},
+        "reviewer": {"$ref": "#/$defs/actor"},
+        "approver": {"$ref": "#/$defs/actor"},
+        "integrator": {"$ref": "#/$defs/actor"},
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "provider_or_origin", "created_at", "evidence_uri"],
+          "properties": {
+            "kind": {"enum": ["generated-original", "owned-capture", "licensed-stock", "commissioned", "open-license", "product-screenshot", "diagram-authored"]},
+            "provider_or_origin": {"type": "string", "minLength": 2, "maxLength": 200},
+            "model": {"type": ["string", "null"], "maxLength": 200},
+            "created_at": {"type": "string", "format": "date-time"},
+            "prompt_digest": {"type": ["string", "null"], "pattern": "^sha256:[a-f0-9]{64}$"},
+            "evidence_uri": {"type": "string", "minLength": 3, "maxLength": 800}
+          }
+        },
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["status", "basis", "terms_version", "restrictions"],
+          "properties": {
+            "status": {"enum": ["owned", "licensed", "open-license", "provider-terms-verified"]},
+            "basis": {"type": "string", "minLength": 3, "maxLength": 500},
+            "terms_version": {"type": "string", "minLength": 1, "maxLength": 120},
+            "restrictions": {"type": "array", "maxItems": 20, "items": {"type": "string", "minLength": 1, "maxLength": 300}}
+          }
+        },
+        "file": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["repository_path", "sha256", "detected_mime", "bytes", "width", "height", "color_space"],
+          "properties": {
+            "repository_path": {"type": "string", "minLength": 3, "maxLength": 500},
+            "sha256": {"type": "string", "pattern": "^[a-f0-9]{64}$"},
+            "detected_mime": {"enum": ["image/jpeg", "image/png", "image/webp", "image/svg+xml", "video/mp4"]},
+            "bytes": {"type": "integer", "minimum": 1},
+            "width": {"type": "integer", "minimum": 1},
+            "height": {"type": "integer", "minimum": 1},
+            "color_space": {"type": "string", "minLength": 2, "maxLength": 80},
+            "source_asset_id": {"type": ["string", "null"], "pattern": "^[a-z0-9][a-z0-9._-]{5,127}$"}
+          }
+        },
+        "brand_pack": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "commit"],
+          "properties": {
+            "path": {"type": "string", "minLength": 3, "maxLength": 500},
+            "commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"}
+          }
+        },
+        "intended_destination": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["repository", "path", "surface_id", "route"],
+          "properties": {
+            "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
+            "path": {"type": "string", "minLength": 3, "maxLength": 500},
+            "surface_id": {"type": "string", "minLength": 2, "maxLength": 120},
+            "route": {"type": "string", "pattern": "^/"}
+          }
+        },
+        "accessibility": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["alt_intent", "decorative", "text_baked_in", "responsive_behavior"],
+          "properties": {
+            "alt_intent": {"type": "string", "minLength": 2, "maxLength": 500},
+            "decorative": {"type": "boolean"},
+            "text_baked_in": {"type": "boolean"},
+            "responsive_behavior": {"type": "string", "minLength": 3, "maxLength": 500},
+            "reduced_motion_behavior": {"type": ["string", "null"], "maxLength": 500}
+          }
+        },
+        "quality": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["rubric", "rubric_version", "score30", "review_uri"],
+          "properties": {
+            "rubric": {"type": "string", "minLength": 3, "maxLength": 300},
+            "rubric_version": {"type": "string", "minLength": 1, "maxLength": 120},
+            "score30": {"type": "integer", "minimum": 24, "maximum": 30},
+            "review_uri": {"type": "string", "minLength": 3, "maxLength": 800}
+          }
+        },
+        "used_in": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["repository", "commit", "route_or_channel", "verified_at", "release_evidence_uri"],
+            "properties": {
+              "repository": {"type": "string", "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"},
+              "commit": {"type": "string", "pattern": "^[a-f0-9]{40}$"},
+              "route_or_channel": {"type": "string", "minLength": 1, "maxLength": 300},
+              "verified_at": {"type": "string", "format": "date-time"},
+              "release_evidence_uri": {"type": "string", "minLength": 3, "maxLength": 800}
+            }
+          }
+        },
+        "retention": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["class", "stale_after", "archive_reason"],
+          "properties": {
+            "class": {"enum": ["canonical", "campaign", "product-proof", "historical"]},
+            "stale_after": {"type": ["string", "null"], "format": "date"},
+            "archive_reason": {"type": ["string", "null"], "maxLength": 500}
+          }
+        },
+        "duplicate_of": {"type": ["string", "null"], "pattern": "^[a-z0-9][a-z0-9._-]{5,127}$"}
+      }
+    }
+  }
+}

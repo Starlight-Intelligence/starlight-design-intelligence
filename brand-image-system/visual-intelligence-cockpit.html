@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Starlight Visual Intelligence — Portfolio Cockpit</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f4f6f8;
+      --muted: #9da8b5;
+      --surface: #10151b;
+      --surface-2: #151c24;
+      --line: rgba(255,255,255,.09);
+      --cyan: #72d5d8;
+      --gold: #d7b879;
+      --red: #f08181;
+      --green: #86d6a4;
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% -10%, rgba(114,213,216,.12), transparent 34rem),
+        radial-gradient(circle at 92% 4%, rgba(215,184,121,.10), transparent 28rem),
+        #090d12;
+      color: var(--ink);
+      font: 15px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a { color: var(--cyan); }
+    .shell { width: min(1480px, calc(100% - 32px)); margin: 0 auto; padding: 32px 0 72px; }
+    header { display: grid; gap: 28px; grid-template-columns: 1.5fr 1fr; align-items: end; padding: 44px 0 36px; border-bottom: 1px solid var(--line); }
+    .eyebrow { color: var(--cyan); text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 700; }
+    h1 { font-size: clamp(40px, 6vw, 84px); line-height: .96; letter-spacing: -.055em; margin: 16px 0 20px; max-width: 980px; }
+    .lede { color: #c2cad3; max-width: 780px; font-size: 18px; }
+    .status { border: 1px solid var(--line); border-radius: var(--radius); background: rgba(16,21,27,.72); padding: 22px; }
+    .status strong { display: block; font-size: 18px; margin-bottom: 8px; }
+    .status p { margin: 0; color: var(--muted); }
+    .metrics { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 12px; margin: 28px 0 54px; }
+    .metric { padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); min-height: 108px; }
+    .metric b { display: block; font-size: 30px; letter-spacing: -.04em; }
+    .metric span { color: var(--muted); font-size: 13px; }
+    section { margin-top: 60px; }
+    .section-head { display: flex; gap: 24px; justify-content: space-between; align-items: end; margin-bottom: 20px; }
+    h2 { margin: 0; font-size: clamp(28px, 3.5vw, 48px); letter-spacing: -.04em; }
+    .section-head p { color: var(--muted); max-width: 650px; margin: 0; }
+    .brands { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 14px; }
+    .brand { border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(145deg, rgba(255,255,255,.035), transparent), var(--surface); padding: 22px; }
+    .brand .name { display: flex; justify-content: space-between; gap: 12px; font-size: 19px; font-weight: 750; }
+    .brand p { color: var(--muted); min-height: 68px; }
+    .brand ul { padding-left: 18px; color: #c8d0d8; }
+    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 4px 9px; color: var(--muted); font-size: 11px; white-space: nowrap; }
+    .asset-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; }
+    .asset { overflow: hidden; border: 1px solid var(--line); border-radius: 18px; background: var(--surface); }
+    .asset img { width: 100%; aspect-ratio: 16/9; display: block; object-fit: cover; background: #06080b; }
+    .asset-body { padding: 16px; }
+    .asset-title { font-weight: 700; font-size: 13px; word-break: break-word; min-height: 42px; }
+    .meta { display: flex; gap: 7px; flex-wrap: wrap; margin: 12px 0; }
+    .meta span { border: 1px solid var(--line); border-radius: 999px; padding: 3px 8px; color: var(--muted); font-size: 11px; }
+    .verdict { font-weight: 800; letter-spacing: .08em; text-transform: uppercase; font-size: 11px; }
+    .archive { color: var(--red); }
+    .rework { color: var(--gold); }
+    .asset p { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+    .architecture { display: grid; grid-template-columns: repeat(7, minmax(0,1fr)); gap: 8px; align-items: stretch; }
+    .node { border: 1px solid var(--line); border-radius: 14px; padding: 16px 12px; min-height: 112px; background: var(--surface-2); }
+    .node b { display: block; margin-bottom: 7px; }
+    .node span { color: var(--muted); font-size: 12px; }
+    .arrow { display: none; }
+    .truth { border-color: rgba(114,213,216,.35); }
+    .warning { margin-top: 18px; padding: 18px 20px; border-left: 3px solid var(--gold); background: rgba(215,184,121,.08); color: #d7cfbf; }
+    .actions { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 12px; counter-reset: action; }
+    .action { counter-increment: action; padding: 20px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+    .action:before { content: counter(action, decimal-leading-zero); color: var(--cyan); font-weight: 800; letter-spacing: .12em; }
+    .action h3 { margin: 14px 0 8px; }
+    .action p { color: var(--muted); margin: 0; }
+    footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--line); color: var(--muted); display: flex; justify-content: space-between; gap: 24px; }
+    @media (max-width: 1100px) { .metrics { grid-template-columns: repeat(3,1fr); } .brands { grid-template-columns: repeat(2,1fr); } .asset-grid { grid-template-columns: repeat(2,1fr); } .architecture { grid-template-columns: repeat(2,1fr); } .actions { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 680px) { .shell { width: min(100% - 20px, 1480px); } header { grid-template-columns: 1fr; } .metrics, .brands, .asset-grid, .architecture, .actions { grid-template-columns: 1fr; } .section-head, footer { align-items: start; flex-direction: column; } .brand p { min-height: 0; } }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div>
+        <div class="eyebrow">Starlight Design Intelligence · local derived view</div>
+        <h1>Visual Intelligence Portfolio Cockpit</h1>
+        <p class="lede">One evidence-led view of brand systems, staged assets, quality holds, production linkage, and the next premium asset packages. It observes canonical records; it does not approve or publish them.</p>
+      </div>
+      <aside class="status">
+        <strong>Current state: methodology strong, asset library immature</strong>
+        <p>Evidence cutoff 2026-08-06. C940 is resource-constrained, so this pass inventoried and reviewed existing assets without generation, browser-heavy validation, package installation, or production mutation.</p>
+      </aside>
+    </header>
+
+    <div class="metrics" aria-label="Portfolio metrics">
+      <div class="metric"><b>16</b><span>staged files</span></div>
+      <div class="metric"><b>14</b><span>unique payloads</span></div>
+      <div class="metric"><b>3.555</b><span>MiB staged</span></div>
+      <div class="metric"><b>0</b><span>release-approved</span></div>
+      <div class="metric"><b>9</b><span>rework placements</span></div>
+      <div class="metric"><b>7</b><span>archive placements</span></div>
+    </div>
+
+    <section>
+      <div class="section-head"><h2>Portfolio direction</h2><p>Each brand keeps its own register. The shared layer is process, evidence, and quality—not one visual costume.</p></div>
+      <div class="brands">
+        <article class="brand"><div class="name">FrankX <span class="pill">professional</span></div><p>Founder-led authority, exact product proof, commercially sharp systems.</p><ul><li>Build founder portrait and case-study system</li><li>Replace fake UI with real captures and authored diagrams</li><li>No mascot</li></ul></article>
+        <article class="brand"><div class="name">Arcanea <span class="pill">mythic</span></div><p>Cinematic creative intelligence with concrete worlds, interfaces, and transformation.</p><ul><li>Canonical sigil and character bible</li><li>World atlas and spell-interface language</li><li>3D only after model sheets and vector identity</li></ul></article>
+        <article class="brand"><div class="name">Starlight / SIS <span class="pill">neutral trust</span></div><p>Calm operational intelligence, governance, evidence, and precise command-center states.</p><ul><li>Real cockpit and evaluation captures</li><li>Systems diagrams and signal-field motif</li><li>No cute bot mascot</li></ul></article>
+        <article class="brand"><div class="name">GenCreator <span class="pill">product intelligence</span></div><p>Creator workflows, before/after artifacts, cohort proof, and exact bridges.</p><ul><li>Real editor/workflow screenshots</li><li>Deterministic bridge diagrams</li><li>Avoid humanoid robots and generated pseudo-UI</li></ul></article>
+        <article class="brand"><div class="name">Vibeclubs <span class="pill">culture</span></div><p>Music, community, artist identity, sessions, membership rituals, and participation.</p><ul><li>Artist/community photography direction</li><li>Audio and profile product proof</li><li>Retire generic beach lifestyle imagery</li></ul></article>
+        <article class="brand"><div class="name">Anime Legends <span class="pill">original IP</span></div><p>Original characters, sigils, lore, environments, and channel-specific media systems.</p><ul><li>Character bible and turnarounds first</li><li>Consistent rigs after model approval</li><li>No copyrighted character or named-artist imitation</li></ul></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Staged asset review</h2><p>Scores use the 30-point generated-asset gate at contact-sheet resolution. They are triage only; no item is production-approved.</p></div>
+      <div class="asset-grid">
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/animelegends/heroes/animelegends-hero-2026-07-17.png" alt="Anime Legends silhouette scene candidate"><div class="asset-body"><div class="asset-title">Anime Legends · hero 2026-07-17</div><div class="meta"><span>17/30</span><span class="verdict archive">archive</span></div><p>Atmospheric, but generic and not owned franchise identity.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/arcanea/heroes/arcanea-hero-2026-07-14.png" alt="Arcanea mythic library candidate"><div class="asset-body"><div class="asset-title">Arcanea · library hero 2026-07-14</div><div class="meta"><span>21/30</span><span class="verdict rework">rework</span></div><p>Good register; literal fantasy staging and fragile generated lettering.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/arcanea/heroes/arcanea-hero-2026-07-17.png" alt="Arcanea crystalline figure candidate"><div class="asset-body"><div class="asset-title">Arcanea · crystalline hero 2026-07-17</div><div class="meta"><span>22/30</span><span class="verdict rework">rework</span></div><p>Strongest Arcanea candidate; needs canonical character and sigil system.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/frankx/marketing/frankx-marketing-hero-2026-07-17.png" alt="Dark workstation marketing candidate"><div class="asset-body"><div class="asset-title">FrankX · workstation candidate</div><div class="meta"><span>17/30</span><span class="verdict archive">archive</span></div><p>Generic AI-consulting trope with non-credible pseudo-UI.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/frankx.ai/heroes/frankx-hero-2026-07-14.png" alt="FrankX glowing globe candidate"><div class="asset-body"><div class="asset-title">FrankX · globe hero 2026-07-14</div><div class="meta"><span>14/30</span><span class="verdict archive">archive</span></div><p>Saturated consultancy cliché; not ownable or product-specific.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/frankx.ai/heroes/frankx-hero-2026-07-17.png" alt="FrankX command interface candidate"><div class="asset-body"><div class="asset-title">FrankX · command hero 2026-07-17</div><div class="meta"><span>20/30</span><span class="verdict rework">rework</span></div><p>Better control and register; replace pseudo-UI with real evidence.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/gencreator/archive/gc-homepage-proof-field-2026-07-28-v01-register-hold.jpg" alt="Archived violet geometric GenCreator candidate"><div class="asset-body"><div class="asset-title">GenCreator · v01 register hold</div><div class="meta"><span>16/30</span><span class="verdict archive">archive</span></div><p>Clean object, wrong register, and no product proof.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/gencreator/heroes/gc-homepage-proof-field-2026-07-28-v02.jpg" alt="Blue geometric GenCreator candidate"><div class="asset-body"><div class="asset-title">GenCreator · proof field v02</div><div class="meta"><span>20/30</span><span class="verdict rework">rework</span></div><p>Better palette; still anonymous and held without production proof.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/gencreator/heroes/gencreator-hero-2026-07-14.png" alt="Robot and dashboard GenCreator candidate"><div class="asset-body"><div class="asset-title">GenCreator · robot hero 2026-07-14</div><div class="meta"><span>15/30</span><span class="verdict archive">archive</span></div><p>Generic humanoid AI and unreliable generated UI.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/gencreator/heroes/gencreator-hero-2026-07-17.png" alt="Glass data block GenCreator candidate"><div class="asset-body"><div class="asset-title">GenCreator · glass system 2026-07-17</div><div class="meta"><span>21/30</span><span class="verdict rework">rework</span></div><p>Controlled direction; connect forms to real workflows and proof.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/gencreator/heroes/gencreator-r1-bridge-2026-07-17.png" alt="FrankX to GenCreator bridge candidate"><div class="asset-body"><div class="asset-title">GenCreator · R1 bridge diagram</div><div class="meta"><span>22/30</span><span class="verdict rework">rework</span></div><p>Real communication job; rebuild with exact captures and labels.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/gencreator/marketing/gencreator-marketing-product-2026-07-17.png" alt="GenCreator product board candidate"><div class="asset-body"><div class="asset-title">GenCreator · marketing product board</div><div class="meta"><span>19/30</span><span class="verdict rework">rework</span></div><p>Structured composition, but generated UI cannot be product proof.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/gencreator/marketing/gencreator-r1-bridge-banner-2026-07-17.png" alt="GenCreator bridge banner candidate"><div class="asset-body"><div class="asset-title">GenCreator · R1 bridge banner</div><div class="meta"><span>22/30</span><span class="verdict rework">rework</span></div><p>Strongest bridge metaphor; needs real screens and owned graphic language.</p></div></article>
+        <article class="asset"><img src="file:///C:/Users/frank/brand-assets/vibeclub/heroes/vibeclub-hero-2026-07-17.png" alt="Vibeclub beach lifestyle candidate"><div class="asset-body"><div class="asset-title">Vibeclubs · beach hero 2026-07-17</div><div class="meta"><span>13/30</span><span class="verdict archive">archive</span></div><p>Stock-like lifestyle scene with no music, community, or product identity.</p></div></article>
+      </div>
+      <div class="warning">Two additional placements are byte-identical duplicates: the FrankX workstation candidate and the GenCreator bridge banner. Keep one canonical payload and express multi-surface intent through metadata.</div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Execution architecture</h2><p>The Visual Intelligence System supplies brand truth and release gates; it does not become a second fleet or deployment authority.</p></div>
+      <div class="architecture" aria-label="Visual intelligence architecture">
+        <div class="node truth"><b>Brand truth</b><span>Brand packs, register, audience job, claims</span></div>
+        <div class="node"><b>Media job</b><span>Placement, workflow, prompt/brief, provenance</span></div>
+        <div class="node"><b>Candidate</b><span>Generated, captured, authored, commissioned</span></div>
+        <div class="node"><b>Independent gate</b><span>Taste, rights, a11y, accuracy, crop</span></div>
+        <div class="node"><b>Integration</b><span>Target repository, semantic copy, optimized asset</span></div>
+        <div class="node"><b>Release proof</b><span>Desktop/mobile, checks, production commit, rollback</span></div>
+        <div class="node truth"><b>Learning</b><span>Outcome metric and reusable pattern</span></div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head"><h2>Next four packages</h2><p>Depth before breadth. Each package must be placed, reviewed, integrated, and measured.</p></div>
+      <div class="actions">
+        <article class="action"><h3>FrankX proof system</h3><p>Founder portrait direction, real product/case-study captures, architecture diagram language, editorial and OG templates.</p></article>
+        <article class="action"><h3>SIS observatory proof</h3><p>Real command-center states, evaluation receipts, incident/verification diagrams, trustworthy signal-field visual system.</p></article>
+        <article class="action"><h3>GenCreator workflow proof</h3><p>Exact editor and cohort artifacts, deterministic R1 bridge, before/after creator outcomes, responsive campaign derivatives.</p></article>
+        <article class="action"><h3>Arcanea identity sequence</h3><p>Sigil, canonical character model sheets, world environment kit, editor/academy captures, one cinematic key-art sequence.</p></article>
+      </div>
+    </section>
+
+    <footer><span>Canonical methodology: starlight-design-intelligence</span><span>Candidate staging is not release authority · Evidence cutoff 2026-08-06</span></footer>
+  </main>
+</body>
+</html>
