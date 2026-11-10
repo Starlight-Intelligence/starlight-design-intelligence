@@ -18,7 +18,7 @@ filtergraph=(
  f"drawtext=fontfile={font}:text='STARLIGHT / TRANSFORMATION STUDY':x=32:y=27:fontsize=15:fontcolor=0xe8e7db,"
  f"drawtext=fontfile={font}:text='E-001   |   RIGID LINK CONTINUITY   |   NONCANONICAL':x=32:y=h-35:fontsize=11:fontcolor=0xdbb477[out]"
 )
-run(['-loop','1','-framerate','24','-i',OUT/'form-a.png','-i',OUT/'transformation.mp4','-loop','1','-framerate','24','-i',OUT/'form-b.png','-i',OUT/'reverse-transformation.mp4','-loop','1','-framerate','24','-i',OUT/'form-a.png','-filter_complex',filtergraph,'-map','[out]','-an','-c:v','libx264','-preset','medium','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',OUT/'Starlight-Transformation-Cinematic.mp4'])
+run(['-loop','1','-framerate','24','-i',OUT/'form-a.png','-i',OUT/'transformation.mp4','-loop','1','-framerate','24','-i',OUT/'form-b.png','-i',OUT/'reverse-transformation.mp4','-loop','1','-framerate','24','-i',OUT/'form-a.png','-filter_complex',filtergraph,'-map','[out]','-an','-r','24','-fps_mode','cfr','-c:v','libx264','-preset','medium','-crf','18','-pix_fmt','yuv420p','-movflags','+faststart',OUT/'Starlight-Transformation-Cinematic.mp4'])
 probes={}
 for p in ['transformation.mp4','reverse-transformation.mp4','Starlight-Transformation-Cinematic.mp4']:
  r=subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration,size:stream=width,height,avg_frame_rate,nb_frames,codec_name','-of','json',str(OUT/p)])
