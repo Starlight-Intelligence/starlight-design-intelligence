@@ -1,0 +1,41 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "starlight-living-lab",
+  "homepage": "https://github.com/Starlight-Intelligence/starlight-design-intelligence",
+  "items": [
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "starlight-living",
+      "type": "registry:ui",
+      "title": "Starlight Living Library",
+      "description": "Source-owned reference components, three material themes and original Signal icons. Review candidate.",
+      "files": [
+        {
+          "path": "src/index.ts",
+          "type": "registry:ui",
+          "target": "@ui/starlight/index.ts"
+        },
+        {
+          "path": "src/components.tsx",
+          "type": "registry:ui",
+          "target": "@ui/starlight/components.tsx"
+        },
+        {
+          "path": "src/components.css",
+          "type": "registry:file",
+          "target": "@ui/starlight/components.css"
+        },
+        {
+          "path": "src/tokens.css",
+          "type": "registry:file",
+          "target": "@ui/starlight/tokens.css"
+        },
+        {
+          "path": "src/icons.tsx",
+          "type": "registry:ui",
+          "target": "@ui/starlight/icons.tsx"
+        }
+      ]
+    }
+  ]
+}

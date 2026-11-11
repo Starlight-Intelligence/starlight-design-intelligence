@@ -1,0 +1,28 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "starlight-living-design",
+  "version": "0.1.0",
+  "description": "Design character-led AI interfaces through visual lineages, agent contracts, companion journeys and inspectable capability maps.",
+  "author": {
+    "name": "Frank Riemer"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Starlight Living Design",
+        "shortDescription": "Characters with capabilities",
+        "longDescription": "Create coherent character families and AI companion interfaces. Six workflows connect visual lineage, character, soul, personality and agent Markdown to teams, playbooks and connector requirements. Includes twelve candidate profiles, four material families, a local atlas and deterministic validation. Uses available host tools; does not install a runtime, connect accounts or deploy autonomous agents.",
+        "developerName": "Frank Riemer",
+        "category": "Creativity",
+        "capabilities": [],
+        "defaultPrompt": [
+          "Design an AI companion using the Prismatic Tide family and an explicit agent contract.",
+          "Map our agent team, characters, skills, playbooks and connector requirements.",
+          "Review this character-led interface for craft, accessibility and truthful capability states."
+        ],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg"
+      }
+    }
+  }
+}

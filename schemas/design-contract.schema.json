@@ -64,7 +64,7 @@
   "$defs": {
     "repository": {
       "type": "string",
-      "pattern": "^frankxai\\/[A-Za-z0-9._-]+$"
+      "pattern": "^(?:frankxai|Arcanea-Labs|Starlight-Intelligence)\\/[A-Za-z0-9._-]+$"
     },
     "commitSha": {
       "type": "string",

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design character lineage"
+  short_description: "Build coherent character families from visual references"
+  default_prompt: "Develop a character family from these references, with visual parents, materials, recognition anchors, and product roles."

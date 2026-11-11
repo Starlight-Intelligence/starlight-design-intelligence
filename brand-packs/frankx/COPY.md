@@ -76,3 +76,15 @@ Specific:
 > You turned a live audience question into a usable method in under three minutes.
 > I built a small working kit around that move. If it feels true to your process,
 > I would like to test it with you for one week.
+
+## Evidence-led founder products and the research-to-value narrative — proposal, 4 Nov 2026
+
+Preserve the [canonical human Voice OS](https://docs.google.com/document/d/1nVOppnlEiTOlutyA7Y5JufIyDWBKjUNqNT8wmJYvb1M/edit): recognize the person, state one consequential thesis, show the mechanism and real work, then narrow the next decision. The approved Google Doc governs FrankX personal voice before any skill or Notion projection; this candidate cannot supersede it.
+
+FrankX's lived work is the story: original research, AI architecture, building creator tools, music, family and human relationships. Technical ideas become credible through exact examples and what another builder could use or adapt, not exaggerated superiority.
+
+- Candidate opening: "I build the systems I want to own, then share what holds up in real use."
+- Candidate proof line: "We tested one workflow against a real project. Here's the edited artifact, what it cost, and what still fails."
+- Advisory invitation after verified delivery: "Bring one difficult architecture decision. Leave with the tradeoffs and a working plan."
+
+A meaningful invitation to a founder circle or toolkit names what members actually get, what is not included, the cancellation/support boundary and the real skill or result involved. Avoid false scarcity, elite prestige theater, "passive income guaranteed" and pretending an AI role is a human colleague. One editorial research result can become an article, a short video, a workbook and a tested customer artifact—but publication/rights and deliverability remain distinct gates.

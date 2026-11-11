@@ -69,3 +69,12 @@ colors, typography, motion tokens, components, or layout recipes. Those remain
 brand-local. The portfolio registry has no mutable adoption status: a
 repository either passes its pinned workflow or it does not.
 <!-- STARLIGHT-REPO-CONTRACT:END -->
+
+## Candidate brand-local material contract
+
+`starlight.material_foundations.v1` describes the lab's proposed material tokens,
+source-policy references, optical limits, finite motion and identity boundaries.
+The candidate payload is `brand-packs/sis/foundations/tokens.json`; its schema is
+`schemas/starlight-foundations.schema.json`. `scripts/validate-foundations.mjs`
+checks structure, source-policy agreement and cross-field bounds and is included
+in kernel validation. It does not certify rendering, adoption or a release.

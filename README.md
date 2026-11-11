@@ -16,6 +16,7 @@ Starlight Design Intelligence turns that judgment into reusable brand packs, ski
 | --- | --- |
 | `brand-packs/` | Brand-specific design, copy, product, token, and motion doctrine. |
 | `skills/` | Canonical executable design-intelligence skills. Personal/plugin installations are derived snapshots. |
+| `plugins/` | Derived installable packages, supporting contracts and offline design tools. |
 | `evals/` | Rubrics and checklists for anti-slop review, premium brand scoring, and UI quality. |
 | `benchmarks/` | Dated external-skill and tool comparisons with explicit adoption boundaries. |
 | `examples/` | Before/after examples showing the quality delta this system should produce. |
@@ -43,6 +44,10 @@ Starlight Design Intelligence turns that judgment into reusable brand packs, ski
 
 There is no separate `starlight-design-agent-skills` authority. Creating another canonical layer would increase drift. Installations must retain a source reference to this repository and pass `npm test` before release.
 
+## Living Design plugin
+
+[Starlight Living Design](plugins/starlight-living-design/README.md) connects four proposed visual families to twelve character/role recipes, six design skills, and an offline identity and capability atlas. The six skills under `skills/` are canonical; `node scripts/sync-living-design-skills.mjs` regenerates their package copies. Source tests enforce matching content. Private reference artwork is excluded from Git. Runtime binding, brand acceptance, and product deployment remain separate integration work.
+
 ## Design Observatory
 
 This repository is also the single portfolio design observatory. Reference sites are separated by stable target IDs, not repositories. Raw third-party screenshots, HTML, and crawler bundles stay in private content-addressed storage; Git contains only provenance, hashes, normalized observations, explicit inferences, abstract patterns, and owned domain direction records.
@@ -69,6 +74,12 @@ Registry inclusion is the requirement; there is no self-reported “adopted”
 flag.
 
 ## Standards
+
+The [Starlight material foundations](brand-packs/sis/foundations/README.md)
+provide a candidate lab workbench for glass, porcelain, obsidian, texture,
+depth and finite star motion. Its bounded token contract is checked by
+`npm run validate:foundations` and normal kernel validation. It extends the owned
+identity through inspectable materials; it does not assert portfolio adoption.
 
 - Replace vague taste language with implementation guidance.
 - Include motion and reduced-motion rules for every high-value product surface.

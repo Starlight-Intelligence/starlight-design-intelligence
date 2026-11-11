@@ -1,0 +1,62 @@
+/* starlightintelligence.ai home, Horizon mode. Candidate tokens, unsigned.
+   Colour values come from Starlight-Intelligence/starlightintelligence.ai public/brand/identity.json
+   (read 2026-11-10). Structure follows REFERENCE-LOCK-SI-HOME-2026-11.md. */
+
+:root {
+  /* colour roles */
+  --si-canvas: #070a10;
+  --si-raised: #0d1118;
+  --si-text: #ede6d8;
+  --si-text-muted: rgb(237 230 216 / 0.68);
+  --si-rule: rgb(237 230 216 / 0.14);
+  --si-paper: #efede7;
+  --si-ink: #070a10;
+  --si-ink-muted: rgb(7 10 16 / 0.64);
+  --si-rule-light: rgb(7 10 16 / 0.12);
+  --si-arrival: #c9a15c;
+  --si-arrival-bright: #f0c87e;
+  --si-connection: #82d8e6;
+  --si-star: #e8c98c;
+  --si-star-core: #fbf6eb;
+
+  /* type roles */
+  --si-font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --si-font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --si-font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --si-display-size: clamp(3rem, 2rem + 5vw, 7.5rem);
+  --si-display-leading: 0.92;
+  --si-chapter-size: clamp(2.25rem, 1.6rem + 2.8vw, 4.5rem);
+  --si-lead-size: 1.375rem;
+  --si-body-size: 1rem;
+  --si-body-leading: 1.6;
+  --si-body-tracking: 0.01em;
+  --si-label-size: 0.75rem;
+  --si-label-tracking: 0.08em;
+
+  /* layout */
+  --si-container: 1312px;
+  --si-gutter: 12px;
+  --si-side: clamp(16px, 4vw, 64px);
+  --si-support-measure: 380px;
+  --si-reading-measure: 650px;
+  --si-band-pad: clamp(64px, 8vw, 128px);
+
+  /* shape: no shadows; separation is tonal or a hairline */
+  --si-radius-control: 8px;
+  --si-radius-card: 16px;
+  --si-radius-band: 48px;
+  --si-control-height: 48px;
+
+  /* motion (from foundations/tokens.json) */
+  --si-motion-base: 220ms;
+  --si-motion-system: 360ms;
+  --si-ease-enter: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --si-motion-base: 0ms;
+    --si-motion-system: 0ms;
+  }
+}

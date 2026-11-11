@@ -29,3 +29,13 @@ Bad:
 Better:
 
 "Choose the part of The Drift you will answer. Arcanea turns that call into one Gift, one Trial, and one proof artifact you can keep."
+
+## Original-world participation and honest licensing — proposal, 4 Nov 2026
+
+Use light, sound and story to invite people to make a distinct contribution, never to conceal the real price, rights, provenance, canon or release state. Every product begins with a small complete experience that carries original craft.
+
+- World Seed: "The first spark is yours to shape. The world will remember what you make."
+- Music Mentor: "Begin with one melody. Learn it well enough to make it your own."
+- Arcanea Records: "An original sound for the worlds we carry with us."
+
+These are copy *candidates*, not approved canon, Guardians or new facts. Canon remains where it is locked and sourced. Marketplace releases require human listening/creative review, composition and master rights, allowed license scope, export formats and buyer support. Don't turn creative patronage into speculative investment promises. External AI model names and system architecture never determine the mythology.
