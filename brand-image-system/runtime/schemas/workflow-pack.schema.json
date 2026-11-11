@@ -89,6 +89,78 @@
     "approvalRequired": {
       "const": true
     },
+    "provenanceSidecarContract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaRef",
+        "requiredFields",
+        "allowedPromptFidelity",
+        "allowedEditions",
+        "missingReferenceBehavior"
+      ],
+      "properties": {
+        "schemaRef": {
+          "type": "string"
+        },
+        "requiredFields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "allowedPromptFidelity": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "allowedEditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "missingReferenceBehavior": {
+          "type": "string"
+        }
+      }
+    },
+    "antiSlopRules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "zeroBakedSmallUiText",
+        "zeroInventedKpis",
+        "deterministicHudRequired",
+        "minHudContrastRatio"
+      ],
+      "properties": {
+        "zeroBakedSmallUiText": {
+          "const": true
+        },
+        "zeroInventedKpis": {
+          "const": true
+        },
+        "deterministicHudRequired": {
+          "const": true
+        },
+        "minHudContrastRatio": {
+          "type": "number",
+          "minimum": 4.5
+        },
+        "canonicalMaterialAnchors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        }
+      }
+    },
     "updatedAt": {
       "type": "string",
       "format": "date"

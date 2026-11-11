@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 888" width="1440" height="888" role="img" aria-labelledby="title-frankx-opencode-gateway-stack-dark desc-frankx-opencode-gateway-stack-dark" data-brand="frankx" data-archetype="stack-tiers" data-theme="dark">
+<title id="title-frankx-opencode-gateway-stack-dark">OpenCode to Cloudflare AI Gateway Execution Stack</title>
+<desc id="desc-frankx-opencode-gateway-stack-dark">Four concrete operational layers from local terminal harness through cached gateway routing to verified git receipts.</desc>
+<defs>
+    <linearGradient id="bg-grad-frankx-opencode-gateway-stack-dark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0A0B"/>
+      <stop offset="100%" stop-color="#0F141C"/>
+    </linearGradient>
+    <pattern id="grid-frankx-opencode-gateway-stack-dark" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#182230" stroke-width="0.75"/>
+    </pattern>
+    <marker id="arrow-frankx-opencode-gateway-stack-dark" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#38BDF8"/>
+    </marker>
+  </defs>
+<rect x="0" y="0" width="1440" height="888" fill="#0A0A0B"/>
+<rect x="0" y="0" width="1440" height="888" fill="url(#grid-frankx-opencode-gateway-stack-dark)" opacity="0.55"/>
+<rect x="16" y="16" width="1408" height="856" rx="20" fill="none" stroke="#28364A" stroke-width="1"/>
+<rect x="56" y="42" width="264" height="26" rx="13" fill="#0D2922" stroke="#1D5B4B" stroke-width="1"/>
+<text x="188" y="58.85" fill="#6EE7B7" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">FRANKX · BUILDER STACK BLUEPRINT</text>
+<rect x="330" y="42" width="160" height="26" rx="13" fill="#2B1F0B" stroke="#6B4C16" stroke-width="1"/>
+<text x="410" y="58.85" fill="#FCD34D" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">PRODUCTION PATTERN</text>
+<rect x="1261" y="42" width="123" height="26" rx="13" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="1322.5" y="58.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">FrankX · DARK</text>
+<text x="56" y="104" fill="#F8FAFC" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="30" font-weight="700">OpenCode to Cloudflare AI Gateway Execution Stack</text>
+<text x="56" y="132" fill="#D4DEE9" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400">Four concrete operational layers from local terminal harness through cached gateway routing to verified git receipts.</text>
+<line x1="56" y1="168" x2="1384" y2="168" stroke="#28364A" stroke-width="1"/>
+<line x1="56" y1="828" x2="1384" y2="828" stroke="#28364A" stroke-width="1"/>
+<text x="56" y="850" fill="#9FB0C4" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="12" font-weight="500">Source: brand-packs/frankx/DESIGN.md · TOKENS.md · OpenCode + Cloudflare AI Gateway workflow</text>
+<text x="1384" y="850" fill="#34D399" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11.5" font-weight="600" text-anchor="end">WCAG AA &gt;= 4.5:1 · ZERO RASTER TEXT</text>
+<rect x="88" y="194" width="1264" height="122" rx="16" fill="#11161F" stroke="#3B4F6B" stroke-width="1.25"/>
+<rect x="88" y="194" width="6" height="122" rx="3" fill="#34D399"/>
+<rect x="114" y="218" width="48" height="48" rx="12" fill="#171F2C" stroke="#28364A" stroke-width="1"/>
+<g transform="translate(126, 230) scale(1)" width="24" height="24" fill="none" stroke="#34D399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7.5 9.5L11 12l-3.5 2.5"/><path d="M13 14.5h4"/></g>
+<text x="138" y="286" fill="#9FB0C4" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="700" text-anchor="middle">TIER 01</text>
+<text x="184" y="232" fill="#F8FAFC" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">OpenCode CLI &amp; Local Agent Harness</text>
+<text x="184" y="258" fill="#D4DEE9" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400">Developer-controlled repo worktree with scoped tool permissions, diff inspection, and typed task specs.</text>
+<rect x="184" y="274" width="180" height="24" rx="12" fill="#0D2922" stroke="#1D5B4B" stroke-width="1"/>
+<text x="274" y="289.85" fill="#6EE7B7" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">ISOLATED GIT WORKTREE</text>
+<rect x="372" y="274" width="143" height="24" rx="12" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="443.5" y="289.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">SCOPED ALLOWLIST</text>
+<rect x="523" y="274" width="158" height="24" rx="12" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="602" y="289.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">ZERO SECRET INLINE</text>
+<rect x="1193.68" y="216" width="135" height="26" rx="13" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="1261.18" y="233.03" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">MAKER WORKTREE</text>
+<line x1="720" y1="318" x2="720" y2="350" stroke="#38BDF8" stroke-width="1.8" marker-end="url(#arrow-frankx-opencode-gateway-stack-dark)"/>
+<rect x="738" y="324" width="214.68" height="22" rx="11" fill="#171F2C" stroke="#28364A" stroke-width="1"/>
+<text x="845.34" y="339" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" text-anchor="middle">HTTPS + OTLP TRACE HEADERS</text>
+<rect x="88" y="354" width="1264" height="122" rx="16" fill="#11161F" stroke="#28364A" stroke-width="1.25"/>
+<rect x="88" y="354" width="6" height="122" rx="3" fill="#38BDF8"/>
+<rect x="114" y="378" width="48" height="48" rx="12" fill="#171F2C" stroke="#28364A" stroke-width="1"/>
+<g transform="translate(126, 390) scale(1)" width="24" height="24" fill="none" stroke="#34D399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="18" cy="17" r="2.2"/><path d="M8.2 11.2L15.8 7.8"/><path d="M8.2 12.8l7.6 3.4"/></g>
+<text x="138" y="446" fill="#9FB0C4" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="700" text-anchor="middle">TIER 02</text>
+<text x="184" y="392" fill="#F8FAFC" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">Cloudflare AI Gateway</text>
+<text x="184" y="418" fill="#D4DEE9" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400">Centralized request telemetry, deterministic response caching, rate budgets, and provider fallback policies.</text>
+<rect x="184" y="434" width="136" height="24" rx="12" fill="#0D2922" stroke="#1D5B4B" stroke-width="1"/>
+<text x="252" y="449.85" fill="#6EE7B7" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">REQUEST CACHING</text>
+<rect x="328" y="434" width="166" height="24" rx="12" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="411" y="449.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">RATE &amp; COST BUDGETS</text>
+<rect x="502" y="434" width="143" height="24" rx="12" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="573.5" y="449.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">FALLBACK ROUTING</text>
+<rect x="1162.62" y="376" width="166" height="26" rx="13" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="1245.62" y="393.02" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">EDGE CONTROL PLANE</text>
+<line x1="720" y1="478" x2="720" y2="510" stroke="#38BDF8" stroke-width="1.8" marker-end="url(#arrow-frankx-opencode-gateway-stack-dark)"/>
+<rect x="738" y="484" width="266.1" height="22" rx="11" fill="#171F2C" stroke="#28364A" stroke-width="1"/>
+<text x="871.05" y="499" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" text-anchor="middle">POLICY-CHECKED INFERENCE DISPATCH</text>
+<rect x="88" y="514" width="1264" height="122" rx="16" fill="#11161F" stroke="#28364A" stroke-width="1.25"/>
+<rect x="88" y="514" width="6" height="122" rx="3" fill="#34D399"/>
+<rect x="114" y="538" width="48" height="48" rx="12" fill="#171F2C" stroke="#28364A" stroke-width="1"/>
+<g transform="translate(126, 550) scale(1)" width="24" height="24" fill="none" stroke="#34D399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5" rx="1"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></g>
+<text x="138" y="606" fill="#9FB0C4" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="700" text-anchor="middle">TIER 03</text>
+<text x="184" y="552" fill="#F8FAFC" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">Workers AI &amp; Frontier Model Router</text>
+<text x="184" y="578" fill="#D4DEE9" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400">Task-matched execution routing mechanical transforms to fast edge models and deep architecture to frontier reasoning.</text>
+<rect x="184" y="594" width="136" height="24" rx="12" fill="#0D2922" stroke="#1D5B4B" stroke-width="1"/>
+<text x="252" y="609.85" fill="#6EE7B7" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">WORKERS AI EDGE</text>
+<rect x="328" y="594" width="158" height="24" rx="12" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="407" y="609.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">FRONTIER REASONING</text>
+<rect x="494" y="594" width="128" height="24" rx="12" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="558" y="609.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">SCHEMA OUTPUTS</text>
+<rect x="1185.91" y="536" width="143" height="26" rx="13" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="1257.41" y="553.02" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">MODEL EXECUTION</text>
+<line x1="720" y1="638" x2="720" y2="670" stroke="#38BDF8" stroke-width="1.8" marker-end="url(#arrow-frankx-opencode-gateway-stack-dark)"/>
+<rect x="738" y="644" width="251.41" height="22" rx="11" fill="#171F2C" stroke="#28364A" stroke-width="1"/>
+<text x="863.71" y="659" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" text-anchor="middle">ARTIFACTS + STRUCTURED RECEIPTS</text>
+<rect x="88" y="674" width="1264" height="122" rx="16" fill="#11161F" stroke="#28364A" stroke-width="1.25"/>
+<rect x="88" y="674" width="6" height="122" rx="3" fill="#38BDF8"/>
+<rect x="114" y="698" width="48" height="48" rx="12" fill="#171F2C" stroke="#28364A" stroke-width="1"/>
+<g transform="translate(126, 710) scale(1)" width="24" height="24" fill="none" stroke="#34D399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.6-3 8.4-7 9.5-4-1.1-7-4.9-7-9.5V6l7-3z"/><path d="M9 12.2l2 2 4-4.2"/></g>
+<text x="138" y="766" fill="#9FB0C4" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="700" text-anchor="middle">TIER 04</text>
+<text x="184" y="712" fill="#F8FAFC" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">Deterministic Verification &amp; Git Receipt</text>
+<text x="184" y="738" fill="#D4DEE9" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400">Automated test suite, WCAG AA diagram checks, independent PR review, and human sign-off before production release.</text>
+<rect x="184" y="754" width="136" height="24" rx="12" fill="#0D2922" stroke="#1D5B4B" stroke-width="1"/>
+<text x="252" y="769.85" fill="#6EE7B7" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">NODE:TEST SUITE</text>
+<rect x="328" y="754" width="143" height="24" rx="12" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="399.5" y="769.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">EXACT-SHA REVIEW</text>
+<rect x="479" y="754" width="143" height="24" rx="12" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="550.5" y="769.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">HUMAN MERGE GATE</text>
+<rect x="1209.21" y="696" width="119" height="26" rx="13" fill="#2B1F0B" stroke="#6B4C16" stroke-width="1"/>
+<text x="1268.71" y="713.02" fill="#FCD34D" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">RELEASE GATE</text>
+</svg>
