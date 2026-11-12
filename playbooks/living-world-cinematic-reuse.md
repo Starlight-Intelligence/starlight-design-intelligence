@@ -2,18 +2,20 @@
 
 **Status:** reference analysis, not a new canon, brand pack or blanket style replacement. Complements [visual canon critique](visual-canon-critique-and-supersession.md) and [character retrieval](character-canon-retrieval.md). Tracks [#87](https://github.com/Starlight-Intelligence/starlight-design-intelligence/issues/87) and [VIS #71](https://github.com/frankxai/visual-intelligence/issues/71).
 
-## Source images actually inspected
+## Candidate source images — proposed observations pending evidence
 
-These originals are in the owner's **private** ChatGPT Library, under `Starlight Visual Intelligence/Canonical Sources`. Keep image bytes private until explicit rights and release approval.
+**Evidence state: [OPEN].** This pull request carries no inspection date, VIS asset ID, or private receipt ID for the images below, so the observations are proposed working notes, not verified canon evidence. Do not cite them as inspected source truth until a dated VIS receipt is linked here.
 
-| Original | Direct observations | Best use | Known limitation |
+The named originals are reported to live in the owner's **private** ChatGPT Library, under `Starlight Visual Intelligence/Canonical Sources`. Keep image bytes private until explicit rights and release approval.
+
+| Original | Proposed observations | Best use | Known limitation |
 |---|---|---|---|
 | Seven inventive characters in a sunlit atelier.png | Warm sunlit stone atelier; shared making; film-editing octopus, botanical terrarium turtle, camera bird, paper-handling celestial companion, water-based whale; varied materials and scale | Ensemble world-building, creative community story | Dense focal field; not a character turnaround or small icon |
 | Canal-side discovery with a miniature bridge.png | Amsterdam-like canal, miniature construction in a case, two collaborating characters, blue whale, spring blossoms, warm reflective water | Human/companion relationship, editorial narrative | Character facial detail and setting may not survive small crop |
 | pet_6ad4430450d48191b26bc9b78cedcf06-spritesheet.png | White hair, pearl/gold costume, blue accents, recurring crown and numerous expression/pose frames on transparent sheet | Selected personal Queen pet edition, motion exploration | Not automatically a flagship Queen master; animation sequence, alpha and 48px legibility not yet independently validated |
 | Mini-Frank-Core-Cast.png | Three distinct original figures: ivory/black camera robot, copper/orange reader-builder robot, coral crustacean; front/side/expressive poses and material samples | Exact identity continuity, controlled materials and turnarounds | A lineup cannot substitute for an inhabited world or narrative scene |
 
-These are *observations* from direct visual inspection. Source-file SHA-256 was calculated from locally materialized bytes in the review session, but this public document intentionally does not publish private source checksums. The actual source bytes and manifest belong in VIS/private storage.
+No source-file checksum receipt is attached to this pull request. Source bytes, hashes, and the manifest belong in VIS/private storage, and each hash must be verified against restored bytes before this section can be promoted from proposed to inspected.
 
 ## Transferable design grammar
 
