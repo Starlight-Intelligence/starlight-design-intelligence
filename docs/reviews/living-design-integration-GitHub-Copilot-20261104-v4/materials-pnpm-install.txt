@@ -1,0 +1,37 @@
+Downloading the pnpm 12.16.1 binary for linux-x64...
+? Verifying lockfile against supply-chain policies (439 entries)...
+Packages are hard linked from the content-addressable store to the virtual store.
+  Content-addressable store is at: /home/runner/.local/share/pnpm/store/v11
+  Virtual store is at:             node_modules/.pnpm
+Downloading next@16.4.2: 0.00 B/43.67 MB
+Downloading @img/sharp-libvips-linux-x64@1.3.4: 0.00 B/8.21 MB
+Downloading @next/swc-linux-x64-gnu@16.4.2: 0.00 B/35.23 MB
+Progress: resolved 407, reused 0, downloaded 398, added 397
+✓ Lockfile passes supply-chain policies (439 entries in 2.6s)
+Lockfile is up to date, resolution step is skipped
+Downloading next@16.4.2: 43.67 MB/43.67 MB, done
+Packages: +407
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 407, reused 0, downloaded 407, added 407, done
+
+dependencies:
++ class-variance-authority 0.7.1
++ cn 0.5.0
++ lucide-react 1.53.0
++ next 16.4.2
++ radix-ui 1.8.1
++ tailwindcss 4.3.3
++ tw-animate-css 1.4.0
+
+devDependencies:
++ @types/node 22.20.5
++ @types/react 19.3.0
++ @types/react-dom 19.3.0
++ @types/three 0.186.0
++ react 19.3.1
++ react-dom 19.3.1
++ shadcn 4.22.1
++ three 0.186.1
++ typescript 5.9.3
+
+Done in 3.9s using pnpm v12.16.1

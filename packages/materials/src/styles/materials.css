@@ -28,7 +28,8 @@
 
 /* shadcn's semantic palette, resolved to DESIGN.md tokens so the generated primitives
  * (bg-background, text-foreground, border, ring) land on the Starlight palette. */
-:root {
+:root,
+[data-theme] {
   --background: var(--sl-color-surface-paper);
   --foreground: var(--sl-color-on-paper);
   --card: var(--sl-color-surface-ivory);
@@ -85,6 +86,150 @@
   --color-ring: var(--ring);
   --radius-xs: 6px;
   --ease-material: cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* theme.css is generated from DESIGN.md and pins every colour to the Ink value. Rebinding
+ * the palette inline to the unified --sl-color-* aliases makes each utility resolve at the
+ * element it styles, so `data-theme="paper"`, the operator profile and the material scopes
+ * below all reach Tailwind classes, and the CSS and WebGL glass tiers share one theme. */
+@theme inline {
+  --color-primary: var(--sl-color-primary);
+  --color-secondary: var(--sl-color-secondary);
+  --color-tertiary: var(--sl-color-tertiary);
+  --color-neutral: var(--sl-color-neutral);
+  --color-surface: var(--sl-color-surface);
+  --color-surface-paper: var(--sl-color-surface-paper);
+  --color-surface-ivory: var(--sl-color-surface-ivory);
+  --color-on-surface: var(--sl-color-on-surface);
+  --color-on-paper: var(--sl-color-on-paper);
+  --color-accent: var(--sl-color-accent);
+  --color-accent-bright: var(--sl-color-accent-bright);
+  --color-signal: var(--sl-color-signal);
+  --color-glass-tint: var(--sl-color-glass-tint);
+  --color-glass-tint-webgl: var(--sl-color-glass-tint-webgl);
+  --color-glass-opaque: var(--sl-color-glass-opaque);
+  --color-hairline: var(--sl-color-hairline);
+  --color-highlight: var(--sl-color-highlight);
+  --color-focus: var(--sl-color-focus);
+  --color-error: var(--sl-color-error);
+}
+
+/* Material scopes. A paper or ink surface keeps its own reading tokens inside any page
+ * theme, so text, accents, hairlines and nested evidence stay legible when the material
+ * differs from the page (a paper card on an ink page, an ink button on a paper page).
+ * Custom properties resolve where they are declared, so each scope sets the leaf tokens and
+ * the aliases built on them. Focus is deliberately not scoped: the ring is drawn outside the
+ * element, on the surrounding surface, so its colour follows the page theme. */
+.sl-paper {
+  color-scheme: light;
+  --sl-fg: #0e131b;
+  --sl-fg-muted: #525b68;
+  --sl-fg-faint: #6b7380;
+  --sl-border: rgba(7, 10, 16, 0.14);
+  --sl-border-subtle: rgba(7, 10, 16, 0.08);
+  --sl-gold: #8a6522;
+  --sl-gold-bright: #ad8234;
+  --sl-companion: #16697a;
+  --sl-color-on-surface: #0e131b;
+  --sl-color-on-paper: #0e131b;
+  --sl-color-accent: #8a6522;
+  --sl-color-accent-bright: #ad8234;
+  --sl-color-signal: #16697a;
+  --sl-color-hairline: rgba(7, 10, 16, 0.14);
+  --sl-color-highlight: rgba(255, 255, 255, 0.6);
+  --sl-text: #0e131b;
+  --sl-muted: #525b68;
+  --sl-line: rgba(7, 10, 16, 0.14);
+  --sl-accent: #8a6522;
+  /* Surfaces and status move with the foregrounds, so a nested component that paints its own
+   * surface (AgentPresence, StatusBadge) keeps a coherent pair inside the scope. */
+  --sl-bg: #efede7;
+  --sl-surface-1: #f7f5f0;
+  --sl-surface-2: #ffffff;
+  --sl-surface-inset: #e5e3dc;
+  --sl-glass-bg: rgba(247, 245, 240, 0.72);
+  --sl-panel: #f7f5f0;
+  --sl-status-ok: #1e7a4b;
+  --sl-status-ok-border: rgba(30, 122, 75, 0.4);
+  --sl-status-ok-tint: rgba(30, 122, 75, 0.08);
+  --sl-status-warn: #8a6522;
+  --sl-status-warn-border: rgba(138, 101, 34, 0.4);
+  --sl-status-warn-tint: rgba(138, 101, 34, 0.08);
+  --sl-status-breach: #b82d2d;
+  --sl-status-breach-border: rgba(184, 45, 45, 0.4);
+  --sl-status-breach-tint: rgba(184, 45, 45, 0.08);
+  --sl-status-unknown: #5d48a8;
+  --sl-status-unknown-border: rgba(93, 72, 168, 0.4);
+  --sl-status-unknown-tint: rgba(93, 72, 168, 0.08);
+}
+.sl-ink {
+  color-scheme: dark;
+  --sl-fg: #ede6d8;
+  --sl-fg-muted: #8b93a1;
+  --sl-fg-faint: #525b68;
+  --sl-border: rgba(237, 230, 216, 0.12);
+  --sl-border-subtle: rgba(237, 230, 216, 0.06);
+  --sl-gold: #c9a15c;
+  --sl-gold-bright: #f0c87e;
+  --sl-companion: #82d8e6;
+  --sl-color-primary: #070a10;
+  --sl-color-on-surface: #fbf6eb;
+  --sl-color-accent: #c9a15c;
+  --sl-color-accent-bright: #f0c87e;
+  --sl-color-signal: #82d8e6;
+  --sl-color-glass-opaque: #0d1119;
+  --sl-color-hairline: rgba(237, 230, 216, 0.12);
+  --sl-color-highlight: rgba(251, 246, 235, 0.18);
+  --sl-text: #ede6d8;
+  --sl-muted: #8b93a1;
+  --sl-line: rgba(237, 230, 216, 0.12);
+  --sl-accent: #c9a15c;
+  --sl-bg: #070a10;
+  --sl-surface-1: #0d1119;
+  --sl-surface-2: #141926;
+  --sl-surface-inset: #04060a;
+  --sl-glass-bg: rgba(13, 17, 25, 0.58);
+  --sl-panel: #0d1119;
+  --sl-status-ok: #77f0bf;
+  --sl-status-ok-border: rgba(119, 240, 191, 0.42);
+  --sl-status-ok-tint: rgba(119, 240, 191, 0.10);
+  --sl-status-warn: #e8c36a;
+  --sl-status-warn-border: rgba(232, 195, 106, 0.46);
+  --sl-status-warn-tint: rgba(232, 195, 106, 0.14);
+  --sl-status-breach: #ff7b7b;
+  --sl-status-breach-border: rgba(255, 123, 123, 0.55);
+  --sl-status-breach-tint: rgba(255, 123, 123, 0.16);
+  --sl-status-unknown: #b7a2ff;
+  --sl-status-unknown-border: rgba(183, 162, 255, 0.42);
+  --sl-status-unknown-tint: rgba(183, 162, 255, 0.10);
+}
+@media (forced-colors: active) {
+  .sl-paper,
+  .sl-ink {
+    --sl-fg: CanvasText;
+    --sl-fg-muted: CanvasText;
+    --sl-border: ButtonBorder;
+    --sl-gold: Highlight;
+    --sl-companion: Highlight;
+    --sl-bg: Canvas;
+    --sl-surface-1: Canvas;
+    --sl-glass-bg: Canvas;
+    --sl-status-ok: CanvasText;
+    --sl-status-warn: CanvasText;
+    --sl-status-breach: CanvasText;
+    --sl-status-unknown: CanvasText;
+  }
+}
+/* The scopes set their own glass tint, so a page-level opaque request must reach them too. */
+@media (prefers-reduced-transparency: reduce) {
+  .sl-paper,
+  .sl-ink {
+    --sl-glass-bg: var(--sl-surface-1);
+  }
+}
+[data-transparency="opaque"] .sl-paper,
+[data-transparency="opaque"] .sl-ink {
+  --sl-glass-bg: var(--sl-surface-1);
 }
 
 @layer base {
@@ -178,6 +323,10 @@
   [data-slot="sheet-content"],
   [data-slot="sheet-overlay"] {
     animation: none;
+    transition: none;
+  }
+  /* The disclosure keeps its open-state glyph and drops the rotation. */
+  [data-slot="evidence-disclosure"] [data-slot="evidence-disclosure-indicator"] {
     transition: none;
   }
 }

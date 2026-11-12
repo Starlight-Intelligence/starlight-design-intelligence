@@ -1,0 +1,10 @@
+command=corepack pnpm start --hostname 127.0.0.1 --port 33321
+working_directory=/tmp/living-design-v4/packages/materials/examples/next-app
+started=2026-11-04T08:41:45Z
+$ next start --hostname 127.0.0.1 --port 33321
+▲ Next.js 16.4.2
+- Local:         http://127.0.0.1:33321
+- Network:       http://127.0.0.1:33321
+✓ Ready in 158ms
+✓ Running next.config.ts took 48ms
+[ELIFECYCLE] Command failed with signal SIGTERM.

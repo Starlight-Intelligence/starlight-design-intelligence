@@ -1,0 +1,30 @@
+{
+  "command": "corepack pnpm registry:build",
+  "exitCode": 0,
+  "files": [
+    {
+      "path": "packages/materials/public/r/materials-styles.json",
+      "committedCandidateSha256": "acedb66c986d87713bf825ddf7a0e5b04f495b5b07ebf967a87099ea4d670655",
+      "freshBuildSha256": "acedb66c986d87713bf825ddf7a0e5b04f495b5b07ebf967a87099ea4d670655",
+      "matches": true,
+      "committedBytes": 20684,
+      "freshBuildBytes": 20684
+    },
+    {
+      "path": "packages/materials/public/r/glass-gate.json",
+      "committedCandidateSha256": "734bb1dc376640fcf57f954e29a6da90714ffb9c7bf46917f8b8a812d6a875fd",
+      "freshBuildSha256": "9c17cd4871eb11033458197b78b6387468b4dc963d79d27f6efe23b65e0cf621",
+      "matches": false,
+      "committedBytes": 7423,
+      "freshBuildBytes": 7440
+    },
+    {
+      "path": "packages/materials/public/r/glass-surface.json",
+      "committedCandidateSha256": "ef33aaae67fecb617dbd91216b98d56c2050435bdd1aa8e31ef06292a7176eda",
+      "freshBuildSha256": "388d37e28d0661ac92be1613a75bc184147540ace26fd2b9b153800e0152f11b",
+      "matches": false,
+      "committedBytes": 19245,
+      "freshBuildBytes": 19226
+    }
+  ]
+}

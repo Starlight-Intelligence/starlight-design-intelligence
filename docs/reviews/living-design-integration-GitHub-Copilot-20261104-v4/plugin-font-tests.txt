@@ -1,0 +1,47 @@
+✔ signature-only fonts, truncation and incompatible MIME are rejected (6.228985ms)
+✔ table overlap, duplicate tags and oversized declarations fail before decoding (95.075387ms)
+✔ decoder deadline, crash, output overflow and malformed output fail closed without diagnostics (3.438034ms)
+﹣ missing decoder denies structurally valid fonts (0.223589ms) # SKIP
+✔ valid synthetic TTF, WOFF and WOFF2 decode; broken cmap denies then valid retry recovers (1674.380827ms)
+﹣ nine pinned public WOFF2 resources decode with expected internal metadata (0.177662ms) # SKIP
+✔ living design compiles twelve coherent profiles and four families deterministically (52.930101ms)
+✔ inspection gives all five source contracts for the selected identity (11.745042ms)
+✔ unknown IDs cannot silently select a fallback (12.13343ms)
+✔ unresolved connector blocks a map (13.188888ms)
+✔ duplicate identifiers block compilation (12.179334ms)
+✔ narrative contracts cannot include permissions (12.275236ms)
+✔ character cannot bind another character personality (12.22945ms)
+✔ cyclic family ancestry is rejected (22.137279ms)
+✔ runtime grants cannot be embedded in recipes (24.868849ms)
+✔ profile cannot self-promote to approved (8.20108ms)
+✔ connector cannot assert connected account (8.20089ms)
+✔ bad CLI input never changes to build mode (0.397225ms)
+✔ JSON embed escapes closing script injection (1.0509ms)
+✔ export retains contract bytes and protects existing output (77.544506ms)
+✔ symlinked contract input is rejected (0.753813ms)
+✔ run evidence projects state but never independent acceptance (0.481302ms)
+✔ no telemetry stays unknown (0.213029ms)
+✔ tenant or run mismatch stays unknown (0.184646ms)
+✔ stale and future events stay unknown (8.506989ms)
+✔ revocation shows blocked (0.318186ms)
+✔ replayed event is ignored (0.249778ms)
+✔ completion requires artifact references (0.371827ms)
+✔ expired revocation is unknown presentation state (0.200956ms)
+✔ catalog strings with replacement tokens roundtrip unchanged (0.418104ms)
+✔ catalog strings cannot be interpreted as template placeholders (0.170309ms)
+✔ output symlink ancestors cannot bypass source protection (25.309574ms)
+✔ package skills match canonical source projection (7.166471ms)
+✔ committed catalog matches source contracts (36.506028ms)
+✔ profile download contains five exact source identities and reference closure (24.692658ms)
+✔ ZIP export has deterministic UTF-8 entries and standard CRC32 (0.990536ms)
+✔ ZIP export rejects traversal and duplicate paths (0.316152ms)
+✔ private reference index enforces path and exact hash (5.215374ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 2
+ℹ todo 0
+ℹ duration_ms 2018.416009
+plugin/font tests exit=0

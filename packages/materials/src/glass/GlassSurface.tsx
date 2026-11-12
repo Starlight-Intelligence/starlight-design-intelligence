@@ -44,7 +44,6 @@ export function GlassSurface({
 }: GlassSurfaceProps) {
   const plan = useGlassPlan();
   const sceneRef = React.useRef<HTMLElement>(null);
-  const canvasRef = React.useRef<HTMLCanvasElement>(null);
   const panelRef = React.useRef<HTMLDivElement>(null);
   const [state, setState] = React.useState<GlassState>(SERVER_PLAN);
   const planRef = React.useRef(onPlan);
@@ -64,14 +63,19 @@ export function GlassSurface({
       return () => controller.abort();
     }
     const scene = sceneRef.current;
-    const canvas = canvasRef.current;
     const panel = panelRef.current;
-    if (!scene || !canvas || !panel) return () => controller.abort();
+    if (!scene || !panel) return () => controller.abort();
+    // Every mount gets its own canvas. Teardown calls loseContext(), and a lost context stays
+    // lost on that element, so a later mount (new poster, a resize back over 900px) on the
+    // same canvas could never render again.
+    const canvas = document.createElement('canvas');
+    canvas.setAttribute('aria-hidden', 'true');
+    scene.insertBefore(canvas, panel);
     const mounted = mountGlass({ scene, canvas, panel, poster, plan, signal: controller.signal, onChange: report });
     return () => {
       controller.abort();
       // The abort already tore a loading mount down; a mounted one is torn down here.
-      void mounted.then((handle) => handle.teardown());
+      void mounted.then((handle) => handle.teardown()).finally(() => canvas.remove());
     };
   }, [plan, poster]);
 
@@ -92,7 +96,6 @@ export function GlassSurface({
         fetchPriority="high"
         className="absolute inset-0 size-full object-cover object-center"
       />
-      <canvas ref={canvasRef} aria-hidden="true" />
       <div
         ref={panelRef}
         data-slot="glass-panel"

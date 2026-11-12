@@ -1,0 +1,408 @@
+{
+  "report_version": "v1",
+  "report_author": "GitHub-hosted Copilot agent (independent verifier)",
+  "coordinating_lead": "Codex",
+  "report_pr": 78,
+  "tracking": [
+    "frankxai/agentic-ops-hub#437",
+    "Starlight-Intelligence/starlight-design-intelligence#61"
+  ],
+  "captured_at": "2026-11-04",
+  "overall_verdict": "PARTIAL",
+  "not_a_production_or_public_release_approval": true,
+  "outcomes": {
+    "availability": {
+      "verdict": "PARTIAL",
+      "basis": "The local workspace-linked example runs; README says the package is not yet on npm; checked-in runtime registry files are stale; no preview or production deployment was accessed."
+    },
+    "functional_behavior": {
+      "verdict": "PARTIAL",
+      "basis": "App Router composition, tests, keyboard disclosure, focus, theme attributes, and glass state recovery passed in bounded checks; registry consumer parity did not."
+    },
+    "design": {
+      "verdict": "PARTIAL",
+      "basis": "Ink/Paper render, sampled contrast and keyboard focus are good; no user-visible theme switcher, Operator foreground alias mismatch, unavailable fonts, and bounded dev-only detector evidence prevent a design pass."
+    },
+    "commercial_sustainability": {
+      "verdict": "UNKNOWN",
+      "basis": "No customer, acceptance, acquisition, repeat-use, support-cost, revenue, or margin evidence was collected."
+    }
+  },
+  "source": {
+    "repository": "Starlight-Intelligence/starlight-design-intelligence",
+    "base_branch": "agent/antigravity/living-design-trunk",
+    "base_sha": "2ab4ffd4db3513c018563de01e76e49da88592b9",
+    "candidate_commits": [
+      {
+        "pr": 74,
+        "sha": "423166821449fddefc348d166eece5d728f80ee0",
+        "purpose": "Windows directory-link test fixture"
+      },
+      {
+        "pr": 75,
+        "sha": "9aab5814a179b02f32af5bde35afa2a981d7f913",
+        "purpose": "Client boundary and context lifecycle"
+      },
+      {
+        "pr": 75,
+        "sha": "32abde8cf5a6aaf8c4ba0bf15e7874259a724fce",
+        "purpose": "Portable regression entry points"
+      },
+      {
+        "pr": 75,
+        "sha": "d4319599b48771632138d1f87097e9e357f8011d",
+        "purpose": "Test-only Node lifecycle entry-point correction; not included in combined integration checkout"
+      },
+      {
+        "pr": 77,
+        "sha": "970e848d309863d0b7851f3988ea6f93efb72856",
+        "purpose": "Theme, accessibility, and style registry"
+      }
+    ],
+    "empty_agent_commits_cherry_picked": false,
+    "temporary_checkout": "/tmp/living-design-integration",
+    "temporary_integration_commit": "fa549486c1bb9204b006ab297720aca3e41fd7d3",
+    "temporary_integration_tree": "2c4f5135ac0b85d8a7b42be3b563e8f248c03da9",
+    "temporary_checkout_clean_after_capture": true,
+    "report_branch_product_source_modified": false
+  },
+  "environment": {
+    "node": "v22.23.4",
+    "npm": "10.9.9",
+    "corepack_pnpm": "12.16.1",
+    "next": "16.4.2",
+    "playwright_package": "1.62.1",
+    "browser": "Chromium 156.0.8078.0",
+    "browser_executable": "/usr/bin/chromium",
+    "webgl_renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "webgl_classification": "Real browser WebGL on a SwiftShader/software renderer; not hardware-performance evidence.",
+    "font_network": "fonts.googleapis.com was unreachable; Next.js used fallback fonts.",
+    "locked_dependencies_changed": false,
+    "demo_input": "Existing repository poster.png, procedural generated-owned public example; no customer or private data."
+  },
+  "acceptance_items": [
+    {
+      "item": "Base and candidate identity; isolated source integration",
+      "verdict": "PASS",
+      "evidence": "Base and all four requested source commits verified; temporary tree 2c4f5135ac0b85d8a7b42be3b563e8f248c03da9."
+    },
+    {
+      "item": "Existing desktop/mobile demo baseline",
+      "verdict": "PASS",
+      "evidence": "Eight screenshots; all four routes returned HTTP 200 at 1440x900 and 390x844, DPR 1. Intended Google fonts unavailable."
+    },
+    {
+      "item": "Next.js App Router server/client integration",
+      "verdict": "PASS for supported composition",
+      "evidence": "Base RSC direct hook import failed with Next useSyncExternalStore diagnostic; repaired server-safe utilities and client island compiled and rendered."
+    },
+    {
+      "item": "Materials, lifecycle, boundary, theme, registry, plugin tests",
+      "verdict": "PASS",
+      "evidence": "Materials: 19 passed, 0 failed, 0 skipped. Living Design plugin: 32 passed, 0 failed, 0 skipped. Typecheck passed."
+    },
+    {
+      "item": "Registry consumption matches workspace",
+      "verdict": "BLOCKED",
+      "evidence": "materials-styles registry bytes match; glass-gate and glass-surface checked-in registry JSON differ from fresh registry build."
+    },
+    {
+      "item": "Ink, Paper, Operator; evidence and keyboard",
+      "verdict": "PARTIAL",
+      "evidence": "Ink/Paper/Operator CSS attributes changed computed values; evidence opens/closes by Enter; keyboard focus ring is visible. No theme switch control; Operator on-surface alias does not follow --sl-fg."
+    },
+    {
+      "item": "Glass recovery and reduced preferences",
+      "verdict": "PASS on hosted software rendering",
+      "evidence": "WebGL desktop, CSS phone fallback, WebGL desktop return; reduced-motion and reduced-transparency each select CSS; two software-WebGL route remounts recover."
+    },
+    {
+      "item": "Complete rendered design and production proof",
+      "verdict": "PARTIAL",
+      "evidence": "No overflow in sampled viewports; sampled contrast computed; detector output includes Next dev portal SVG; fonts unavailable; no production build/deployment or complete design release gate."
+    },
+    {
+      "item": "Commercial sustainability",
+      "verdict": "UNKNOWN",
+      "evidence": "No customer or economic evidence collected."
+    }
+  ],
+  "commands": [
+    {
+      "command": "corepack pnpm install --frozen-lockfile",
+      "working_directory": "/tmp/living-design-integration/packages/materials/examples/next-app",
+      "result": "PASS"
+    },
+    {
+      "command": "corepack pnpm install --frozen-lockfile",
+      "working_directory": "/tmp/living-design-integration/packages/materials",
+      "result": "PASS"
+    },
+    {
+      "command": "npm ci",
+      "working_directory": "/tmp/living-design-integration",
+      "result": "PASS with root engine warning",
+      "exit_code": 0,
+      "warning": "Root package requests Node >=24.14.0 <25; host is 22.23.4."
+    },
+    {
+      "command": "corepack pnpm test",
+      "working_directory": "/tmp/living-design-integration/packages/materials",
+      "result": "PASS",
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "command": "corepack pnpm typecheck",
+      "working_directory": "/tmp/living-design-integration/packages/materials",
+      "result": "PASS",
+      "exit_code": 0
+    },
+    {
+      "command": "node --test tests/living-design.test.mjs",
+      "working_directory": "/tmp/living-design-integration",
+      "result": "PASS",
+      "passed": 32,
+      "failed": 0,
+      "skipped": 0,
+      "linux_real_directory_symlink": true
+    },
+    {
+      "command": "corepack pnpm registry:build",
+      "working_directory": "/tmp/living-design-integration/packages/materials",
+      "result": "BUILD SUCCEEDED; generated output differs for two runtime entries",
+      "exit_code": 0
+    }
+  ],
+  "next_integration": {
+    "baseline": {
+      "started_at": "2026-11-04T05:36:59.791Z",
+      "routes": ["/", "/glass", "/paper", "/ink"],
+      "viewports_css_px": [[1440, 900], [390, 844]],
+      "dpr": 1,
+      "all_http_200": true
+    },
+    "candidate": {
+      "started_at": "2026-11-04T05:43:42.045Z",
+      "completed_at": "2026-11-04T05:43:58.225Z",
+      "routes": ["/", "/glass", "/paper", "/ink", "/barrel-probe"],
+      "viewports_css_px": [[1440, 900], [390, 844]],
+      "dpr": 1,
+      "all_http_200": true,
+      "page_errors": 0,
+      "document_scroll_overflow": false
+    },
+    "lifecycle": {
+      "started_at": "2026-11-04T05:45:31.683Z",
+      "completed_at": "2026-11-04T05:45:36.923Z",
+      "desktop_phone_desktop": ["webgl:capable", "css:phone layout", "webgl:capable"],
+      "reduced_motion": "css:reduced motion requested",
+      "reduced_transparency": "css:reduced transparency requested",
+      "software_webgl_remounts": 2,
+      "delayed_poster_navigation_page_errors": 0
+    },
+    "interactions": {
+      "evidence_disclosure": {
+        "rendered": true,
+        "keyboard_enter_opened": true,
+        "keyboard_enter_closed": true
+      },
+      "keyboard_focus": {
+        "target": "Glass navigation link",
+        "focus_visible": true,
+        "outline": "solid 2px rgb(240, 200, 126)"
+      },
+      "theme_attribute_states": [
+        {
+          "theme": "ink",
+          "body_background": "rgb(7, 10, 16)",
+          "body_color": "rgb(251, 246, 235)",
+          "body_contrast_ratio": 18.38
+        },
+        {
+          "theme": "paper",
+          "body_background": "rgb(239, 237, 231)",
+          "body_color": "rgb(14, 19, 27)",
+          "body_contrast_ratio": 15.91
+        },
+        {
+          "theme": "operator",
+          "data_theme": "ink",
+          "data_mode": "operator",
+          "body_background": "rgb(11, 13, 18)",
+          "token_foreground": "#e8ebf2",
+          "on_surface_alias": "#fbf6eb",
+          "body_color": "rgb(251, 246, 235)",
+          "body_contrast_ratio": 18.03,
+          "visible_theme_control": false
+        }
+      ],
+      "viewport_overflow": false,
+      "interface_detector": {
+        "completed": true,
+        "surfaces": 9,
+        "finding": "icon-semantics in injected Next.js development portal SVG; not suppressed",
+        "production_surface_inspection": false
+      },
+      "page_errors": 0
+    },
+    "evidence_metadata": [
+      "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v1/baseline/metadata.json",
+      "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v1/integrated/metadata.json",
+      "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v1/integrated/lifecycle-mount.json"
+    ]
+  },
+  "registry": {
+    "style_entry": {
+      "path": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/packages/materials/public/r/materials-styles.json",
+      "candidate_sha256": "acedb66c986d87713bf825ddf7a0e5b04f495b5b07ebf967a87099ea4d670655",
+      "fresh_build_sha256": "acedb66c986d87713bf825ddf7a0e5b04f495b5b07ebf967a87099ea4d670655",
+      "matches": true
+    },
+    "runtime_entries": [
+      {
+        "path": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/packages/materials/public/r/glass-gate.json",
+        "candidate_sha256": "734bb1dc376640fcf57f954e29a6da90714ffb9c7bf46917f8b8a812d6a875fd",
+        "fresh_build_sha256": "9c17cd4871eb11033458197b78b6387468b4dc963d79d27f6efe23b65e0cf621",
+        "candidate_bytes": 7423,
+        "fresh_build_bytes": 7440,
+        "matches": false
+      },
+      {
+        "path": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/packages/materials/public/r/glass-surface.json",
+        "candidate_sha256": "ef33aaae67fecb617dbd91216b98d56c2050435bdd1aa8e31ef06292a7176eda",
+        "fresh_build_sha256": "388d37e28d0661ac92be1613a75bc184147540ace26fd2b9b153800e0152f11b",
+        "candidate_bytes": 19245,
+        "fresh_build_bytes": 19226,
+        "matches": false
+      }
+    ],
+    "fresh_consumer_install_performed": false
+  },
+  "github_actions": {
+    "candidate_runs_status": "action_required",
+    "runs": [
+      41778038825,
+      41778239372,
+      41779787759,
+      41781186539,
+      41781186309
+    ],
+    "job_count": 0,
+    "failed_job_count": 0,
+    "interpretation": "No job records or logs were available; this is neither a CI pass nor a CI failure."
+  },
+  "follow_up_reviews": {
+    "pr_74_windows_fixture": {
+      "sha": "423166821449fddefc348d166eece5d728f80ee0",
+      "verdict": "PASS, bounded to code review and Linux execution; Windows was not run",
+      "command": "node --test tests/living-design.test.mjs",
+      "working_directory": "/tmp/living-pr74-review",
+      "passed": 32,
+      "failed": 0,
+      "skipped": 0,
+      "real_linux_directory_symlink": true,
+      "windows_execution": false,
+      "requested_attestation": "starlight-signoff: harness=copilot verdict=pass sha=423166821449fddefc348d166eece5d728f80ee0",
+      "attestation_comment_posted": false,
+      "comment_transport": "No tool for creating a new PR review comment was available; exact verdict and SHA recorded here."
+    },
+    "pr_75_test_only_correction": {
+      "previous_test_sha": "32abde8cf5a6aaf8c4ba0bf15e7874259a724fce",
+      "corrected_head_sha": "d4319599b48771632138d1f87097e9e357f8011d",
+      "diff": {
+        "files": [
+          "packages/materials/tests/glass-lifecycle.test.mjs"
+        ],
+        "additions": 12,
+        "deletions": 8,
+        "runtime_source_changed": false,
+        "changes": [
+          "Check resolution of the exact three package before spawning and explicitly skip only when three itself is missing.",
+          "Set the child test reporter to TAP.",
+          "Set a 30-second timeout, preserve child error/output, and assert one pass with zero skips."
+        ]
+      },
+      "reported_old_revision_failure": {
+        "sha": "32abde8cf5a6aaf8c4ba0bf15e7874259a724fce",
+        "reported_by": "Lead Codex in PR comment 6623598017; not independently reproduced on this host.",
+        "environment": "Node 24.22.1 / Windows, no optional materials dependencies",
+        "result": "Parent failed after the child skipped for missing three; parent also expected TAP while Node 24 defaulted to the spec reporter."
+      },
+      "corrected_revision_tests": [
+        {
+          "command": "npm test --prefix packages/materials",
+          "working_directory": "/tmp/living-pr75-review",
+          "dependency_state": "three and react absent",
+          "result": "PASS",
+          "passed": 13,
+          "failed": 0,
+          "skipped": 2,
+          "skips": [
+            "Expected missing-three lifecycle skip",
+            "Pre-existing missing-React skip"
+          ]
+        },
+        {
+          "command": "node --test packages/materials/tests/glass-lifecycle.test.mjs",
+          "working_directory": "/tmp/living-pr75-review",
+          "dependency_state": "three absent",
+          "result": "PASS with explicit intended skip",
+          "passed": 0,
+          "failed": 0,
+          "skipped": 1
+        },
+        {
+          "command": "corepack pnpm install --frozen-lockfile",
+          "working_directory": "/tmp/living-pr75-review/packages/materials",
+          "result": "PASS; existing lockfile only"
+        },
+        {
+          "command": "corepack pnpm test",
+          "working_directory": "/tmp/living-pr75-review/packages/materials",
+          "node": "v22.23.4",
+          "result": "PASS",
+          "passed": 15,
+          "failed": 0,
+          "skipped": 0,
+          "lifecycle_test_ran_with_installed_three": true
+        }
+      ],
+      "node_24_available": false,
+      "node_24_corrected_candidate_verification": "NOT RUN; Node 24 was unavailable on this host.",
+      "combined_browser_evidence_sha": "fa549486c1bb9204b006ab297720aca3e41fd7d3",
+      "combined_browser_evidence_used_test_sha": "32abde8cf5a6aaf8c4ba0bf15e7874259a724fce",
+      "combined_browser_evidence_relabelled_as_d431959": false
+    },
+    "candidate_actions": {
+      "head_sha": "d4319599b48771632138d1f87097e9e357f8011d",
+      "run_ids": [
+        41781186259,
+        41781186539,
+        41781186309
+      ],
+      "status": "action_required",
+      "job_count": 0,
+      "failed_job_count": 0,
+      "interpretation": "No job records or logs; not a CI pass or failure."
+    }
+  },
+  "limits": {
+    "complete_public_release_gate_claimed": false,
+    "production_build_or_deployment_proof": false,
+    "hardware_gpu_performance_proof": false,
+    "font_file_and_computed_production_font_proof": false,
+    "customer_or_commercial_acceptance": false,
+    "parent_static_scan_21_warnings_3_advisories_rerun": false
+  },
+  "evidence_bundle": {
+    "directory": "/home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v1",
+    "bytes": 2026361,
+    "files": 28,
+    "png_screenshots": 19,
+    "maximum_bytes": 15728640,
+    "within_limit": true
+  },
+  "next_bounded_action": "Implementation owner regenerates and commits glass-gate/glass-surface registry artifacts, extends registry parity coverage, then verifies a clean shadcn consumer and visible Ink/Paper/Operator switching. A separate verifier should inspect production-mode and font-available evidence."
+}

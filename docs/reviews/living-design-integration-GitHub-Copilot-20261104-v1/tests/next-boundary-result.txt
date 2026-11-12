@@ -1,0 +1,9 @@
+Next.js App Router integration reproduction (actual Next.js 16.4.2 / Turbopack compiler, Node 22.23.4)
+
+Base worktree: 2ab4ffd4db3513c018563de01e76e49da88592b9
+Temporary route: /barrel-probe; default Server Component imports and invokes useGlassPlan from @starlight/materials.
+Observed: HTTP 500. Compiler diagnostic: "You're importing a module that depends on `useSyncExternalStore` into a React Server Component module. This API is only available in Client Components. Please add the `\"use client\"` directive at the top of the file to resolve this issue." Diagnostic points at packages/materials/src/gate/use-glass-plan.ts:1 and links to https://nextjs.org/docs/app/api-reference/directives/use-client.
+
+Repaired integration worktree: fa549486c1bb9204b006ab297720aca3e41fd7d3 (tree 2c4f5135ac0b85d8a7b42be3b563e8f248c03da9)
+Temporary valid consumer composition: Server Component imports gpuPlan, GlassSurface and EvidenceDisclosure from @starlight/materials; a separate "use client" child calls useGlassPlan.
+Observed: /barrel-probe, /, /glass, /paper and /ink all returned HTTP 200; no page errors. Test route was removed from the temporary worktree after capture.

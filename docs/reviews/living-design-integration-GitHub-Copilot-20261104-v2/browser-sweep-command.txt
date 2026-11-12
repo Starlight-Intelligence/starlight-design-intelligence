@@ -1,0 +1,2 @@
+$ node scripts/verify-consumer-themes.mjs
+Browser evidence: /home/runner/work/starlight-design-intelligence/starlight-design-intelligence/docs/reviews/living-design-integration-GitHub-Copilot-20261104-v2

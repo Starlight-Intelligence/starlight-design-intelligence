@@ -11,7 +11,7 @@ const notes = [
 
 export default function PaperPage() {
   return (
-    <main className="bg-surface-paper text-on-paper">
+    <main data-theme="paper" className="bg-surface-paper text-on-paper">
       <div className="mx-auto grid max-w-[1120px] gap-8 px-4 py-10 md:px-8">
         <header className="grid gap-3">
           <p className="text-label-sm opacity-70">Paper</p>

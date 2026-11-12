@@ -1,0 +1,256 @@
+{
+  "browser": "156.0.8078.0",
+  "executable": "/usr/bin/chromium",
+  "capturedAt": "2026-11-04T05:36:59.791Z",
+  "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+  "captures": [
+    {
+      "route": "/",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "status": 200,
+      "filename": "desktop-home.png",
+      "sha256": "71821a1260c5ea7139713c57817293b8e919de5e10780014de318143f446387d",
+      "bytes": 88562,
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "durationMs": 2898,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "Three materials, one contract.",
+        "font": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "fontSize": "56px",
+        "color": "rgb(251, 246, 235)",
+        "background": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    {
+      "route": "/glass",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "status": 200,
+      "filename": "desktop-glass.png",
+      "sha256": "03a798af0f207867643434e05123f0fd279fb985b28f09a93068f9f8f60102d0",
+      "bytes": 268920,
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "durationMs": 3023,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "Glass that earns its refraction.",
+        "font": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "fontSize": "24px",
+        "color": "rgb(251, 246, 235)",
+        "background": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    {
+      "route": "/paper",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "status": 200,
+      "filename": "desktop-paper.png",
+      "sha256": "e1c8a331548408cbac90cd66ba3ed44a88aa576a93d4538c2b69c5a9eedb6104",
+      "bytes": 81822,
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "durationMs": 952,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "The reading surface.",
+        "font": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "fontSize": "56px",
+        "color": "rgb(7, 10, 16)",
+        "background": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    {
+      "route": "/ink",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 900,
+        "dpr": 1
+      },
+      "status": 200,
+      "filename": "desktop-ink.png",
+      "sha256": "071cab71824329e9eed06e5125777f6e8c2cf8d7823c4a41c4ed2a62930f245f",
+      "bytes": 67198,
+      "dimensions": {
+        "width": 1440,
+        "height": 900
+      },
+      "durationMs": 850,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "The night shell.",
+        "font": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "fontSize": "56px",
+        "color": "rgb(251, 246, 235)",
+        "background": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    {
+      "route": "/",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "status": 200,
+      "filename": "mobile-home.png",
+      "sha256": "d5b64bed09f8fb985f9f542db42160ba994f1b8945c4099f02e0ad056c04dd2b",
+      "bytes": 62535,
+      "dimensions": {
+        "width": 390,
+        "height": 844
+      },
+      "durationMs": 1038,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "Three materials, one contract.",
+        "font": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "fontSize": "36px",
+        "color": "rgb(251, 246, 235)",
+        "background": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    {
+      "route": "/glass",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "status": 200,
+      "filename": "mobile-glass.png",
+      "sha256": "8d1a53a40f4780ea1b8f7b145399518496c791f9f84fadac97030d8c4403bf80",
+      "bytes": 114826,
+      "dimensions": {
+        "width": 390,
+        "height": 844
+      },
+      "durationMs": 826,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "Glass that earns its refraction.",
+        "font": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "fontSize": "24px",
+        "color": "rgb(251, 246, 235)",
+        "background": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    {
+      "route": "/paper",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "status": 200,
+      "filename": "mobile-paper.png",
+      "sha256": "14003fb9a72c37235c1fb8438b62a2b06ffe932c707072465809d6744668778f",
+      "bytes": 58327,
+      "dimensions": {
+        "width": 390,
+        "height": 844
+      },
+      "durationMs": 802,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "The reading surface.",
+        "font": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "fontSize": "36px",
+        "color": "rgb(7, 10, 16)",
+        "background": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    },
+    {
+      "route": "/ink",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "status": 200,
+      "filename": "mobile-ink.png",
+      "sha256": "1b3f22a47e297565c9baf8c91874b54746bf7755e2427b16d6aafe2ea9106b2d",
+      "bytes": 57563,
+      "dimensions": {
+        "width": 390,
+        "height": 844
+      },
+      "durationMs": 784,
+      "rendered": {
+        "title": "Starlight materials",
+        "heading": "The night shell.",
+        "font": "\"Instrument Sans\", \"Instrument Sans Fallback\", system-ui, sans-serif",
+        "fontSize": "36px",
+        "color": "rgb(251, 246, 235)",
+        "background": "rgba(0, 0, 0, 0)",
+        "bodyBackground": "rgb(7, 10, 16)",
+        "bodyColor": "rgb(251, 246, 235)",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)"
+      }
+    }
+  ]
+}
