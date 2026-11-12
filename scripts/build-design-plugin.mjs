@@ -2,7 +2,7 @@ import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, isAbsolute, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse } from 'yaml';
 import { root, verifySources } from './design-toolkit.mjs';
@@ -28,9 +28,9 @@ export function validateSkills(files) {
 }
 
 export function buildPlugin({out, repoRoot = root}) {
-  if (!out || !out.startsWith('/')) throw new Error('--out must be an absolute archive path');
+  if (!out || !isAbsolute(out)) throw new Error('--out must be an absolute archive path');
   const output = resolve(out);
-  if (output === repoRoot || output.startsWith(resolve(repoRoot) + '/')) throw new Error('archive must be outside the plugin source');
+  if (output === repoRoot || output.startsWith(resolve(repoRoot) + sep)) throw new Error('archive must be outside the plugin source');
   const git = args => execFileSync('git', ['-C', repoRoot, ...args], {maxBuffer: 32 * 1024 * 1024});
   const revision = git(['rev-parse', 'HEAD']).toString().trim();
   const manifest = JSON.parse(git(['show', `${revision}:plugin.json`]).toString());
@@ -46,7 +46,9 @@ export function buildPlugin({out, repoRoot = root}) {
     files.set(path, git(['show', `${revision}:${path}`])); modes.set(path, mode);
   }
   const skills = validateSkills(files);
-  if (skills.failures.length || !skills.names.includes('design-orchestrator') || skills.names.length !== 22) throw new Error(`portable skill validation: ${skills.failures.join('; ')}; count=${skills.names.length}`);
+  // No fixed count: skills/ is the portable set, and a hardcoded number breaks
+  // the build the day a skill is added or removed. Validity is per-skill above.
+  if (skills.failures.length || !skills.names.includes('design-orchestrator') || skills.names.length === 0) throw new Error(`portable skill validation: ${skills.failures.join('; ')}; count=${skills.names.length}`);
   const receipt = {
     schema: 'starlight.design_plugin_package.v1', repository: manifest.repository,
     source_revision: revision, version: manifest.version, source_state: 'committed_candidate; reviewed-main and host adoption require separate verification',
