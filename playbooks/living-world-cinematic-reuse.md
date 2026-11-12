@@ -69,4 +69,4 @@ If references cannot be loaded, mark BLOCKED_REFERENCE and do not fabricate a co
 
 ## Immediate proof requirement
 
-Build one **real-image** comparison board (not text cards) using the four inspected originals, exact provenance and annotations; then recover the earlier fox/turtle/mushroom images and compare against this pilot. Update the living-world recipe only after actual visual critique and owner selection. No production migration before verification.
+Build one **real-image** comparison board (not text cards) using the four candidate originals named above, exact provenance and annotations; then recover the earlier fox/turtle/mushroom images and compare against this pilot. That board, with its dated VIS receipt, is what promotes the proposed observations in this document to inspected evidence. Update the living-world recipe only after actual visual critique and owner selection. No production migration before verification.
