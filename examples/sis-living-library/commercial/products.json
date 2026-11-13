@@ -1,0 +1,18 @@
+{
+  "schema": "starlight.foundry_offer_candidates.v1",
+  "version": "0.2.0-rc.2",
+  "catalogOwner": "frankxai/frankx.ai-vercel-website/data/products.json",
+  "status": "draft",
+  "checkoutActive": false,
+  "currency": "EUR",
+  "taxBasis": "validation hypotheses; final tax-inclusive display unresolved",
+  "editions": [
+    {"id":"glass","sku":"aurora-ui-kit","edition":"essential","archive":"starlight-glass-core-essential","name":"Starlight Glass Core Essential","amount":79,"supportMinutes":10,"buildHours":48},
+    {"id":"launch","sku":"aurora-ui-kit","edition":"professional","archive":"starlight-glass-core-professional","name":"Starlight Glass Core Professional","amount":149,"supportMinutes":15,"buildHours":48},
+    {"id":"bundle","sku":"command-center-template","edition":"agent-command-center","archive":"agent-command-center","name":"Agent Command Center","amount":349,"supportMinutes":45,"buildHours":80}
+  ],
+  "licenseStatus": "draft terms only; original source remains UNLICENSED",
+  "fulfillment": "existing storefront entitlement and delivery owner; provider rehearsal required",
+  "analytics": ["product_view","demo_mission_selected","demo_approval_decided","demo_mission_completed","demo_receipt_exported","checkout_started","purchase_verified","refund_verified","support_minutes"],
+  "analyticsStatus": "event contract only; no remote collection installed"
+}

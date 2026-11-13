@@ -1,3 +1,15 @@
+# RC 0.2 extension
+
+The existing twelve-component core remains in components.tsx. product-components.tsx adds seven typed product controls; Experiences.tsx composes four synthetic workflows, fixtures.ts owns all demo records, and experiences.css owns their responsive shell. No backend, billing or research system is added. The original workbench remains on library.html.
+
+package-release.mjs compiles a private local npm archive with React peers, ESM, client boundaries and declarations. examples/next-app consumes that archive and Tailwind 4; the Vite app consumes the same source. public/qa is a test-only same-origin axe runner with its original license. It is excluded from the reusable npm package. The Playwright runner adds explicit baseline screenshot comparison and reduced-motion emulation.
+
+Color exchange tokens project into Figma as a separate RC collection because the atlas uses incompatible legacy semantic names. This does not establish screen parity, library publication or portfolio adoption. Original source rights are unchanged.
+
+The material ownership/integration contract below remains applicable.
+
+---
+
 # Architecture
 
 Version 0.1 · reference implementation · 31 October 2026

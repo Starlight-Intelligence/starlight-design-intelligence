@@ -1,3 +1,7 @@
+release/
+examples/next-app/.next/
+examples/next-app/next-env.d.ts
+examples/next-app/tsconfig.tsbuildinfo
 node_modules/
 dist/
 test-results/

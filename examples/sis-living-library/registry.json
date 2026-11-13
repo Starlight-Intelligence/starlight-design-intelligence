@@ -34,6 +34,16 @@
           "path": "src/icons.tsx",
           "type": "registry:ui",
           "target": "@ui/starlight/icons.tsx"
+        },
+        {
+          "path": "src/product-components.tsx",
+          "type": "registry:ui",
+          "target": "@ui/starlight/product-components.tsx"
+        },
+        {
+          "path": "src/product-components.css",
+          "type": "registry:file",
+          "target": "@ui/starlight/product-components.css"
         }
       ]
     }

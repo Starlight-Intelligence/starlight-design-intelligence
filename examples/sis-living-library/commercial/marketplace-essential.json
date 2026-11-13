@@ -1,0 +1,23 @@
+{
+  "schema": "starlight.marketplace_submission_spec.v1",
+  "submissionStatus": "draft",
+  "productId": "aurora-ui-kit:essential",
+  "edition": "essential",
+  "platforms": ["react-source"],
+  "title": "Starlight Glass Core Essential",
+  "shortDescription": "React components for interfaces where actions, state and evidence stay clear.",
+  "description": "Build an AI product interface with 19 typed React components, three semantic themes and 24 original utility icons. Use opaque reading surfaces with optional glass context. Inspect versioned component contracts before coding-agent changes. Essential provides the compiled package and editable component source for your own React application; Professional adds the independent Next.js starter.",
+  "price": {"currency":"EUR","amount":79,"status":"validation hypothesis; checkout closed","taxDisplay":"requires seller approval"},
+  "compatibility": {
+    "react": "React 19 peer dependencies; no hosted Starlight account required",
+    "source": "Compiled ESM, TypeScript declarations and editable component source for a React bundler",
+    "tokens": "Semantic CSS variables, DTCG-compatible JSON and Tailwind 4 adapter",
+    "figma": "Token projection only; no native component library or parity claim",
+    "framerWebflow": "No native edition or lossless conversion supplied"
+  },
+  "support": {"status":"draft","scope":"Installation and reproducible defects for 30 calendar days","initialResponseTarget":"two business days","updates":"compatible fixes/minor updates for 12 months; no schedule guarantee"},
+  "refund": {"status":"draft","policy":"Proposed voluntary refund window: 14 calendar days. Mandatory consumer rights remain unaffected. No automatic loss of rights is claimed from downloading."},
+  "licensing": {"status":"UNLICENSED; draft awaiting owner approval","draftPath":"docs/COMMERCIAL-LICENSE-DRAFT.md","seats":"one individual developer proposed; final terms require approval","trademarks":"Demonstration branding excluded"},
+  "limitations": ["No live agents, model credits, wallet signing, hosted runtime or deployment service","No active checkout or entitlement is created by this pack","Automated test results cover recorded versions and states; no universal accessibility certification","Buyer demand and commercial performance remain unvalidated"],
+  "primaryAction": "Inspect the source and preview; purchase unavailable pending release approval"
+}
