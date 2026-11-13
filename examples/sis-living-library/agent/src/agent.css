@@ -143,3 +143,6 @@
     accent-color: auto;
   }
 }
+
+.sla-declared-note { padding: var(--sl-space-6); }
+.sla-browser { margin-bottom: var(--sl-space-6); }

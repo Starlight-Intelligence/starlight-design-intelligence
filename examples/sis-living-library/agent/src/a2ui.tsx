@@ -32,7 +32,7 @@ export const starlightCatalog = createCatalog(
   },
   {
     StarlightNote: ({ props }) => (
-      <GlassSurface className="sla-artifact">
+      <GlassSurface className="sla-artifact sla-declared-note">
         <h3>{props.title}</h3>
         <p>{props.body}</p>
       </GlassSurface>
