@@ -8,7 +8,7 @@ if (execFileSync('git', ['status', '--porcelain'], { cwd: root, encoding: 'utf8'
 await fs.mkdir(path.join(root, 'release'), { recursive: true });
 execFileSync('npm', ['run', 'build'], { cwd: root, stdio: 'inherit' });
 const packed = JSON.parse(execFileSync('npm', ['pack', '--ignore-scripts', '--json', '--pack-destination', 'release'], { cwd: root, encoding: 'utf8' }))[0];
-for (const file of packed.files) if (!/^(dist\/[A-Za-z-]+\.(js|d\.ts|css)|package\.json|README\.md|THIRD_PARTY_NOTICES\.md|SOURCE-RIGHTS\.md)$/.test(file.path)) throw Error('Unexpected npm package member ' + file.path);
+for (const file of packed.files) if (!/^(dist\/[A-Za-z0-9-]+\.(js|d\.ts|css)|package\.json|README\.md|THIRD_PARTY_NOTICES\.md|SOURCE-RIGHTS\.md)$/.test(file.path)) throw Error('Unexpected npm package member ' + file.path);
 const lock = JSON.parse(await fs.readFile(path.join(root, 'package-lock.json'), 'utf8'));
 const inventory = [];
 for (const [location, entry] of Object.entries(lock.packages)) {
