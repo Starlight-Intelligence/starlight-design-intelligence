@@ -11,7 +11,7 @@ npm run build:package
 python3 scripts/assemble-products.py
 ```
 
-`npm run dev` opens four experiences; `/library.html` retains the original component workbench. `npm run test:products` runs the existing 24-state browser checks and reviewed visual comparisons. Current console/launch changes require fresh browser review; old captures are historical baselines, not proof of this revision. New visual/axe/performance verification is blocked in the present executor by Chromium socket denial; the existing Vercel preview requires sign-in and serves an earlier SHA.
+`npm run dev` opens four experiences; `/library.html` retains the original component workbench. `npm run test:products` runs the existing 24-state browser checks and reviewed visual comparisons. Hosted execution at source 5e253f87d593a89b525fe2dad6ed0600be79688d passed all 24 axe/reflow/local-journey states. The changed Console and Launch screenshots were independently inspected and accepted; see tests/visual/README.md. Local Chromium remains socket-blocked, while the existing Vercel project provides a verified preview. Actual runtime performance, native assistive technology and wider browser coverage remain release gates.
 
 The independent Next.js consumer is `examples/next-app`. After `build:package`, install its local archive, refresh the lock integrity and run `npm ci && npm run build`. Read-only agent discovery is `public/r/component-contracts.json`; shadcn source installation remains `public/r/starlight-living.json`. Registry metadata grants no filesystem, provider, payment or deployment authority.
 
