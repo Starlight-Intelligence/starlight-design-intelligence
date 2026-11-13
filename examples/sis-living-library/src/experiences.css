@@ -12,3 +12,4 @@
 @media(min-width:851px){.x-view-console{padding-top:28px}.x-view-console .x-title{margin-bottom:24px}.x-main-panel .sl-data-table td{padding-top:10px;padding-bottom:10px}.x-main-panel .x-panel-head{margin-bottom:14px}.x-main-panel .x-throughput{margin-top:22px}.x-main-panel .x-bars{height:108px}.x-main-panel .x-axis{line-height:39px}.x-main-panel .x-fine{margin-bottom:0}.x-main-panel .x-cell-title{gap:3px}}
 /* Preserve company names; the existing labeled region owns horizontal overflow. */
 .x-company-link{min-width:205px}.x-company-link>span:last-child{min-width:145px}
+.x-intelligence-grid .sl-data-table{min-width:560px}.x-intelligence-grid .sl-data-table td:nth-child(2),.x-intelligence-grid .sl-data-table td:nth-child(3){white-space:nowrap}
