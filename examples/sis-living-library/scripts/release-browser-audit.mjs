@@ -79,8 +79,8 @@ try{
       await check(`forced-colors / ${theme}`,async()=>{
         await media(page,{'forced-colors':'active','prefers-reduced-motion':'reduce','prefers-reduced-transparency':'reduce'});await open(page);await page.getByLabel('Theme',{exact:true}).selectOption(theme);
         await page.getByRole('button',{name:'Approve action',exact:true}).focus();
-        const state=await page.evaluate(()=>{const b=document.activeElement,s=getComputedStyle(b),surface=getComputedStyle(document.querySelector('.sl-surface'));return{matched:matchMedia('(forced-colors: active)').matches,outline:s.outlineStyle,outlineWidth:s.outlineWidth,boxShadow:surface.boxShadow,buttonLabel:b.textContent.trim()};});
-        assert(state.matched);assert.notEqual(state.outline,'none');assert(parseFloat(state.outlineWidth)>=2);assert.equal(state.boxShadow,'none');return{state};
+        const state=await page.evaluate(()=>{const b=document.activeElement,s=getComputedStyle(b),surface=getComputedStyle(document.querySelector('.sl-surface'));const reference=document.createElement('button');reference.style.cssText='background:ButtonFace;color:ButtonText';document.body.append(reference);const native=getComputedStyle(reference);const result={matched:matchMedia('(forced-colors: active)').matches,outline:s.outlineStyle,outlineWidth:s.outlineWidth,boxShadow:surface.boxShadow,buttonLabel:b.textContent.trim(),color:s.color,background:s.backgroundColor,nativeColor:native.color,nativeBackground:native.backgroundColor,filter:s.filter};reference.remove();return result;});
+        assert(state.matched);assert.notEqual(state.outline,'none');assert(parseFloat(state.outlineWidth)>=2);assert.equal(state.boxShadow,'none');assert.equal(state.color,state.nativeColor);assert.equal(state.background,state.nativeBackground);assert.notEqual(state.color,state.background);assert.equal(state.filter,'none');return{state};
       });
       if(theme==='midnight')await screenshot(page,'forced-colors-mobile.png');
     }finally{await context.close();}
