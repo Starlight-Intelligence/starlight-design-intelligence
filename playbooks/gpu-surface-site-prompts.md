@@ -29,7 +29,12 @@ re-read the file, and the file wins over this playbook.
 
 1. The site repo has the pack at a version that includes the recipe skills:
    `ls .claude/skills/liquid-logo` succeeds. If not, re-run the pack's
-   `install.sh` against the repo first.
+   `install.sh <repo> --claude-md` first. That installs the skills, hooks and
+   agents, and writes the gate block into `CLAUDE.md` and `AGENTS.md` so a
+   session, and a harness that never loads `.claude/skills`, routes shader,
+   glass, mark and 3D work to `gpu-surface` without being told. A hand-written
+   gate section is kept as it is, and the installer says when it lacks the
+   `gpu-surface` paragraph.
 2. Work on a branch. Open a draft pull request. The site's own gates decide.
 
 ## Summary
