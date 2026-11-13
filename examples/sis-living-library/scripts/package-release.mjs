@@ -1,0 +1,17 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+const root=process.cwd(), release=path.join(root,'release'), pkg=path.join(release,'package');
+await fs.mkdir(pkg,{recursive:true});
+execFileSync(path.join(root,'node_modules/.bin/tsc'),['-p','tsconfig.package.json'],{stdio:'inherit'});
+for(const file of ['tokens.css','components.css','product-components.css','tailwind.css'])await fs.copyFile(path.join(root,'src',file),path.join(pkg,file));
+await fs.writeFile(path.join(pkg,'styles.css'),(await Promise.all(['tokens.css','components.css','product-components.css'].map(f=>fs.readFile(path.join(root,'src',f),'utf8')))).join('\n'));
+await fs.copyFile(path.join(root,'tokens/tokens.json'),path.join(pkg,'tokens.json'));
+await fs.writeFile(path.join(pkg,'package.json'),JSON.stringify({name:'@starlight/living-design',version:'0.2.0',type:'module',private:true,description:'Portable Starlight Living Design release candidate',license:'UNLICENSED',sideEffects:['*.css'],files:['*.js','*.d.ts','*.css','tokens.json','README.md','SOURCE-RIGHTS.md'],exports:{'.':{types:'./index.d.ts',import:'./index.js'},'./styles.css':'./styles.css','./tokens.json':'./tokens.json','./tailwind.css':'./tailwind.css'},peerDependencies:{react:'^19.0.0','react-dom':'^19.0.0'}},null,2)+'\n');
+await fs.writeFile(path.join(pkg,'SOURCE-RIGHTS.md'),'# Source rights\n\nPrivate release candidate. Original Starlight source, icons and identity assets retain their existing rights. No new redistribution license is granted. Commercial sale and license terms await owner approval. Dependency/font licenses retain their own terms.\n');
+await fs.copyFile(path.join(root,'docs/INSTALLATION.md'),path.join(pkg,'README.md'));
+execFileSync('npm',['pack','--pack-destination',release],{cwd:pkg,stdio:'inherit'});
+const file='starlight-living-design-0.2.0.tgz',bytes=await fs.readFile(path.join(release,file));
+await fs.writeFile(path.join(release,'package-receipt.json'),JSON.stringify({file,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex'),published:false,sourceRights:'unchanged; commercial license pending'},null,2)+'\n');
+console.log('Created portable package '+file);

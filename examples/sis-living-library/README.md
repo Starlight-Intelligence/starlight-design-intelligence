@@ -1,3 +1,36 @@
+# Starlight Living Design / RC 0.2
+
+19 React components, three semantic themes, 24 original SVG icons and four working reference experiences. Extends the existing Living Library in place.
+
+```sh
+npm ci
+npm run dev
+```
+
+The root opens the Console, StarBrowser, Founder Intelligence and SaaS launch compositions. `/library.html` preserves the original component workbench. Every record is synthetic and every action is local.
+
+```sh
+npm test
+npm run build
+npm run check:budgets
+npm run build:package
+npm run build:standalone
+```
+
+`build:package` creates compiled ESM, declarations, semantic styles, token JSON and a Tailwind 4 adapter in `release/starlight-living-design-0.2.0.tgz`. The package has React peers and no Starlight service dependency. It is private and unpublished; original source rights remain unchanged.
+
+See [installation](docs/INSTALLATION.md), [commercial editions](docs/COMMERCIAL-PACKAGING.md), [brand adapters](docs/BRAND-ADAPTERS.md), [direction](docs/PRODUCT-DIRECTION.md) and [current validation](docs/VALIDATION.md). The independent Next/Tailwind consumer is in `examples/next-app`. Run `npm ci && npm run build` there after building the package.
+
+`/qa.html` runs axe and local journeys through 24 theme/device/view states in the browser; `/responsive.html` exposes a 390 × 844 CSS-pixel iframe. `npm run test:products` runs the same checks plus eight decoded-PNG comparisons. Missing baselines fail: inspect outputs and explicitly create reviewed baselines with `UPDATE_SNAPSHOTS=1 npm run test:products`. No baseline pass is claimed before execution.
+
+CSS glass is portable and bounded. The separate `packages/materials` GPU package remains unchanged. Do not load both token sheets into one scope. [Integration boundary](docs/MATERIALS-INTEGRATION.md).
+
+Three proposed one-time editions: Living Glass UI Kit €49; AI Startup Launch Kit €149; Premium Builder Bundle €249. The existing FrankX catalogue owns commerce. This candidate enables no payment or entitlement and grants no new redistribution license.
+
+The previous workbench documentation follows as historical context. Its October validation does not cover RC 0.2.
+
+---
+
 # Starlight Living Design
 
 **Interfaces for intelligence you can inspect.** A source-owned reference library for agent workspaces, knowledge products and creative studios: 12 React components, 24 original SVG icons, three candidate themes, purposeful motion and a shadcn-compatible registry payload.

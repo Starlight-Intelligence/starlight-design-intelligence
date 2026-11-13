@@ -2,7 +2,7 @@ import { readFile, mkdir, writeFile, copyFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
-const sources=['index.ts','components.tsx','components.css','tokens.css','icons.tsx'];
+const sources=['index.ts','components.tsx','components.css','tokens.css','icons.tsx','product-components.tsx','product-components.css'];
 const item={
   $schema:'https://ui.shadcn.com/schema/registry-item.json',
   name:'starlight-living',type:'registry:ui',title:'Starlight Living Library',

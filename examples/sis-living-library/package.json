@@ -12,7 +12,10 @@
     "test:browser": "node scripts/browser-check.mjs",
     "test:consumer": "node scripts/consumer-smoke.mjs",
     "build:standalone": "npm run build && node scripts/standalone.mjs",
-    "test:standalone": "node scripts/standalone-check.mjs"
+    "test:standalone": "node scripts/standalone-check.mjs",
+    "build:package": "node scripts/package-release.mjs",
+    "check:budgets": "node scripts/check-budgets.mjs",
+    "test:products": "node scripts/products-browser.mjs"
   },
   "dependencies": {
     "@fontsource/ibm-plex-mono": "5.3.0",
@@ -26,6 +29,7 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "axe-core": "4.10.3",
+    "pngjs": "7.0.0",
     "typescript": "7.0.2",
     "vite": "8.3.5"
   }
