@@ -170,6 +170,7 @@ export function AgentWorkbench() {
         <label>
           Theme{" "}
           <select
+            aria-label="Theme"
             value={theme}
             onChange={(event) => setTheme(event.target.value)}
           >

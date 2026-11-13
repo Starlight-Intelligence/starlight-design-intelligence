@@ -20,7 +20,16 @@ const noteSchema = noteProps
   .extend({ id: z.literal("root"), component: z.literal("StarlightNote") })
   .strict();
 export const starlightCatalog = createCatalog(
-  { StarlightNote: { props: legacyZod.object({ title: legacyZod.string().min(1).max(200), body: legacyZod.string().min(1).max(4000) }).strict() } },
+  {
+    StarlightNote: {
+      props: legacyZod
+        .object({
+          title: legacyZod.string().min(1).max(200),
+          body: legacyZod.string().min(1).max(4000),
+        })
+        .strict(),
+    },
+  },
   {
     StarlightNote: ({ props }) => (
       <GlassSurface className="sla-artifact">

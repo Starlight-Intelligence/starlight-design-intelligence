@@ -73,7 +73,7 @@ BLOCKED purchase evidence: both connected Stripe contexts expose only the same l
 
 ## Validation and release gates
 
-TESTED locally: root 303 pass/3 skips; add-on strict TypeScript and 37 Vitest tests, including actual AG-UI SDK decoder, published A2UI renderer in jsdom, approval duplication/revision/expiry/uncertain acknowledgement, controlled artifacts and hostile URL/export/proposal bounds. Compiled ESM/declarations, Vite production build and initial independent Next build passed. The consumer must be rebuilt against the final packaged bytes before final artifact acceptance.
+TESTED locally: root 303 pass/3 skips; add-on strict TypeScript and 38 Vitest tests, including actual AG-UI SDK decoder, published A2UI renderer in jsdom, approval duplication/revision/expiry/uncertain acknowledgement, controlled artifacts and hostile URL/export/proposal bounds. Compiled ESM/declarations, Vite production build and initial independent Next build passed. The consumer must be rebuilt against the final packaged bytes before final artifact acceptance.
 
 Independent same-provider verifier inspected source and reran tests/adversarial probes. It found two same-origin bypasses and Markdown export injection; all were fixed and regression-tested. This is not the required different-provider commercial release review.
 
@@ -95,3 +95,7 @@ Remaining launch checklist:
 - [ ] Frank explicitly approves merge, publication, production, live payments and any public launch.
 
 Rollback: close/revert only the additive integration draft and remove the optional package; PR #97 and its original foundation artifacts remain independently reviewable. No production data, payments, secrets or identities changed.
+
+## Browser correction after the initial package receipt
+
+At source fb59c045, CI run43485382209 passed the full analysis→decision→mission→browser→export→A2UI journey, then failed six theme/device matrix cases because the wrapping label included option text in its accessible name. The correction sets an explicit Theme accessible name and adds a component regression. The failed matrix is preserved as historical evidence, not a pass. The dependency follow-up also upgrades development-only Vitest4.0.13 to4.1.12 after its UI-server advisory was observed; this project uses run mode and never enabled that UI server. Final source/archives/checks are recorded separately in the PR receipt.

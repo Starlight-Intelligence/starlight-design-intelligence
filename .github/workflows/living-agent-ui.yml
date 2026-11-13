@@ -34,6 +34,7 @@ jobs:
           npm pack --ignore-scripts --pack-destination release
           npx playwright install --with-deps chromium
           npm run test:e2e
+          npm run test:performance
       - name: Build independent packaged Next consumer
         working-directory: examples/sis-living-library/agent/examples/next-app
         run: npm ci --ignore-scripts && npm run build

@@ -175,3 +175,13 @@ it.each([
     expect(() => validateA2UIMessages(value)).toThrow();
   },
 );
+
+import { AgentWorkbench } from "../src/Workbench.js";
+it("gives the theme selector a stable accessible name", () => {
+  render(<AgentWorkbench />);
+  const selector = screen.getByRole("combobox", { name: /^Theme$/ });
+  fireEvent.change(selector, { target: { value: "daylight" } });
+  expect(
+    document.querySelector(".sla-workbench")?.getAttribute("data-theme"),
+  ).toBe("daylight");
+});
