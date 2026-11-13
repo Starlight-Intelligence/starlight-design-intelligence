@@ -82,7 +82,14 @@ try{
         const state=await page.evaluate(()=>{const b=document.activeElement,s=getComputedStyle(b),surface=getComputedStyle(document.querySelector('.sl-surface'));const reference=document.createElement('button');reference.style.cssText='background:ButtonFace;color:ButtonText';document.body.append(reference);const native=getComputedStyle(reference);const result={matched:matchMedia('(forced-colors: active)').matches,outline:s.outlineStyle,outlineWidth:s.outlineWidth,boxShadow:surface.boxShadow,buttonLabel:b.textContent.trim(),color:s.color,background:s.backgroundColor,nativeColor:native.color,nativeBackground:native.backgroundColor,filter:s.filter};reference.remove();return result;});
         assert(state.matched);assert.notEqual(state.outline,'none');assert(parseFloat(state.outlineWidth)>=2);assert.equal(state.boxShadow,'none');assert.equal(state.color,state.nativeColor);assert.equal(state.background,state.nativeBackground);assert.notEqual(state.color,state.background);assert.equal(state.filter,'none');return{state};
       });
-      if(theme==='midnight')await screenshot(page,'forced-colors-mobile.png');
+      if(theme==='midnight'){
+        await screenshot(page,'forced-colors-mobile.png');
+        await check('forced-colors selected tab keeps native text colors and visible selection',async()=>{
+          await open(page,'glass','glass.html');const selected=page.getByRole('tab',{name:'States',exact:true});await selected.click();
+          const state=await selected.evaluate(b=>{const s=getComputedStyle(b);return{color:s.color,background:s.backgroundColor,borderWidth:s.borderTopWidth,label:b.textContent.trim(),selected:b.getAttribute('aria-selected')};});
+          assert.equal(state.selected,'true');assert.notEqual(state.color,state.background);assert(parseFloat(state.borderWidth)>=2);await screenshot(page,'forced-colors-tabs.png');return{state};
+        });
+      }
     }finally{await context.close();}
   }
   {
