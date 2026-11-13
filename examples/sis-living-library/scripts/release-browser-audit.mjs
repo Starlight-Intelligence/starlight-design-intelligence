@@ -17,16 +17,20 @@ const share=process.env.STARLIGHT_AUDIT_SHARE_URL;
 if(share){let s;try{s=new URL(share);}catch{throw Error('Invalid private preview URL');}assert(remote&&s.origin===target&&s.protocol==='https:'&&!s.username&&!s.password&&s.pathname==='/'&&[...s.searchParams.keys()].every(k=>k==='_vercel_share'),'Private share URL must target the same preview origin');}
 await fs.mkdir(out,{recursive:true});
 const report={schema:'starlight.release_browser_audit.v1',sourceRevision:revision,targetRevision:targetSha,origin:target,synthetic:true,scope:remote?'actual-preview':'local-production-build',at:new Date().toISOString(),checks:[],performance:[],artifacts:[],productAxe:[],limitations:['Chromium only; no native screen-reader or field-user study','Narrow viewport is a zoom-equivalent reflow test, not browser chrome zoom','Performance is an unthrottled controlled lab observation, not field Core Web Vitals, Lighthouse or production certification','Event Timing samples omit events below the browser reporting threshold; empty samples remain unknown','Same-origin build receipt binds the clean source SHA; it is not cryptographic provenance or independent provider attestation']};
-let server,browser;
+let server,browser,navigationSequence=0;
 function safeError(error){let message=String(error?.message??error);if(share)message=message.replaceAll(share,'[private-preview-url]');return message.replace(/_vercel_share=[^&\s"']+/g,'_vercel_share=[redacted]').slice(0,300);}
 async function check(name,fn){try{const detail=await fn();report.checks.push({name,passed:true,...detail});}catch(error){report.checks.push({name,passed:false,error:safeError(error)});}}
 async function contextFor(options={}){
   const context=await browser.newContext({viewport:{width:1440,height:1000},deviceScaleFactor:1,...options});
+  context.setDefaultTimeout(5000);context.setDefaultNavigationTimeout(30000);
   if(share){const auth=await context.newPage();await auth.goto(share,{waitUntil:'domcontentloaded'});await auth.close();}
   return context;
 }
 async function open(page,route='console',file=''){
-  const response=await page.goto(`${target}/${file}${file?'':`#${route}`}`,{waitUntil:'domcontentloaded',timeout:30000});
+  // A unique document URL avoids hash-only reuse, preserves fixture isolation and
+  // requires a real successful document response for every scenario.
+  const url=new URL(`/${file}`,target);url.searchParams.set('audit-navigation',String(++navigationSequence));if(!file)url.hash=route;
+  const response=await page.goto(url.href,{waitUntil:'domcontentloaded',timeout:30000});
   assert(response?.ok(),'Application document failed');
   assert(new URL(page.url()).origin===target,'Preview authentication did not reach the application');
   await page.locator('h1').first().waitFor();await page.evaluate(()=>document.fonts.ready);
@@ -92,9 +96,15 @@ try{
       await check('keyboard modal focus stays contained and restores to trigger',async()=>{
         await open(page);const trigger=page.getByRole('button',{name:'Find an experience',exact:true});await trigger.focus();await page.keyboard.press('Enter');
         const dialog=page.getByRole('dialog',{name:'Open an experience',exact:true});await dialog.waitFor();assert(await page.getByLabel('Search components',{exact:true}).evaluate(e=>e===document.activeElement));
+        const close=dialog.getByRole('button',{name:'Close command panel',exact:true}),last=dialog.locator('[data-command-item]').last();
+        await close.focus();await page.keyboard.press('Shift+Tab');assert(await last.evaluate(e=>e===document.activeElement),'Reverse boundary did not wrap to last command');
+        await page.keyboard.press('Tab');assert(await close.evaluate(e=>e===document.activeElement),'Forward boundary did not wrap to close');
         for(let i=0;i<12;i++){await page.keyboard.press('Tab');assert(await page.evaluate(()=>Boolean(document.activeElement.closest('dialog[open]'))),'Tab escaped native modal');}
         for(let i=0;i<12;i++){await page.keyboard.press('Shift+Tab');assert(await page.evaluate(()=>Boolean(document.activeElement.closest('dialog[open]'))),'Reverse tab escaped native modal');}
-        await page.keyboard.press('Escape');await dialog.waitFor({state:'hidden'});assert(await trigger.evaluate(e=>e===document.activeElement),'Escape did not restore focus');return{forwardTabs:12,reverseTabs:12};
+        const search=page.getByLabel('Search components',{exact:true});await search.fill('no-matching-experience-qa');assert.equal(await dialog.locator('[data-command-item]').count(),0);
+        await close.focus();await page.keyboard.press('Shift+Tab');assert(await search.evaluate(e=>e===document.activeElement),'Empty-results reverse boundary did not reach search');
+        await page.keyboard.press('Tab');assert(await close.evaluate(e=>e===document.activeElement),'Empty-results forward boundary did not reach close');
+        await page.keyboard.press('Escape');await dialog.waitFor({state:'hidden'});assert(await trigger.evaluate(e=>e===document.activeElement),'Escape did not restore focus');return{forwardTabs:12,reverseTabs:12,explicitBoundaryWrap:true,emptyResultsWrap:true};
       });
       await check('cancel before approval preserves decision truth and terminal controls',async()=>{
         await open(page);await page.getByRole('button',{name:'Cancel mission',exact:true}).click();await page.getByText('Mission cancelled before review. No approval or rejection was recorded.',{exact:true}).waitFor();

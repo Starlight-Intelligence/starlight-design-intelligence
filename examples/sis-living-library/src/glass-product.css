@@ -4,3 +4,5 @@
 @media(forced-colors:active){.g-page a,.g-kicker,.g-page em{color:LinkText}.g-page .sl-surface{border-color:CanvasText}.g-page .sl-button{border-color:ButtonText}}
 
 .g-page .g-specimen h2{font-size:24px;line-height:1.25}
+
+.g-theme{display:grid;gap:8px}
