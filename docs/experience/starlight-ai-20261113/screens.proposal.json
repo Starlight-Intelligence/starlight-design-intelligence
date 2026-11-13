@@ -1,0 +1,287 @@
+{
+  "schema": "starlight.ai_screen_plan.v1",
+  "status": "PROPOSED_NOT_IMPLEMENTED",
+  "flows": [
+    {
+      "id": "S01",
+      "name": "Create a workspace",
+      "flow": 1,
+      "job": "Start one useful project with explicit context boundaries.",
+      "primary": "Create workspace",
+      "surfaces": [
+        "desktop",
+        "tablet",
+        "mobile"
+      ],
+      "parts": [
+        "Workspace name",
+        "First outcome",
+        "Private by default",
+        "Optional invite later",
+        "Sample mission"
+      ],
+      "existing": "No verified account-backed workspace creation. /platform is a portable editor; sign-in setup is pending in the inspected live state.",
+      "mapping": "Existing TextField, Toggle, EmptyState; new WorkspaceCreate view and host adapter.",
+      "states": "Loading: hold name and intent. Empty: try sample without account. Error: inline name/server error; preserve inputs. Approval: invitations and connectors are separate explicit actions.",
+      "accept": "Submit once, reload accepted workspace, preserve failed input, no implicit connector grant; guest example starts no paid run."
+    },
+    {
+      "id": "S02",
+      "name": "Ask and inspect",
+      "flow": 2,
+      "job": "Ask a question, choose a route, inspect the resulting work.",
+      "primary": "Send",
+      "surfaces": [
+        "desktop",
+        "tablet",
+        "mobile",
+        "extension"
+      ],
+      "parts": [
+        "Project context chip",
+        "Requested model route",
+        "Assistant stream",
+        "Actual model identity",
+        "Artifact dock",
+        "Sources drawer"
+      ],
+      "existing": "ChatStream and extension Composer exist. /platform has a model-route select for exports; hosted cloud action is disabled in the observed state.",
+      "mapping": "ChatStream, ArtifactCard, StatusChip; adapt ModelSelector behind authoritative catalog. New ModelIdentity and DraftComposer acknowledgment.",
+      "states": "Loading: stable transcript and Stop request. Empty: three outcome examples. Error: preserve unsent draft and partial output. Approval: open exact scope before any external action.",
+      "accept": "IME-safe send, failed-send draft recovery, requested versus actual model labeled, unavailable route explained; never fabricate model/cost."
+    },
+    {
+      "id": "S03",
+      "name": "Choose a Star",
+      "flow": 3,
+      "job": "Choose the specialist by the result it can produce.",
+      "primary": "Configure Star",
+      "surfaces": [
+        "desktop",
+        "tablet",
+        "mobile"
+      ],
+      "parts": [
+        "Outcome search",
+        "Availability filter",
+        "Star result card",
+        "Inputs and output",
+        "Permission summary",
+        "Project defaults"
+      ],
+      "existing": "AgentCard and seven preview crew roles exist. Additional roles are blueprint in the shared roster.",
+      "mapping": "Retain AgentCard and AgentAvatar. Extend with typed outcome/input/output/availability. AgentPresence is a candidate companion.",
+      "states": "Loading: fixed-size cards. Empty: clear filters or use assistant. Error: keep last catalog labeled stale. Approval: configure scope then review plan; discovery never invokes.",
+      "accept": "Stable agentId, repeated cards have unique DOM IDs, unavailable Stars have truthful CTA, configuration survives Back; no personality-based authority."
+    },
+    {
+      "id": "S04",
+      "name": "Prepare a workflow",
+      "flow": 4,
+      "job": "Turn defined inputs into a bounded plan before execution.",
+      "primary": "Review plan",
+      "surfaces": [
+        "desktop",
+        "tablet",
+        "mobile"
+      ],
+      "parts": [
+        "Outcome card",
+        "Required inputs",
+        "Expected artifact",
+        "Source scope",
+        "Budget cap",
+        "Review plan"
+      ],
+      "existing": "Live /missions has brief inputs and a plan step for a public Node repository; no generalized workflow catalog was established.",
+      "mapping": "Reuse mission brief validation, TextField and EvidenceDisclosure. New WorkflowCard composition with authoritative input schema and permissions.",
+      "states": "Loading: preserve form. Empty: apply labeled sample input. Error: map errors to fields. Approval: review action/input revisions, scope and cap before Run.",
+      "accept": "Schema validates on client and server, no execution on card selection or model change, unsupported connector identified before run."
+    },
+    {
+      "id": "S05",
+      "name": "Follow a run",
+      "flow": 4,
+      "job": "See progress, inspect output, and handle uncertainty without losing work.",
+      "primary": "Open artifact",
+      "surfaces": [
+        "desktop",
+        "tablet",
+        "mobile",
+        "extension"
+      ],
+      "parts": [
+        "Run status",
+        "Step timeline",
+        "Actual models",
+        "Sources",
+        "Artifacts",
+        "Stop request"
+      ],
+      "existing": "Shared reducer, RunGraph, ChatStream and ArtifactCard exist. PR97 Command Center is a bounded local simulation.",
+      "mapping": "Use existing run reducer and cards. Project timeline from same state; add protocol-backed stopped/unknown states before UI exposure.",
+      "states": "Loading: queued/running text with last event time. Empty: no artifacts yet. Error: distinguish stream disconnected from run failed. Approval: waiting-for-review is separate from running.",
+      "accept": "Reconnect resumes by sequence; duplicate events do not duplicate effects; stopping stays pending until server confirms; artifacts stay readable after failure."
+    },
+    {
+      "id": "S06",
+      "name": "Inspect research",
+      "flow": 5,
+      "job": "Check a claim against the exact source and keep its limits visible.",
+      "primary": "Open original",
+      "surfaces": [
+        "desktop",
+        "tablet",
+        "mobile",
+        "extension"
+      ],
+      "parts": [
+        "Readable artifact",
+        "Inline claim anchors",
+        "Source list",
+        "Excerpt and locator",
+        "Retrieved timestamp",
+        "Source access state"
+      ],
+      "existing": "Artifacts expose provenance and hashes; ToolResult.sources is URL[] only. Claim-to-locator evidence requires a new shared projection.",
+      "mapping": "ArtifactCard plus EvidenceDisclosure; new SourceAnchor, SourceInspector and ClaimSupportView.",
+      "states": "Loading: keep claim in place. Empty: no source supplied. Error: denied/removed/stale source with original locator retained. Approval: new source access needs separate grant.",
+      "accept": "Citations focus matching source; Back restores reading position; unsupported claim says source missing; retrieved date is not publication date."
+    },
+    {
+      "id": "S07",
+      "name": "Project knowledge and memory",
+      "flow": 6,
+      "job": "Carry useful context forward while controlling who may retrieve it.",
+      "primary": "Save permission change",
+      "surfaces": [
+        "desktop",
+        "tablet",
+        "mobile"
+      ],
+      "parts": [
+        "Project files",
+        "Memory entries",
+        "Retrieval scope",
+        "Contributors",
+        "Usage provenance",
+        "Export and remove"
+      ],
+      "existing": "/platform has context/soul/starlight/memory/evidence files, opt-in local recovery, import/export. Live text says recovery is unencrypted and not account synced.",
+      "mapping": "Retain portable editor/import/export. Tabs, DataTable, EvidenceDisclosure, Toggle; new access-policy adapter.",
+      "states": "Loading: do not replace editor text. Empty: add a file or sample. Error: save conflict retains both revisions. Approval: distinguish personal/project/team scope and future retrieval revocation.",
+      "accept": "Cloud save only after acknowledgment; tab/device/account states differ; scope change enforced server-side; removal explains future retrieval versus historical run copies."
+    },
+    {
+      "id": "S08",
+      "name": "Usage and subscription",
+      "flow": 7,
+      "job": "Understand metered use and a plan change before committing.",
+      "primary": "Review plan change",
+      "surfaces": [
+        "desktop",
+        "tablet",
+        "mobile"
+      ],
+      "parts": [
+        "Current entitlement",
+        "Billing period",
+        "Included and reserved use",
+        "Unknown measurements",
+        "Plan comparison",
+        "Change summary"
+      ],
+      "existing": "PR97 UsageDisplay honestly handles unknown values; PricingCard is one-time pricing and CheckoutSummary is a local order specimen. No live subscription flow established.",
+      "mapping": "Reuse UsageDisplay behavior. New SubscriptionPlan and BillingChange view models; do not adapt one-time card copy by hiding labels.",
+      "states": "Loading: retain last measured timestamp. Empty: no billable usage. Error: unavailable billing/entitlement state. Approval: effective date, currency, tax and total from server preview before commit.",
+      "accept": "No invented price, reset date or free allowance; amount/currency/period explicit; denied quota preserves work; pending payment is not entitlement."
+    },
+    {
+      "id": "S09",
+      "name": "Capture from the browser",
+      "flow": 8,
+      "job": "Save only the selected page material into the intended project.",
+      "primary": "Save selection",
+      "surfaces": [
+        "extension",
+        "desktop",
+        "tablet",
+        "mobile"
+      ],
+      "parts": [
+        "Origin and page title",
+        "Selection preview",
+        "Capture scope",
+        "Project destination",
+        "Save state",
+        "Open in workspace"
+      ],
+      "existing": "Extension sidepanel App/PageAccess and capture-visible, read-active-tab, send-to-mission tools exist in source; installed release not verified.",
+      "mapping": "Reuse page-access guard, selected-text prefill and ArtifactCard. New capture acknowledgment and deduplication adapter.",
+      "states": "Loading: one pending save. Empty: select text or use chosen page. Error: access denied/offline queue labeled. Approval: explicit page/selection scope; no background tab access.",
+      "accept": "Preview exact payload and destination; credentials/query secrets excluded; save success requires receipt; retry same captureId avoids duplicate; queued differs from saved."
+    },
+    {
+      "id": "S10",
+      "name": "Capture an idea by voice",
+      "flow": 9,
+      "job": "Keep an idea quickly, then decide when its text may leave the device.",
+      "primary": "Save capture",
+      "surfaces": [
+        "mobile"
+      ],
+      "parts": [
+        "Recording control",
+        "Elapsed time",
+        "Pause and stop",
+        "Transcript editor",
+        "Destination",
+        "Local/queued/saved status"
+      ],
+      "existing": "Native mobile is absent from the inspected CLIENT_SURFACES list (extension and desktop only). This is a concept, not an implemented Starlight mobile screen.",
+      "mapping": "New native recorder/share adapter; reuse token roles, CaptureView contract and destination language. No native stack choice made here.",
+      "states": "Loading: processing with audio retained until policy says otherwise. Empty: tap to record or type. Error: permission denial offers text; offline preserves local draft. Approval: disclose off-device transcription before sending.",
+      "accept": "One-handed 48dp controls, stop recording on interruption, permission denied recovery, encrypted local queue and explicit sync acknowledgment; no automatic run."
+    },
+    {
+      "id": "S11",
+      "name": "Review an agent action",
+      "flow": 9,
+      "job": "Approve the exact action with enough context to accept responsibility.",
+      "primary": "Approve exact action",
+      "surfaces": [
+        "desktop",
+        "tablet",
+        "mobile",
+        "extension"
+      ],
+      "parts": [
+        "Actor and project",
+        "Action and full scope",
+        "Destination and data",
+        "Revision and expiry",
+        "Budget impact",
+        "Approve / Decline"
+      ],
+      "existing": "Web ApprovalCard binds artifacts and shows replay resolution. Shared RunApproval only has pending/approved/rejected; expiry/revision binding not established in projection.",
+      "mapping": "Retain authoritative ApprovalCard; new pending-submission/stale/expired/unknown adapter after protocol support. Extension platform decisions may require console.",
+      "states": "Loading: buttons disabled while full scope loads. Empty: no decisions waiting. Error: submission outcome unknown; inspect same approval before retry. Approval: changed/expired requests cannot be accepted.",
+      "accept": "Server binds actor, tenant, run, scope hash, revision and expiry; no swipe/notification approval; offline read only; retry idempotent; decision receipt separate from execution result."
+    }
+  ],
+  "flow_count": 9,
+  "screen_count": 11,
+  "reference_viewports": [
+    1440,
+    768,
+    390,
+    360
+  ],
+  "source_refs": {
+    "web_commit": "f4e7631e3ba3ceb0b2d7ca0b7cc22f955ee88fab",
+    "design_commit": "4426ddc83c4a14238e15b262fb1dfc8d3c018624",
+    "living_candidate_commit": "e48f07f85056b6561fb0f3133365c7088573b16b",
+    "brand_owner": "public/brand/identity.json in web repository",
+    "runtime_component_owner": "packages/ui in web repository"
+  }
+}
