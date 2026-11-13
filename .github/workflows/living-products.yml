@@ -16,6 +16,8 @@ jobs:
         working-directory: examples/sis-living-library
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -24,9 +26,13 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm test
+      - name: Check audit measurement and provenance helpers
+        run: node --test scripts/release-audit-metrics.test.mjs
       - run: npm run build && npm run check:budgets
       - name: Compare reviewed visual baselines
         run: npm run test:products
+      - name: Audit preferences, keyboard, narrow reflow and production-build runtime
+        run: node scripts/release-browser-audit.mjs
       - name: Preserve candidate evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -34,5 +40,6 @@ jobs:
           name: living-products-candidate-evidence
           path: |
             examples/sis-living-library/test-results/products/
+            examples/sis-living-library/test-results/release-audit/
             examples/sis-living-library/tests/visual/
           retention-days: 3

@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './App';
 import Experiences from './Experiences';
+import GlassProduct from './GlassProduct';
 import '@fontsource/instrument-sans/latin-400.css';
 import '@fontsource/instrument-sans/latin-500.css';
 import '@fontsource/instrument-sans/latin-600.css';
@@ -14,4 +15,4 @@ import './components.css';
 const isLibrary = window.location.pathname === '/library.html';
 if (isLibrary) await import('./studio.css');
 
-createRoot(document.getElementById('root')!).render(<React.StrictMode>{isLibrary ? <App /> : <Experiences />}</React.StrictMode>);
+createRoot(document.getElementById('root')!).render(<React.StrictMode>{isLibrary ? <App /> : window.location.pathname==='/glass.html' ? <GlassProduct/> : <Experiences />}</React.StrictMode>);

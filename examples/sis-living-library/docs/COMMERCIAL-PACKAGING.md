@@ -24,9 +24,7 @@ Stripe discovery returned only a live context on 13 November. No provider write 
 
 ## Proposed license and service terms
 
-Draft for owner/legal review, not operative terms: one purchaser may modify delivered source in their own and client end products; the client receives the end product, not rights to resell the kit. Pro may cover a named small team; decide seats before sale. Prohibit standalone source/template redistribution and retain upstream notices. Exclude Starlight trademarks and third-party assets without redistribution rights. Update duration, upgrade credit and continuing source rights require final terms.
-
-Proposed support: installation and reproducible defects for 30 days, initial response within two business days; custom builds and third-party hosting are separate. Proposed voluntary refund window: 14 days, subject to applicable consumer rights and owner review. Do not claim downloads automatically remove statutory rights; prepare any required informed consent separately. No terms are accepted or published here.
+The concrete proposal is [COMMERCIAL-LICENSE-DRAFT.md](COMMERCIAL-LICENSE-DRAFT.md), version `starlight-glass-commercial-1.0-draft`. It supersedes the earlier open seat/update questions here: Essential one developer, Professional and Command Center three named developers, perpetual acquired-source use, 12 months of fixes/minor updates, 30-day installation/defect support, two-business-day initial response target and a proposed 14-day first-purchase refund. These remain owner-review decisions, not operative grants. Final terms/hash, seller/contact, tax display and refund/end-product treatment must be approved and bound to the purchase before any sale. No download automatically removes statutory rights.
 
 ## Entitlement and delivery design
 
