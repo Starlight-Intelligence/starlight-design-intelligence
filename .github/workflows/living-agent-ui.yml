@@ -1,0 +1,45 @@
+name: Living Agent UI candidate
+on:
+  pull_request:
+    paths: ['examples/sis-living-library/agent/**', '.github/workflows/living-agent-ui.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  candidate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: examples/sis-living-library/agent/package-lock.json
+      - name: Recover the unchanged foundation archive
+        working-directory: examples/sis-living-library
+        run: npm ci --ignore-scripts && npm run build:package
+      - name: Install pinned add-on and test
+        working-directory: examples/sis-living-library/agent
+        run: |
+          mkdir -p release
+          cp ../release/starlight-living-design-0.2.0.tgz release/
+          npm ci --ignore-scripts
+          npm run check
+          npm test
+          npm run build
+          npm run build:demo
+          npm pack --ignore-scripts --pack-destination release
+          npx playwright install --with-deps chromium
+          npm run test:e2e
+      - name: Build independent packaged Next consumer
+        working-directory: examples/sis-living-library/agent/examples/next-app
+        run: npm ci --ignore-scripts && npm run build
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: living-agent-ui-evidence
+          path: examples/sis-living-library/agent/test-results/
+          retention-days: 3
