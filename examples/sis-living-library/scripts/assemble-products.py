@@ -21,7 +21,7 @@ for name,price,paths in editions:
     mapping['release/'+tarball.name]=tarball
     if name!='premium-builder-bundle':
         readme=release/(name+'-README.md')
-        body='# '+name.replace('-',' ').title()+' / RC 0.2\n\nPrivate review candidate. Source rights are unchanged; commercial license and fulfillment approval remain pending.\n\n'
+        body='# '+{'living-glass-ui-kit':'Living Glass UI Kit','ai-startup-launch-kit':'AI Startup Launch Kit'}[name]+' / RC 0.2\n\nPrivate review candidate. Source rights are unchanged; commercial license and fulfillment approval remain pending.\n\n'
         if name=='living-glass-ui-kit':
             body+='Install the compiled package in your own React 19 application:\n\n```sh\nnpm install ./release/starlight-living-design-0.2.0.tgz\n```\n\nImport @starlight/living-design/styles.css and the named components. This edition contains the UI foundation, icons, tokens and documentation; a complete application starter is included in the other editions. Original TypeScript sources are in src/.\n'
         else:
