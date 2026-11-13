@@ -19,6 +19,16 @@ receipts=[]
 for name,price,paths in editions:
     mapping={str(p.relative_to(root)):p for p in paths}
     mapping['release/'+tarball.name]=tarball
+    if name!='premium-builder-bundle':
+        readme=release/(name+'-README.md')
+        body='# '+name.replace('-',' ').title()+' / RC 0.2\n\nPrivate review candidate. Source rights are unchanged; commercial license and fulfillment approval remain pending.\n\n'
+        if name=='living-glass-ui-kit':
+            body+='Install the compiled package in your own React 19 application:\n\n```sh\nnpm install ./release/starlight-living-design-0.2.0.tgz\n```\n\nImport @starlight/living-design/styles.css and the named components. This edition contains the UI foundation, icons, tokens and documentation; a complete application starter is included in the other editions. Original TypeScript sources are in src/.\n'
+        else:
+            body+='The independent Next.js application is included. From this extracted directory:\n\n```sh\ncd examples/next-app\nnpm ci\nnpm run build\nnpm run start\n```\n\nOpen the local address printed by Next. The / route is the workspace; /launch is the SaaS launch and local order-preview template. Both consume the archive at release/starlight-living-design-0.2.0.tgz. No internal service or provider credentials are required.\n'
+        body+='\nSee docs/INSTALLATION.md for customization, theme selection, adapters and deployment.\n'
+        readme.write_text(body)
+        mapping['README.md']=readme
     if name=='premium-builder-bundle':
         for p in (root/'test-results').rglob('*'):
             if p.is_file(): mapping['verification/'+str(p.relative_to(root/'test-results'))]=p
