@@ -1,0 +1,10 @@
+import { createRoot } from "react-dom/client";
+import "@starlight/living-design/styles.css";
+import "@fontsource/instrument-sans/latin-400.css";
+import "@fontsource/instrument-sans/latin-500.css";
+import "@fontsource/instrument-sans/latin-600.css";
+import "@fontsource/ibm-plex-mono/latin-400.css";
+import "./agent.css";
+import "./demo.css";
+import { AgentWorkbench } from "./Workbench.js";
+createRoot(document.getElementById("root")!).render(<AgentWorkbench />);

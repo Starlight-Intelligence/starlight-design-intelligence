@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": [
+    "src/index.ts",
+    "src/contracts.ts",
+    "src/components.tsx",
+    "src/ag-ui.ts",
+    "src/copilotkit.tsx",
+    "src/a2ui.tsx",
+    "src/Workbench.tsx",
+    "src/fixtures.ts"
+  ]
+}
