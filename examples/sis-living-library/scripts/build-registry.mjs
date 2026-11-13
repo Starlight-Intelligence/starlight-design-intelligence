@@ -1,6 +1,7 @@
 import { readFile, mkdir, writeFile, copyFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import {buildContract} from './component-contract.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const sources=['index.ts','components.tsx','components.css','tokens.css','icons.tsx','product-components.tsx','product-components.css'];
 const item={
@@ -15,4 +16,5 @@ await writeFile(path.join(root,'registry.json'),JSON.stringify({$schema:'https:/
 await mkdir(path.join(root,'public','icons'),{recursive:true});
 const {readdir}=await import('node:fs/promises');
 for(const name of await readdir(path.join(root,'assets','icons')))if(name.endsWith('.svg'))await copyFile(path.join(root,'assets','icons',name),path.join(root,'public','icons',name));
+await writeFile(path.join(root,'public','r','component-contracts.json'),JSON.stringify(await buildContract(root))+'\n');
 console.log(`Built one registry item with ${item.files.length} source files and 24 downloadable icons.`);

@@ -1,131 +1,39 @@
-# Living Design commercial packaging
+# Foundry offers / private review candidate
 
-Release candidate: 0.2.0. Prices below are the owner's target one-time EUR prices,
-not evidence of configured checkout, tax treatment, sales or customer acceptance.
-The source implementation and this packaging proposal remain separately reviewable.
+This revision supersedes the earlier €49/€149/€249 experiment. It updates the existing source family; no storefront is opened. `commercial/products.json` records proposed editions mapped to the existing FrankX `aurora-ui-kit` and `command-center-template` catalog IDs. Do not add a second product for the same purchase. GenCreator's generated manifest must continue to consume its existing product graph.
 
-## Product family
+| Product | Target | Source delivery |
+|---|---:|---|
+| Glass Core Essential | €79 | Compiled React package, 19 components, three candidate themes, 24 utility icons, tokens, typed agent contracts and docs |
+| Glass Core Professional | €149 | Essential plus independently buildable Next.js landing/dashboard consumer and Tailwind adapter |
+| Agent Command Center | €349 | Professional plus full Vite application, mission simulation, queue, approvals, agent registry, workflow, tool arguments, telemetry and exportable receipts |
 
-| Product | Target price | Delivery scope |
-| --- | --- | --- |
-| Living Glass UI Kit | €49 | Portable `@starlight/living-design` UI package, React component source, semantic dark/light tokens, original Signal utility icons, installation and customization documentation. |
-| AI Startup Launch Kit | €149 | Living Glass UI Kit plus a standalone Next.js template and the premium AI SaaS launch reference, including pricing and checkout UI states with a configurable checkout adapter. |
-| Premium Builder Bundle | €249 | AI Startup Launch Kit plus all four reference experiences, Vite and Next.js source, Figma-compatible SVG/token JSON exports, component documentation and release evidence. |
+Prices are hypotheses. Tax display, commercial terms, support commitment and fulfillment need owner review. No revenue, buyer validation, hosted runtime, live adapter or WCAG certification is claimed. Command actions are deterministic local simulations; refresh resets them.
 
-The four reference experiences are the Starlight Intelligence Console, StarBrowser
-assistant workspace, Founder and Investor Intelligence dashboard, and premium AI
-SaaS launch template. Their local fixture data demonstrates component behavior.
-It does not establish a hosted agent, browser connection, company research feed,
-wallet connection, model invocation or payment service.
+## Reproduce and inspect
 
-## Existing catalogue and checkout
+Run `npm ci && npm test && npm run build && npm run check:budgets && npm run build:package`, then `python3 scripts/assemble-products.py`. ZIPs contain per-file SHA-256 manifests, exact revision/dirty state and private npm archive. Use a clean commit for release receipts. Inspect extracted archives and build their consumers independently before admission. Environment files, symlinks, caches and untracked material must not enter deliveries.
 
-The existing commercial catalogue belongs to
-`frankxai/frankx.ai-vercel-website`, under `/products`. Its current design ladder
-already names `aurora-ui-kit` at `/products/aurora-ui-kit`; see the
-[existing product index](../../../playbooks/lead-magnets-and-products-design/INDEX.md).
-Treat Living Glass as a proposed evolution of that SKU. Reconcile its name,
-delivery version and target price in the owning storefront instead of creating
-a second checkout for the same core kit. The two larger packages are proposed
-upgrades in that same product family. This document creates no checkout URLs,
-payment products, entitlements or storefront records.
+The package remains `@starlight/living-design@0.2.0`, private and UNLICENSED. This staged version is not an immutable public release. Repackaging changes integrity; refresh the consumer lock against the final archive. Retain dependency notices and font OFL licenses. Starlight marks are demonstration branding, excluded from proposed buyer brand rights.
 
-Sale remains blocked until the owner selects the source redistribution terms,
-the existing storefront has verified checkout and fulfillment configuration,
-and customer acceptance of the delivered installation/customization/deployment
-journey has been recorded. Checkout components must remain visibly unavailable
-when a host has supplied no verified checkout adapter. A local confirmation
-must never claim a charge, order or entitlement.
+## Commerce boundary
 
-## Portable distribution contract
+FrankX `lib/checkout-products.ts`, `lib/checkout-gate.ts`, `lib/delivery.ts` and existing payment webhooks remain authoritative. Source inspection found closed offers; a closed offer is not a sandbox. Existing Polar source names the production endpoint. Do not reuse it for testing without a reviewed sandbox-only adapter.
 
-The intended distribution contains a local package tarball for
-`@starlight/living-design` version `0.2.0`; npm publication is not assumed.
-Its intended exports are:
+Stripe discovery returned only a live context on 13 November. No provider write was made. `commercial/sandbox-checkout.ts` prepares a test-only integration with injected transport; it is not wired to either app or storefront. Provider session, signed webhook, durable idempotent entitlement and private-object delivery rehearsals require an available sandbox. A browser success redirect never grants access.
 
-| Import | Purpose |
-| --- | --- |
-| `@starlight/living-design` | React components and public TypeScript API. |
-| `@starlight/living-design/styles.css` | Semantic tokens and component styles, imported once by the consuming application. |
-| `@starlight/living-design/tokens.json` | Machine-readable token exchange for design tools and custom projections. |
-| `@starlight/living-design/tailwind.css` | Tailwind theme adapter; import after Tailwind in a Tailwind application. |
+## Proposed license and service terms
 
-Use the actual archive filename returned by the release build. For example, from
-the directory containing `starlight-living-design-0.2.0.tgz`:
+Draft for owner/legal review, not operative terms: one purchaser may modify delivered source in their own and client end products; the client receives the end product, not rights to resell the kit. Pro may cover a named small team; decide seats before sale. Prohibit standalone source/template redistribution and retain upstream notices. Exclude Starlight trademarks and third-party assets without redistribution rights. Update duration, upgrade credit and continuing source rights require final terms.
 
-```sh
-npm install ./starlight-living-design-0.2.0.tgz
-```
+Proposed support: installation and reproducible defects for 30 days, initial response within two business days; custom builds and third-party hosting are separate. Proposed voluntary refund window: 14 days, subject to applicable consumer rights and owner review. Do not claim downloads automatically remove statutory rights; prepare any required informed consent separately. No terms are accepted or published here.
 
-Install the React peer versions declared in the delivered package manifest.
-Keep the application's own dependency lockfile. The package tarball, native
-source, dependency notices and accompanying evidence must identify the same
-release revision.
+## Entitlement and delivery design
 
-In a Vite application's entry module, or the global layout stylesheet import
-boundary of a Next.js application:
+The storefront must verify provider signature and test/live environment, retrieve the paid order server-side, bind product/edition/amount/currency, and use a unique order plus artifact version in a durable transaction. Duplicate events resolve to one entitlement; refunds follow the owner ledger. A verified entitlement may request a short-lived signed object URL bound to an immutable approved artifact/hash. Never trust client product, success URL, path or storage key. No download bucket or token was created.
 
-```tsx
-import '@starlight/living-design/styles.css';
-import { StarlightButton } from '@starlight/living-design';
+Affiliate proposal: carry consented referral identity through order metadata; commission only settled eligible revenue after refunds. No enrollment or remote tracking is activated. Event contracts carry version, anonymous session and coarse state, without prompts, evidence text, credentials or buyer email. Demo events measure engagement; only verified provider receipts count as revenue. Support and refunds belong in contribution calculations.
 
-export function Example() {
-  return (
-    <section data-theme="daylight">
-      <StarlightButton onClick={() => window.alert('Local example')}>
-        Inspect the example
-      </StarlightButton>
-    </section>
-  );
-}
-```
+## Platform distribution
 
-In Next.js, place an interactive component such as this example behind a
-`'use client'` boundary. Keep the global CSS import in the root layout. The
-distributed Next.js source must build independently; buyers must not resolve
-source imports through this repository or a private workspace path.
-
-For Tailwind, retain the core stylesheet import and add the adapter to the
-application's global CSS:
-
-```css
-@import 'tailwindcss';
-@import '@starlight/living-design/tailwind.css';
-```
-
-The Vite and Next.js source deliveries must each include their own `package.json`,
-lockfile, build/start commands and local fixtures. Follow those delivered
-READMEs for exact commands. No Starlight runtime account, internal API, private
-environment file or paid model credential is required to inspect and deploy
-the references. Any buyer-supplied integration must be explicit and optional.
-
-## Customization and design handoff
-
-Override semantic roles in an application-owned selector after importing the
-core styles. Keep `data-theme="midnight"` or `data-theme="daylight"` at the
-application root; use component-local scopes for independent specimens. Follow
-[brand adapters](BRAND-ADAPTERS.md) before applying a portfolio identity. Validate
-foreground/background, focus and state colors after every palette override.
-
-SVGs and token JSON are Figma-compatible inputs. They are not a published Figma
-library or evidence of native Auto Layout, component parity or Code Connect.
-Keep editable-design identifiers and private handoff receipts outside this
-public repository, following the
-[native template pipeline](../../../playbooks/figma-template-pipeline.md).
-
-## Rights and release evidence
-
-Existing source rights remain unchanged. The Living Library's original source,
-icons, marks and documentation carry no new permissive or commercial
-redistribution grant through this proposal. Preserve
-[provenance and distribution terms](PROVENANCE.md), dependency notices and font
-licenses. `@starlight/materials` declares its own Apache-2.0 terms; that declaration
-does not relicense the Living Library or its branding. A buyer's ability to
-customize source requires explicit delivery terms before sale.
-
-The release artifact must retain its source revision, build output, package
-contents and dependency versions, clean-consumer install/build results, actual
-desktop/mobile screenshots, accessibility findings, visual-regression results
-and measured performance budgets. Label each result by its executed scope.
-A prepared archive, successful local build or preview does not establish a
-completed purchase or customer acceptance.
+React and the Next/Vite consumers are the implementation path. Figma-compatible DTCG JSON is a token projection, not native component parity. Framer requires separate code-component wrappers and native layout tests. Webflow requires native variables/components/interactions and platform previews. Prepare submissions after native versions exist; do not advertise lossless conversion. See `MARKETPLACE-DRAFTS.md`.

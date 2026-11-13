@@ -55,3 +55,22 @@ Use bg-sl-canvas, text-sl-foreground, border-sl-border and rounded-sl-md for mat
 Replace src/fixtures.ts with your own typed records and external adapters. The fixture flag must remain until all displayed data is authoritative. No automatic provider calls occur. Build with npm run build and deploy dist/ as a static site, or deploy the included Next app to your chosen Node host. No deployment URL is assumed.
 
 Run npm run test:products for the four reference journeys and axe checks, and npm run check:budgets after the build. Set UPDATE_SNAPSHOTS=1 only when intentionally reviewing a new screenshot baseline; subsequent runs compare decoded PNG pixels. Browser executable selection uses STARLIGHT_CHROMIUM when provided.
+
+## Agent-readable discovery
+
+Read `/r/component-contracts.json` from the running demo, or import
+`@starlight/living-design/component-contracts.json` from the installed archive.
+The versioned manifest describes each component's explicit props, constraints,
+source hashes, installation and platform compatibility. TypeScript declarations
+remain authoritative for inherited native attributes and callback types.
+`npm test` type-checks all 19 included usage examples against the source API.
+Discovery grants no filesystem, payment, deployment or execution authority.
+
+`tokens.json` retains the existing DTCG typed token groups byte-for-byte. Figma
+requires an importer supporting those token types; Framer and Webflow require
+platform-specific adaptations. No lossless conversion is claimed.
+
+The package builder cleans its staging directory, checks an explicit file
+allowlist and compares npm's archive inventory. `release/package-receipt.json`
+records source revision, dirty state, per-file hashes and archive SHA-256. A dirty
+receipt is a local candidate, never exact-commit release proof.

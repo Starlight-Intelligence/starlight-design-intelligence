@@ -23,11 +23,9 @@ jobs:
           cache-dependency-path: examples/sis-living-library/package-lock.json
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - run: npm test
       - run: npm run build && npm run check:budgets
-      - name: Capture candidate baselines
-        if: ${{ hashFiles('examples/sis-living-library/tests/visual/*.png') == '' }}
-        run: UPDATE_SNAPSHOTS=1 npm run test:products
-      - name: Compare a second independent render
+      - name: Compare reviewed visual baselines
         run: npm run test:products
       - name: Preserve candidate evidence
         if: always()

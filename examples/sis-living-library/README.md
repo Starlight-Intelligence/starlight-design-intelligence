@@ -1,33 +1,25 @@
-# Starlight Living Design / RC 0.2
+# Starlight Design Foundry / RC 0.2.2
 
-19 React components, three semantic themes, 24 original SVG icons and four working reference experiences. Extends the existing Living Library in place.
+Extends the existing Living Library and PR #97 in place. Glass Core provides 19 typed React components, three candidate themes, 24 original utility icons, bounded CSS glass, opaque alternatives, token exports and read-only agent contracts. The Agent Command Center demonstrates mission approval, step execution, cancellation, idempotency, evidence and token/cost caps with explicit synthetic state.
 
 ```sh
 npm ci
-npm run dev
-```
-
-The root opens the Console, StarBrowser, Founder Intelligence and SaaS launch compositions. `/library.html` preserves the original component workbench. Every record is synthetic and every action is local.
-
-```sh
 npm test
 npm run build
 npm run check:budgets
 npm run build:package
-npm run build:standalone
+python3 scripts/assemble-products.py
 ```
 
-`build:package` creates compiled ESM, declarations, semantic styles, token JSON and a Tailwind 4 adapter in `release/starlight-living-design-0.2.0.tgz`. The package has React peers and no Starlight service dependency. It is private and unpublished; original source rights remain unchanged.
+`npm run dev` opens four experiences; `/library.html` retains the original component workbench. `npm run test:products` runs the existing 24-state browser checks and reviewed visual comparisons. Current console/launch changes require fresh browser review; old captures are historical baselines, not proof of this revision. New visual/axe/performance verification is blocked in the present executor by Chromium socket denial; the existing Vercel preview requires sign-in and serves an earlier SHA.
 
-See [installation](docs/INSTALLATION.md), [commercial editions](docs/COMMERCIAL-PACKAGING.md), [brand adapters](docs/BRAND-ADAPTERS.md), [direction](docs/PRODUCT-DIRECTION.md) and [current validation](docs/VALIDATION.md). The independent Next/Tailwind consumer is in `examples/next-app`. Run `npm ci && npm run build` there after building the package.
+The independent Next.js consumer is `examples/next-app`. After `build:package`, install its local archive, refresh the lock integrity and run `npm ci && npm run build`. Read-only agent discovery is `public/r/component-contracts.json`; shadcn source installation remains `public/r/starlight-living.json`. Registry metadata grants no filesystem, provider, payment or deployment authority.
 
-`/qa.html` runs axe and local journeys through 24 theme/device/view states in the browser; `/responsive.html` exposes a 390 × 844 CSS-pixel iframe. `npm run test:products` runs the same checks plus eight decoded-PNG comparisons. Missing baselines fail: inspect outputs and explicitly create reviewed baselines with `UPDATE_SNAPSHOTS=1 npm run test:products`. No baseline pass is claimed before execution.
+Target offers: Glass Core Essential €79; Professional €149; Agent Command Center €349. These map to existing storefront SKUs, remain closed, and carry no new license grant. The test-only checkout adapter is not connected to a provider or either application. Browser refresh resets the command simulation; it is not production authorization or persistence.
 
-CSS glass is portable and bounded. The separate `packages/materials` GPU package remains unchanged. Do not load both token sheets into one scope. [Integration boundary](docs/MATERIALS-INTEGRATION.md).
+Read [commercial packaging](docs/COMMERCIAL-PACKAGING.md), [listing/content drafts](docs/MARKETPLACE-DRAFTS.md), [installation](docs/INSTALLATION.md), [brand adapters](docs/BRAND-ADAPTERS.md) and the [execution record](../../docs/foundry/EXECUTION-2026-11-13.md). No production promotion, publication, payments, or new spend.
 
-Three proposed one-time editions: Living Glass UI Kit €49; AI Startup Launch Kit €149; Premium Builder Bundle €249. The existing FrankX catalogue owns commerce. This candidate enables no payment or entitlement and grants no new redistribution license.
-
-The previous workbench documentation follows as historical context. Its October validation does not cover RC 0.2.
+Historical 0.1 workbench context follows. Its verification does not cover the current RC.
 
 ---
 
