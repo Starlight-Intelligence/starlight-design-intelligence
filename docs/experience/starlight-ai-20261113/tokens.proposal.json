@@ -1,0 +1,200 @@
+{
+  "schema": "starlight.ai_experience_proposal.v1",
+  "status": "PROPOSED_NOT_ADOPTED",
+  "date": "2026-11-13",
+  "authority": {
+    "web_commit": "f4e7631e3ba3ceb0b2d7ca0b7cc22f955ee88fab",
+    "design_commit": "4426ddc83c4a14238e15b262fb1dfc8d3c018624",
+    "living_candidate_commit": "e48f07f85056b6561fb0f3133365c7088573b16b",
+    "brand_owner": "public/brand/identity.json in web repository",
+    "runtime_component_owner": "packages/ui in web repository"
+  },
+  "retained_brand": {
+    "ink": "#070A10",
+    "panel": "#0D1119",
+    "ivory": "#EDE6D8",
+    "paper": "#EFEDE7",
+    "gold": "#C9A15C",
+    "gold_bright": "#F0C87E",
+    "cyan": "#82D8E6"
+  },
+  "aliases_proposed": {
+    "surface.canvas": {
+      "dark": "#070A10",
+      "light": "#EFEDE7"
+    },
+    "surface.panel": {
+      "dark": "#0D1119",
+      "light": "#FFFFFF"
+    },
+    "text.primary": {
+      "dark": "#EDE6D8",
+      "light": "#070A10"
+    },
+    "text.secondary": {
+      "dark": "#A5ADB9",
+      "light": "#4C5563"
+    },
+    "action.primary": {
+      "dark": "#F0C87E",
+      "light": "#6B4A12"
+    },
+    "action.onPrimary": {
+      "dark": "#070A10",
+      "light": "#FFFFFF"
+    },
+    "focus": {
+      "dark": "#F0C87E",
+      "light": "#6B4A12"
+    },
+    "border.control": {
+      "dark": "#647084",
+      "light": "#657080"
+    },
+    "status.info": {
+      "dark": "#82D8E6",
+      "light": "#175564"
+    },
+    "status.warning": {
+      "dark": "#F0C87E",
+      "light": "#6B4A12"
+    },
+    "status.danger": {
+      "dark": "#FFB3AD",
+      "light": "#942C35"
+    },
+    "status.success": {
+      "dark": "#A6DCB8",
+      "light": "#245B38"
+    }
+  },
+  "spacing_css_px": [
+    4,
+    8,
+    12,
+    16,
+    24,
+    32,
+    48,
+    64
+  ],
+  "radii_css_px": {
+    "field": 8,
+    "card": 14,
+    "overlay": 24,
+    "existing_web_button": "preserve current pill until separately reviewed"
+  },
+  "type_roles": {
+    "interface": "Instrument Sans",
+    "accent": "Instrument Serif italic, brief headings only",
+    "code": "IBM Plex Mono",
+    "body_css_px": 16,
+    "body_line_height": 1.5,
+    "meta_css_px": 13,
+    "input_min_css_px": 16,
+    "reading_measure_ch": [
+      55,
+      72
+    ]
+  },
+  "geometry": {
+    "desktop": {
+      "min_css_px": 1200,
+      "rail": 224,
+      "inspector": 320,
+      "gutter": 32
+    },
+    "tablet": {
+      "min_css_px": 768,
+      "rail": 72,
+      "gutter": 24,
+      "inspector": "overlay, retain content width"
+    },
+    "mobile": {
+      "min_css_px": 320,
+      "gutter": 16,
+      "bottom_nav": 64,
+      "inspector": "full-screen route"
+    },
+    "extension": {
+      "min_css_px": 320,
+      "reference_css_px": 360,
+      "gutter": 16,
+      "navigation": "capture / ask / run; full workspace opens separately"
+    }
+  },
+  "motion_ms": {
+    "feedback": 120,
+    "panel_enter": 220,
+    "panel_exit": 160,
+    "approval_attention": 400,
+    "approval_attention_iterations": 1,
+    "reduced": 0
+  },
+  "motion_rules": [
+    "State is never encoded only by animation",
+    "No moving shell, animated blur, or token-by-token live announcements",
+    "One finite attention pulse only after a new approval event; deduplicate by approvalId",
+    "Reduced motion uses direct state changes; busy text remains"
+  ],
+  "glass": {
+    "scope": "optional composer/inspector chrome only",
+    "max_visible_backdrops": 2,
+    "nested_backdrops": false,
+    "blur_max_css_px": 18,
+    "essential_reading": "opaque",
+    "fallback": "opaque panel for reduced transparency, unsupported filters, forced colors and battery-conscious native mode"
+  },
+  "targets": {
+    "web_primary_min_css_px": 44,
+    "android_min_dp": 48,
+    "ios_min_pt": 44,
+    "web_control_contrast": 3,
+    "text_contrast": 4.5,
+    "large_text_contrast": 3
+  },
+  "states": {
+    "availability": [
+      "live",
+      "preview",
+      "recorded",
+      "blueprint",
+      "unavailable"
+    ],
+    "execution_proposed": [
+      "idle",
+      "queued",
+      "running",
+      "waiting_for_approval",
+      "stop_requested",
+      "stopped",
+      "completed",
+      "failed",
+      "outcome_unknown"
+    ],
+    "connection": [
+      "connected",
+      "reconnecting",
+      "offline"
+    ],
+    "approval_proposed": [
+      "loading",
+      "pending",
+      "submitting",
+      "approved",
+      "rejected",
+      "expired",
+      "scope_changed",
+      "outcome_unknown"
+    ],
+    "save": [
+      "draft_local",
+      "queued",
+      "syncing",
+      "saved",
+      "failed",
+      "conflict"
+    ]
+  },
+  "migration": "Do not import the Living Library root barrel into the web application. Both own global --sl-* tokens and .sl-* selectors. Port selected primitives behind the existing @starlight/ui API or scope all candidate CSS and adapt tokens explicitly. No runtime adoption in this proposal."
+}
