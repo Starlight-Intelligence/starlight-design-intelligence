@@ -219,7 +219,7 @@ if (JSON.stringify(humanBrandIds) !== JSON.stringify(runtimeBrandIds)) {
     `human/runtime brand packs differ: human=[${humanBrandIds.join(", ")}], runtime=[${runtimeBrandIds.join(", ")}]`
   );
 }
-if (workflowFiles.length !== 4) failures.push(`expected 4 runtime workflow packs, found ${workflowFiles.length}`);
+if (workflowFiles.length !== 5) failures.push(`expected 5 runtime workflow packs, found ${workflowFiles.length}`);
 
 if (failures.length) {
   console.error(`Design kernel validation failed (${failures.length}):`);

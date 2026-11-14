@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "starlight.diagramRegistry.v1",
+  "compiler": "scripts/compile-brand-diagrams.mjs",
+  "wcagMinimumContrast": 4.5,
+  "diagrams": [
+    {
+      "id": "frankx-opencode-gateway-stack",
+      "title": "OpenCode to Cloudflare AI Gateway Execution Stack",
+      "brand": "frankx",
+      "archetype": "stack-tiers",
+      "specPath": "brand-image-system/specs/diagrams/frankx-opencode-gateway-stack.diagram.json",
+      "specSha256": "5c5a9cb2cf727ffa7f3281e6d59579ec8c2ed8b3fa20fedb4a600c2e595fdd2a",
+      "variants": {
+        "dark": {
+          "file": "frankx-opencode-gateway-stack.dark.svg",
+          "sha256": "0ba4af7dfead636d68eeddb7afc7fb1fa1ba24905a11bd95abd84e6e16f6aaf3",
+          "bytes": 15957,
+          "width": 1440,
+          "height": 888,
+          "minContrastRatio": 8.19,
+          "wcagAA": true,
+          "overflowCount": 0
+        },
+        "light": {
+          "file": "frankx-opencode-gateway-stack.light.svg",
+          "sha256": "dbb12c45e9a9fbf2d814c826d8c2b864a2d8179284df0472fdd284237399b895",
+          "bytes": 15968,
+          "width": 1440,
+          "height": 888,
+          "minContrastRatio": 7.29,
+          "wcagAA": true,
+          "overflowCount": 0
+        }
+      }
+    },
+    {
+      "id": "gencreator-creator-roadmap",
+      "title": "Source-Led Creator Publishing & Release Roadmap",
+      "brand": "gencreator",
+      "archetype": "curriculum-roadmap",
+      "specPath": "brand-image-system/specs/diagrams/gencreator-creator-roadmap.diagram.json",
+      "specSha256": "5278f9839b4cbc0c2c3719dc604ab4f1b37763e7a8afebb96828feefb8458a82",
+      "variants": {
+        "dark": {
+          "file": "gencreator-creator-roadmap.dark.svg",
+          "sha256": "1253d4a63daaf1fe953858200e80cacd2398aba14a5f745991ebc25768af459f",
+          "bytes": 18779,
+          "width": 1520,
+          "height": 860,
+          "minContrastRatio": 6.86,
+          "wcagAA": true,
+          "overflowCount": 0
+        },
+        "light": {
+          "file": "gencreator-creator-roadmap.light.svg",
+          "sha256": "2803144670a6c88a8570c7faade379c0ef5897c43851229257af053a4a0acf3c",
+          "bytes": 18790,
+          "width": 1520,
+          "height": 860,
+          "minContrastRatio": 6.91,
+          "wcagAA": true,
+          "overflowCount": 0
+        }
+      }
+    },
+    {
+      "id": "sis-agentic-architecture",
+      "title": "Governed Multi-Agent Memory & Verification Architecture",
+      "brand": "sis",
+      "archetype": "layered-architecture",
+      "specPath": "brand-image-system/specs/diagrams/sis-agentic-architecture.diagram.json",
+      "specSha256": "a3622f72a6f007652d8e0e5bf424347896512e1c23e44e5b0928e41252f9345d",
+      "variants": {
+        "dark": {
+          "file": "sis-agentic-architecture.dark.svg",
+          "sha256": "c53752df67b71d058ea5dd9945c9f26e631600a3e908fc5c869a202e71b74f64",
+          "bytes": 24638,
+          "width": 1520,
+          "height": 940,
+          "minContrastRatio": 9.04,
+          "wcagAA": true,
+          "overflowCount": 0
+        },
+        "light": {
+          "file": "sis-agentic-architecture.light.svg",
+          "sha256": "2761fa838bece6b85454048e7cf496ed0e355491221e82a70f77f4d79562e888",
+          "bytes": 24653,
+          "width": 1520,
+          "height": 940,
+          "minContrastRatio": 6.84,
+          "wcagAA": true,
+          "overflowCount": 0
+        }
+      }
+    }
+  ]
+}

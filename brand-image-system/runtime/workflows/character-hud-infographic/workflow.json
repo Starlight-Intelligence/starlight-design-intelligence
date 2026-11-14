@@ -1,0 +1,81 @@
+{
+  "$schema": "../../schemas/workflow-pack.schema.json",
+  "workflowId": "character-hud-infographic",
+  "displayName": "Hybrid Living-World Character Scene + Glassmorphic HUD Infographic",
+  "purpose": "Pair an inhabited Living-World shared-craft character scene with a deterministic code/SVG glassmorphic HUD overlay so tactile material identity and 100% crisp inspectable typography coexist without synthetic raster text.",
+  "surfaces": [
+    "character HUD infographic",
+    "editorial technical explainer",
+    "product architecture feature",
+    "social explainer",
+    "living-world showcase"
+  ],
+  "allowedProductionRoutes": [
+    "living-world character backplate with deterministic SVG HUD overlay",
+    "deterministic SVG or HTML HUD blueprint",
+    "Playwright or Satori composite capture",
+    "Figma composite with locked deterministic SVG labels"
+  ],
+  "requiredOutputs": [
+    { "kind": "source brief", "pathHint": "brief.md" },
+    { "kind": "source register", "pathHint": "sources.json" },
+    { "kind": "living-world backplate", "pathHint": "backplate/scene.png", "dimensions": "1920x1080" },
+    { "kind": "deterministic HUD overlay", "pathHint": "hud/overlay.svg", "dimensions": "1920x1080" },
+    { "kind": "main composite visual", "pathHint": "crops/main.png", "dimensions": "1920x1080" },
+    { "kind": "open graph crop", "pathHint": "crops/og.png", "dimensions": "1200x630" },
+    { "kind": "provenance sidecar", "pathHint": "crops/main.vis.provenance.json" },
+    { "kind": "evidence", "pathHint": "evidence.json" }
+  ],
+  "qaGates": [
+    "actual export inspected",
+    "brand pack and reference locks loaded",
+    "relational shared-craft action verified",
+    "material truth preserved (matte ceramic, aged copper, woven cloud hoodie, porcelain whale, indigo lunar moth, translucent sapphire glass)",
+    "provenance sidecar records identity_id, prompt_fidelity, edition, reference_loaded, positive_invariants, specific_negative_lessons, rights_state",
+    "deterministic SVG HUD text contrast >= 4.5:1 and zero glyph overflow",
+    "zero baked small UI text in raster backplate",
+    "zero invented KPIs or uncited metrics",
+    "independent review and human approval"
+  ],
+  "scoreThreshold": 29,
+  "scoreScale": 30,
+  "blockedRoutes": [
+    "raw image generation for small UI text, HUD labels, or telemetry",
+    "invented KPI metrics or fabricated telemetry counters",
+    "unreferenced character lookalike generation without retrieved identity sheet",
+    "universal plastic gloss overriding per-character materials",
+    "static character lineup substituting for relational shared-craft action",
+    "decorative glass HUD chrome without explanatory signal"
+  ],
+  "provenanceSidecarContract": {
+    "schemaRef": "../../schemas/vis-provenance-sidecar.schema.json",
+    "requiredFields": [
+      "identity_id",
+      "prompt_fidelity",
+      "edition",
+      "reference_loaded",
+      "positive_invariants",
+      "specific_negative_lessons",
+      "rights_state"
+    ],
+    "allowedPromptFidelity": ["EXACT", "RECONSTRUCTED", "NEW_HYPOTHESIS", "MISSING"],
+    "allowedEditions": ["cinematic", "identity", "pet", "UI", "editorial"],
+    "missingReferenceBehavior": "BLOCKED_REFERENCE"
+  },
+  "antiSlopRules": {
+    "zeroBakedSmallUiText": true,
+    "zeroInventedKpis": true,
+    "deterministicHudRequired": true,
+    "minHudContrastRatio": 4.5,
+    "canonicalMaterialAnchors": [
+      "matte ceramic",
+      "aged copper",
+      "woven cloud hoodie",
+      "porcelain whale",
+      "indigo lunar moth",
+      "translucent sapphire glass"
+    ]
+  },
+  "approvalRequired": true,
+  "updatedAt": "2026-11-11"
+}
