@@ -104,7 +104,7 @@ export function compileBrand({ id, pack, foundations, sources }) {
     ...sources.map((s) => `/* source: ${s.path} sha256:${s.sha256} */`),
     `/* Adoption needs an owning-repository pin change and application QA. */`,
     "",
-    block(`[data-brand="${id}"]`, [...decls, ...material]),
+    block(`:root[data-brand="${id}"], [data-brand="${id}"]`, [...decls, ...material]),
     "",
     block("@theme inline", theme),
   ];

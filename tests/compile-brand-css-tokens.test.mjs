@@ -14,7 +14,7 @@ test("compiles deterministic CSS for every brand in the runtime registry", () =>
     const first = compileBrand(loadBrand(id));
     const second = compileBrand(loadBrand(id));
     assert.equal(first, second, `${id} output must be byte-identical across runs`);
-    assert.match(first, new RegExp(`\\[data-brand="${id}"\\]`));
+    assert.match(first, new RegExp(`:root\\[data-brand="${id}"\\], \\[data-brand="${id}"\\]`));
     assert.match(first, /@theme inline/);
     assert.doesNotMatch(first, /undefined|NaN/);
   }
