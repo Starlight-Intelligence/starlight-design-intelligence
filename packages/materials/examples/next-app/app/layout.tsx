@@ -28,6 +28,7 @@ const routes = [
   { href: '/glass', label: 'Glass' },
   { href: '/paper', label: 'Paper' },
   { href: '/ink', label: 'Ink' },
+  { href: '/agent', label: 'Agent' },
 ] as const;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
