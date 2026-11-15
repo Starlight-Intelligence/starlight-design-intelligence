@@ -157,3 +157,249 @@ test("excludes root internal markdown docs in static repos without an app root",
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test("extracts JSX inside conditional and map child expressions with exact line numbers", () => {
+  const dir = makeFixture({
+    "app/page.tsx": [
+      `export default function Home({ ready, items }: { ready: boolean; items: string[] }) {`,
+      `  return (`,
+      `    <main>`,
+      `      <h1>Ship releases</h1>`,
+      `      <a href="/start">Start</a>`,
+      `      {ready && <p>Hourly consulting</p>}`,
+      `      {items.map((item) => <span key={item}>Starlight Holding BV</span>)}`,
+      `    </main>`,
+      `  );`,
+      `}`,
+    ].join("\n"),
+    "public/llms.txt": `# Site\n`,
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "landing" });
+    assert.equal(res.ok, false);
+    const consulting = res.errors.find((e) => e.rule === "void-claim:consulting-or-1on1");
+    const bv = res.errors.find((e) => e.rule === "void-claim:nonexistent-bv");
+    assert.ok(consulting, JSON.stringify(res.errors));
+    assert.equal(consulting.line, 6);
+    assert.ok(bv, JSON.stringify(res.errors));
+    assert.equal(bv.line, 7);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("preserves text after inline closing tags for both violation detection and negation context", () => {
+  const dir = makeFixture({
+    "app/page.tsx": [
+      `export default function Home() {`,
+      `  return (`,
+      `    <main>`,
+      `      <h1>Systems library</h1>`,
+      `      <a href="/start">Start</a>`,
+      `      <p>We do not offer <strong>hourly consulting</strong>.</p>`,
+      `      <p><strong>Book a 1:1</strong> advisory tier right now.</p>`,
+      `    </main>`,
+      `  );`,
+      `}`,
+    ].join("\n"),
+    "public/llms.txt": `# Site\n`,
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "landing" });
+    assert.equal(res.ok, false);
+    assert.equal(res.errors.length, 1, JSON.stringify(res.errors));
+    assert.equal(res.errors[0].rule, "void-claim:consulting-or-1on1");
+    assert.equal(res.errors[0].line, 7);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("allows wrapped negation spanning lines inside a JSX paragraph", () => {
+  const dir = makeFixture({
+    "app/page.tsx": [
+      `export default function Home() {`,
+      `  return (`,
+      `    <main>`,
+      `      <h1>Self-serve library</h1>`,
+      `      <a href="/start">Start</a>`,
+      `      <p>We do not offer`,
+      `        hourly consulting.</p>`,
+      `    </main>`,
+      `  );`,
+      `}`,
+    ].join("\n"),
+    "public/llms.txt": `# Site\n`,
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "landing" });
+    assert.equal(res.ok, true, JSON.stringify(res.errors));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("scans secondary static HTML files like about.html alongside index.html and public/llms.txt", () => {
+  const dir = makeFixture({
+    "index.html": `<!doctype html><html><body><main><h1>Home</h1><a href="/start">Start</a></main></body></html>`,
+    "about.html": `<!doctype html><html><body><main><p>Book hourly consulting today.</p></main></body></html>`,
+    "public/llms.txt": `# Static Site\n`,
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "landing" });
+    assert.equal(res.scannedFiles, 2);
+    assert.equal(res.ok, false);
+    assert.equal(res.errors[0].path, "about.html");
+    assert.equal(res.errors[0].rule, "void-claim:consulting-or-1on1");
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("accepts root llms.txt alongside static index.html", () => {
+  const dir = makeFixture({
+    "index.html": `<!doctype html><html><body><main><h1>Root static</h1><a href="/start">Start</a></main></body></html>`,
+    "llms.txt": `# Root Static\n`,
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "landing" });
+    assert.equal(res.ok, true, JSON.stringify(res.errors));
+    assert.equal(res.landing.hasLlms, true);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("resolves root pages/index.tsx as a Next.js Pages Router homepage", () => {
+  const dir = makeFixture({
+    "pages/index.tsx": `export default function Index() { return <main><h1>Pages router</h1><a href="/go">Go</a></main>; }`,
+    "public/llms.txt": `# Pages Site\n`,
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "landing" });
+    assert.equal(res.ok, true, JSON.stringify(res.errors));
+    assert.equal(res.landing.entry, "pages/index.tsx");
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("does not let non-denial 'is not ...' adjectives exempt affirmative void claims", () => {
+  const dir = makeFixture({
+    "content/pricing.md": [
+      `Hourly consulting is not cheap.`,
+      ``,
+      `Starlight Holding B.V. is not responsible for delays.`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    assert.equal(res.ok, false);
+    assert.equal(res.errors.length, 2, JSON.stringify(res.errors));
+    assert.equal(res.errors[0].line, 1);
+    assert.equal(res.errors[1].line, 3);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("catches Markdown phrases split across soft line breaks", () => {
+  const dir = makeFixture({
+    "content/offer.md": [
+      `Book hourly`,
+      `consulting today.`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    assert.equal(res.ok, false);
+    assert.equal(res.errors[0].rule, "void-claim:consulting-or-1on1");
+    assert.equal(res.errors[0].line, 1);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("CLI main rejects unknown --mode values with exit code 2", () => {
+  const dir = makeFixture({
+    "content/offer.md": `Clean public copy.\n`,
+  });
+  try {
+    const errors = [];
+    const code = main(["--dir", dir, "--brand", "sis", "--mode", "bogus"], {
+      log: () => {},
+      error: (msg) => errors.push(msg),
+    });
+    assert.equal(code, 2);
+    assert.match(errors.join("\n"), /invalid --mode/);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("landing structural checks ignore commented-out headings, CTAs, and type imports", () => {
+  const dir = makeFixture({
+    "app/page.tsx": [
+      `import type { Link } from "next/link";`,
+      `// <h1>Commented heading</h1>`,
+      `// <Link href="/start">Commented CTA</Link>`,
+      `export default function Home() {`,
+      `  return (`,
+      `    <main>`,
+      `      {/* <h1>Also commented</h1> */}`,
+      `      {/* <button>Disabled CTA</button> */}`,
+      `      <p>Body only.</p>`,
+      `    </main>`,
+      `  );`,
+      `}`,
+    ].join("\n"),
+    "public/llms.txt": `# Site\n`,
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "landing" });
+    assert.equal(res.ok, false);
+    assert.equal(res.landing.hasH1, false);
+    assert.equal(res.landing.hasCta, false);
+    const rules = new Set(res.errors.map((e) => e.rule));
+    assert.ok(rules.has("sense:missing-h1"));
+    assert.ok(rules.has("sense:missing-primary-cta"));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("skips voice lint inside Markdown fenced prompt templates while keeping outside prose checked", () => {
+  const dir = makeFixture({
+    "content/pack.md": [
+      `# Starter Prompt`,
+      ``,
+      "```text",
+      `[paste signal]`,
+      `[paste relevant rules]`,
+      "```",
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "gencreator", mode: "content" });
+    assert.equal(res.ok, true, JSON.stringify(res.errors));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("exempts negated comma and Oxford-comma lists of void items while still flagging affirmative items", () => {
+  const dir = makeFixture({
+    "content/policy.md": [
+      `We do not offer 1:1 coaching, hourly consulting, or consulting retainers.`,
+      `We have no limits, and we sell hourly consulting.`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    assert.equal(res.ok, false);
+    assert.equal(res.errors.length, 1, JSON.stringify(res.errors));
+    assert.equal(res.errors[0].line, 2);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

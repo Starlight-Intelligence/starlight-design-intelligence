@@ -48,3 +48,30 @@ test("--out followed by --check detects zero drift on clean output", () => {
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test("rejects CSS comment injection in brand metadata and source paths", () => {
+  const loaded = loadBrand("sis");
+  assert.throws(() => compileBrand({
+    ...loaded,
+    pack: { ...loaded.pack, displayName: "Starlight */ * { color: red } /*" },
+  }), /unsafe CSS comment text/);
+  assert.throws(() => compileBrand({
+    ...loaded,
+    sources: [{ path: "evil\n*/hack", sha256: "deadbeef" }],
+  }), /unsafe CSS comment text/);
+});
+
+test("rejects path traversal and invalid brand IDs", () => {
+  assert.throws(() => loadBrand("../../../escape"), /invalid brand id/);
+  assert.throws(() => main(["--brand", "../../../escape", "--stdout"], { log: () => {}, error: () => {} }), /invalid brand id/);
+});
+
+test("rejects --check without --out or combined with --stdout", () => {
+  const dir = mkdtempSync(join(tmpdir(), "sdi-css-invalid-check-"));
+  try {
+    assert.equal(main(["--brand", "sis", "--check"], { error: () => {} }), 2);
+    assert.equal(main(["--brand", "sis", "--out", dir, "--stdout", "--check"], { log: () => {}, error: () => {} }), 2);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

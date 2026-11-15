@@ -38,209 +38,600 @@ const VOID_RULES = [
 ];
 
 function walkFiles(dir, rootDir = dir, out = []) {
-  const entries = readdirSync(dir, { withFileTypes: true });
+  const entries = readdirSync(dir, { withFileTypes: true }).sort((a, b) => a.name.localeCompare(b.name));
   const restrictTop = rootDir === dir && entries.some((e) => e.isDirectory() && WEB_ROOT_DIRS.includes(e.name));
   for (const entry of entries) {
     if (SKIP_DIRS.has(entry.name) || entry.name.startsWith(".")) continue;
     if (restrictTop && entry.isDirectory() && !WEB_ROOT_DIRS.includes(entry.name)) continue;
-    if (restrictTop && entry.isFile() && !/^index\.html?$/i.test(entry.name)) continue;
+    if (restrictTop && entry.isFile() && !/\.html?$/i.test(entry.name)) continue;
     const full = join(dir, entry.name);
     const rel = relative(rootDir, full).replace(/\\/g, "/");
     if (entry.isDirectory()) {
       walkFiles(full, rootDir, out);
-    } else if (/\.(tsx|ts|jsx|js|mdx|md|html)$/i.test(entry.name) && !SKIP_PATH_RE.test(rel)) {
+    } else if (/\.(tsx|ts|jsx|js|mdx|md|html?)$/i.test(entry.name) && !SKIP_PATH_RE.test(rel)) {
       if (!rel.includes("/") && ROOT_INTERNAL_MD.test(entry.name)) continue;
       if (SUBDIR_INTERNAL_MD.test(entry.name) && !/^content\//i.test(rel)) continue;
       out.push({ full, rel });
     }
   }
+  if (rootDir === dir) out.sort((a, b) => a.rel.localeCompare(b.rel));
   return out;
 }
 
-function visibleCopyFromHtml(source) {
-  return source
-    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, " ")
-    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, " ")
-    .replace(/<[^>]+>/g, " ");
-}
+const INLINE_COPY_TAGS = new Set([
+  "a", "abbr", "b", "cite", "code", "em", "i", "kbd", "link", "mark", "q", "s", "small", "span", "strong", "sub", "sup", "time", "u",
+]);
+const VOID_HTML_TAGS = new Set([
+  "area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr",
+]);
 
-function maskNonVisibleCodeLines(source) {
-  let masked = source.replace(/\/\*[\s\S]*?\*\//g, (m) => m.replace(/[^\n]/g, " "));
-  return masked.split("\n").map((line) => {
-    const trimmed = line.trim();
-    if (/^(import\b|export\s+type\b|type\s+|interface\s+|\/\/)/.test(trimmed)) {
-      return "";
-    }
-    return line;
-  }).join("\n");
-}
-
-function lineNumberAt(text, index) {
-  let line = 1;
-  for (let i = 0; i < index; i += 1) {
-    if (text.charCodeAt(i) === 10) line += 1;
+function buildLineStarts(source) {
+  const starts = [0];
+  for (let i = 0; i < source.length; i += 1) {
+    if (source.charCodeAt(i) === 10) starts.push(i + 1);
   }
-  return line;
+  return starts;
+}
+
+function createSegmentBuilder(source, lineStarts) {
+  let out = "";
+  let charLines = [];
+  let pendingSpace = false;
+
+  const lineOf = (offset) => {
+    let lo = 0;
+    let hi = lineStarts.length - 1;
+    while (lo < hi) {
+      const mid = (lo + hi + 1) >> 1;
+      if (lineStarts[mid] <= offset) lo = mid;
+      else hi = mid - 1;
+    }
+    return lo + 1;
+  };
+
+  return {
+    addSlice(start, end) {
+      for (let i = start; i < end; i += 1) {
+        const ch = source[i];
+        if (ch === " " || ch === "\t" || ch === "\n" || ch === "\r") {
+          if (out.length > 0) pendingSpace = true;
+        } else {
+          if (pendingSpace) {
+            out += " ";
+            charLines.push(lineOf(i));
+            pendingSpace = false;
+          }
+          out += ch;
+          charLines.push(lineOf(i));
+        }
+      }
+    },
+    addGap() {
+      if (out.length > 0) pendingSpace = true;
+    },
+    hasContent() {
+      return out.length > 0;
+    },
+    flush(segments, meta = {}) {
+      if (out.length > 0) {
+        const text = out;
+        const lines = charLines;
+        segments.push({
+          ...meta,
+          text,
+          line: lines[0],
+          lineAt(offset) {
+            if (offset <= 0) return lines[0];
+            if (offset >= lines.length) return lines[lines.length - 1];
+            return lines[offset];
+          },
+        });
+      }
+      out = "";
+      charLines = [];
+      pendingSpace = false;
+    },
+  };
+}
+
+function maskPreserveNewlines(source, re) {
+  return source.replace(re, (m) => m.replace(/[^\n]/g, " "));
+}
+
+function extractHtmlLogicalSegments(source) {
+  const cleaned = maskPreserveNewlines(
+    maskPreserveNewlines(
+      maskPreserveNewlines(source, /<!--[\s\S]*?-->/g),
+      /<style\b[^>]*>[\s\S]*?<\/style>/gi,
+    ),
+    /<script\b[^>]*>[\s\S]*?<\/script>/gi,
+  );
+  const lineStarts = buildLineStarts(source);
+  const segments = [];
+  const seg = createSegmentBuilder(cleaned, lineStarts);
+  let i = 0;
+  const n = cleaned.length;
+  while (i < n) {
+    const tagStart = cleaned.indexOf("<", i);
+    if (tagStart < 0) {
+      seg.addSlice(i, n);
+      break;
+    }
+    if (tagStart > i) seg.addSlice(i, tagStart);
+    const tagEnd = cleaned.indexOf(">", tagStart + 1);
+    if (tagEnd < 0) {
+      seg.addSlice(tagStart, n);
+      break;
+    }
+    const rawTag = cleaned.slice(tagStart + 1, tagEnd).trim();
+    const nameMatch = /^\/?\s*([A-Za-z0-9]+)/.exec(rawTag);
+    const tagName = nameMatch ? nameMatch[1].toLowerCase() : "";
+    if (tagName && INLINE_COPY_TAGS.has(tagName)) {
+      seg.addGap();
+    } else {
+      seg.flush(segments);
+    }
+    i = tagEnd + 1;
+  }
+  seg.flush(segments);
+  return segments;
+}
+
+function extractMarkdownLogicalSegments(source) {
+  const masked = maskPreserveNewlines(source, /<!--[\s\S]*?-->/g);
+  const lineStarts = buildLineStarts(source);
+  const segments = [];
+  const seg = createSegmentBuilder(masked, lineStarts);
+  const rawLines = masked.split("\n");
+  let offset = 0;
+  let inFence = null;
+  let inFrontmatter = rawLines[0]?.trim() === "---";
+
+  for (let idx = 0; idx < rawLines.length; idx += 1) {
+    const line = rawLines[idx];
+    const lineStart = offset;
+    const lineEnd = offset + line.length;
+    offset = lineEnd + 1;
+    const trimmed = line.trim();
+
+    if (inFrontmatter) {
+      seg.flush(segments);
+      if (idx > 0 && (trimmed === "---" || trimmed === "...")) {
+        inFrontmatter = false;
+        continue;
+      }
+      if (idx === 0) continue;
+      seg.addSlice(lineStart, lineEnd);
+      seg.flush(segments);
+      continue;
+    }
+
+    const fenceMatch = /^(`{3,}|~{3,})/.exec(trimmed);
+    if (fenceMatch) {
+      seg.flush(segments);
+      if (!inFence) {
+        inFence = { ch: fenceMatch[1][0], len: fenceMatch[1].length };
+      } else if (
+        fenceMatch[1][0] === inFence.ch &&
+        fenceMatch[1].length >= inFence.len &&
+        trimmed.slice(fenceMatch[1].length).trim() === ""
+      ) {
+        inFence = null;
+      }
+      continue;
+    }
+    if (inFence) {
+      seg.flush(segments);
+      seg.addSlice(lineStart, lineEnd);
+      seg.flush(segments, { inFence: true });
+      continue;
+    }
+
+    if (!trimmed) {
+      seg.flush(segments);
+      continue;
+    }
+
+    const isHeading = /^#{1,6}\s/.test(trimmed);
+    const isListStart = /^(?:[-*+]|\d+[.)])\s+/.test(trimmed);
+    const isBlockquote = trimmed.startsWith(">");
+    const isRule = /^(?:[-*_])\s*(?:[-*_])\s*(?:[-*_])+\s*$/.test(trimmed);
+    const isHtmlLine = /^<\/?[A-Za-z][^>]*>/.test(trimmed);
+
+    if (isHeading || isListStart || isBlockquote || isRule || isHtmlLine) {
+      seg.flush(segments);
+    }
+    if (seg.hasContent()) seg.addGap();
+    seg.addSlice(lineStart, lineEnd);
+    if (isHeading || isRule || isHtmlLine) {
+      seg.flush(segments);
+    }
+  }
+  seg.flush(segments);
+  return segments;
 }
 
 function isDirectVoidNegation(line, matchIndex) {
-  const clause = line.slice(Math.max(0, matchIndex - 96), matchIndex).split(/[.;:!?\u2014\u2013()]/).pop() ?? "";
-  let pos = 0;
+  const clause = line.slice(Math.max(0, matchIndex - 96), matchIndex).split(/(?:[.;!?\u2014\u2013()]|(?<!\d):|:(?!\d))/).pop() ?? "";
   let lastNegEnd = -1;
   const negGlobal = new RegExp(NEGATION_RE.source, "gi");
   let m;
   while ((m = negGlobal.exec(clause)) !== null) {
     lastNegEnd = m.index + m[0].length;
-    pos = lastNegEnd;
   }
   if (lastNegEnd < 0) return false;
   let between = clause.slice(lastNegEnd).trim();
-  // Strip already-stated void items followed by list separators ("no A or B", "neither A nor B").
-  const listItemRe = new RegExp(
-    `^(?:${VOID_RULES.map((r) => r.re.source).join("|")})\\s*(?:,|or|nor|\\/)\\s*`,
+  const listSepItemRe = new RegExp(
+    `^(?:${VOID_RULES.map((r) => r.re.source).join("|")})(?:\\s*,\\s*(?:or|nor)?|\\s+(?:or|nor|and|\\/)\\s*)\\s*`,
     "i",
   );
-  while (listItemRe.test(between)) {
-    between = between.replace(listItemRe, "").trim();
+  const leadingBridgeWordRe = /^(?:is|are|was|were|be|exist|exists|do|does|did|will|can|would|should|there\s+(?:is|are)|offer|offers|offering|offered|provide|provides|providing|provided|sell|sells|selling|sold|accept|accepts|accepting|accepted|run|runs|running|operated\s+by|owned\s+by|managed\s+by|called|named|a|an|the|any|such|further|paid|direct)\s+/i;
+  let prevLen = -1;
+  while (between.length !== prevLen) {
+    prevLen = between.length;
+    between = between.replace(leadingBridgeWordRe, "").trim();
+    between = between.replace(listSepItemRe, "").trim();
   }
-  between = between.replace(/^(?:do|does|did|will|can|would|should)\s+/i, "").trim();
-  // Normalize space so regex anchored with trailing spaces matches cleanly.
   const padded = between ? `${between} ` : "";
   if (DIRECT_NEGATION_BRIDGE_RE.test(padded)) return true;
-  // Also allow explicit trailing negation directly on the claim ("X does not exist", "X is void").
   return false;
 }
 
 function hasTrailingVoidNegation(line, matchEnd) {
-  const after = line.slice(matchEnd, Math.min(line.length, matchEnd + 48));
-  return /^\s*(?:does\s+not\s+exist|do\s+not\s+exist|(?:is|are)\s+(?:not\b|void\b|nonexistent\b|retired\b))/i.test(after);
+  const after = line.slice(matchEnd, Math.min(line.length, matchEnd + 64));
+  return /^\s*(?:(?:does|do)\s+not\s+exist|(?:is|are)\s+(?:void|nonexistent|retired|unavailable|discontinued|not\s+(?:real|valid|active|offered|available|operating|registered|incorporated|accepted|possible|an?\s+(?:(?:real|actual|existing|active|valid|legal|operating)\s+)?(?:option|offering|entity|company|service|tier|plan)))\b)/i.test(after);
 }
 
-// Extract human-visible copy from TSX/JSX across single and multi-line tags/props while tracking 1-based line numbers.
-function extractVisibleCodeSegments(source) {
-  const cleaned = maskNonVisibleCodeLines(source);
-  const lines = cleaned.split("\n");
-  const segments = [];
-  const lineBuckets = lines.map(() => []);
+function checkJsxOpeningTag(source, i) {
+  const n = source.length;
+  if (source[i] !== "<") return null;
+  const next = source[i + 1] ?? "";
+  if (next === ">") return { tagName: "", isSelfClosing: false };
+  const prev = i > 0 ? source[i - 1] : "";
+  const beforeCtx = source.slice(Math.max(0, i - 16), i);
+  const isTsGenericPrefix = /[A-Za-z0-9_$\])]/.test(prev) && !/\b(?:return|else|yield|await|case)\s*$/.test(beforeCtx);
+  if (!/[A-Za-z_]/.test(next) || isTsGenericPrefix) return null;
 
-  const pushChunk = (rawChunk, startOffset) => {
-    const baseLine = lineNumberAt(cleaned, startOffset);
-    const subLines = rawChunk.split("\n");
-    const nonEmptyParts = [];
-    subLines.forEach((sub, idx) => {
-      const normalized = sub.replace(/\s+/g, " ").trim();
-      if (normalized) {
-        lineBuckets[baseLine - 1 + idx]?.push(normalized);
-        nonEmptyParts.push({ text: normalized, line: baseLine + idx });
+  let m = i + 1;
+  while (m < n && /[A-Za-z0-9_.-]/.test(source[m])) m += 1;
+  const tagName = source.slice(i + 1, m);
+  if (!/[\s/>]/.test(source[m] ?? "")) return null;
+
+  let j = m;
+  let braceDepth = 0;
+  let quote = null;
+  while (j < n) {
+    const c = source[j];
+    if (quote) {
+      if (c === "\\" && j + 1 < n) { j += 2; continue; }
+      if (c === quote) quote = null;
+      j += 1;
+      continue;
+    }
+    if (c === '"' || c === "'" || c === "`") { quote = c; j += 1; continue; }
+    if (c === "{") { braceDepth += 1; j += 1; continue; }
+    if (c === "}" && braceDepth > 0) { braceDepth -= 1; j += 1; continue; }
+    if (braceDepth === 0) {
+      if (c === "/" && source[j + 1] === "*") {
+        const endC = source.indexOf("*/", j + 2);
+        j = endC < 0 ? n : endC + 2;
+        continue;
       }
-    });
-    if (nonEmptyParts.length > 1) {
-      segments.push({
-        text: nonEmptyParts.map((p) => p.text).join(" "),
-        line: nonEmptyParts[0].line,
-        multiline: true,
-      });
+      if (c === "/" && source[j + 1] === "/" && (j === 0 || source[j - 1] !== ":")) {
+        const nl = source.indexOf("\n", j + 2);
+        j = nl < 0 ? n : nl + 1;
+        continue;
+      }
+      if (c === ">") {
+        if (source[j - 1] === "=") return null;
+        const isSelfClosing = source[j - 1] === "/";
+        const inner = source.slice(i + 1, isSelfClosing ? j - 1 : j);
+        if (/\bextends\b/.test(inner) && !/=/.test(inner)) return null;
+        return { tagName, isSelfClosing };
+      }
+      if (/[;,&|<()+*?!]/.test(c)) return null;
+    }
+    j += 1;
+  }
+  return null;
+}
+
+function scanCodeFile(source) {
+  const n = source.length;
+  const lineStarts = buildLineStarts(source);
+  const maskedChars = source.split("");
+  const segments = [];
+
+  const blankRange = (start, end) => {
+    for (let k = start; k < end; k += 1) {
+      if (maskedChars[k] !== "\n") maskedChars[k] = " ";
     }
   };
 
-  // Scan JSX tag closings `>` outside arrow syntax `=>` and capture child text up to the next `<` or `{`.
-  let i = 0;
-  const n = cleaned.length;
-  while (i < n) {
-    const ch = cleaned[i];
-    if (ch === "<") {
-      // Distinguish JSX tags `<tag`, `<>`, `</tag` from TS generics (`foo<T>`) and `<` comparisons.
-      const next = cleaned[i + 1] ?? "";
-      const prev = i > 0 ? cleaned[i - 1] : "";
-      const beforeCtx = cleaned.slice(Math.max(0, i - 16), i);
-      const isTsGenericPrefix = /[A-Za-z0-9_$\])]/.test(prev) && !/\b(?:return|else|yield|await|case)\s*$/.test(beforeCtx);
-      if (!/[A-Za-z_/>]/.test(next) || isTsGenericPrefix) {
+  const scanJs = (startPos, stopOnClosingBrace) => {
+    let i = startPos;
+    let braceDepth = stopOnClosingBrace ? 1 : 0;
+    let hasCode = false;
+    let hasJsx = false;
+    let tokenCount = 0;
+    let singleLiteral = null;
+    let prevSigChar = stopOnClosingBrace ? "{" : "\n";
+
+    const consumeQuote = (qPos) => {
+      const q = source[qPos];
+      let k = qPos + 1;
+      let hasInterp = false;
+      let closed = false;
+      while (k < n) {
+        const ch = source[k];
+        if (ch === "\\" && k + 1 < n) { k += 2; continue; }
+        if (q === "`" && ch === "$" && source[k + 1] === "{") hasInterp = true;
+        if (ch === q) { closed = true; k += 1; break; }
+        k += 1;
+      }
+      hasCode = true;
+      tokenCount += 1;
+      const bodyEnd = closed ? k - 1 : k;
+      if (tokenCount === 1 && !hasInterp && bodyEnd - (qPos + 1) >= 3) {
+        singleLiteral = { start: qPos + 1, end: bodyEnd };
+      } else {
+        singleLiteral = null;
+      }
+      prevSigChar = q;
+      return k;
+    };
+
+    while (i < n) {
+      const ch = source[i];
+      if (ch === " " || ch === "\t" || ch === "\n" || ch === "\r") {
         i += 1;
         continue;
       }
-      // Advance past the tag's closing `>`, respecting quoted attrs and `{...}` expressions.
-      let j = i + 1;
-      let braceDepth = 0;
-      let quote = null;
-      while (j < n) {
-        const c = cleaned[j];
-        if (quote) {
-          if (c === "\\" && j + 1 < n) { j += 2; continue; }
-          if (c === quote) { quote = null; j += 1; continue; }
-          j += 1;
+      if (ch === "/" && source[i + 1] === "*") {
+        const endC = source.indexOf("*/", i + 2);
+        const stop = endC < 0 ? n : endC + 2;
+        blankRange(i, stop);
+        i = stop;
+        continue;
+      }
+      if (ch === "/" && source[i + 1] === "/" && (i === 0 || source[i - 1] !== ":")) {
+        const nl = source.indexOf("\n", i + 2);
+        const stop = nl < 0 ? n : nl;
+        blankRange(i, stop);
+        i = stop;
+        continue;
+      }
+      if (ch === '"' || ch === "'" || ch === "`") {
+        i = consumeQuote(i);
+        continue;
+      }
+      if (ch === "/" && "=([,!?:;&|{}\n".includes(prevSigChar)) {
+        let k = i + 1;
+        let inClass = false;
+        while (k < n && source[k] !== "\n") {
+          const rc = source[k];
+          if (rc === "\\" && k + 1 < n) { k += 2; continue; }
+          if (rc === "[") inClass = true;
+          else if (rc === "]") inClass = false;
+          else if (rc === "/" && !inClass) { k += 1; break; }
+          k += 1;
+        }
+        hasCode = true;
+        tokenCount += 1;
+        singleLiteral = null;
+        prevSigChar = "/";
+        i = k;
+        continue;
+      }
+      if (stopOnClosingBrace && ch === "}") {
+        braceDepth -= 1;
+        if (braceDepth === 0) {
+          return {
+            end: i + 1,
+            hasCode,
+            hasJsx,
+            literalRange: tokenCount === 1 ? singleLiteral : null,
+          };
+        }
+        hasCode = true;
+        tokenCount += 1;
+        singleLiteral = null;
+        prevSigChar = "}";
+        i += 1;
+        continue;
+      }
+      if (ch === "{") {
+        if (stopOnClosingBrace) braceDepth += 1;
+        hasCode = true;
+        tokenCount += 1;
+        singleLiteral = null;
+        prevSigChar = "{";
+        i += 1;
+        continue;
+      }
+      if (ch === "<") {
+        const open = checkJsxOpeningTag(source, i);
+        if (open) {
+          hasCode = true;
+          hasJsx = true;
+          tokenCount += 1;
+          singleLiteral = null;
+          i = parseJsxElement(i, null, new Set());
+          prevSigChar = ">";
           continue;
         }
-        if (c === '"' || c === "'" || c === "`") { quote = c; j += 1; continue; }
-        if (c === "{") { braceDepth += 1; j += 1; continue; }
-        if (c === "}" && braceDepth > 0) { braceDepth -= 1; j += 1; continue; }
-        if (c === ">" && braceDepth === 0) {
-          const isArrow = cleaned[j - 1] === "=";
-          const isSelfClosing = cleaned[j - 1] === "/";
-          const tagInner = cleaned.slice(i + 1, j);
-          const looksLikeTsTypeArgs = isArrow || (next !== "/" && next !== ">" && /\bextends\b|,\s*[A-Z]/.test(tagInner) && !/=/.test(tagInner));
-          j += 1;
-          if (!isSelfClosing && next !== "/" && !looksLikeTsTypeArgs) {
-            // Read JSX child text until next `<` (and recurse past inline `{...}` spans so text after `{expr}` is kept).
-            while (j < n) {
-              if (cleaned[j] === "<") break;
-              if (cleaned[j] === "{") {
-                let d = 1;
-                let k = j + 1;
-                let q2 = null;
-                while (k < n && d > 0) {
-                  const kc = cleaned[k];
-                  if (q2) {
-                    if (kc === "\\" && k + 1 < n) { k += 2; continue; }
-                    if (kc === q2) q2 = null;
-                    k += 1;
-                    continue;
-                  }
-                  if (kc === '"' || kc === "'" || kc === "`") { q2 = kc; k += 1; continue; }
-                  if (kc === "{") d += 1;
-                  else if (kc === "}") d -= 1;
-                  k += 1;
-                }
-                // Extract literal string/template props or JSX strings inside `{ "text" }`.
-                const exprBody = cleaned.slice(j + 1, k - 1).trim();
-                const litMatch = /^["'`]([\s\S]{3,})["'`]$/.exec(exprBody);
-                if (litMatch) pushChunk(litMatch[1], j + 2);
-                j = k;
-                continue;
-              }
-              const chunkStart = j;
-              while (j < n && cleaned[j] !== "<" && cleaned[j] !== "{") j += 1;
-              pushChunk(cleaned.slice(chunkStart, j), chunkStart);
-            }
+      }
+      hasCode = true;
+      tokenCount += 1;
+      singleLiteral = null;
+      prevSigChar = ch;
+      i += 1;
+    }
+    return {
+      end: n,
+      hasCode,
+      hasJsx,
+      literalRange: tokenCount === 1 ? singleLiteral : null,
+    };
+  };
+
+  function parseJsxElement(tagStart, inheritedSeg, ancestors) {
+    const isFrag = source[tagStart + 1] === ">";
+    let tagName = "";
+    let i = tagStart + 1;
+    if (isFrag) {
+      i = tagStart + 2;
+    } else {
+      while (i < n && /[A-Za-z0-9_.-]/.test(source[i])) i += 1;
+      tagName = source.slice(tagStart + 1, i);
+    }
+    const lowerTag = tagName.toLowerCase();
+    const isInline = lowerTag !== "" && INLINE_COPY_TAGS.has(lowerTag);
+    let isSelfClosing = VOID_HTML_TAGS.has(lowerTag);
+
+    if (!isFrag) {
+      while (i < n) {
+        const ch = source[i];
+        if (ch === '"' || ch === "'" || ch === "`") {
+          const q = ch;
+          i += 1;
+          while (i < n) {
+            if (source[i] === "\\" && i + 1 < n) { i += 2; continue; }
+            if (source[i] === q) { i += 1; break; }
+            i += 1;
           }
+          continue;
+        }
+        if (ch === "{") {
+          const exprRes = scanJs(i + 1, true);
+          i = exprRes.end;
+          continue;
+        }
+        if (ch === "/" && source[i + 1] === "*") {
+          const endC = source.indexOf("*/", i + 2);
+          const stop = endC < 0 ? n : endC + 2;
+          blankRange(i, stop);
+          i = stop;
+          continue;
+        }
+        if (ch === "/" && source[i + 1] === "/" && (i === 0 || source[i - 1] !== ":")) {
+          const nl = source.indexOf("\n", i + 2);
+          const stop = nl < 0 ? n : nl;
+          blankRange(i, stop);
+          i = stop;
+          continue;
+        }
+        if (ch === "/" && source[i + 1] === ">") {
+          isSelfClosing = true;
+          i += 2;
           break;
         }
-        j += 1;
+        if (ch === ">") {
+          i += 1;
+          break;
+        }
+        i += 1;
       }
-      i = j;
-      continue;
     }
-    i += 1;
+
+    if (isSelfClosing) {
+      if (isInline && inheritedSeg) inheritedSeg.addGap();
+      else if (!isInline && inheritedSeg) inheritedSeg.flush(segments);
+      return i;
+    }
+
+    const useInherited = isInline && inheritedSeg !== null;
+    if (!useInherited && inheritedSeg) inheritedSeg.flush(segments);
+    const seg = useInherited ? inheritedSeg : createSegmentBuilder(source, lineStarts);
+    if (useInherited) seg.addGap();
+
+    const childAncestors = new Set(ancestors);
+    if (lowerTag || isFrag) childAncestors.add(lowerTag);
+
+    while (i < n) {
+      if (source[i] === "<") {
+        if (source[i + 1] === "/") {
+          let k = i + 2;
+          while (k < n && /[A-Za-z0-9_.-]/.test(source[k])) k += 1;
+          const closeName = source.slice(i + 2, k).toLowerCase();
+          const gt = source.indexOf(">", k);
+          const afterClose = gt < 0 ? n : gt + 1;
+          if (closeName === lowerTag) {
+            if (!useInherited) seg.flush(segments);
+            else seg.addGap();
+            return afterClose;
+          }
+          if (ancestors.has(closeName)) {
+            if (!useInherited) seg.flush(segments);
+            return i;
+          }
+          i = afterClose;
+          continue;
+        }
+        const nested = checkJsxOpeningTag(source, i);
+        if (nested) {
+          i = parseJsxElement(i, seg, childAncestors);
+          continue;
+        }
+        seg.addSlice(i, i + 1);
+        i += 1;
+        continue;
+      }
+      if (source[i] === "{") {
+        const exprRes = scanJs(i + 1, true);
+        i = exprRes.end;
+        if (exprRes.literalRange) {
+          seg.addSlice(exprRes.literalRange.start, exprRes.literalRange.end);
+        } else if (exprRes.hasJsx) {
+          seg.flush(segments);
+        } else if (exprRes.hasCode) {
+          seg.addGap();
+        }
+        continue;
+      }
+      const chunkStart = i;
+      while (i < n && source[i] !== "<" && source[i] !== "{") i += 1;
+      seg.addSlice(chunkStart, i);
+    }
+
+    if (!useInherited) seg.flush(segments);
+    return i;
   }
 
-  // Also capture explicit copy-bearing prop/object fields across single and multi-line quotes.
+  scanJs(0, false);
+
+  const commentMasked = maskedChars.join("");
   const copyPropRe = /(?:title|description|subtitle|body|summary|label|headline|cta|alt|placeholder|aria-label)\s*[:=]\s*(["'`])([\s\S]*?)\1/gi;
   let propMatch;
-  while ((propMatch = copyPropRe.exec(cleaned)) !== null) {
+  while ((propMatch = copyPropRe.exec(commentMasked)) !== null) {
     const val = propMatch[2];
     if (val.trim().length >= 4 && !/^\$\{/.test(val.trim())) {
       const valueOffset = propMatch.index + propMatch[0].indexOf(propMatch[1]) + 1;
-      pushChunk(val, valueOffset);
+      const propSeg = createSegmentBuilder(commentMasked, lineStarts);
+      propSeg.addSlice(valueOffset, valueOffset + val.length);
+      propSeg.flush(segments);
     }
   }
 
-  return {
-    lineText: lineBuckets.map((parts) => parts.join(" ")).join("\n"),
-    multilineSegments: segments,
-  };
+  segments.sort((a, b) => a.line - b.line);
+  return { segments, commentMasked };
 }
 
-function visibleCopyFromCode(source) {
-  return extractVisibleCodeSegments(source).lineText;
+function stripCodeForLanding(source, isHtml) {
+  if (isHtml) {
+    return maskPreserveNewlines(source, /<!--[\s\S]*?-->/g);
+  }
+  const { commentMasked } = scanCodeFile(source);
+  return commentMasked
+    .split("\n")
+    .map((line) => {
+      const trimmed = line.trim();
+      if (/^(?:import\b|export\s+type\b|type\s+[A-Za-z_$][\w$]*\s*(?:<[^>]*>)?\s*=|interface\s+[A-Za-z_$][\w$]*)/.test(trimmed)) {
+        return " ".repeat(line.length);
+      }
+      return line;
+    })
+    .join("\n");
 }
 
 function loadBrandConfig(brand, sdiRoot = ROOT) {
@@ -272,7 +663,11 @@ function resolveLocalModule(targetDir, fromFile, spec) {
 
 function resolveHomepageBundle(targetDir) {
   const candidates = [
-    "app/page.tsx", "src/app/page.tsx", "app/(marketing)/page.tsx", "src/pages/index.tsx", "index.html",
+    "app/page.tsx", "app/page.jsx", "src/app/page.tsx", "src/app/page.jsx",
+    "app/(marketing)/page.tsx", "src/app/(marketing)/page.tsx",
+    "pages/index.tsx", "pages/index.jsx", "pages/index.js",
+    "src/pages/index.tsx", "src/pages/index.jsx", "src/pages/index.js",
+    "index.html", "index.htm",
   ];
   const entry = candidates.map((p) => join(targetDir, p)).find((p) => existsSync(p));
   if (!entry) return { entry: null, sources: [] };
@@ -284,9 +679,12 @@ function resolveHomepageBundle(targetDir) {
 
   while (queue.length > 0 && sources.length < MAX_BUNDLE_FILES) {
     const current = queue.shift();
-    const text = readFileSync(current, "utf8");
-    sources.push({ path: relative(targetDir, current).replace(/\\/g, "/"), text });
-    for (const m of text.matchAll(/(?:from|import\s*\()\s*["']([^"']+)["']/g)) {
+    const text = readFileSync(current, "utf8").replace(/\r\n/g, "\n");
+    const isHtml = /\.html?$/i.test(current);
+    const importScanText = isHtml ? "" : scanCodeFile(text).commentMasked;
+    const stripped = stripCodeForLanding(text, isHtml);
+    sources.push({ path: relative(targetDir, current).replace(/\\/g, "/"), text, stripped });
+    for (const m of importScanText.matchAll(/(?:from|import\s*\()\s*["']([^"']+)["']/g)) {
       const resolvedMod = resolveLocalModule(targetDir, current, m[1]);
       if (resolvedMod && !visited.has(resolvedMod)) {
         visited.add(resolvedMod);
@@ -298,6 +696,9 @@ function resolveHomepageBundle(targetDir) {
 }
 
 export function auditRepository({ dir, brand = "sis", mode = "landing", strict = false, sdiRoot = ROOT }) {
+  if (mode !== "landing" && mode !== "content") {
+    throw new Error(`Invalid mode "${mode}": expected "landing" or "content"`);
+  }
   const targetDir = resolve(dir);
   const { bannedPhrases } = loadBrandConfig(brand, sdiRoot);
   const findings = [];
@@ -308,9 +709,11 @@ export function auditRepository({ dir, brand = "sis", mode = "landing", strict =
     const ext = extname(full).toLowerCase();
     const isCodeFile = /\.(tsx|ts|jsx|js)$/i.test(ext);
     const isHtmlFile = /\.html?$/i.test(ext);
-    const extracted = isCodeFile ? extractVisibleCodeSegments(raw) : null;
-    const text = extracted ? extracted.lineText : isHtmlFile ? visibleCopyFromHtml(raw) : raw;
-    const lines = text.split("\n");
+    const segments = isCodeFile
+      ? scanCodeFile(raw).segments
+      : isHtmlFile
+        ? extractHtmlLogicalSegments(raw)
+        : extractMarkdownLogicalSegments(raw);
     const emittedKeys = new Set();
 
     const pushUnique = (f) => {
@@ -320,93 +723,72 @@ export function auditRepository({ dir, brand = "sis", mode = "landing", strict =
       findings.push(f);
     };
 
-    const perLineRulesSeen = new Set();
-    lines.forEach((line, idx) => {
-      if (!line.trim()) return;
+    for (const seg of segments) {
+      if (!seg.text.trim()) continue;
       for (const vr of VOID_RULES) {
         vr.re.lastIndex = 0;
         let match;
-        while ((match = vr.re.exec(line)) !== null) {
+        while ((match = vr.re.exec(seg.text)) !== null) {
           if (
-            isDirectVoidNegation(line, match.index) ||
-            hasTrailingVoidNegation(line, match.index + match[0].length)
+            isDirectVoidNegation(seg.text, match.index) ||
+            hasTrailingVoidNegation(seg.text, match.index + match[0].length)
           ) {
             continue;
           }
-          perLineRulesSeen.add(`${vr.id}::${match[0].toLowerCase()}`);
           pushUnique({
-            rule: vr.id, severity: vr.severity, path: rel, line: idx + 1, excerpt: match[0], why: vr.why,
+            rule: vr.id,
+            severity: vr.severity,
+            path: rel,
+            line: seg.lineAt(match.index),
+            excerpt: match[0],
+            why: vr.why,
           });
         }
       }
+      const lowerSeg = seg.text.toLowerCase();
       for (const phrase of bannedPhrases) {
-        if (phrase && line.toLowerCase().includes(phrase.toLowerCase())) {
-          perLineRulesSeen.add(`brand:banned-phrase::${phrase.toLowerCase()}`);
+        if (!phrase) continue;
+        const lowerPhrase = phrase.toLowerCase();
+        let fromIndex = 0;
+        while (true) {
+          const hit = lowerSeg.indexOf(lowerPhrase, fromIndex);
+          if (hit < 0) break;
           pushUnique({
-            rule: "brand:banned-phrase", severity: "error", path: rel, line: idx + 1,
-            excerpt: phrase, why: `Banned phrase in ${brand} brand-pack.json`,
+            rule: "brand:banned-phrase",
+            severity: "error",
+            path: rel,
+            line: seg.lineAt(hit),
+            excerpt: phrase,
+            why: `Banned phrase in ${brand} brand-pack.json`,
           });
-        }
-      }
-    });
-
-    if (extracted) {
-      for (const seg of extracted.multilineSegments) {
-        for (const vr of VOID_RULES) {
-          vr.re.lastIndex = 0;
-          let match;
-          while ((match = vr.re.exec(seg.text)) !== null) {
-            if (
-              isDirectVoidNegation(seg.text, match.index) ||
-              hasTrailingVoidNegation(seg.text, match.index + match[0].length)
-            ) {
-              continue;
-            }
-            const seenKey = `${vr.id}::${match[0].toLowerCase()}`;
-            if (!perLineRulesSeen.has(seenKey)) {
-              perLineRulesSeen.add(seenKey);
-              pushUnique({
-                rule: vr.id, severity: vr.severity, path: rel, line: seg.line, excerpt: match[0], why: vr.why,
-              });
-            }
-          }
-        }
-        for (const phrase of bannedPhrases) {
-          const seenKey = `brand:banned-phrase::${phrase.toLowerCase()}`;
-          if (phrase && !perLineRulesSeen.has(seenKey) && seg.text.toLowerCase().includes(phrase.toLowerCase())) {
-            perLineRulesSeen.add(seenKey);
-            pushUnique({
-              rule: "brand:banned-phrase", severity: "error", path: rel, line: seg.line,
-              excerpt: phrase, why: `Banned phrase in ${brand} brand-pack.json`,
-            });
-          }
+          fromIndex = hit + lowerPhrase.length;
         }
       }
     }
 
-    const filterAndPushVoice = (sample, lineOverride = null, skipRulesSeen = null) => {
-      for (const vf of lintFrankxVoice(sample)) {
+    if (segments.length > 0) {
+      const joinedDoc = segments.map((s) => (s.inFence ? "" : s.text)).join("\n");
+      for (const vf of lintFrankxVoice(joinedDoc)) {
         if ((vf.rule === "arcanea-diction" || vf.rule === "arcanea-name-check") && brand !== "frankx") continue;
         if (vf.rule === "em-dash" && brand !== "frankx") continue;
         if (isCodeFile && (vf.rule === "unfilled-slot" || vf.rule === "numbered-opener")) continue;
         if (isHtmlFile && vf.rule === "unfilled-slot") continue;
-        const ruleName = `voice:${vf.rule}`;
-        const voiceKey = `${ruleName}::${vf.excerpt.toLowerCase()}`;
-        if (skipRulesSeen && skipRulesSeen.has(voiceKey)) continue;
-        if (!skipRulesSeen) perLineVoiceSeen.add(voiceKey);
+        const seg = segments[vf.line - 1];
+        let resolvedLine = seg ? seg.line : vf.line;
+        if (seg && vf.excerpt) {
+          const needle = vf.excerpt.replace(/\.{3}$/, "").replace(/\s*\(\u00d7\d+\)$/, "").replace(/^"|"$/g, "").trim();
+          const idx = needle ? seg.text.toLowerCase().indexOf(needle.toLowerCase()) : -1;
+          if (idx >= 0) resolvedLine = seg.lineAt(idx);
+        }
         const sev = vf.rule === "contrast-formula" || vf.rule === "hype-verb" || vf.rule === "stock-phrase" ? "warn" : vf.severity;
         pushUnique({
-          rule: ruleName, severity: strict && sev === "warn" ? "error" : sev,
-          path: rel, line: lineOverride ?? vf.line, excerpt: vf.excerpt, why: vf.why,
+          rule: `voice:${vf.rule}`,
+          severity: strict && sev === "warn" ? "error" : sev,
+          path: rel,
+          line: resolvedLine,
+          excerpt: vf.excerpt,
+          why: vf.why,
         });
-      }
-    };
-
-    const perLineVoiceSeen = new Set();
-    filterAndPushVoice(text);
-    if (extracted) {
-      for (const seg of extracted.multilineSegments) {
-        filterAndPushVoice(seg.text, seg.line, perLineVoiceSeen);
       }
     }
   }
@@ -414,13 +796,19 @@ export function auditRepository({ dir, brand = "sis", mode = "landing", strict =
   let landing = null;
   if (mode === "landing") {
     const { entry, sources } = resolveHomepageBundle(targetDir);
-    const combined = sources.map((s) => s.text).join("\n");
+    const combined = sources.map((s) => s.stripped).join("\n");
     const hasLlms = [
-      "public/llms.txt", "app/llms.txt/route.ts", "app/llms.txt/route.js",
+      "public/llms.txt", "llms.txt", "app/llms.txt/route.ts", "app/llms.txt/route.js",
       "src/app/llms.txt/route.ts", "src/app/llms.txt/route.js",
     ].some((p) => existsSync(join(targetDir, p)));
-    const layoutText = ["app/layout.tsx", "src/app/layout.tsx"]
-      .map((p) => join(targetDir, p)).filter(existsSync).map((p) => readFileSync(p, "utf8")).join("\n");
+    const layoutText = [
+      "app/layout.tsx", "src/app/layout.tsx", "app/layout.jsx", "src/app/layout.jsx",
+      "pages/_app.tsx", "src/pages/_app.tsx",
+    ]
+      .map((p) => join(targetDir, p))
+      .filter(existsSync)
+      .map((p) => stripCodeForLanding(readFileSync(p, "utf8").replace(/\r\n/g, "\n"), false))
+      .join("\n");
 
     const hasH1 = /<h1[\s>]|role=["']heading["'][^>]*aria-level=["']?1["']?/i.test(combined);
     const hasCta = /<(Link|a|button)\b/i.test(combined);
@@ -428,7 +816,7 @@ export function auditRepository({ dir, brand = "sis", mode = "landing", strict =
     const hasBrandAttr = new RegExp(`data-brand=["']${brand}["']`, "i").test(combined + layoutText);
     landing = { entry, hasH1, hasCta, hasLlms, hasJsonLd, hasBrandAttr };
 
-    if (!entry) findings.push({ rule: "sense:missing-homepage", severity: "error", path: ".", line: 1, excerpt: "no homepage entry", why: "Landing mode requires app/page.tsx, src/app/page.tsx, or index.html." });
+    if (!entry) findings.push({ rule: "sense:missing-homepage", severity: "error", path: ".", line: 1, excerpt: "no homepage entry", why: "Landing mode requires app/page.tsx, src/app/page.tsx, pages/index.tsx, or index.html." });
     if (entry && !hasH1) findings.push({ rule: "sense:missing-h1", severity: "error", path: entry, line: 1, excerpt: "<h1>", why: "Homepage bundle must expose a single primary <h1> heading." });
     if (entry && !hasCta) findings.push({ rule: "sense:missing-primary-cta", severity: "error", path: entry, line: 1, excerpt: "CTA", why: "Homepage bundle must provide a primary self-serve link or button action." });
     if (!hasLlms) findings.push({ rule: "sense:missing-llms-txt", severity: "error", path: "public/llms.txt", line: 1, excerpt: "/llms.txt", why: "Flagship sites must expose /llms.txt for AI agent & crawler discovery." });
@@ -446,6 +834,10 @@ export function main(argv, { log = console.log, error = console.error } = {}) {
   if (!dir) { error("usage: check-portfolio-truth-and-sense.mjs --dir <path> --brand <id> [--mode landing|content] [--strict] [--json]"); return 2; }
   const brand = arg("--brand") ?? "sis";
   const mode = arg("--mode") ?? "landing";
+  if (mode !== "landing" && mode !== "content") {
+    error(`invalid --mode "${mode}": expected "landing" or "content"`);
+    return 2;
+  }
   const strict = argv.includes("--strict");
   const result = auditRepository({ dir, brand, mode, strict });
   if (argv.includes("--json")) {
