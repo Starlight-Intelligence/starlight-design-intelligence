@@ -19,14 +19,22 @@ const SKIP_DIRS = new Set([
 const SKIP_PATH_RE = /(^|\/)(docs|ops|scripts|supabase|migrations|handovers|packages|brand|archive|fixtures?|tests?|__tests__|brand-packs|_quarantine)\/|\.(test|spec)\.[a-z0-9]+$/i;
 const ROOT_INTERNAL_MD = /^(CLAUDE|AGENTS|README|CONTRIBUTING|SECURITY|TRUTH|BUILD-LOG|BLOCKERS|CHANGELOG|HANDOVER[-a-z0-9_]*|progress|design[-a-z]*|SPEC|PRD|TODO|ROADMAP)\.md$/i;
 const SUBDIR_INTERNAL_MD = /^(CLAUDE|AGENTS|README|CONTRIBUTING|SECURITY|CHANGELOG)\.md$/i;
-const NEGATION_RE = /\b(no|not|never|neither|nor|doesn't|don't|isn't|aren't|won't|can't|cannot)\b/i;
+const CORE_NEGATION_RE = /\b(no|not|never|neither|nor|doesn't|don't|isn't|aren't|won't|can't|cannot)\b/i;
+const EXCLUSION_NEGATION_RE = /\b(exclude|excludes|excluding|without)\b/i;
+const NEGATION_RE = /\b(no|not|never|neither|nor|doesn't|don't|isn't|aren't|won't|can't|cannot|exclude|excludes|excluding|without)\b/i;
 const DIRECT_NEGATION_BRIDGE_RE = /^(?:(?:is|are|was|were|be|exist|exists|there\s+(?:is|are)|offer|offers|offering|offered|provide|provides|providing|provided|sell|sells|selling|sold|accept|accepts|accepting|accepted|run|runs|running|operated\s+by|owned\s+by|managed\s+by|called|named|a|an|the|any|such|further|paid|direct)\s+)*$/i;
+const LLMS_TXT_FILE_RE = /^llms(?:-full)?\.txt$/i;
+const COPY_PROP_SET = new Set([
+  "title", "description", "subtitle", "body", "summary", "label",
+  "headline", "cta", "alt", "placeholder", "aria-label", "aria-description",
+]);
+const HTML_COPY_ATTR_RE = /(?:^|\s)(?:alt|aria-label|aria-description|title|placeholder|label)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+))/gi;
 
 const VOID_RULES = [
   {
     id: "void-claim:nonexistent-bv",
     severity: "error",
-    re: /\b(Starlight Holding B\.?V\.?|Arcanea(?:\s*\(IP\))?\s+B\.?V\.?|FrankX Operations B\.?V\.?|FrankX B\.?V\.?)\b/gi,
+    re: /\b((?:Starlight Holding|Arcanea(?:\s*\(IP\))?|FrankX Operations|FrankX)\s+(?:B\.V\.(?!\w)|B\.?V\b))/gi,
     why: "No BV exists (TRUTH.md §1): legal entity is an eenmanszaak (Starlight Intelligence).",
   },
   {
@@ -43,12 +51,13 @@ function walkFiles(dir, rootDir = dir, out = []) {
   for (const entry of entries) {
     if (SKIP_DIRS.has(entry.name) || entry.name.startsWith(".")) continue;
     if (restrictTop && entry.isDirectory() && !WEB_ROOT_DIRS.includes(entry.name)) continue;
-    if (restrictTop && entry.isFile() && !/\.html?$/i.test(entry.name)) continue;
+    if (restrictTop && entry.isFile() && !/\.html?$/i.test(entry.name) && !LLMS_TXT_FILE_RE.test(entry.name)) continue;
     const full = join(dir, entry.name);
     const rel = relative(rootDir, full).replace(/\\/g, "/");
+    const isTrackedLlmsTxt = LLMS_TXT_FILE_RE.test(entry.name) && (rel === entry.name || /^public\/[^/]+$/i.test(rel));
     if (entry.isDirectory()) {
       walkFiles(full, rootDir, out);
-    } else if (/\.(tsx|ts|jsx|js|mdx|md|html?)$/i.test(entry.name) && !SKIP_PATH_RE.test(rel)) {
+    } else if ((/\.(tsx|ts|jsx|js|mdx|md|html?)$/i.test(entry.name) || isTrackedLlmsTxt) && !SKIP_PATH_RE.test(rel)) {
       if (!rel.includes("/") && ROOT_INTERNAL_MD.test(entry.name)) continue;
       if (SUBDIR_INTERNAL_MD.test(entry.name) && !/^content\//i.test(rel)) continue;
       out.push({ full, rel });
@@ -138,6 +147,24 @@ function maskPreserveNewlines(source, re) {
   return source.replace(re, (m) => m.replace(/[^\n]/g, " "));
 }
 
+function findHtmlTagEnd(str, tagStart) {
+  const n = str.length;
+  let quote = null;
+  for (let i = tagStart + 1; i < n; i += 1) {
+    const ch = str[i];
+    if (quote) {
+      if (ch === quote) quote = null;
+      continue;
+    }
+    if (ch === '"' || ch === "'") {
+      quote = ch;
+      continue;
+    }
+    if (ch === ">") return i;
+  }
+  return -1;
+}
+
 function extractHtmlLogicalSegments(source) {
   const cleaned = maskPreserveNewlines(
     maskPreserveNewlines(
@@ -158,12 +185,29 @@ function extractHtmlLogicalSegments(source) {
       break;
     }
     if (tagStart > i) seg.addSlice(i, tagStart);
-    const tagEnd = cleaned.indexOf(">", tagStart + 1);
+    const tagEnd = findHtmlTagEnd(cleaned, tagStart);
     if (tagEnd < 0) {
       seg.addSlice(tagStart, n);
       break;
     }
-    const rawTag = cleaned.slice(tagStart + 1, tagEnd).trim();
+    const rawInside = cleaned.slice(tagStart + 1, tagEnd);
+    const rawTag = rawInside.trim();
+    if (rawTag && !rawTag.startsWith("/") && !rawTag.startsWith("!") && !rawTag.startsWith("?")) {
+      HTML_COPY_ATTR_RE.lastIndex = 0;
+      let attrMatch;
+      while ((attrMatch = HTML_COPY_ATTR_RE.exec(rawInside)) !== null) {
+        const val = attrMatch[1] ?? attrMatch[2] ?? attrMatch[3] ?? "";
+        if (!val.trim()) continue;
+        const eqIdx = attrMatch[0].indexOf("=");
+        const valOffsetInMatch = eqIdx >= 0 ? attrMatch[0].indexOf(val, eqIdx + 1) : -1;
+        if (valOffsetInMatch < 0) continue;
+        const valStart = tagStart + 1 + attrMatch.index + valOffsetInMatch;
+        const valEnd = valStart + val.length;
+        const attrSeg = createSegmentBuilder(cleaned, lineStarts);
+        attrSeg.addSlice(valStart, valEnd);
+        attrSeg.flush(segments);
+      }
+    }
     const nameMatch = /^\/?\s*([A-Za-z0-9]+)/.exec(rawTag);
     const tagName = nameMatch ? nameMatch[1].toLowerCase() : "";
     if (tagName && INLINE_COPY_TAGS.has(tagName)) {
@@ -174,6 +218,7 @@ function extractHtmlLogicalSegments(source) {
     i = tagEnd + 1;
   }
   seg.flush(segments);
+  segments.sort((a, b) => a.line - b.line);
   return segments;
 }
 
@@ -253,16 +298,24 @@ function extractMarkdownLogicalSegments(source) {
 
 function isDirectVoidNegation(line, matchIndex) {
   const clause = line.slice(Math.max(0, matchIndex - 96), matchIndex).split(/(?:[.;!?\u2014\u2013()]|(?<!\d):|:(?!\d))/).pop() ?? "";
+  let lastNegStart = -1;
   let lastNegEnd = -1;
+  let lastNegWord = "";
   const negGlobal = new RegExp(NEGATION_RE.source, "gi");
   let m;
   while ((m = negGlobal.exec(clause)) !== null) {
+    lastNegStart = m.index;
     lastNegEnd = m.index + m[0].length;
+    lastNegWord = m[0];
   }
   if (lastNegEnd < 0) return false;
+  if (EXCLUSION_NEGATION_RE.test(lastNegWord)) {
+    const localPrefix = clause.slice(0, lastNegStart).split(/,|(?:\band\b|\bbut\b)/i).pop() ?? "";
+    if (CORE_NEGATION_RE.test(localPrefix)) return false;
+  }
   let between = clause.slice(lastNegEnd).trim();
   const listSepItemRe = new RegExp(
-    `^(?:${VOID_RULES.map((r) => r.re.source).join("|")})(?:\\s*,\\s*(?:or|nor)?|\\s+(?:or|nor|and|\\/)\\s*)\\s*`,
+    `^(?:${VOID_RULES.map((r) => r.re.source).join("|")})(?:\\s+(?:retainers?|sessions?|calls?|packages?|plans?|services?|tiers?|engagements?|arrangements?|options?))*\\s*(?:,\\s*(?:(?:or|nor)(?:\\s+|$))?|\\s+(?:or|nor|and|\\\/)(?:\\s+|$))\\s*`,
     "i",
   );
   const leadingBridgeWordRe = /^(?:is|are|was|were|be|exist|exists|do|does|did|will|can|would|should|there\s+(?:is|are)|offer|offers|offering|offered|provide|provides|providing|provided|sell|sells|selling|sold|accept|accepts|accepting|accepted|run|runs|running|operated\s+by|owned\s+by|managed\s+by|called|named|a|an|the|any|such|further|paid|direct)\s+/i;
@@ -341,6 +394,7 @@ function scanCodeFile(source) {
   const lineStarts = buildLineStarts(source);
   const maskedChars = source.split("");
   const segments = [];
+  const copyPropExprRanges = [];
 
   const blankRange = (start, end) => {
     for (let k = start; k < end; k += 1) {
@@ -490,8 +544,19 @@ function scanCodeFile(source) {
     let isSelfClosing = VOID_HTML_TAGS.has(lowerTag);
 
     if (!isFrag) {
+      let pendingAttrName = "";
+      let awaitingAttrValue = false;
       while (i < n) {
         const ch = source[i];
+        if (ch === " " || ch === "\t" || ch === "\n" || ch === "\r") {
+          i += 1;
+          continue;
+        }
+        if (ch === "=" && pendingAttrName) {
+          awaitingAttrValue = true;
+          i += 1;
+          continue;
+        }
         if (ch === '"' || ch === "'" || ch === "`") {
           const q = ch;
           i += 1;
@@ -500,10 +565,17 @@ function scanCodeFile(source) {
             if (source[i] === q) { i += 1; break; }
             i += 1;
           }
+          pendingAttrName = "";
+          awaitingAttrValue = false;
           continue;
         }
         if (ch === "{") {
           const exprRes = scanJs(i + 1, true);
+          if (awaitingAttrValue && COPY_PROP_SET.has(pendingAttrName.toLowerCase())) {
+            copyPropExprRanges.push({ start: i + 1, end: exprRes.end - 1 });
+          }
+          pendingAttrName = "";
+          awaitingAttrValue = false;
           i = exprRes.end;
           continue;
         }
@@ -530,6 +602,16 @@ function scanCodeFile(source) {
           i += 1;
           break;
         }
+        if (/[A-Za-z_:]/.test(ch)) {
+          let attrEnd = i + 1;
+          while (attrEnd < n && /[A-Za-z0-9_.:-]/.test(source[attrEnd])) attrEnd += 1;
+          pendingAttrName = source.slice(i, attrEnd);
+          awaitingAttrValue = false;
+          i = attrEnd;
+          continue;
+        }
+        pendingAttrName = "";
+        awaitingAttrValue = false;
         i += 1;
       }
     }
@@ -601,15 +683,53 @@ function scanCodeFile(source) {
   scanJs(0, false);
 
   const commentMasked = maskedChars.join("");
-  const copyPropRe = /(?:title|description|subtitle|body|summary|label|headline|cta|alt|placeholder|aria-label)\s*[:=]\s*(["'`])([\s\S]*?)\1/gi;
+  const seenPropSlices = new Set();
+
+  for (const range of copyPropExprRanges) {
+    let pos = range.start;
+    while (pos < range.end) {
+      const c = commentMasked[pos];
+      if (c === '"' || c === "'" || c === "`") {
+        const q = c;
+        const litStart = pos + 1;
+        let k = litStart;
+        let hasInterp = false;
+        let closed = false;
+        while (k < range.end) {
+          if (commentMasked[k] === "\\" && k + 1 < range.end) { k += 2; continue; }
+          if (q === "`" && commentMasked[k] === "$" && commentMasked[k + 1] === "{") hasInterp = true;
+          if (commentMasked[k] === q) { closed = true; break; }
+          k += 1;
+        }
+        const litEnd = k;
+        const val = commentMasked.slice(litStart, litEnd);
+        const key = `${litStart}:${litEnd}`;
+        if (!hasInterp && val.trim().length >= 4 && !seenPropSlices.has(key)) {
+          seenPropSlices.add(key);
+          const propSeg = createSegmentBuilder(commentMasked, lineStarts);
+          propSeg.addSlice(litStart, litEnd);
+          propSeg.flush(segments);
+        }
+        pos = closed ? litEnd + 1 : range.end;
+        continue;
+      }
+      pos += 1;
+    }
+  }
+
+  const copyPropRe = /(?<![\w$-])(?:title|description|subtitle|body|summary|label|headline|cta|alt|placeholder|aria-label|aria-description)\s*(?::\s*|=\s*(?:\{\s*\(*\s*)?)(["'`])((?:\\.|(?!\1)[\s\S])*?)\1/gi;
   let propMatch;
   while ((propMatch = copyPropRe.exec(commentMasked)) !== null) {
     const val = propMatch[2];
     if (val.trim().length >= 4 && !/^\$\{/.test(val.trim())) {
       const valueOffset = propMatch.index + propMatch[0].indexOf(propMatch[1]) + 1;
-      const propSeg = createSegmentBuilder(commentMasked, lineStarts);
-      propSeg.addSlice(valueOffset, valueOffset + val.length);
-      propSeg.flush(segments);
+      const key = `${valueOffset}:${valueOffset + val.length}`;
+      if (!seenPropSlices.has(key)) {
+        seenPropSlices.add(key);
+        const propSeg = createSegmentBuilder(commentMasked, lineStarts);
+        propSeg.addSlice(valueOffset, valueOffset + val.length);
+        propSeg.flush(segments);
+      }
     }
   }
 

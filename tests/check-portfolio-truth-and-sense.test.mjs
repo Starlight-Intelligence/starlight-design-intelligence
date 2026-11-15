@@ -152,7 +152,7 @@ test("excludes root internal markdown docs in static repos without an app root",
   try {
     const res = auditRepository({ dir, brand: "sis", mode: "landing" });
     assert.equal(res.ok, true, JSON.stringify(res.errors));
-    assert.equal(res.scannedFiles, 1);
+    assert.equal(res.scannedFiles, 2);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -247,7 +247,7 @@ test("scans secondary static HTML files like about.html alongside index.html and
   });
   try {
     const res = auditRepository({ dir, brand: "sis", mode: "landing" });
-    assert.equal(res.scannedFiles, 2);
+    assert.equal(res.scannedFiles, 3);
     assert.equal(res.ok, false);
     assert.equal(res.errors[0].path, "about.html");
     assert.equal(res.errors[0].rule, "void-claim:consulting-or-1on1");
@@ -399,6 +399,108 @@ test("exempts negated comma and Oxford-comma lists of void items while still fla
     assert.equal(res.ok, false);
     assert.equal(res.errors.length, 1, JSON.stringify(res.errors));
     assert.equal(res.errors[0].line, 2);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("extracts string literals from brace-wrapped and conditional JSX copy props", () => {
+  const dir = makeFixture({
+    "app/page.tsx": [
+      `export default function Page({ ready }: { ready: boolean }) {`,
+      `  return (`,
+      `    <Hero`,
+      `      title={"Book hourly consulting."}`,
+      `      description={"Operated by Starlight Holding BV."}`,
+      `      aria-label={ready ? "Book a 1:1" : "Open kit"}`,
+      `    />`,
+      `  );`,
+      `}`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    assert.equal(res.ok, false);
+    assert.equal(res.errors.length, 3, JSON.stringify(res.errors));
+    assert.deepEqual(res.errors.map((e) => e.line), [4, 5, 6]);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("extracts accessible copy attributes from static HTML tags", () => {
+  const dir = makeFixture({
+    "index.html": [
+      `<!doctype html><html><body>`,
+      `  <img src="/hero.png" alt="Operated by Starlight Holding BV.">`,
+      `  <button aria-label="Book hourly consulting.">Explore</button>`,
+      `</body></html>`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    assert.equal(res.ok, false);
+    assert.equal(res.errors.length, 2, JSON.stringify(res.errors));
+    assert.deepEqual(res.errors.map((e) => e.line), [2, 3]);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("consumes dotted B.V. abbreviation period before trailing denial checks", () => {
+  const dir = makeFixture({
+    "content/entities.md": [
+      `Starlight Holding B.V. does not exist.`,
+      `Operated by Starlight Holding B.V.`,
+      `Operated by Starlight Holding BV. Does not exist.`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    assert.equal(res.ok, false);
+    assert.equal(res.errors.length, 2, JSON.stringify(res.errors));
+    assert.deepEqual(res.errors.map((e) => e.line), [2, 3]);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("audits copy inside public/llms.txt and root llms.txt in both landing and content modes", () => {
+  const dir = makeFixture({
+    "index.html": `<!doctype html><html><body><h1>Clean Title</h1><a href="/start">Start</a></body></html>\n`,
+    "public/llms.txt": [
+      `# Agent Guide`,
+      `Operated by Starlight Holding BV.`,
+      `Book hourly consulting.`,
+    ].join("\n"),
+    "llms.txt": `Book a 1:1 session today.\n`,
+  });
+  try {
+    const landing = auditRepository({ dir, brand: "sis", mode: "landing" });
+    assert.equal(landing.landing.hasLlms, true);
+    assert.equal(landing.ok, false);
+    assert.equal(landing.errors.length, 3, JSON.stringify(landing.errors));
+    const content = auditRepository({ dir, brand: "sis", mode: "content" });
+    assert.equal(content.ok, false);
+    assert.equal(content.errors.length, 3, JSON.stringify(content.errors));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("exempts explicit exclude clauses with modified void items while rejecting negated exclude and independent clauses", () => {
+  const dir = makeFixture({
+    "content/policy.md": [
+      `Studio applications cover fixed-scope systems; they exclude 1:1 coaching retainers, hourly consulting, and retreats.`,
+      `We do not exclude hourly consulting.`,
+      `We do not offer 1:1 coaching, and hourly consulting is available.`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    assert.equal(res.ok, false);
+    assert.equal(res.errors.length, 2, JSON.stringify(res.errors));
+    assert.deepEqual(res.errors.map((e) => e.line), [2, 3]);
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
