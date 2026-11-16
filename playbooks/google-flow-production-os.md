@@ -23,7 +23,7 @@ Inspection of the signed-in **Google AI Ultra** Flow workspace (`flow.google.com
 Organize Flow into dedicated named projects so Ingredients and Characters never bleed across brands:
 
 1. **`Starlight | Horizon & Material Lab`**: Obsidian, porcelain, 18px optical glass, coastal observatories (`Horizon` and `Cultural` modes).
-2. **`Arcanea | Guardians & Living Realms`**: Locked character sheets (`Aiyami & Sol`, `Lyria & Yumiko`, `Draconia & Draconis`, `Alera & Otome`, `Stellaris`) and Gate portals.
+2. **`Arcanea | Guardians & Living Realms`**: Guardian sheets + `STAGING`/`OPEN` Godbeast & companion forms (`Aiyami & Sol [STAGING]`, `Lyria & Yumiko [OPEN]`, `Draconia & Draconis [STAGING]`, `Alera & Otome [STAGING]`, `Stellaris [STAGING]`) and Gate portals.
 3. **`AnimeLegends | Studio, Atlas & Forge`**: `AKASHI`, `KAGE`, `MIRA` turnarounds, sakuga keyframes, `16:9` / `9:16` action cuts.
 4. **`GenCreator | Publishing Editions`**: Oak workbench loops, creator studio scenes, monograph unboxings.
 5. **`FrankX | Physical Systems & Books`**: Tactile modular fiber hardware, *The Golden Age of Intelligence*, *The Wordless Laws*.

@@ -5,7 +5,7 @@
 
 ## 1. Strategic Split: Included Native + Google Flow Ultra vs. Higgsfield Scale
 
-Every still plate, character turnaround, and baseline Omni 1.2 video study is generated first via included Antigravity Nano Banana + Google AI Ultra Flow credits (`10,000` monthly pool). **Higgsfield** is reserved strictly for three capabilities where Soul ID / DoP cinema / UGC Lip-Sync measurably outperform generic text-to-video:
+Every still plate, character turnaround, and baseline Omni 1.2 / Veo 3.1 video study is generated first via included Antigravity Nano Banana + Google AI Ultra Flow credits (`10,050` monthly pool observed on account). **Higgsfield** is reserved strictly for three capabilities where Soul ID / DoP cinema / UGC Lip-Sync measurably outperform generic text-to-video:
 
 1. **Soul ID Persistent Human & Spokesperson Consistency (`frankx.ai`, `gencreator.ai`, `starlightintelligence.ai`)**: Locking consistent founder/instructor facial identity across multi-angle course thumbnails, talking-head intros, and campaign reels.
 2. **Cinema Studio / DoP Multi-Angle Keyframe Motion (`arcanea.ai`, `animelegends.ai`, `sacred-visions`)**: Taking already-scored `>=26/30` KEEP start-frames from our `2026-11-16-flow-godmode` job into Higgsfield DoP / Kling motion paths when custom camera trajectories are needed.
@@ -17,7 +17,7 @@ Every still plate, character turnaround, and baseline Omni 1.2 video study is ge
 |---|---|---|---|---|
 | `HF-01` | **FrankX Authority & Books** (`frankx.ai/books`, `frankx.ai/acos`) | `frankx-command-modular-engine-hero.jpg`, `frankx-golden-age-book-art.jpg`, authorized founder reference shots | Soul ID creation (`1` ID) + `4` portrait/studio stills + `3` 5s DoP macro camera pushes | **450 credits** |
 | `HF-02` | **GenCreator Studio & Cohort** (`gencreator.ai/studio`) | `gencreator-creator-director-character.jpg`, `gencreator-edition-workbench-hero.jpg` | `1` instructor Soul ID + `4` lesson thumbnails + `2` 5s studio reels (`9:16`) | **350 credits** |
-| `HF-03` | **Arcanea & AnimeLegends Teasers** (`arcanea.ai`, `animelegends.ai`) | `arcanea-aiyami-sol-crown-gate.jpg`, regenerated canonical `AKASHI`/`KAGE`/`MIRA` plates (after regenerating non-canon Ep-01 concept sheets) | `4` Kling/DoP I2V hero shots (`16:9` web hero + `9:16` teaser cuts) | **500 credits** |
+| `HF-03` | **Arcanea & AnimeLegends Teasers** (`arcanea.ai`, `animelegends.ai`) | `arcanea-aiyami-crown-flow-still.webp`, canonical `AKASHI`/`KAGE`/`MIRA` Wave-2 cel keyframes (`Wave-1 non-canon Ep-01 human concepts held`) | `4` Kling/DoP I2V hero shots (`16:9` web hero + `9:16` teaser cuts) | **500 credits** |
 | `HF-04` | **Starlight Horizon & Cultural** (`starlightintelligence.ai`) | `starlight-horizon-observatory-hero.jpg`, `starlight-queen-cultural-portrait.jpg` | `2` subtle camera push-ins (`16:9`, reduced-motion poster paired) | **200 credits** |
 | **TOTAL CAP** | **Portfolio Wave 1** | **All start-frames pre-inspected >=26/30** | **2 Soul IDs + 8 stills + 11 high-impact I2V shots** | **1,500 credits hard ceiling** |
 
