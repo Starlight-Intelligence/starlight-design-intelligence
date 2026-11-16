@@ -601,3 +601,29 @@ test("does not treat comparison operands in child expressions as rendered copy",
   });
   assert.equal(res.ok, true, JSON.stringify(res.errors));
 });
+
+test("decodes named and numeric character references before matching rendered copy", () => {
+  const res = contentErrors({
+    "index.html": `<html><body>\n<p>Book hourly&nbsp;consulting today.</p>\n<p>Operated by Starlight Holding&#32;BV.</p>\n<img alt="Book hourly&#x20;consulting" src="/a.png">\n</body></html>\n`,
+    "components/Offer.tsx": `export const Offer = () => (\n  <div>\n    <p>Book hourly&nbsp;consulting today.</p>\n    <Hero title="Quarterly 1&#58;1 advisory" />\n  </div>\n);\n`,
+    "content/sales.md": `Book hourly&nbsp;consulting today.\n`,
+  });
+  const where = res.errors.map((e) => `${e.rule}@${e.path}:${e.line}`);
+  for (const expected of [
+    "void-claim:consulting-or-1on1@index.html:2",
+    "void-claim:nonexistent-bv@index.html:3",
+    "void-claim:consulting-or-1on1@index.html:4",
+    "void-claim:consulting-or-1on1@components/Offer.tsx:3",
+    "void-claim:consulting-or-1on1@components/Offer.tsx:4",
+    "void-claim:consulting-or-1on1@content/sales.md:1",
+  ]) {
+    assert.ok(where.includes(expected), `${expected} missing from ${where.join(" ")}`);
+  }
+});
+
+test("soft hyphens and zero-width references cannot split a prohibited phrase", () => {
+  const res = contentErrors({
+    "index.html": `<html><body><p>Book hour&shy;ly con&#8203;sulting today.</p></body></html>\n`,
+  });
+  assert.ok(res.errors.some((e) => e.rule === "void-claim:consulting-or-1on1"), JSON.stringify(res.errors));
+});

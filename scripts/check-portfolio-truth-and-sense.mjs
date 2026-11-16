@@ -89,7 +89,31 @@ function buildLineStarts(source) {
   return starts;
 }
 
-function createSegmentBuilder(source, lineStarts) {
+const NAMED_CHAR_REFS = {
+  nbsp: " ", ensp: " ", emsp: " ", thinsp: " ", amp: "&", lt: "<", gt: ">", quot: '"', apos: "'",
+  lsquo: "\u2018", rsquo: "\u2019", ldquo: "\u201c", rdquo: "\u201d", mdash: "\u2014", ndash: "\u2013",
+  hellip: "\u2026", middot: "\u00b7", bull: "\u2022", copy: "\u00a9", reg: "\u00ae", trade: "\u2122",
+  shy: "", zwj: "", zwnj: "", colon: ":", sol: "/", period: ".", comma: ",", excl: "!", quest: "?",
+};
+const CHAR_REF_RE = /&(?:#(\d{1,7})|#[xX]([0-9a-fA-F]{1,6})|([A-Za-z][A-Za-z0-9]{1,31}));/y;
+const INVISIBLE_RE = /[\u00ad\u200b-\u200d\u2060\ufeff]/;
+
+// Returns { text, length } for a character reference at `index`, or null when none is present.
+function decodeCharRef(source, index) {
+  CHAR_REF_RE.lastIndex = index;
+  const m = CHAR_REF_RE.exec(source);
+  if (!m) return null;
+  let text = null;
+  if (m[1] || m[2]) {
+    const cp = Number.parseInt(m[1] ?? m[2], m[1] ? 10 : 16);
+    if (cp > 0 && cp <= 0x10ffff) text = String.fromCodePoint(cp);
+  } else if (Object.hasOwn(NAMED_CHAR_REFS, m[3].toLowerCase())) {
+    text = NAMED_CHAR_REFS[m[3].toLowerCase()];
+  }
+  return text === null ? null : { text, length: m[0].length };
+}
+
+function createSegmentBuilder(source, lineStarts, { decodeRefs = false } = {}) {
   let out = "";
   let charLines = [];
   let pendingSpace = false;
@@ -107,19 +131,31 @@ function createSegmentBuilder(source, lineStarts) {
 
   return {
     addSlice(start, end) {
+      const pushChar = (ch, at) => {
+        if (/\s/.test(ch)) {
+          if (out.length > 0) pendingSpace = true;
+          return;
+        }
+        if (INVISIBLE_RE.test(ch)) return;
+        if (pendingSpace) {
+          out += " ";
+          charLines.push(lineOf(at));
+          pendingSpace = false;
+        }
+        out += ch;
+        charLines.push(lineOf(at));
+      };
       for (let i = start; i < end; i += 1) {
         const ch = source[i];
-        if (ch === " " || ch === "\t" || ch === "\n" || ch === "\r") {
-          if (out.length > 0) pendingSpace = true;
-        } else {
-          if (pendingSpace) {
-            out += " ";
-            charLines.push(lineOf(i));
-            pendingSpace = false;
+        if (decodeRefs && ch === "&") {
+          const ref = decodeCharRef(source, i);
+          if (ref && i + ref.length <= end) {
+            for (const decoded of ref.text) pushChar(decoded, i);
+            i += ref.length - 1;
+            continue;
           }
-          out += ch;
-          charLines.push(lineOf(i));
         }
+        pushChar(ch, i);
       }
     },
     addGap() {
@@ -182,7 +218,7 @@ function extractHtmlLogicalSegments(source) {
   );
   const lineStarts = buildLineStarts(source);
   const segments = [];
-  const seg = createSegmentBuilder(cleaned, lineStarts);
+  const seg = createSegmentBuilder(cleaned, lineStarts, { decodeRefs: true });
   let i = 0;
   const n = cleaned.length;
   while (i < n) {
@@ -210,7 +246,7 @@ function extractHtmlLogicalSegments(source) {
         if (valOffsetInMatch < 0) continue;
         const valStart = tagStart + 1 + attrMatch.index + valOffsetInMatch;
         const valEnd = valStart + val.length;
-        const attrSeg = createSegmentBuilder(cleaned, lineStarts);
+        const attrSeg = createSegmentBuilder(cleaned, lineStarts, { decodeRefs: true });
         attrSeg.addSlice(valStart, valEnd);
         attrSeg.flush(segments);
       }
@@ -233,7 +269,7 @@ function extractMarkdownLogicalSegments(source) {
   const masked = maskPreserveNewlines(source, /<!--[\s\S]*?-->/g);
   const lineStarts = buildLineStarts(source);
   const segments = [];
-  const seg = createSegmentBuilder(masked, lineStarts);
+  const seg = createSegmentBuilder(masked, lineStarts, { decodeRefs: true });
   const rawLines = masked.split("\n");
   let offset = 0;
   let inFence = null;
@@ -646,7 +682,7 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
 
     const useInherited = isInline && inheritedSeg !== null;
     if (!useInherited && inheritedSeg) inheritedSeg.flush(segments);
-    const seg = useInherited ? inheritedSeg : createSegmentBuilder(source, lineStarts);
+    const seg = useInherited ? inheritedSeg : createSegmentBuilder(source, lineStarts, { decodeRefs: true });
     if (useInherited) seg.addGap();
 
     const childAncestors = new Set(ancestors);
@@ -783,7 +819,9 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
       const key = `${valueOffset}:${valueOffset + val.length}`;
       if (!seenPropSlices.has(key)) {
         seenPropSlices.add(key);
-        const propSeg = createSegmentBuilder(commentMasked, lineStarts);
+        // A directly quoted JSX attribute (title="...") decodes character references like HTML.
+        const isJsxStringAttr = /=\s*["'`]$/.test(propMatch[0].slice(0, propMatch[0].indexOf(propMatch[1]) + 1));
+        const propSeg = createSegmentBuilder(commentMasked, lineStarts, { decodeRefs: isJsxStringAttr });
         propSeg.addSlice(valueOffset, valueOffset + val.length);
         propSeg.flush(segments);
       }
