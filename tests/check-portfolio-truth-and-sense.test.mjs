@@ -627,3 +627,22 @@ test("soft hyphens and zero-width references cannot split a prohibited phrase", 
   });
   assert.ok(res.errors.some((e) => e.rule === "void-claim:consulting-or-1on1"), JSON.stringify(res.errors));
 });
+
+test("resolves JavaScript App Router homepages and layouts", () => {
+  for (const prefix of ["", "src/"]) {
+    const dir = makeFixture({
+      [`${prefix}app/layout.js`]: `export default function Layout({ children }) { return <html data-brand="sis"><body><script type="application/ld+json">{"{}"}</script>{children}</body></html>; }\n`,
+      [`${prefix}app/page.js`]: `export default function Page() { return <main><h1>Operational intelligence</h1><a href="/start">Start</a></main>; }\n`,
+      "public/llms.txt": "# SIS\nOperational intelligence.\n",
+    });
+    try {
+      const res = auditRepository({ dir, brand: "sis", mode: "landing" });
+      assert.equal(res.landing.entry, `${prefix}app/page.js`);
+      assert.equal(res.ok, true, JSON.stringify(res.errors));
+      assert.equal(res.landing.hasJsonLd, true);
+      assert.equal(res.landing.hasBrandAttr, true);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+});

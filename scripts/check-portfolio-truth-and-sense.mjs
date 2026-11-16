@@ -878,8 +878,9 @@ function resolveLocalModule(targetDir, fromFile, spec) {
 
 function resolveHomepageBundle(targetDir) {
   const candidates = [
-    "app/page.tsx", "app/page.jsx", "src/app/page.tsx", "src/app/page.jsx",
-    "app/(marketing)/page.tsx", "src/app/(marketing)/page.tsx",
+    "app/page.tsx", "app/page.jsx", "app/page.js", "src/app/page.tsx", "src/app/page.jsx", "src/app/page.js",
+    "app/(marketing)/page.tsx", "app/(marketing)/page.jsx", "app/(marketing)/page.js",
+    "src/app/(marketing)/page.tsx", "src/app/(marketing)/page.jsx", "src/app/(marketing)/page.js",
     "pages/index.tsx", "pages/index.jsx", "pages/index.js",
     "src/pages/index.tsx", "src/pages/index.jsx", "src/pages/index.js",
     "index.html", "index.htm",
@@ -1018,8 +1019,8 @@ export function auditRepository({ dir, brand = "sis", mode = "landing", strict =
       "src/app/llms.txt/route.ts", "src/app/llms.txt/route.js",
     ].some((p) => existsSync(join(targetDir, p)));
     const layoutText = [
-      "app/layout.tsx", "src/app/layout.tsx", "app/layout.jsx", "src/app/layout.jsx",
-      "pages/_app.tsx", "src/pages/_app.tsx",
+      "app/layout.tsx", "src/app/layout.tsx", "app/layout.jsx", "src/app/layout.jsx", "app/layout.js", "src/app/layout.js",
+      "pages/_app.tsx", "src/pages/_app.tsx", "pages/_app.jsx", "src/pages/_app.jsx", "pages/_app.js", "src/pages/_app.js",
     ]
       .map((p) => join(targetDir, p))
       .filter(existsSync)
