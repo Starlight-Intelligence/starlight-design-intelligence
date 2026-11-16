@@ -584,3 +584,20 @@ test("native lowercase <link> stays void and does not swallow following copy", (
   assert.ok(hit, JSON.stringify(res.errors));
   assert.equal(hit.line, 5);
 });
+
+test("audits string-literal branches inside JSX child expressions", () => {
+  const res = contentErrors({
+    "components/Status.tsx": `export const Status = ({ ready, plan }) => (\n  <p>\n    {ready ? "Book hourly consulting." : "Browse kits"}\n    {plan && "Operated by Starlight Holding BV."}\n    {plan ?? \`Quarterly 1:1 advisory\`}\n  </p>\n);\n`,
+  });
+  const where = res.errors.map((e) => `${e.rule}@${e.line}`);
+  assert.ok(where.includes("void-claim:consulting-or-1on1@3"), where.join(" "));
+  assert.ok(where.includes("void-claim:nonexistent-bv@4"), where.join(" "));
+  assert.ok(where.includes("void-claim:consulting-or-1on1@5"), where.join(" "));
+});
+
+test("does not treat comparison operands in child expressions as rendered copy", () => {
+  const res = contentErrors({
+    "components/Gate.tsx": `export const Gate = ({ kind }) => <p>{kind === "hourly consulting" ? "Fixed-scope systems" : "Digital kits"}</p>;\n`,
+  });
+  assert.equal(res.ok, true, JSON.stringify(res.errors));
+});

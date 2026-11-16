@@ -417,6 +417,8 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
     let tokenCount = 0;
     let singleLiteral = null;
     let prevSigChar = stopOnClosingBrace ? "{" : "\n";
+    // String literals in a value position (ternary/logical branches, call args, arrow returns) may be rendered.
+    const branchLiterals = [];
 
     const consumeQuote = (qPos) => {
       const q = source[qPos];
@@ -433,6 +435,14 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
       hasCode = true;
       tokenCount += 1;
       const bodyEnd = closed ? k - 1 : k;
+      if (
+        !hasInterp &&
+        "?:&|(,{>".includes(prevSigChar) &&
+        /[A-Za-z]/.test(source.slice(qPos + 1, bodyEnd)) &&
+        bodyEnd - (qPos + 1) >= 3
+      ) {
+        branchLiterals.push({ start: qPos + 1, end: bodyEnd });
+      }
       if (tokenCount === 1 && !hasInterp && bodyEnd - (qPos + 1) >= 3) {
         singleLiteral = { start: qPos + 1, end: bodyEnd };
       } else {
@@ -492,6 +502,7 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
             hasCode,
             hasJsx,
             literalRange: tokenCount === 1 ? singleLiteral : null,
+            branchLiterals,
           };
         }
         hasCode = true;
@@ -533,6 +544,7 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
       hasCode,
       hasJsx,
       literalRange: tokenCount === 1 ? singleLiteral : null,
+      branchLiterals,
     };
   };
 
@@ -705,6 +717,14 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
           seg.flush(segments);
         } else if (exprRes.hasCode) {
           seg.addGap();
+        }
+        if (!exprRes.literalRange) {
+          // Each potentially rendered branch literal is audited as its own segment.
+          for (const lit of exprRes.branchLiterals) {
+            const branchSeg = createSegmentBuilder(source, lineStarts);
+            branchSeg.addSlice(lit.start, lit.end);
+            branchSeg.flush(segments);
+          }
         }
         continue;
       }
