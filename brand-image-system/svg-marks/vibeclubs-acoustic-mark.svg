@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none" role="img" aria-label="VibeClubs Harmonic Acoustic Pulse mark">
+  <!-- Three Concentric Architectural Acoustic Bars inside Warm Vinyl Frame -->
+  <rect x="6" y="6" width="36" height="36" rx="8" stroke="currentColor" stroke-width="3"/>
+  <path d="M16 19V29M24 14V34M32 21V27" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/>
+</svg>
