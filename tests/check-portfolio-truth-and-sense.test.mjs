@@ -505,3 +505,82 @@ test("exempts explicit exclude clauses with modified void items while rejecting 
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+function contentErrors(files, options = {}) {
+  const dir = makeFixture(files);
+  try {
+    return auditRepository({ dir, brand: "sis", mode: "content", ...options });
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+test("treats text children of a directly returned <Link> as copy instead of a void <link>", () => {
+  const res = contentErrors({
+    "components/Offer.tsx": `export function Offer() {\n  return <Link href="/book">Book hourly consulting.</Link>;\n}\n`,
+  });
+  assert.equal(res.ok, false);
+  const hit = res.errors.find((e) => e.rule === "void-claim:consulting-or-1on1");
+  assert.ok(hit, JSON.stringify(res.errors));
+  assert.equal(hit.path, "components/Offer.tsx");
+  assert.equal(hit.line, 2);
+});
+
+test("treats <Link> children inside page markup and multiline <Link> children as copy", () => {
+  const res = contentErrors({
+    "app/page.tsx": `export default function Page() {\n  return (\n    <main>\n      <Link\n        href="/book"\n        className="cta"\n      >\n        Book hourly consulting.\n      </Link>\n    </main>\n  );\n}\n`,
+  });
+  assert.equal(res.ok, false);
+  const hit = res.errors.find((e) => e.rule === "void-claim:consulting-or-1on1");
+  assert.ok(hit, JSON.stringify(res.errors));
+  assert.equal(hit.line, 8);
+});
+
+test("treats text children of <Button> and custom capitalized components as copy", () => {
+  const res = contentErrors({
+    "components/Cta.tsx": `export const Cta = () => <Button variant="primary">Book hourly consulting.</Button>;\n`,
+    "components/Legal.tsx": `export const Legal = () => (\n  <footer>\n    <TrustBadge tone="quiet">Operated by Starlight Holding BV.</TrustBadge>\n  </footer>\n);\n`,
+    "components/Ui.tsx": `export const Ui = () => <Pricing.Card>Quarterly 1:1 advisory included.</Pricing.Card>;\n`,
+  });
+  assert.equal(res.ok, false);
+  const where = res.errors.map((e) => `${e.rule}@${e.path}:${e.line}`);
+  assert.ok(where.includes("void-claim:consulting-or-1on1@components/Cta.tsx:1"), where.join(" "));
+  assert.ok(where.includes("void-claim:nonexistent-bv@components/Legal.tsx:3"), where.join(" "));
+  assert.ok(where.some((w) => w.startsWith("void-claim:consulting-or-1on1@components/Ui.tsx:1")), where.join(" "));
+});
+
+test("keeps component copy auditable unless the component is explicitly excluded", () => {
+  const files = {
+    "components/Docs.tsx": `export const Docs = () => (\n  <article>\n    <p>Fixed-scope systems only.</p>\n    <CodeSample>{"// legacy copy"}Book hourly consulting.</CodeSample>\n    <CodeBlock>Operated by Starlight Holding BV.</CodeBlock>\n  </article>\n);\n`,
+  };
+  const audited = contentErrors(files);
+  const rules = audited.errors.map((e) => e.rule);
+  assert.ok(rules.includes("void-claim:consulting-or-1on1"), JSON.stringify(audited.errors));
+  assert.ok(!rules.includes("void-claim:nonexistent-bv"), "CodeBlock is excluded by default");
+
+  const excluded = contentErrors(files, { excludeComponents: ["CodeSample"] });
+  assert.equal(excluded.ok, true, JSON.stringify(excluded.errors));
+});
+
+test("--exclude-component CLI flag excludes a named component and is repeatable", () => {
+  const dir = makeFixture({
+    "components/Docs.tsx": `export const Docs = () => <div><Example>Book hourly consulting.</Example><Snippet>Operated by Starlight Holding BV.</Snippet></div>;\n`,
+  });
+  try {
+    const quiet = { log: () => {}, error: () => {} };
+    assert.equal(main(["--dir", dir, "--mode", "content"], quiet), 1);
+    assert.equal(main(["--dir", dir, "--mode", "content", "--exclude-component", "Example"], quiet), 1);
+    assert.equal(main(["--dir", dir, "--mode", "content", "--exclude-component", "Example", "--exclude-component", "Snippet"], quiet), 0);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("native lowercase <link> stays void and does not swallow following copy", () => {
+  const res = contentErrors({
+    "app/head.tsx": `export default function Head() {\n  return (\n    <>\n      <link rel="icon" href="/favicon.ico">\n      <p>Book hourly consulting.</p>\n    </>\n  );\n}\n`,
+  });
+  const hit = res.errors.find((e) => e.rule === "void-claim:consulting-or-1on1");
+  assert.ok(hit, JSON.stringify(res.errors));
+  assert.equal(hit.line, 5);
+});

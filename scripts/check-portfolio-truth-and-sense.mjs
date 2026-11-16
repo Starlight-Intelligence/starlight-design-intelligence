@@ -4,6 +4,7 @@
 //
 // Usage:
 //   node scripts/check-portfolio-truth-and-sense.mjs --dir <path> --brand <id> [--mode landing|content] [--strict] [--json]
+//        [--exclude-component <Name>]...   (repeatable; JSX elements whose children are not customer copy)
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, extname, join, relative, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -72,6 +73,12 @@ const INLINE_COPY_TAGS = new Set([
 ]);
 const VOID_HTML_TAGS = new Set([
   "area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr",
+]);
+// JSX elements whose children are never rendered customer copy. Every other element, including any
+// capitalized component (<Link>, <Button>, <CtaPill>), has its text children audited as copy.
+// Extend per run with auditRepository({ excludeComponents }) or --exclude-component <Name>.
+export const DEFAULT_NON_COPY_JSX_TAGS = Object.freeze([
+  "script", "style", "Script", "Style", "CodeBlock", "SyntaxHighlighter", "Highlight",
 ]);
 
 function buildLineStarts(source) {
@@ -389,7 +396,7 @@ function checkJsxOpeningTag(source, i) {
   return null;
 }
 
-function scanCodeFile(source) {
+function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS) } = {}) {
   const n = source.length;
   const lineStarts = buildLineStarts(source);
   const maskedChars = source.split("");
@@ -540,8 +547,11 @@ function scanCodeFile(source) {
       tagName = source.slice(tagStart + 1, i);
     }
     const lowerTag = tagName.toLowerCase();
+    // Native HTML tags are lowercase in JSX; <Link>, <Img> etc. are components that keep their children.
+    const isNativeTag = tagName !== "" && tagName === lowerTag;
     const isInline = lowerTag !== "" && INLINE_COPY_TAGS.has(lowerTag);
-    let isSelfClosing = VOID_HTML_TAGS.has(lowerTag);
+    const isNonCopy = tagName !== "" && nonCopyTags.has(tagName);
+    let isSelfClosing = isNativeTag && VOID_HTML_TAGS.has(lowerTag);
 
     if (!isFrag) {
       let pendingAttrName = "";
@@ -628,17 +638,44 @@ function scanCodeFile(source) {
     if (useInherited) seg.addGap();
 
     const childAncestors = new Set(ancestors);
-    if (lowerTag || isFrag) childAncestors.add(lowerTag);
+    if (tagName || isFrag) childAncestors.add(tagName);
+
+    if (isNonCopy) {
+      // Skip the excluded element's body without collecting text, honouring nested same-name tags.
+      let depth = 1;
+      while (i < n) {
+        if (source[i] === "<" && source[i + 1] === "/") {
+          let k = i + 2;
+          while (k < n && /[A-Za-z0-9_.-]/.test(source[k])) k += 1;
+          const gt = source.indexOf(">", k);
+          const afterClose = gt < 0 ? n : gt + 1;
+          if (source.slice(i + 2, k) === tagName && --depth === 0) {
+            if (!useInherited) seg.flush(segments);
+            else seg.addGap();
+            return afterClose;
+          }
+          i = afterClose;
+          continue;
+        }
+        if (source[i] === "<") {
+          const nested = checkJsxOpeningTag(source, i);
+          if (nested && nested.tagName === tagName && !nested.isSelfClosing) depth += 1;
+        }
+        i += 1;
+      }
+      if (!useInherited) seg.flush(segments);
+      return i;
+    }
 
     while (i < n) {
       if (source[i] === "<") {
         if (source[i + 1] === "/") {
           let k = i + 2;
           while (k < n && /[A-Za-z0-9_.-]/.test(source[k])) k += 1;
-          const closeName = source.slice(i + 2, k).toLowerCase();
+          const closeName = source.slice(i + 2, k);
           const gt = source.indexOf(">", k);
           const afterClose = gt < 0 ? n : gt + 1;
-          if (closeName === lowerTag) {
+          if (closeName === tagName) {
             if (!useInherited) seg.flush(segments);
             else seg.addGap();
             return afterClose;
@@ -815,7 +852,7 @@ function resolveHomepageBundle(targetDir) {
   return { entry: relative(targetDir, resolvedEntry).replace(/\\/g, "/"), sources };
 }
 
-export function auditRepository({ dir, brand = "sis", mode = "landing", strict = false, sdiRoot = ROOT }) {
+export function auditRepository({ dir, brand = "sis", mode = "landing", strict = false, sdiRoot = ROOT, excludeComponents = [] }) {
   if (mode !== "landing" && mode !== "content") {
     throw new Error(`Invalid mode "${mode}": expected "landing" or "content"`);
   }
@@ -823,6 +860,7 @@ export function auditRepository({ dir, brand = "sis", mode = "landing", strict =
   const { bannedPhrases } = loadBrandConfig(brand, sdiRoot);
   const findings = [];
   const files = walkFiles(targetDir);
+  const nonCopyTags = new Set([...DEFAULT_NON_COPY_JSX_TAGS, ...excludeComponents]);
 
   for (const { full, rel } of files) {
     const raw = readFileSync(full, "utf8").replace(/\r\n/g, "\n");
@@ -830,7 +868,7 @@ export function auditRepository({ dir, brand = "sis", mode = "landing", strict =
     const isCodeFile = /\.(tsx|ts|jsx|js)$/i.test(ext);
     const isHtmlFile = /\.html?$/i.test(ext);
     const segments = isCodeFile
-      ? scanCodeFile(raw).segments
+      ? scanCodeFile(raw, { nonCopyTags }).segments
       : isHtmlFile
         ? extractHtmlLogicalSegments(raw)
         : extractMarkdownLogicalSegments(raw);
@@ -951,7 +989,7 @@ export function auditRepository({ dir, brand = "sis", mode = "landing", strict =
 export function main(argv, { log = console.log, error = console.error } = {}) {
   const arg = (name) => { const i = argv.indexOf(name); return i >= 0 ? argv[i + 1] : undefined; };
   const dir = arg("--dir");
-  if (!dir) { error("usage: check-portfolio-truth-and-sense.mjs --dir <path> --brand <id> [--mode landing|content] [--strict] [--json]"); return 2; }
+  if (!dir) { error("usage: check-portfolio-truth-and-sense.mjs --dir <path> --brand <id> [--mode landing|content] [--strict] [--json] [--exclude-component <Name>]..."); return 2; }
   const brand = arg("--brand") ?? "sis";
   const mode = arg("--mode") ?? "landing";
   if (mode !== "landing" && mode !== "content") {
@@ -959,7 +997,8 @@ export function main(argv, { log = console.log, error = console.error } = {}) {
     return 2;
   }
   const strict = argv.includes("--strict");
-  const result = auditRepository({ dir, brand, mode, strict });
+  const excludeComponents = argv.flatMap((a, i) => (a === "--exclude-component" && argv[i + 1] ? [argv[i + 1]] : []));
+  const result = auditRepository({ dir, brand, mode, strict, excludeComponents });
   if (argv.includes("--json")) {
     log(JSON.stringify(result, null, 2));
   } else {
