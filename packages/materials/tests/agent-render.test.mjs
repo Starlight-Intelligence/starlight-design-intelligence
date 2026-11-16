@@ -40,16 +40,16 @@ test('RunStep says its state in words, not only in colour', { skip }, () => {
   const { h, render, RunStep, RunTimeline } = kit;
   const html = render(
     h(RunTimeline, { label: 'Run, 2 steps' },
-      h(RunStep, { state: 'needs-approval', title: 'Open a pull request', detail: 'Build', meta: 'waiting' }),
-      h(RunStep, { state: 'running', title: 'Write the patch' }),
+      h(RunStep, { state: 'waiting', title: 'Open a pull request', detail: 'Build', meta: '12 s' }),
+      h(RunStep, { state: 'working', title: 'Write the patch' }),
     ),
   );
   assert.match(html, /<ol[^>]*aria-label="Run, 2 steps"/);
-  assert.match(html, /data-state="needs-approval"/);
-  assert.match(html, /<span class="sr-only">Needs approval\. <\/span>waiting/, 'custom meta keeps the spoken state');
-  assert.match(html, /<li[^>]*data-state="running"[^>]*aria-current="step"/, 'the running step is the current step');
-  assert.doesNotMatch(html, /data-state="needs-approval"[^>]*aria-current/, 'a waiting step is not the current step');
-  assert.match(html, />Running</, 'no meta falls back to the visible state label');
+  assert.match(html, /data-state="waiting"/);
+  assert.match(html, /<span class="sr-only">waiting for your yes\. <\/span>12 s/, 'custom meta keeps the spoken state');
+  assert.match(html, /<li[^>]*data-state="working"[^>]*aria-current="step"/, 'the working step is the current step');
+  assert.doesNotMatch(html, /data-state="waiting"[^>]*aria-current/, 'a waiting step is not the current step');
+  assert.match(html, />working</, 'no meta falls back to the visible state label');
   assert.equal((html.match(/aria-hidden="true"/g) ?? []).length, 2, 'both state icons are decorative');
 });
 
@@ -58,7 +58,7 @@ test('RunStep says its state in words, not only in colour', { skip }, () => {
 // keep the two apart; this test fails if a refactor puts them back together.
 test('type sizes survive next to a colour', { skip }, () => {
   const { h, render, RunStep, CitationMark, MemoryChip } = kit;
-  const step = render(h(RunStep, { state: 'running', title: 'Write the patch' }));
+  const step = render(h(RunStep, { state: 'working', title: 'Write the patch' }));
   assert.match(step, /<p class="[^"]*text-code[^"]*text-signal[^"]*">/);
   const mark = render(h(CitationMark, { index: 1, sourcesId: 's' }));
   assert.match(mark, /<sup class="[^"]*text-code[^"]*">/);

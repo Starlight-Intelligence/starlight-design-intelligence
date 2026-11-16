@@ -8,21 +8,22 @@ import { type RunState, runStateLabel } from "./run-state.ts"
 // ink: a run reads as a log on the night shell, never on glass (glass carries controls,
 // not records).
 //
-// State is carried three ways at once: an icon, a tone, and the words from run-state.ts.
+// The state names are the product run contract's (see run-state.ts). State is carried
+// three ways at once: an icon, a tone, and the words from run-state.ts.
 // The words are always in the DOM, so nothing depends on colour.
 
 const stateIcon = {
-  queued: Circle,
-  running: LoaderCircle,
-  "needs-approval": ShieldAlert,
+  idle: Circle,
+  working: LoaderCircle,
+  waiting: ShieldAlert,
   done: Check,
   failed: X,
 } satisfies Record<RunState, React.ComponentType<React.ComponentProps<"svg">>>
 
 const stateTone: Record<RunState, string> = {
-  queued: "text-on-surface/50",
-  running: "text-signal",
-  "needs-approval": "text-accent-bright",
+  idle: "text-on-surface/50",
+  working: "text-signal",
+  waiting: "text-accent-bright",
   done: "text-on-surface",
   failed: "text-error",
 }
@@ -54,10 +55,10 @@ function RunStep({ state, title, detail, meta, className, ...props }: RunStepPro
     <li
       data-slot="run-step"
       data-state={state}
-      aria-current={state === "running" ? "step" : undefined}
+      aria-current={state === "working" ? "step" : undefined}
       className={cn(
         "flex items-center gap-3 rounded-md border border-hairline bg-glass-opaque px-3 py-3 text-on-surface",
-        state === "needs-approval" && "border-accent-bright/60",
+        state === "waiting" && "border-accent-bright/60",
         className
       )}
       {...props}

@@ -39,7 +39,8 @@ function ToolCall({ name, scope, args, note, className, ...props }: ToolCallProp
   )
 }
 
-// The gate a run stops at before any write, send or spend (run-state.ts, needsGate). It
+// The gate a run stops at while a step is waiting on a person. Which actions need a gate
+// is the product run contract's decision, not this component's. It
 // states the actor, the action and the scope, then waits. The actions are children so the
 // consumer owns the handlers; pass Buttons, the first one being the approval. Approval
 // applies to this action only, and the note says what has not happened yet.

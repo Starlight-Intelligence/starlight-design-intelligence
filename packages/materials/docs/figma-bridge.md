@@ -8,7 +8,7 @@ The agent run kit in `src/agent/` was designed in the Starlight web design syste
 
 | Figma component | Node | Code | Notes |
 |---|---|---|---|
-| Agent / Run step (5 states) | `145:663` | `RunStep`, `RunTimeline`, `run-state.ts` | Figma shows the state as a coloured dot. Code uses an icon, a tone and the state word, so nothing depends on colour. |
+| Agent / Run step (5 states) | `145:663` | `RunStep`, `RunTimeline`, `run-state.ts` | Figma shows the state as a coloured dot. Code uses an icon, a tone and the state word, so nothing depends on colour. The states are the product run contract's: idle, working, waiting, done, failed. |
 | Agent / Tool call | `145:664` | `ToolCall` | Same structure. |
 | Agent / Approval gate | `145:674` | `ApprovalGate` | Figma's primary action is the gold button. Code uses `Button material="paper"` on ink, this package's primary. |
 | Agent / Answer | `145:688` | `Answer`, `AnswerMeta`, `AnswerBody`, `AnswerSources`, `CitationMark` | Code adds the anchor between a mark and its source. |
@@ -18,6 +18,14 @@ The agent run kit in `src/agent/` was designed in the Starlight web design syste
 | Agent / Composer | `145:720` | `Composer` | A plain form in code; the gold send becomes a paper icon button. |
 
 No Code Connect mapping is published. These rows are the input for one.
+
+## Relation to the product kit
+
+The Starlight application repository already has a run contract and a component kit: `@starlight/agent-client` (the reducer, `RunNodeStatus`, `RunApproval`, `RunArtifact`) and `@starlight/ui` (`ApprovalCard`, `DigestApprovalCard`, `RunGraph`, `ChatStream`, `ArtifactCard`, `EvidenceCard`). Those are the authority for how a run behaves and for the product's own surfaces.
+
+This package does not compete with them. `src/agent/` is presentational only: it takes the same status names (`idle`, `working`, `waiting`, `done`, `failed`) and the same labels, holds no transition table and no approval policy, and exists so the same run surfaces can be installed from the public registry on the materials tokens. `ApprovalGate` here and `ApprovalCard` there show the same moment; the digest binding and the decision logic live only in the product kit.
+
+Whether both sets should exist is open. If one home is enough, this directory is the one to remove.
 
 ## Token drift
 

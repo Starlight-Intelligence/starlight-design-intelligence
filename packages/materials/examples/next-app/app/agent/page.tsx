@@ -23,9 +23,9 @@ import type { RunState } from '@starlight/materials/agent';
 const steps: { state: RunState; title: string; detail: string; meta?: string }[] = [
   { state: 'done', title: 'Read the repository', detail: 'Research · 14 files', meta: '3.1 s' },
   { state: 'done', title: 'Draft the plan', detail: 'Coordinate', meta: '1.4 s' },
-  { state: 'running', title: 'Write the patch', detail: 'Build · 2 of 3 files' },
-  { state: 'needs-approval', title: 'Open a pull request', detail: 'Build · needs repo.write' },
-  { state: 'queued', title: 'Review against the brief', detail: 'Review' },
+  { state: 'working', title: 'Write the patch', detail: 'Build · 2 of 3 files' },
+  { state: 'waiting', title: 'Open a pull request', detail: 'Build · needs repo.write' },
+  { state: 'idle', title: 'Review against the brief', detail: 'Review' },
 ];
 
 const SOURCES = 'run-sources';
