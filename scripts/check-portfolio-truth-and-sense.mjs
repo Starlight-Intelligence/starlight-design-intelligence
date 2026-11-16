@@ -438,6 +438,9 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
   const maskedChars = source.split("");
   const segments = [];
   const copyPropExprRanges = [];
+  // JS string literals that are not JSX attribute values never render as elements; landing structure
+  // checks read a view with these blanked so `const x = "<h1>..</h1>"` cannot satisfy them.
+  const nonRenderedStringRanges = [];
 
   const blankRange = (start, end) => {
     for (let k = start; k < end; k += 1) {
@@ -445,7 +448,7 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
     }
   };
 
-  const scanJs = (startPos, stopOnClosingBrace) => {
+  const scanJs = (startPos, stopOnClosingBrace, maskStrings = true) => {
     let i = startPos;
     let braceDepth = stopOnClosingBrace ? 1 : 0;
     let hasCode = false;
@@ -470,6 +473,7 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
       }
       hasCode = true;
       tokenCount += 1;
+      if (maskStrings) nonRenderedStringRanges.push({ start: qPos, end: k });
       const bodyEnd = closed ? k - 1 : k;
       if (
         !hasInterp &&
@@ -628,7 +632,7 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
           continue;
         }
         if (ch === "{") {
-          const exprRes = scanJs(i + 1, true);
+          const exprRes = scanJs(i + 1, true, false);
           if (awaitingAttrValue && COPY_PROP_SET.has(pendingAttrName.toLowerCase())) {
             copyPropExprRanges.push({ start: i + 1, end: exprRes.end - 1 });
           }
@@ -828,16 +832,24 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
     }
   }
 
+  const markupChars = commentMasked.split("");
+  for (const { start, end } of nonRenderedStringRanges) {
+    for (let k = start; k < end; k += 1) {
+      if (markupChars[k] !== "\n") markupChars[k] = " ";
+    }
+  }
+
   segments.sort((a, b) => a.line - b.line);
-  return { segments, commentMasked };
+  return { segments, commentMasked, markupMasked: markupChars.join("") };
 }
 
-function stripCodeForLanding(source, isHtml) {
-  if (isHtml) {
-    return maskPreserveNewlines(source, /<!--[\s\S]*?-->/g);
-  }
-  const { commentMasked } = scanCodeFile(source);
-  return commentMasked
+function maskScriptAndStyleBodies(html) {
+  return html.replace(/(<(script|style)\b[^>]*>)([\s\S]*?)(<\/\2\s*>)/gi, (_, open, _tag, body, close) =>
+    open + body.replace(/[^\n]/g, " ") + close);
+}
+
+function maskTypeOnlyLines(text) {
+  return text
     .split("\n")
     .map((line) => {
       const trimmed = line.trim();
@@ -847,6 +859,17 @@ function stripCodeForLanding(source, isHtml) {
       return line;
     })
     .join("\n");
+}
+
+// `stripped` keeps string literals (JSON-LD / data-brand signals may live in JS values);
+// `markup` additionally blanks non-rendered strings and <script>/<style> bodies for element checks.
+function stripCodeForLanding(source, isHtml) {
+  if (isHtml) {
+    const stripped = maskPreserveNewlines(source, /<!--[\s\S]*?-->/g);
+    return { stripped, markup: maskScriptAndStyleBodies(stripped) };
+  }
+  const { commentMasked, markupMasked } = scanCodeFile(source);
+  return { stripped: maskTypeOnlyLines(commentMasked), markup: maskTypeOnlyLines(markupMasked) };
 }
 
 function loadBrandConfig(brand, sdiRoot = ROOT) {
@@ -898,8 +921,8 @@ function resolveHomepageBundle(targetDir) {
     const text = readFileSync(current, "utf8").replace(/\r\n/g, "\n");
     const isHtml = /\.html?$/i.test(current);
     const importScanText = isHtml ? "" : scanCodeFile(text).commentMasked;
-    const stripped = stripCodeForLanding(text, isHtml);
-    sources.push({ path: relative(targetDir, current).replace(/\\/g, "/"), text, stripped });
+    const { stripped, markup } = stripCodeForLanding(text, isHtml);
+    sources.push({ path: relative(targetDir, current).replace(/\\/g, "/"), text, stripped, markup });
     for (const m of importScanText.matchAll(/(?:from|import\s*\()\s*["']([^"']+)["']/g)) {
       const resolvedMod = resolveLocalModule(targetDir, current, m[1]);
       if (resolvedMod && !visited.has(resolvedMod)) {
@@ -1014,6 +1037,7 @@ export function auditRepository({ dir, brand = "sis", mode = "landing", strict =
   if (mode === "landing") {
     const { entry, sources } = resolveHomepageBundle(targetDir);
     const combined = sources.map((s) => s.stripped).join("\n");
+    const markup = sources.map((s) => s.markup).join("\n");
     const hasLlms = [
       "public/llms.txt", "llms.txt", "app/llms.txt/route.ts", "app/llms.txt/route.js",
       "src/app/llms.txt/route.ts", "src/app/llms.txt/route.js",
@@ -1024,11 +1048,12 @@ export function auditRepository({ dir, brand = "sis", mode = "landing", strict =
     ]
       .map((p) => join(targetDir, p))
       .filter(existsSync)
-      .map((p) => stripCodeForLanding(readFileSync(p, "utf8").replace(/\r\n/g, "\n"), false))
+      .map((p) => stripCodeForLanding(readFileSync(p, "utf8").replace(/\r\n/g, "\n"), false).stripped)
       .join("\n");
 
-    const hasH1 = /<h1[\s>]|role=["']heading["'][^>]*aria-level=["']?1["']?/i.test(combined);
-    const hasCta = /<(Link|a|button)\b/i.test(combined);
+    const hasH1 = /<h1[\s>]|role=["']heading["'][^>]*aria-level=(?:["']?1["']?|\{\s*1\s*\})/i.test(markup);
+    // <Link> is case-sensitive so a native <link rel="stylesheet"> is never mistaken for a CTA.
+    const hasCta = /<Link\b/.test(markup) || /<(?:a|button)\b/i.test(markup);
     const hasJsonLd = /application\/ld\+json|<JsonLd\b/i.test(combined + layoutText);
     const hasBrandAttr = new RegExp(`data-brand=["']${brand}["']`, "i").test(combined + layoutText);
     landing = { entry, hasH1, hasCta, hasLlms, hasJsonLd, hasBrandAttr };

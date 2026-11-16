@@ -646,3 +646,49 @@ test("resolves JavaScript App Router homepages and layouts", () => {
     }
   }
 });
+
+test("landing structure checks ignore markup that only appears inside non-rendered strings", () => {
+  const dir = makeFixture({
+    "app/page.tsx": `const example = "<h1>Example heading</h1><button>Example action</button>";\nconst tpl = \`<a href="/x">Example link</a>\`;\nexport default function Page() {\n  return <main><p>Body only.</p><code>{"<h1>literal</h1>"}</code></main>;\n}\n`,
+    "public/llms.txt": "# Site\nBody.\n",
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "landing" });
+    assert.equal(res.landing.hasH1, false);
+    assert.equal(res.landing.hasCta, false);
+    const rules = res.errors.map((e) => e.rule);
+    assert.ok(rules.includes("sense:missing-h1"), rules.join(" "));
+    assert.ok(rules.includes("sense:missing-primary-cta"), rules.join(" "));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("static HTML landing checks ignore <script> bodies and never count <link rel> as a CTA", () => {
+  const dir = makeFixture({
+    "index.html": `<html><head><link rel="stylesheet" href="/a.css"><script type="application/ld+json">{"@type":"WebSite"}</script></head>\n<body><p>Body.</p><script>const s = "<h1>x</h1><button>y</button>";</script></body></html>\n`,
+    "llms.txt": "# Site\nBody.\n",
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "landing" });
+    assert.equal(res.landing.hasH1, false);
+    assert.equal(res.landing.hasCta, false);
+    assert.equal(res.landing.hasJsonLd, true);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("landing structure checks still accept rendered JSX elements, attribute-based headings and <Link>", () => {
+  const dir = makeFixture({
+    "app/page.tsx": `import Link from "next/link";\nexport default function Page() {\n  return <main><div role="heading" aria-level={1}>Systems you can audit</div><Link href={"/start"}>Start</Link></main>;\n}\n`,
+    "public/llms.txt": "# Site\nBody.\n",
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "landing" });
+    assert.equal(res.landing.hasH1, true);
+    assert.equal(res.landing.hasCta, true);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
