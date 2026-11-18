@@ -64,3 +64,13 @@ subordinate to the selected brand pack and canonical release contract.
 ## Specialist Digital Product & Funnel Skills
 
 - `digital-product-funnel-designer`: Refero-backed conversion funnel archetypes, two-pane pack inspectors, value-first lead magnets, and voice-gated digital product packaging (`playbooks/refero-funnel-atlas.md` + `playbooks/lead-magnets-and-products-design/INDEX.md`).
+
+## Frontier Experience Review routing
+
+| Capability | Load and apply | Evidence |
+| --- | --- | --- |
+| Visual design and spatial work | [Design orchestrator](skills/design-orchestrator/SKILL.md), [visual research and direction](skills/visual-research-and-direction/SKILL.md), owning brand pack | Primary task, layout and type decisions, tested states, responsive comparison |
+| Editorial experience | [Editorial articulation](skills/editorial-articulation/SKILL.md) and [editorial gate](evals/editorial-articulation-gate.md) | Audience decision, inspectable claim sources, useful media and tested output |
+| Character and logo consistency | [Canon retrieval](playbooks/character-canon-retrieval.md), [living design review](skills/review-living-design/SKILL.md) and [logo system](skills/logo-system/SKILL.md) | Source version, byte verification, use authorization and review receipt |
+| Multimedia production | [Motion and interaction](skills/motion-and-interaction/SKILL.md) and [generated asset gate](evals/generated-asset-quality-gate.md) | Rights, source lineage, crop and export inspection, static and reduced-motion behavior |
+| Interface review | [Browser verification](skills/browser-verify/SKILL.md) and [world-class web release](skills/world-class-web-release/SKILL.md) | Candidate-bound interaction, screenshots, accessibility, performance and independent verdict |

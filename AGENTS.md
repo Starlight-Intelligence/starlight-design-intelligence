@@ -23,6 +23,14 @@ This repo is the owned premium design-intelligence layer for FrankX, Starlight I
 - Mark internal-only strategy if a file should not be mirrored into public repos.
 - Use owned or clearly licensed assets only.
 
+## Frontier Experience Constitution
+
+Read `portfolio/experience-standard.md` before design, product UI, branded media,
+editorial experience or creative workflow work. Reuse the owning workflow and
+resolve approved sources before generating or placing owned identities. For
+release-facing work, collect candidate evidence via
+`evals/frontier-experience-review.md` and the existing release gates.
+
 ## Product outcome evaluation
 
 For product-quality audits and release recommendations, read `evals/product-outcome-release-standard.md` alongside the existing web release gate. Keep availability, functional behavior, user value, design distinction and commercial sustainability as separate verdicts. Do not infer downstream enforcement from this document's presence.

@@ -1,4 +1,4 @@
-# Portfolio experience standard
+# Frontier Experience Constitution
 
 Use the best reference work to improve a user's task, then express that mechanism
 through the relevant brand. This standard connects the existing observatory,
@@ -9,6 +9,45 @@ profiles, 13 owning repositories and 14 registered surfaces**, with eight common
 acceptance checks and 15 bounded upgrades. Jobs and actions are proposed design
 requirements. Dated observations establish their stated scope only. Nothing here
 proves that a production journey passes.
+
+## Operating principles
+
+- Start with a skilled user's job. Trace the inputs, decisions, intermediate work,
+  revisions, approval, output and recovery. Demonstrate one consequential task
+  on real or clearly labelled representative content.
+- Use spatial canvases, inspectors, timelines and multimedia when they improve
+  the work. Preserve a usable keyboard and mobile path. Compose with a deliberate
+  type hierarchy, clear controls and enough information for professional decisions.
+  Let motion explain change and keep the static path complete.
+- Plan media around the story or decision it supports. Verify crops, captions,
+  transcripts, rights and exports in the intended context.
+- Resolve the owning brand pack, recorded owner decision and exact VIS asset
+  version before depicting an owned identity. Retrieve the original Figma folio
+  or verified derivative and verify bytes, status and usage rights. Missing or
+  conflicting evidence blocks generation and publication of that identity. Label
+  an unresolved reference in private review. Directional explorations require
+  their own review and cannot promote an asset to canon.
+- Connect agent activity to observable artifacts, source evidence, execution state,
+  cost, versions and evaluations where applicable. Label sample and historical
+  runs. Retain the review and authorization boundary for consequential actions.
+- Begin with the owning product and its previous decisions. Reuse approved
+  components, storage, workflows and routes. Record the next experiment or defect
+  with its owner, revision, evidence, open approvals and rollback.
+- Require an independent assessment of the actual candidate. Reject broken
+  primary actions, unauthorized media, identity drift, invented claims, unusable
+  mobile or keyboard journeys, weak reading hierarchy, and duplicate surfaces
+  lacking a workflow rationale.
+
+For character and logo retrieval, use [the canon retrieval playbook](../playbooks/character-canon-retrieval.md)
+and the [VIS catalog](https://github.com/frankxai/visual-intelligence).
+Use [SKILLS.md](../SKILLS.md#frontier-experience-review-routing) for specialist routing.
+
+## Candidate review
+
+[Frontier Experience Review](../evals/frontier-experience-review.md) defines the
+pre-release review, evidence and CI adapter. A candidate needs **85/100** and
+every applicable critical check must pass. Existing product, brand and
+production release requirements also apply.
 
 ## What remains brand-specific
 

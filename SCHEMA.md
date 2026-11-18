@@ -78,3 +78,10 @@ The candidate payload is `brand-packs/sis/foundations/tokens.json`; its schema i
 `schemas/starlight-foundations.schema.json`. `scripts/validate-foundations.mjs`
 checks structure, source-policy agreement and cross-field bounds and is included
 in kernel validation. It does not certify rendering, adoption or a release.
+
+## Frontier candidate review
+
+`starlight.frontier_review.v1` specifies pre-release product and media evidence.
+The validator binds the weighted review to a candidate Git diff and verifies
+artifact bytes. See [Frontier Experience Review](evals/frontier-experience-review.md)
+for the recorded checks and human review requirements.
