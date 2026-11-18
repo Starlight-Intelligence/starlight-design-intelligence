@@ -66,3 +66,15 @@ for an example.
 This step checks the candidate binding, artifact integrity, screenshot dimensions
 and report structure. Authenticated reviewers inspect claims, substantive test
 adequacy and source authorization.
+
+## Scoped caller for product repositories
+
+Use the sibling reusable workflow `.github/workflows/frontier-scoped-review.yml` at a full reviewed commit. It calls the existing review at the same revision. The owning caller subscribes to PR open, synchronize, reopen, edit, ready-for-review and label changes, plus review submission, edit and dismissal. Give it read-only contents and pull-request permissions. Use one concurrency group per PR and cancel older runs. Supply these inputs:
+
+| Input | Contract |
+| --- | --- |
+| `surface-paths` | One literal file or directory ending in `/` per line. Include the owning UI plus any separate content, layout or media paths whose edits must trigger review. The trusted snapshot covers both sides of moves. |
+| `evidence-location` | Default `external` leaves evidence in the approved viewer. Reviewers sign authenticated evidence links. Public receipts must be safe to disclose and contain no access tokens. The workflow rejects new artifacts in the in-repository Frontier evidence directory in this mode. Select `repository` only for authorized private evidence. It requires private visibility and validates committed screenshots and reports. |
+| `preview-base` | Optional exact branch for a private candidate review. The default branch and every other destination require publication review when covered. |
+
+A label can add a review. Removing it cannot exempt a covered path. Protect the caller and its declared paths independently of the candidate before making its emitted Frontier surface verdict a required check. An unconfigured or unavailable runner cannot produce a passing verdict. Keep existing product release and merge-queue policies. Confirm behavior on a real eligible review and dismissal before enabling branch requirements.
