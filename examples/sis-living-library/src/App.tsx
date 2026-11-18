@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { AgentPresence, CommandPanel, EmptyState, EvidenceDisclosure, GlassSurface, ProgressMeter, Skeleton, StarlightButton, StatusBadge, Tabs, TextField, Toggle } from './components';
 import { Icon, iconPaths } from './icons';
+import { MaterialReview } from './MaterialReview';
 
 type View = 'Overview' | 'Components' | 'Icons' | 'Motion';
 type Theme = 'midnight' | 'daylight' | 'ember';
@@ -39,8 +40,8 @@ export default function App() {
     <main id="main" tabIndex={-1}>
       <div className="page-meta"><span>STARLIGHT / DESIGN ENGINEERING</span><span>REFERENCE IMPLEMENTATION</span></div>
       {view==='Overview'&&<>
-        <section className="hero"><div className="hero-copy"><SectionLabel><span className="live-dot"/> LIVING DESIGN · V0.1</SectionLabel><h1>Intelligence,<br/><em>given form.</em></h1><p>Materials, components and motion for interfaces that make complex work feel clear.</p><div className="hero-actions"><StarlightButton onClick={()=>setView('Components')}>Explore the components <Icon name="arrowRight"/></StarlightButton><button className="text-button" onClick={()=>copy(install)}>Copy install command <Icon name="code"/></button></div><div className="hero-note">SOURCE-OWNED <span>·</span> REACT + CSS <span>·</span> SHADCN REGISTRY</div></div>
-          <div className="hero-object" aria-label="Liquid glass material study"><div className="orbit-grid"/><div className="glass-orbit orbit-back"/><div className="glass-orbit orbit-front"/><div className="core-star"><Mark/></div><span className="object-tag tag-one"><i/> Refraction / 01</span><span className="object-tag tag-two">SURFACE STUDY <b>LG—01</b></span><div className="object-caption">A quieter kind of presence.</div></div>
+        <section className="hero"><div className="hero-copy"><SectionLabel><span className="live-dot"/> LIVING DESIGN · V0.1</SectionLabel><h1>Intelligence,<br/><em>given form.</em></h1><p>Inspect live materials, then take source-owned components and motion into your own interface.</p><div className="hero-actions"><StarlightButton onClick={()=>setView('Components')}>Explore the components <Icon name="arrowRight"/></StarlightButton><button className="text-button" onClick={()=>copy(install)}>Copy install command <Icon name="code"/></button></div><div className="hero-note">SOURCE-OWNED <span>·</span> REACT + CSS <span>·</span> SHADCN REGISTRY</div></div>
+          <MaterialReview theme={theme} glass={glass} onGlassChange={setGlass} announce={announce}/>
         </section>
         <div className="principles"><div><span>01</span><strong>Material with purpose</strong><p>Glass creates depth. Opaque surfaces protect reading.</p></div><div><span>02</span><strong>Motion with meaning</strong><p>Transitions explain what changed and where to look.</p></div><div><span>03</span><strong>Presence with evidence</strong><p>Identity stays distinct from execution and access.</p></div></div>
         <div className="section-heading"><div><SectionLabel>01 / MATERIAL LANGUAGE</SectionLabel><h2>Depth, without distraction.</h2></div><button className="text-button" onClick={()=>setView('Components')}>View primitives <Icon name="arrowUpRight"/></button></div>

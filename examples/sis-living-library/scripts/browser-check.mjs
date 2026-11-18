@@ -1,6 +1,4 @@
-import {createServer} from 'vite';
-const server = await createServer({server:{host:'127.0.0.1',port:5173,strictPort:true}});
-await server.listen();
+import { createServer } from 'vite';
 import { chromium } from 'playwright';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -8,12 +6,16 @@ import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 import { createHash } from 'node:crypto';
 
+const port = Number(process.env.STARLIGHT_EVIDENCE_PORT ?? 5173);
+const server = await createServer({ server: { host: '127.0.0.1', port, strictPort: true } });
+await server.listen();
+
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const evidence = process.env.STARLIGHT_EVIDENCE_DIR || path.join(root, 'test-results');
 await mkdir(evidence, { recursive: true });
-const browser = await chromium.launch({ args: ['--no-sandbox'], headless: true });
-const report = { at: new Date().toISOString(), url: 'http://127.0.0.1:5173', tests: [], axe: [], screenshots: [], consoleErrors: [], pageErrors: [] };
-report.sourceHashes = Object.fromEntries(await Promise.all(['src/App.tsx','src/components.tsx','src/components.css','src/icons.tsx','src/tokens.css','src/studio.css'].map(async file => [file, createHash('sha256').update(await readFile(path.join(root,file))).digest('hex')])));
+const browser = await chromium.launch({ executablePath: process.env.STARLIGHT_CHROMIUM_PATH, args: ['--no-sandbox'], headless: true });
+const report = { at: new Date().toISOString(), url: `http://127.0.0.1:${port}`, tests: [], axe: [], screenshots: [], consoleErrors: [], pageErrors: [] };
+report.sourceHashes = Object.fromEntries(await Promise.all(['src/App.tsx','src/components.tsx','src/components.css','src/icons.tsx','src/tokens.css','src/studio.css','src/MaterialReview.tsx','src/material-review.css'].map(async file => [file, createHash('sha256').update(await readFile(path.join(root,file))).digest('hex')])));
 const axe = await readFile(path.join(root, 'node_modules/axe-core/axe.min.js'), 'utf8');
 const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, acceptDownloads: true });
 const page = await context.newPage();
@@ -26,7 +28,7 @@ async function check(name, fn) {
   catch (error) { report.tests.push({ name, passed: false, error: error.message }); }
 }
 async function view(name) { await page.getByRole('navigation', { name: 'Library', exact: true }).getByRole('button', { name: new RegExp(`^${name}`) }).click(); }
-async function shot(name) { const file = path.join(evidence, `${name}.png`); await page.screenshot({ path: file, fullPage: true }); report.screenshots.push(file); }
+async function shot(name, fullPage = true) { const file = path.join(evidence, `${name}.png`); await page.screenshot({ path: file, fullPage, animations: 'disabled', timeout: 20_000 }); report.screenshots.push(file); }
 await page.goto(report.url, { waitUntil: 'networkidle' });
 await page.evaluate(() => document.fonts.ready);
 
@@ -36,7 +38,7 @@ for (const viewport of [{ name: 'desktop', width: 1440, height: 1000 }, { name: 
     await page.getByRole('group', { name: 'Color theme' }).getByRole('button', { name: theme, exact: true }).click();
     for (const name of ['Overview', 'Components', 'Icons', 'Motion']) {
       await view(name);
-      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
       const label = `${viewport.name}-${theme.toLowerCase()}-${name.toLowerCase()}`;
       await check(`${label}: no horizontal overflow`, async () => {
         const dimensions = await page.evaluate(() => ({ viewport: document.documentElement.clientWidth, body: document.body.scrollWidth, document: document.documentElement.scrollWidth }));
@@ -68,9 +70,13 @@ await check('Agent defaults to unknown and synthetic provenance is inspectable',
   await page.locator('#runtime-state').selectOption('unknown');
 });
 await check('Glass toggle removes backdrop filtering', async () => {
-  await page.getByRole('button', { name: 'Glass effects' }).click();
-  assert.equal(await page.locator('.sl-surface--glass').evaluate(element => getComputedStyle(element).backdropFilter), 'none');
-  await page.getByRole('button', { name: 'Glass effects' }).click();
+  const glassEffects = page.getByRole('button', { name: 'Glass effects' });
+  await glassEffects.click();
+  try {
+    assert.equal(await page.locator('.glass-material').evaluate(element => getComputedStyle(element).backdropFilter), 'none');
+  } finally {
+    await glassEffects.click();
+  }
 });
 
 for (const viewport of [{ name: 'desktop', width: 1440, height: 1000 }, { name: 'mobile', width: 390, height: 844 }]) {
@@ -169,7 +175,67 @@ await check('Reduced motion suppresses rendered animation and transitions', asyn
   assert.equal(await page.locator('.destination').evaluate(element => getComputedStyle(element).transform), 'none');
   await shot('mobile-reduced-motion-result');
 });
-await check('No JavaScript errors', async () => assert.deepEqual(report.pageErrors, []));
+
+await page.emulateMedia({ reducedMotion: 'no-preference' });
+await view('Overview');
+await page.getByRole('group', { name: 'Color theme' }).getByRole('button', { name: 'Midnight', exact: true }).click();
+const review = page.getByRole('region', { name: 'Inspect a material' });
+const selectMaterial = review.getByLabel('Surface', { exact: true });
+const filterValue = review.getByTestId('backdrop-filter');
+const glassPreview = review.getByRole('button', { name: 'Preview glass', exact: true });
+const reviewSources = review.getByRole('list', { name: 'Material sources' }).getByRole('link');
+
+await check('Material review links the exact source revision', async () => {
+  assert.equal(await reviewSources.count(), 3);
+  for (const href of await reviewSources.evaluateAll(links => links.map(link => link.href))) {
+    assert.match(href, /\/blob\/[a-f0-9]{40}\/examples\/sis-living-library\//u);
+  }
+});
+await check('Material review captures rendered styles and exports a local observation', async () => {
+  await selectMaterial.selectOption('glass');
+  await page.waitForFunction(() => document.querySelector('.material-review [data-testid="backdrop-filter"]')?.textContent?.includes('blur('));
+  assert.match(await filterValue.textContent(), /blur\(/u);
+  await glassPreview.click();
+  await page.waitForFunction(() => document.querySelector('.material-review [data-testid="backdrop-filter"]')?.textContent === 'none');
+  await selectMaterial.selectOption('inset');
+  await page.waitForFunction(() => document.querySelector('.material-review [data-testid="background-color"]')?.textContent === 'rgb(16, 24, 32)');
+  assert.equal(await glassPreview.getAttribute('aria-pressed'), 'false');
+  const pending = page.waitForEvent('download');
+  await review.getByRole('button', { name: 'Export observation' }).click();
+  const download = await pending;
+  assert.equal(download.suggestedFilename(), 'starlight-material-inset-midnight.json');
+  const observation = JSON.parse(await readFile(await download.path(), 'utf8'));
+  assert.equal(observation.scope, 'local-browser-observation');
+  assert.equal(observation.material, 'inset');
+  assert.equal(observation.glassPreference, false);
+  assert.equal(observation.computedStyle['background-color'], 'rgb(16, 24, 32)');
+  assert.deepEqual(observation.sources, await reviewSources.evaluateAll(links => links.map(link => link.href)));
+  await glassPreview.click();
+  await selectMaterial.selectOption('glass');
+});
+for (const width of [375, 768, 1440]) {
+  await page.setViewportSize({ width, height: width === 375 ? 1000 : 900 });
+  await check(`Material review reflows and is keyboard reachable at ${width}px`, async () => {
+    await selectMaterial.focus();
+    await page.keyboard.press('End');
+    await page.waitForFunction(() => document.querySelector('#review-material')?.value === 'inset');
+    await page.keyboard.press('ArrowUp');
+    await page.waitForFunction(() => document.querySelector('#review-material')?.value === 'glass');
+    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
+    const width = await page.evaluate(() => ({ client: document.documentElement.clientWidth, document: document.documentElement.scrollWidth }));
+    assert.equal(width.client, width.document);
+    assert.ok(await glassPreview.isVisible());
+  });
+  await page.evaluate(() => {
+    document.activeElement?.blur();
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  });
+  await shot(`material-review-${width}px`, false);
+}
+await check('No browser or network errors in the console', async () => {
+  assert.deepEqual(report.pageErrors, []);
+  assert.deepEqual(report.consoleErrors, []);
+});
 await browser.close();
 await server.close();
 report.summary = { tests: report.tests.length, passed: report.tests.filter(item => item.passed).length, failed: report.tests.filter(item => !item.passed).length, seriousCriticalAxeFindings: report.axe.reduce((sum, item) => sum + item.violations.filter(v => ['serious', 'critical'].includes(v.impact)).length, 0), screenshots: report.screenshots.length };

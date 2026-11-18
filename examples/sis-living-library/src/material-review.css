@@ -1,0 +1,130 @@
+.material-review {
+  min-width: 0;
+  margin-block: 24px;
+  border: 1px solid var(--sl-line);
+  border-radius: var(--sl-radius-lg);
+  background: var(--sl-panel);
+  box-shadow: var(--sl-shadow);
+}
+
+.material-review__header,
+.material-review__details,
+.material-review__footer {
+  padding: 16px clamp(16px, 2vw, 24px);
+}
+
+.material-review__header,
+.material-review__measurement-heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.material-review__header h2 {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.15;
+}
+
+.material-review__selector {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.material-review__selector select {
+  min-width: 95px;
+}
+
+.material-review__stage {
+  display: grid;
+  place-items: center;
+  padding: clamp(22px, 3vw, 42px) 18px;
+  border-block: 1px solid var(--sl-line);
+  background:
+    repeating-linear-gradient(125deg, transparent 0 30px, color-mix(in srgb, var(--sl-accent) 19%, transparent) 30px 31px),
+    var(--sl-bg);
+}
+
+.material-review__sample {
+  width: min(100%, 290px);
+  padding: 20px;
+}
+
+.material-review__sample > span {
+  font: 32px/1.15 var(--sl-font-serif);
+}
+
+.material-review__sample p {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+.material-review__measurement-heading h3 {
+  font-size: 14px;
+}
+
+.material-review__details dl {
+  display: grid;
+  gap: 7px;
+  margin: 8px 0 0;
+}
+
+.material-review__details dl > div {
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) minmax(0, 1.5fr);
+  gap: 12px;
+  align-items: baseline;
+}
+
+.material-review__details dt {
+  color: var(--sl-muted);
+  font-size: 12px;
+}
+
+.material-review__details dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font: 11px/1.4 var(--sl-font-mono);
+}
+
+.material-review__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid var(--sl-line);
+}
+
+.material-review__footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.material-review__footer a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--sl-accent);
+  font-size: 12px;
+  text-underline-offset: 3px;
+}
+
+.material-review__footer p {
+  flex-basis: 100%;
+  color: var(--sl-muted);
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .material-review {
+    margin-block: 18px 0;
+  }
+}
