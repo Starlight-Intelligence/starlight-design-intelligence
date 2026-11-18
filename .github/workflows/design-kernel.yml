@@ -39,7 +39,7 @@ jobs:
 
   living-library:
     name: Living Library browser review
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     defaults:
       run:
