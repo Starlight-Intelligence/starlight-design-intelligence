@@ -66,3 +66,17 @@ for an example.
 This step checks the candidate binding, artifact integrity, screenshot dimensions
 and report structure. Authenticated reviewers inspect claims, substantive test
 adequacy and source authorization.
+
+## Instruction coverage
+
+Run the audit from a trusted design-kernel checkout. Supply the full constitution commit selected by the owning maintainer and the candidate checkout. The input pin identifies the selected policy. The audit compares references to that pin. Resolve the policy itself from the authority before choosing the pin.
+
+```sh
+node scripts/audit-frontier-instructions.mjs --repo ../product --ref HEAD --pin "$CONSTITUTION_SHA" --check
+```
+
+The JSON report records the Git revision, paths, import chains, source references and gaps. It reads the committed tree, including nested rules. An exact GitHub blob or raw URL can establish a direct pin. Bare native import lines in Claude and Gemini instructions and explicit local paths in OpenCode JSON can establish transitive pins. Cycle, external path, symlink, unsupported configuration, missing root, competing authority, mutable ref or stale pin needs resolution. Code samples, blockquotes and HTML comments cannot establish pins. For the authority's own checkout, use `--authority` at the scanned revision to resolve the local constitution.
+
+Skill and agent-rule rows identify explicit references when present. MCP and workflow rows record inventory only. A scoped instruction without an explicit path is a coverage gap even where a host might inherit an ancestor. Markdown semantics, host defaults, user overrides, remote MCP prompts and installed runtime behavior still require a fresh loading receipt in the relevant host.
+
+The included composite action checks the consumer's existing checkout. Call it from the owning read-only PR workflow after checkout and Node setup. Pin the action to a reviewed 40-character design-kernel commit, and pass the selected constitution commit in the `pin` input. Keep the consumer checkout step on the candidate under review. The action prints JSON, exits 1 on coverage failures and exits 2 on an invalid input or unreadable revision. Omit `--check` for a report-only discovery run. Keep downstream coverage reports in their owning visibility boundary.
