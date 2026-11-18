@@ -1,0 +1,51 @@
+name: Frontier Experience Review
+
+on:
+  workflow_call:
+    inputs:
+      publication-required:
+        description: Require a scoped publication authorization receipt
+        type: boolean
+        required: true
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  frontier-experience:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out immutable review kernel
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          repository: Starlight-Intelligence/starlight-design-intelligence
+          ref: ${{ job.workflow_sha }}
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 24.14.0
+          package-manager-cache: false
+      - name: Check authenticated PR reviews
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          EVENT_HEAD: ${{ github.event.pull_request.head.sha }}
+          PUBLICATION_REQUIRED: ${{ inputs.publication-required }}
+          FRONTIER_REVIEWERS: ${{ vars.FRONTIER_REVIEWERS }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          case "$EVENT_NAME" in
+            pull_request|pull_request_review) ;;
+            *) echo "Review requires a pull request or pull request review event."; exit 2 ;;
+          esac
+          [[ "$PR_NUMBER" =~ ^[0-9]+$ ]] || exit 2
+          evidence_root="$(mktemp -d)"
+          trap 'rm -rf "$evidence_root"' EXIT
+          endpoint="repos/$REPOSITORY/pulls/$PR_NUMBER"
+          gh api --paginate --slurp "$endpoint/reviews?per_page=100" > "$evidence_root/reviews.json"
+          gh api "$endpoint" > "$evidence_root/pr.json"
+          node scripts/validate-frontier-review.mjs "$evidence_root/pr.json" "$evidence_root/reviews.json" "$PUBLICATION_REQUIRED" "$EVENT_HEAD"
