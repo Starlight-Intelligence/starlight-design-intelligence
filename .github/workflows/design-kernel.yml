@@ -54,8 +54,25 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm run build
       - run: npm test
-      - run: npx playwright install --with-deps chromium
+      - name: Install the lockfile-pinned Chromium headless shell
+        run: npx playwright install --only-shell chromium
       - run: npm run test:browser
+      - name: Check out the material comparison reference
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          ref: 2da708810b4c0459a5962d441b669a5d323b2e4f
+          path: material-reference
+          persist-credentials: false
+          sparse-checkout: examples/sis-living-library
+      - name: Build the reference with its own lockfile
+        working-directory: material-reference/examples/sis-living-library
+        run: |
+          npm ci --ignore-scripts
+          npm run build
+      - name: Compare responsive material inspector pixels
+        env:
+          MATERIAL_REFERENCE_DIR: ${{ github.workspace }}/material-reference/examples/sis-living-library
+        run: npm run test:visual
       - name: Upload responsive captures and browser report
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
