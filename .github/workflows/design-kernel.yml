@@ -26,6 +26,8 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm audit --audit-level=moderate
       - run: npm run validate
+      - name: Check the constitution loading paths in the kernel
+        run: node scripts/audit-frontier-instructions.mjs --authority --pin "$(git rev-parse HEAD)" --check
       - run: npm run validate:experience
       - run: npm run validate:observatory
       - run: npm run check:observatory-index
