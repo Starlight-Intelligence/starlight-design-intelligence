@@ -28,7 +28,7 @@ This repo is the owned premium design-intelligence layer for FrankX, Starlight I
 For product, editorial, identity or multimedia work, read
 `portfolio/frontier-experience-constitution.md` before implementation and
 `evals/frontier-experience-review.md` before review. Record the resolved source
-revision and apply the owning product's release checks.
+revision and apply the owning product's release checks. The [skill registry](SKILLS.md#frontier-experience-routing) provides a commit-pinned read for each of the five production tasks.
 
 ## Product outcome evaluation
 
