@@ -3,6 +3,10 @@ name: Frontier Experience Review
 on:
   workflow_call:
     inputs:
+      require-artifacts:
+        description: Validate authorized browser evidence committed with the candidate
+        type: boolean
+        default: false
       publication-required:
         description: Require a scoped publication authorization receipt
         type: boolean
@@ -15,7 +19,7 @@ permissions:
 jobs:
   frontier-experience:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 8
     steps:
       - name: Check out immutable review kernel
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
@@ -49,3 +53,20 @@ jobs:
           gh api --paginate --slurp "$endpoint/reviews?per_page=100" > "$evidence_root/reviews.json"
           gh api "$endpoint" > "$evidence_root/pr.json"
           node scripts/validate-frontier-review.mjs "$evidence_root/pr.json" "$evidence_root/reviews.json" "$PUBLICATION_REQUIRED" "$EVENT_HEAD"
+      - name: Check out exact candidate for artifact verification
+        if: inputs.require-artifacts
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          path: candidate
+          persist-credentials: false
+      - name: Install locked artifact validator dependencies
+        if: inputs.require-artifacts
+        run: npm ci --ignore-scripts
+      - name: Validate candidate artifacts
+        if: inputs.require-artifacts
+        env:
+          CANDIDATE_BASE: ${{ github.event.pull_request.base.sha }}
+          CANDIDATE_HEAD: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/validate-frontier-artifacts.mjs candidate "$CANDIDATE_BASE" "$CANDIDATE_HEAD"

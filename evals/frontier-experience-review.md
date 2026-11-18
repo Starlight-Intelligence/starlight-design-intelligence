@@ -37,3 +37,32 @@ For a publication PR use `publication_authorization: "pass"` only after verifyin
 ## Enable in an owning repository
 
 Call `.github/workflows/frontier-review.yml` from this repository at an immutable kernel commit. Call it from `pull_request` (including synchronize and ready-for-review) and `pull_request_review` (submitted, edited and dismissed), with `pull-requests: read`. Put public publication and preview-only changes in workflows or scopes with the correct publication setting. Set the repository variable `FRONTIER_REVIEWERS` to a JSON object with the exact GitHub logins for `design`, `technical` and `identity`. Assign three distinct people with repository access and keep the PR author out of that roster for the change. The gate checks the designated logins and GitHub review metadata. Configure GitHub rules to require the emitted check for the covered scope, retain stale-review dismissal and protect workflow and scope edits with code owners. Verify a passing run and failing run in a real repository before claiming enforcement. The gate tests authenticated GitHub review metadata and receipt consistency. Reviewers inspect the linked evidence, and the product's tests and promotion controls still run separately.
+
+## Machine-checked browser evidence
+
+For web pilots with authorized evidence bytes, set `require-artifacts: true` on
+the same reusable workflow. Keep raw private captures and source artwork in
+their governed stores. Enable this option only when the owning repository is an
+authorized evidence location.
+
+Place `artifacts.json` and its files in `.starlight/frontier-review/`. Compute
+`candidate_sha256` using `node scripts/validate-frontier-artifacts.mjs
+<candidate-repo> <base-sha> <head-sha> --digest`. The digest covers the diff
+from merge base to head excluding this evidence directory. Commit evidence before
+requesting exact-head reviews. Verify preview bindings and repeat affected checks
+when integration changes behavior.
+
+The receipt uses `schema_version: "starlight.frontier_artifacts.v1"` and includes
+`candidate_sha256`, `preview_url`, `task`, `outcome`, `limitations`, a
+`screenshots` map (375, 768 and 1440 pixel PNGs, before and after), and a
+`reports` map (interaction, visual_regression, accessibility, performance,
+provenance and continuation). Map entries reference a plain file name and
+SHA-256. Each JSON report carries its `kind`, `candidate_sha256`,
+`result: "pass"`, `method` and `observation`. Record verified parity when
+a change preserves visual appearance. Preserve stricter viewport requirements
+from the owning product. See the [synthetic fixture](../tests/frontier-artifacts.test.mjs)
+for an example.
+
+This step checks the candidate binding, artifact integrity, screenshot dimensions
+and report structure. Authenticated reviewers inspect claims, substantive test
+adequacy and source authorization.
