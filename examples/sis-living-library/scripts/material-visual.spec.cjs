@@ -30,7 +30,7 @@ for (const width of [375, 768, 1440]) {
       for (const [index, root] of roots.entries()) {
         const revision = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
         info.annotations.push({ type: index === 0 ? 'reference' : 'candidate', description: revision });
-        await page.goto(`http://127.0.0.1:${4219 + index}`);
+        await page.goto(`http://127.0.0.1:${4219 + index}`, { waitUntil: 'networkidle' });
         await page.getByRole('group', { name: 'Color theme' }).getByRole('button', { name: theme }).click();
         const region = page.getByRole('region', { name: 'Inspect a material' });
         await region.getByLabel('Surface', { exact: true }).selectOption('glass');
@@ -38,7 +38,12 @@ for (const width of [375, 768, 1440]) {
         const filter = mode === 'glass' ? /blur\(/ : 'none';
         await expect(region.locator('.material-review__sample')).toHaveCSS('backdrop-filter', filter);
         await expect(region.getByTestId('backdrop-filter')).toHaveText(filter);
-        await page.evaluate(async () => { document.activeElement?.blur(); await document.fonts.ready; });
+        await region.evaluate(async element => {
+          document.activeElement?.blur();
+          await document.fonts.ready;
+          element.scrollIntoView({ block: 'start', behavior: 'instant' });
+          await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+        });
         const pixels = await region.screenshot({
           animations: 'disabled',
           path: index === 0 ? baseline : info.outputPath(file),
