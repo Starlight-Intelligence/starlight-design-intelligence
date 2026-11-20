@@ -76,10 +76,11 @@ test("refuses to write through a symlink at the output file", (t) => {
     try {
       symlinkSync(keep, join(out, "brand-tokens.sis.css"));
     } catch (error) {
+      if (!["EPERM", "EACCES", "ENOSYS", "UNKNOWN"].includes(error.code)) throw error;
       t.skip(`cannot create symlinks here: ${error.code}`);
       return;
     }
-    assert.throws(() => main(["--brand", "sis", "--out", out], { log: () => {} }), /symlink/);
+    assert.throws(() => main(["--brand", "sis", "--out", out], { log: () => {} }), /refusing to write through a symlink/);
     assert.equal(readFileSync(keep, "utf8"), "keep");
     assert.ok(existsSync(keep));
   } finally {
