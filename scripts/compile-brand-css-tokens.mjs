@@ -15,7 +15,7 @@
 //   node scripts/compile-brand-css-tokens.mjs --all --out dist/brand-css
 //   node scripts/compile-brand-css-tokens.mjs --all --out dist/brand-css --check
 import { createHash } from "node:crypto";
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, lstatSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { dirname, isAbsolute, join, relative, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -179,6 +179,10 @@ export function main(argv, { root = ROOT, log = console.log, error = console.err
       if (current !== css) { error(`drift: ${file}`); drift += 1; }
     } else {
       mkdirSync(dirname(file), { recursive: true });
+      // The lexical check above cannot see a symlink already sitting at the output file; writeFileSync would follow it.
+      if (lstatSync(file, { throwIfNoEntry: false })?.isSymbolicLink()) {
+        throw new Error(`refusing to write through a symlink: ${file}`);
+      }
       writeFileSync(file, css);
       log(`wrote ${file}`);
     }

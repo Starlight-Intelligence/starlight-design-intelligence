@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
@@ -64,6 +64,27 @@ test("rejects CSS comment injection in brand metadata and source paths", () => {
 test("rejects path traversal and invalid brand IDs", () => {
   assert.throws(() => loadBrand("../../../escape"), /invalid brand id/);
   assert.throws(() => main(["--brand", "../../../escape", "--stdout"], { log: () => {}, error: () => {} }), /invalid brand id/);
+});
+
+test("refuses to write through a symlink at the output file", (t) => {
+  const dir = mkdtempSync(join(tmpdir(), "sdi-css-symlink-"));
+  try {
+    const keep = join(dir, "keep.txt");
+    const out = join(dir, "out");
+    writeFileSync(keep, "keep");
+    mkdirSync(out);
+    try {
+      symlinkSync(keep, join(out, "brand-tokens.sis.css"));
+    } catch (error) {
+      t.skip(`cannot create symlinks here: ${error.code}`);
+      return;
+    }
+    assert.throws(() => main(["--brand", "sis", "--out", out], { log: () => {} }), /symlink/);
+    assert.equal(readFileSync(keep, "utf8"), "keep");
+    assert.ok(existsSync(keep));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });
 
 test("rejects --check without --out or combined with --stdout", () => {
