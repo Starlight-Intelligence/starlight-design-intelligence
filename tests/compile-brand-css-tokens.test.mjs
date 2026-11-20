@@ -76,11 +76,12 @@ test("refuses to write through a symlink at the output file", (t) => {
     try {
       symlinkSync(keep, join(out, "brand-tokens.sis.css"));
     } catch (error) {
+      // Windows without Developer Mode reports a refused symlink as EPERM, and some Node builds surface it as UNKNOWN.
       if (!["EPERM", "EACCES", "ENOSYS", "UNKNOWN"].includes(error.code)) throw error;
       t.skip(`cannot create symlinks here: ${error.code}`);
       return;
     }
-    assert.throws(() => main(["--brand", "sis", "--out", out], { log: () => {} }), /refusing to write through a symlink/);
+    assert.throws(() => main(["--brand", "sis", "--out", out], { log: () => {} }), /^refusing to write through a symlink: /);
     assert.equal(readFileSync(keep, "utf8"), "keep");
     assert.ok(existsSync(keep));
   } finally {
