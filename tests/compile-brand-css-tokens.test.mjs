@@ -81,7 +81,7 @@ test("refuses to write through a symlink at the output file", (t) => {
       t.skip(`cannot create symlinks here: ${error.code}`);
       return;
     }
-    assert.throws(() => main(["--brand", "sis", "--out", out], { log: () => {} }), /^refusing to write through a symlink: /);
+    assert.throws(() => main(["--brand", "sis", "--out", out], { log: () => {} }), { message: /^refusing to write through a symlink: / });
     assert.equal(readFileSync(keep, "utf8"), "keep");
     assert.ok(existsSync(keep));
   } finally {
