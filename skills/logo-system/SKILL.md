@@ -68,6 +68,10 @@ SVG masters must have an explicit `viewBox`, no broken/external asset reference,
 - effects, chrome, glow, glass, texture, or 3D are required for recognition;
 - no named decision owner, independent verifier, or rollback/source history.
 
+## Recovered artwork review
+
+For a cross-source SVG comparison, use the [local optical review and motion proof](tools/README.md) after resolving exact sources through VIS and the owning brand kit. Existing Figma components and the owning vector masters retain their roles.
+
 ## Output
 
 Return the selected concept, comparison evidence, editable vectors, complete lockup/export matrix, usage rules, small-size/background specimens, provenance, similarity/legal limitations, verifier verdict, and decision-owner approval state.
