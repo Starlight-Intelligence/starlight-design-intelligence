@@ -8,7 +8,7 @@ import '@fontsource/ibm-plex-mono/400.css';
 import '@/components/ui/starlight/tokens.css';
 import '@/components/ui/starlight/components.css';
 import './site.css';
-import { site } from '@/lib/site.config';
+import { site, themeColor } from '@/lib/site.config';
 import { SiteHeader } from '@/components/site/site-header';
 import { SiteFooter } from '@/components/site/site-footer';
 
@@ -27,13 +27,13 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
   viewportFit: 'cover',
-  themeColor: site.themeColor,
+  themeColor: themeColor,
   colorScheme: 'dark',
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang={site.locale} data-theme="midnight" suppressHydrationWarning>
+    <html lang={site.locale} data-theme={site.theme} suppressHydrationWarning>
       <head>
         {/* Marks JS as available before first paint so motion start states never flash. */}
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.dataset.js='1'" }} />

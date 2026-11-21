@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { site } from '@/lib/site.config';
+import { site, fieldColors } from '@/lib/site.config';
 import { ShaderField } from '@/components/site/shader-field';
 import { RunLedger } from '@/components/site/run-ledger';
 
@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <section className="ks-open" aria-labelledby="claim">
-        <ShaderField />
+        <ShaderField colors={fieldColors} />
         <div className="ks-open__inner">
           <h1 id="claim" className="ks-claim">
             {home.claim}

@@ -27,7 +27,7 @@ const run = (cmd, args, cwd) => new Promise((resolve, reject) => {
 });
 
 const app = path.join(dir, 'app-under-test');
-await run('npx', ['--yes', 'create-next-app@16.4.2', app, '--ts', '--app', '--no-tailwind', '--no-eslint', '--no-src-dir', '--no-turbopack', '--import-alias', '@/*', '--use-npm', '--yes'], dir);
+await run('npx', ['--yes', 'create-next-app@16.4.6', app, '--ts', '--app', '--no-tailwind', '--no-eslint', '--no-src-dir', '--no-turbopack', '--import-alias', '@/*', '--use-npm', '--yes'], dir);
 await writeFile(path.join(app, 'components.json'), JSON.stringify({
   $schema: 'https://ui.shadcn.com/schema.json', style: 'new-york', rsc: true, tsx: true,
   tailwind: {config: '', css: 'app/globals.css', baseColor: '', cssVariables: true},

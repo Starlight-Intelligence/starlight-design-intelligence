@@ -32,12 +32,17 @@ export const site = {
   tagline: 'Replay and evaluation for production agents.',
   description:
     'Orrery replays every agent run and flags the steps that changed an outcome, so you can ship prompt and model changes with a clean diff.',
-  themeColor: '#101820',
+  /** Glass Core theme: 'midnight' or 'ember' (both dark; the shader field follows). */
+  theme: 'midnight' as 'midnight' | 'ember',
+  themes: {
+    midnight: { themeColor: '#101820', field: ['#101820', '#22474b', '#9bd8cd'] },
+    ember: { themeColor: '#211a18', field: ['#211a18', '#4a2f26', '#e2ad8a'] },
+  } as const,
   nav: [
     { label: 'Docs', href: '/docs' },
     { label: 'Pricing', href: '/pricing' },
   ],
-  primaryAction: { label: 'Start free', href: '/pricing#free' },
+  primaryAction: { label: 'Start free', href: '/signup?plan=free' },
 
   home: {
     claim: 'Know what your agents did last night.',
@@ -83,7 +88,7 @@ export const site = {
         steps: '10,000 steps a month',
         summary: 'For one agent in development.',
         includes: ['7 day retention', 'Replay and diff', 'Community support'],
-        action: { label: 'Start free', href: '#signup' },
+        action: { label: 'Start free', href: '/signup?plan=free' },
       },
       {
         id: 'team',
@@ -93,7 +98,7 @@ export const site = {
         steps: '1,000,000 steps a month',
         summary: 'For agents in production with a small team.',
         includes: ['90 day retention', 'Evaluation suites', 'Slack alerts on flagged steps', 'Email support'],
-        action: { label: 'Start a 14 day trial', href: '#signup' },
+        action: { label: 'Start a 14 day trial', href: '/signup?plan=team' },
         recommended: true,
       },
       {
@@ -120,6 +125,9 @@ export const site = {
     mcp: '/api/mcp',
   },
 } as const;
+
+export const themeColor = site.themes[site.theme].themeColor;
+export const fieldColors = site.themes[site.theme].field;
 
 export function formatPrice(amount: number | null, currency: string = site.currency) {
   if (amount === null) return 'Custom';

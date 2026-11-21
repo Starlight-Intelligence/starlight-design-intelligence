@@ -17,7 +17,7 @@ An AI product earns trust by showing which step mattered. The page does the same
 - One message and one action per phone screen. A screen that needs two actions is two screens.
 - Type and spacing carry the page. Instrument Serif for the claim, Instrument Sans for reading, IBM Plex Mono only for machine output (step names, counts, endpoints).
 - No hero, three cards, call to action. Proof is shown as one artifact (the run ledger), method as numbered sentences, price as a sentence.
-- Blank space is the default. Section padding is at least one third of the viewport height on phones.
+- Blank space is the default. Sections are padded by about a fifth of the viewport height (20svh) on phones and spaced by rhythm, not forced to full height. Only the opening screen is full height.
 - Opaque surfaces carry reading. Glass appears in exactly one place: the lens over the ledger, where it refracts real row content underneath it.
 - The GPU surface is the opening field only. It is a backdrop for one sentence, never a carrier of information.
 
@@ -29,9 +29,10 @@ An AI product earns trust by showing which step mattered. The page does the same
 | 2 | One step changed the outcome. Orrery finds it. | See how replay works | Run ledger, glass lens |
 | 3 | Connect, replay, ship. Three sentences, numbered. | Read the quickstart | Type only |
 | 4 | Free for the first 10,000 steps a month. | Compare plans | Type only |
+| sign-up | Start with one agent. | Start free (plan carried from pricing) | 16px email field, local validation, provider hook |
 | 5 | Footer: for agents (llms.txt, MCP, .well-known) | none | Type only |
 
-Desktop recomposes 1 and 2 into an asymmetric spread: the claim on the left seven columns, the ledger on the right five, offset down by one line of the claim so the eye moves from sentence to evidence.
+Desktop keeps the opening as one sentence on the left with the field running full width; the right side stays empty on purpose. Screen 2 becomes an asymmetric spread: the claim on the left five columns, the ledger on the right seven, so the eye moves from sentence to evidence.
 
 Pricing: one sentence headline, a billing switch, three plans as ruled rows (not cards), one recommended plan named in text, FAQ as native disclosures.
 

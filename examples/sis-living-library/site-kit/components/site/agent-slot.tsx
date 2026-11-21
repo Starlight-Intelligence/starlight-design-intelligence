@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 
 // Mount point for an agent surface such as the AG-UI / CopilotKit provider and
-// tools from Living Agent UI (@starlight/living-agent-ui/copilotkit, PR #99).
+// tools from Living Agent UI (@starlight/living-agent-ui/copilotkit).
 // The kit ships no agent runtime, model key or subscription. Until a host
 // passes children, the slot renders an honest empty state.
 //

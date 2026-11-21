@@ -16,7 +16,7 @@ export function PricingPlans({ plans }: { plans: readonly Plan[] }) {
         {(['monthly', 'yearly'] as const).map((p) => (
           <label key={p} className="ks-period__option">
             <input type="radio" name={name} value={p} checked={period === p} onChange={() => setPeriod(p)} />
-            <span>{p === 'monthly' ? 'Monthly' : 'Yearly, two months free'}</span>
+            <span>{p === 'monthly' ? 'Monthly' : 'Yearly, save 20%'}</span>
           </label>
         ))}
       </fieldset>

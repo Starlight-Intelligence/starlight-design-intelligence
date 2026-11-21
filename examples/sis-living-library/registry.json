@@ -112,6 +112,11 @@
           "target": "~/app/manifest.ts"
         },
         {
+          "path": "site-kit/app/not-found.tsx",
+          "type": "registry:file",
+          "target": "~/app/not-found.tsx"
+        },
+        {
           "path": "site-kit/app/page.tsx",
           "type": "registry:page",
           "target": "~/app/page.tsx"
@@ -125,6 +130,11 @@
           "path": "site-kit/app/pwa-icon/[size]/route.tsx",
           "type": "registry:file",
           "target": "~/app/pwa-icon/[size]/route.tsx"
+        },
+        {
+          "path": "site-kit/app/signup/page.tsx",
+          "type": "registry:page",
+          "target": "~/app/signup/page.tsx"
         },
         {
           "path": "site-kit/app/site.css",
@@ -165,6 +175,11 @@
           "path": "site-kit/components/site/shader-field.tsx",
           "type": "registry:file",
           "target": "~/components/site/shader-field.tsx"
+        },
+        {
+          "path": "site-kit/components/site/signup-form.tsx",
+          "type": "registry:file",
+          "target": "~/components/site/signup-form.tsx"
         },
         {
           "path": "site-kit/components/site/site-footer.tsx",

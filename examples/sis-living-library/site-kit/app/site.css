@@ -90,30 +90,30 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 }
 .ks-open__inner .ks-action { margin-top: 10px; }
 .ks-field { position: absolute; inset: 0; z-index: -1; background:
-  radial-gradient(120% 70% at 78% 18%, rgb(155 216 205 / 0.30), transparent 60%),
-  radial-gradient(90% 60% at 12% 42%, #1d3a3f, transparent 70%),
+  radial-gradient(120% 70% at 78% 18%, color-mix(in srgb, var(--sl-accent) 30%, transparent), transparent 60%),
+  radial-gradient(90% 60% at 12% 42%, color-mix(in srgb, var(--sl-accent) 14%, var(--sl-bg)), transparent 70%),
   var(--sl-bg); }
-.ks-field::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgb(16 24 32 / 0) 30%, rgb(16 24 32 / 0.55) 70%, var(--sl-bg)); }
+.ks-field::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, color-mix(in srgb, var(--sl-bg) 55%, transparent) 70%, var(--sl-bg)); }
 .ks-field__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; opacity: 0; transition: opacity 700ms var(--sl-ease); }
 .ks-field__canvas[data-ready='true'] { opacity: 1; }
 
 /* Screens */
 .ks-screen {
   max-width: calc(var(--ks-max) + 2 * var(--ks-gutter)); margin-inline: auto;
-  min-height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: 28px;
-  padding: clamp(5rem, 16svh, 10rem) var(--ks-gutter);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 28px;
+  padding: clamp(6rem, 20svh, 11rem) var(--ks-gutter);
 }
 .ks-evidence__text { display: grid; gap: 18px; justify-items: start; }
 @media (min-width: 960px) {
-  /* Desktop composes screens by rhythm, not by viewport height. */
-  .ks-screen { min-height: 0; padding-block: clamp(7rem, 18svh, 12rem); }
+  .ks-screen { padding-block: clamp(7rem, 18svh, 12rem); }
+  .ks-evidence { align-items: center; }
 }
 @media (min-width: 960px) {
   .ks-evidence { display: grid; grid-template-columns: 5fr 7fr; align-items: center; gap: 7vw; }
 }
 
 /* Run ledger */
-.ks-ledger { margin: 0; display: grid; gap: 14px; }
+.ks-ledger { margin: 0; display: grid; gap: 14px; width: 100%; }
 .ks-ledger__label { font-family: var(--sl-font-mono); font-size: 0.78rem; color: var(--sl-muted); }
 .ks-ledger__frame { position: relative; border-bottom: 1px solid color-mix(in srgb, var(--sl-line) 55%, transparent); }
 .ks-ledger__rows { list-style: none; margin: 0; padding: 0; }
@@ -282,3 +282,18 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   .ks-lens::after, .ks-field::after { display: none; }
   .ks-period__option:has(input:checked) { background: Highlight; color: HighlightText; }
 }
+
+/* Signup and not-found */
+.ks-page--narrow { max-width: calc(36rem + 2 * var(--ks-gutter)); margin-inline: 0; }
+@media (min-width: 960px) { .ks-page--narrow { margin-inline: auto; } }
+.ks-signup { display: grid; gap: 16px; justify-items: start; }
+.ks-signup__field { display: grid; gap: 8px; width: 100%; font-weight: 600; }
+.ks-signup__field input {
+  font: inherit; font-weight: 400; font-size: 16px; /* 16px keeps iOS Safari from zooming on focus */
+  min-height: 48px; padding: 0 14px; width: 100%;
+  color: var(--sl-text); background: var(--sl-panel);
+  border: 1px solid color-mix(in srgb, var(--sl-line) 80%, transparent); border-radius: 12px;
+}
+.ks-signup__field input[aria-invalid] { border-color: var(--sl-danger); }
+.ks-signup__error { color: var(--sl-danger); font-size: 0.95rem; }
+.ks-signup__done { font-size: 1.125rem; max-width: 40ch; }

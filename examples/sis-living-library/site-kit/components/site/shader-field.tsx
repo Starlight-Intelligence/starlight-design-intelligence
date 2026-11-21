@@ -35,11 +35,11 @@ function hex(h: string): [number, number, number] {
 
 export type ShaderFieldProps = {
   /** Base, mid and highlight colours. Defaults follow the Midnight theme. */
-  colors?: [string, string, string];
+  colors?: readonly [string, string, string];
   className?: string;
 };
 
-const DEFAULT_COLORS: [string, string, string] = ['#101820', '#22474b', '#9bd8cd'];
+const DEFAULT_COLORS: readonly [string, string, string] = ['#101820', '#22474b', '#9bd8cd'];
 
 export function ShaderField({ colors = DEFAULT_COLORS, className }: ShaderFieldProps) {
   const ref = useRef<HTMLCanvasElement>(null);

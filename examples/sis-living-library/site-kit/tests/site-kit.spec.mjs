@@ -177,3 +177,31 @@ test.describe('agent contract', () => {
     await expect(slot).toContainText('No assistant is connected');
   });
 });
+
+test.describe('conversion path', () => {
+  test('every plan action resolves to a real page', async ({ page, request }) => {
+    await page.goto('/pricing');
+    const hrefs = await page.$$eval('.ks-plan a', (as) => as.map((a) => a.getAttribute('href')));
+    for (const href of hrefs.filter((h) => h.startsWith('/'))) expect((await request.get(href)).status(), href).toBe(200);
+  });
+
+  test('signup validates locally, sends nothing, and keeps the plan', async ({ page }) => {
+    const sent = [];
+    page.on('request', (r) => r.method() === 'POST' && sent.push(r.url()));
+    await page.goto('/signup?plan=team');
+    await expect(page.locator('.ks-signup')).toContainText('Plan: Team');
+    await page.getByLabel('Work email').fill('not-an-email');
+    await page.getByRole('button', { name: /trial/i }).click();
+    await expect(page.locator('#email-error')).toBeVisible();
+    await page.getByLabel('Work email').fill('ada@example.com');
+    await page.getByRole('button', { name: /trial/i }).click();
+    await expect(page.getByRole('status')).toContainText('nothing was sent');
+    expect(sent).toEqual([]);
+  });
+
+  test('unknown routes get the designed 404', async ({ page }) => {
+    const r = await page.goto('/no-such-page');
+    expect(r.status()).toBe(404);
+    await expect(page.locator('h1')).toHaveText('This page did not run.');
+  });
+});
