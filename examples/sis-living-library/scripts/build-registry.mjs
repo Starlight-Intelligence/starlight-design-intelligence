@@ -2,6 +2,7 @@ import { readFile, mkdir, writeFile, copyFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import {buildContract} from './component-contract.mjs';
+import {buildSiteKitItem} from './site-kit-registry.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const sources=['index.ts','components.tsx','components.css','tokens.css','icons.tsx','product-components.tsx','product-components.css'];
 const item={
@@ -12,9 +13,12 @@ const item={
 };
 await mkdir(path.join(root,'public','r'),{recursive:true});
 await writeFile(path.join(root,'public','r','starlight-living.json'),JSON.stringify(item,null,2)+'\n');
-await writeFile(path.join(root,'registry.json'),JSON.stringify({$schema:'https://ui.shadcn.com/schema/registry.json',name:'starlight-living-lab',homepage:'https://github.com/Starlight-Intelligence/starlight-design-intelligence',items:[{...item,files:item.files.map(({content,...f})=>f)}]},null,2)+'\n');
+const site=await buildSiteKitItem(root);
+await writeFile(path.join(root,'public','r','glass-core-site.json'),JSON.stringify(site,null,2)+'\n');
+const strip=i=>({...i,files:i.files.map(({content,...f})=>f)});
+await writeFile(path.join(root,'registry.json'),JSON.stringify({$schema:'https://ui.shadcn.com/schema/registry.json',name:'starlight-living-lab',homepage:'https://github.com/Starlight-Intelligence/starlight-design-intelligence',items:[strip(item),strip(site)]},null,2)+'\n');
 await mkdir(path.join(root,'public','icons'),{recursive:true});
 const {readdir}=await import('node:fs/promises');
 for(const name of await readdir(path.join(root,'assets','icons')))if(name.endsWith('.svg'))await copyFile(path.join(root,'assets','icons',name),path.join(root,'public','icons',name));
 await writeFile(path.join(root,'public','r','component-contracts.json'),JSON.stringify(await buildContract(root))+'\n');
-console.log(`Built one registry item with ${item.files.length} source files and 24 downloadable icons.`);
+console.log(`Built registry items: starlight-living (${item.files.length} files), glass-core-site (${site.files.length} files); 24 downloadable icons.`);

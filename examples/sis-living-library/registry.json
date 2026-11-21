@@ -46,6 +46,147 @@
           "target": "@ui/starlight/product-components.css"
         }
       ]
+    },
+    {
+      "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+      "name": "glass-core-site",
+      "type": "registry:block",
+      "title": "Glass Core AI startup site",
+      "description": "Landing, pricing and docs shell for an AI startup on Next.js App Router. Phone first, one GPU surface with poster fallback, GSAP motion with a reduced-motion path, llms.txt, /.well-known/starlight.json, JSON-LD Product and Offer, a read-only MCP stub and an agent slot. Install with starlight-living. Replaces app/layout.tsx and app/page.tsx. Review candidate.",
+      "dependencies": [
+        "gsap@3.15.1",
+        "@gsap/react@2.1.2",
+        "@fontsource/instrument-sans@5.3.0",
+        "@fontsource/instrument-serif@5.3.0",
+        "@fontsource/ibm-plex-mono@5.3.0"
+      ],
+      "files": [
+        {
+          "path": "site-kit/app/.well-known/starlight.json/route.ts",
+          "type": "registry:file",
+          "target": "~/app/.well-known/starlight.json/route.ts"
+        },
+        {
+          "path": "site-kit/app/api/mcp/route.ts",
+          "type": "registry:file",
+          "target": "~/app/api/mcp/route.ts"
+        },
+        {
+          "path": "site-kit/app/apple-icon.tsx",
+          "type": "registry:file",
+          "target": "~/app/apple-icon.tsx"
+        },
+        {
+          "path": "site-kit/app/docs/[slug]/page.tsx",
+          "type": "registry:page",
+          "target": "~/app/docs/[slug]/page.tsx"
+        },
+        {
+          "path": "site-kit/app/docs/layout.tsx",
+          "type": "registry:file",
+          "target": "~/app/docs/layout.tsx"
+        },
+        {
+          "path": "site-kit/app/docs/page.tsx",
+          "type": "registry:page",
+          "target": "~/app/docs/page.tsx"
+        },
+        {
+          "path": "site-kit/app/icon.tsx",
+          "type": "registry:file",
+          "target": "~/app/icon.tsx"
+        },
+        {
+          "path": "site-kit/app/layout.tsx",
+          "type": "registry:file",
+          "target": "~/app/layout.tsx"
+        },
+        {
+          "path": "site-kit/app/llms.txt/route.ts",
+          "type": "registry:file",
+          "target": "~/app/llms.txt/route.ts"
+        },
+        {
+          "path": "site-kit/app/manifest.ts",
+          "type": "registry:file",
+          "target": "~/app/manifest.ts"
+        },
+        {
+          "path": "site-kit/app/page.tsx",
+          "type": "registry:page",
+          "target": "~/app/page.tsx"
+        },
+        {
+          "path": "site-kit/app/pricing/page.tsx",
+          "type": "registry:page",
+          "target": "~/app/pricing/page.tsx"
+        },
+        {
+          "path": "site-kit/app/pwa-icon/[size]/route.tsx",
+          "type": "registry:file",
+          "target": "~/app/pwa-icon/[size]/route.tsx"
+        },
+        {
+          "path": "site-kit/app/site.css",
+          "type": "registry:file",
+          "target": "~/app/site.css"
+        },
+        {
+          "path": "site-kit/components/site/agent-slot.tsx",
+          "type": "registry:file",
+          "target": "~/components/site/agent-slot.tsx"
+        },
+        {
+          "path": "site-kit/components/site/docs-nav.tsx",
+          "type": "registry:file",
+          "target": "~/components/site/docs-nav.tsx"
+        },
+        {
+          "path": "site-kit/components/site/json-ld.tsx",
+          "type": "registry:file",
+          "target": "~/components/site/json-ld.tsx"
+        },
+        {
+          "path": "site-kit/components/site/mark.tsx",
+          "type": "registry:file",
+          "target": "~/components/site/mark.tsx"
+        },
+        {
+          "path": "site-kit/components/site/pricing-plans.tsx",
+          "type": "registry:file",
+          "target": "~/components/site/pricing-plans.tsx"
+        },
+        {
+          "path": "site-kit/components/site/run-ledger.tsx",
+          "type": "registry:file",
+          "target": "~/components/site/run-ledger.tsx"
+        },
+        {
+          "path": "site-kit/components/site/shader-field.tsx",
+          "type": "registry:file",
+          "target": "~/components/site/shader-field.tsx"
+        },
+        {
+          "path": "site-kit/components/site/site-footer.tsx",
+          "type": "registry:file",
+          "target": "~/components/site/site-footer.tsx"
+        },
+        {
+          "path": "site-kit/components/site/site-header.tsx",
+          "type": "registry:file",
+          "target": "~/components/site/site-header.tsx"
+        },
+        {
+          "path": "site-kit/lib/docs.ts",
+          "type": "registry:file",
+          "target": "~/lib/docs.ts"
+        },
+        {
+          "path": "site-kit/lib/site.config.ts",
+          "type": "registry:file",
+          "target": "~/lib/site.config.ts"
+        }
+      ]
     }
   ]
 }
