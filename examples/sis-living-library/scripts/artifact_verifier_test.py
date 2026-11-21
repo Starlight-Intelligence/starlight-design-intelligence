@@ -6,6 +6,8 @@ import io
 import json
 from pathlib import Path
 import stat
+import subprocess
+import sys
 import tarfile
 import tempfile
 import unittest
@@ -151,6 +153,16 @@ class ArtifactIntegrityTests(unittest.TestCase):
         self.write(data)
         with self.assertRaisesRegex(IntegrityError, 'Unexpected or missing customer source'):
             verify_product(self.path)
+
+    def test_cli_warns_without_trusted_checksum(self):
+        self.write(product_fixture())
+        command = [sys.executable, '-B', str(ROOT/'scripts/verify_artifact.py'), str(self.path)]
+        result = subprocess.run(command, check=True, capture_output=True, text=True)
+        self.assertIn('authenticity is unverified', result.stderr)
+        self.assertEqual(json.loads(result.stdout)['trustedChecksum'], 'not-supplied')
+        trusted = subprocess.run(command + ['--sha256', sha(self.path.read_bytes())], check=True, capture_output=True, text=True)
+        self.assertEqual(trusted.stderr, '')
+        self.assertEqual(json.loads(trusted.stdout)['trustedChecksum'], 'matched')
 
     def test_wrong_trusted_checksum_and_manifest_tampering_fail(self):
         self.write(product_fixture())

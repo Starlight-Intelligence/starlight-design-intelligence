@@ -19,6 +19,13 @@ export function App() {
 
 The package contains compiled ESM and TypeScript declarations. React is a peer dependency. It makes no requests and requires no account, environment variable, cloud resource, API key or internal runtime. Fonts are optional: use the declared system fallbacks, or install the Fontsource packages from the workbench with their notices.
 
+## Verify the delivery
+
+Before extracting the ZIP, verify it with the trusted SHA-256 supplied in the
+seller's order confirmation. Obtain the verifier from the reviewed repository,
+and run `python3 scripts/verify_artifact.py PATH-TO-ZIP --sha256 EXPECTED-SHA256`.
+Without that checksum, a successful run establishes archive consistency only.
+
 ## Next.js
 
 Import styles.css in app/layout.tsx. Package interactive exports preserve `'use client'`; pass callbacks from a client component. The included examples/next-app uses the packaged tarball through a relative file dependency and bundles Tailwind 4 through its PostCSS adapter. From the kit root:

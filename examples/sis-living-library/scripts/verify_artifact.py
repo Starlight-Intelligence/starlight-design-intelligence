@@ -346,6 +346,8 @@ def main():
     parser.add_argument('archive', type=Path)
     parser.add_argument('--sha256', help='Expected product ZIP SHA-256 obtained through a trusted seller channel')
     args = parser.parse_args()
+    if args.sha256 is None:
+        print('Warning: no trusted SHA-256 supplied. This checks archive consistency only; authenticity is unverified.', file=sys.stderr)
     try:
         print(json.dumps(verify_product(args.archive, args.sha256), indent=2))
     except (IntegrityError, OSError, TypeError, KeyError) as error:
