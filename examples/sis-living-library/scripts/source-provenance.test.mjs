@@ -10,9 +10,13 @@ const root=path.resolve(import.meta.dirname,'..');
 // A real assembler output grounds fixture coverage, instead of copying the validator's list.
 async function fixture(){
   const dir=await mkdtemp(path.join(tmpdir(),'foundry-source-'));
-  let names;
-  try{execFileSync('git',['ls-files','--error-unmatch','package.json'],{cwd:root,stdio:'ignore'});names=execFileSync('git',['ls-files','-z','.'],{cwd:root}).toString().split('\0').filter(Boolean);}
-  catch{names=JSON.parse(await readFile(path.join(root,'RELEASE-MANIFEST.json'),'utf8')).files.map(x=>x.path).filter(x=>!x.startsWith('release/'));}
+  const delivered=await readFile(path.join(root,'RELEASE-MANIFEST.json'),'utf8').catch(error=>{
+    if(error.code==='ENOENT')return null;
+    throw error;
+  });
+  const names=delivered===null
+    ? execFileSync('git',['ls-files','-z','.'],{cwd:root,encoding:'utf8'}).split('\0').filter(Boolean)
+    : JSON.parse(delivered).files.map(entry=>entry.path).filter(name=>!name.startsWith('release/'));
   const files=[];
   for(const name of names){const bytes=await readFile(path.join(root,name));await mkdir(path.dirname(path.join(dir,name)),{recursive:true});await writeFile(path.join(dir,name),bytes);files.push({path:name,bytes:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')});}
   const manifest={schema:'starlight.product_archive.v1',sourceRevision:'a'.repeat(40),sourceDirty:false,files};
