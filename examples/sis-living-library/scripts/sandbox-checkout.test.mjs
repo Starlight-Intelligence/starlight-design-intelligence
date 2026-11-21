@@ -7,7 +7,7 @@ const config = () => ({ mode: 'test', secretKey: 'sk_test_fixtureOnly123',
     'command-center-template:agent': 'price_agent' },
   successUrl: 'https://example.com/checkout/success', cancelUrl: 'https://example.com/checkout/cancel' });
 const intent = () => ({ sku: 'aurora-ui-kit:essential', idempotencyKey: 'attempt_fixture_123456',
-  edition: '0.3.0', sourceSha: 'a'.repeat(40) });
+  sourceSha: 'a'.repeat(40) });
 const session = (overrides = {}) => new Response(JSON.stringify({ id: 'cs_test_fixture123',
   livemode: false, mode: 'payment', url: 'https://checkout.stripe.com/c/pay/cs_test_fixture123',
   ...overrides }), { headers: { 'content-type': 'application/json' } });
@@ -24,7 +24,7 @@ test('prepares fixed-endpoint, server-price test checkout with canonical metadat
   assert.equal(fields.get('metadata[productSlug]'), 'aurora-ui-kit');
   assert.equal(fields.get('payment_intent_data[metadata][productSlug]'), 'aurora-ui-kit');
   assert.equal(fields.get('metadata[tier]'), 'essential');
-  assert.equal(fields.get('metadata[edition]'), '0.3.0');
+  assert.equal(fields.get('metadata[edition]'), 'essential');
   assert.equal(fields.get('metadata[sourceSha]'), 'a'.repeat(40));
   assert.equal(fields.has('line_items[0][price_data][unit_amount]'), false);
   assert.equal(result.mode, 'test');
@@ -36,7 +36,7 @@ test('duplicate exact intent uses the same stable idempotency key; edition chang
   const transport = async (_url, request) => { keys.push(request.headers['Idempotency-Key']); return session(); };
   await createSandboxCheckout(config(), intent(), transport);
   await createSandboxCheckout(config(), intent(), transport);
-  await createSandboxCheckout(config(), { ...intent(), edition: '0.3.1' }, transport);
+  await createSandboxCheckout(config(), { ...intent(), sku: 'aurora-ui-kit:pro' }, transport);
   assert.equal(keys[0], keys[1]);
   assert.notEqual(keys[0], keys[2]);
   assert.match(keys[0], /^foundry-test-[a-f0-9]{64}$/);
@@ -79,9 +79,16 @@ test('rejects unknown SKU, missing server price, malformed key and source before
 });
 
 test('supports all allowed editions using trusted mappings', async () => {
-  for (const [sku, price] of Object.entries(config().prices)) {
+  for (const [sku, edition] of [
+    ['aurora-ui-kit:essential', 'essential'],
+    ['aurora-ui-kit:pro', 'professional'],
+    ['command-center-template:agent', 'agent-command-center'],
+  ]) {
     await createSandboxCheckout(config(), { ...intent(), sku }, async (_url, request) => {
-      assert.equal(new URLSearchParams(request.body).get('line_items[0][price]'), price);
+      const fields = new URLSearchParams(request.body);
+      assert.equal(fields.get('line_items[0][price]'), config().prices[sku]);
+      assert.equal(fields.get('metadata[edition]'), edition);
+      assert.equal(fields.get('payment_intent_data[metadata][edition]'), edition);
       return session();
     });
   }
