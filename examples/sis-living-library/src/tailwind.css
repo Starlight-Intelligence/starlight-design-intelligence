@@ -1,0 +1,17 @@
+/* Tailwind 4: import after tailwindcss and styles.css. No mandatory Tailwind runtime. */
+@theme inline {
+  --color-sl-canvas: var(--sl-bg);
+  --color-sl-surface: var(--sl-panel);
+  --color-sl-foreground: var(--sl-text);
+  --color-sl-muted: var(--sl-muted);
+  --color-sl-border: var(--sl-line);
+  --color-sl-action: var(--sl-accent);
+  --color-sl-action-text: var(--sl-accent-ink);
+  --color-sl-danger: var(--sl-danger);
+  --color-sl-success: var(--sl-success);
+  --font-sl-sans: var(--sl-font-sans);
+  --font-sl-mono: var(--sl-font-mono);
+  --radius-sl-sm: var(--sl-radius-sm);
+  --radius-sl-md: var(--sl-radius-md);
+  --radius-sl-lg: var(--sl-radius-lg);
+}

@@ -29,6 +29,8 @@ jobs:
       - run: npm run validate:experience
       - run: npm run validate:observatory
       - run: npm run check:observatory-index
+      - name: Install independently scoped component test dependencies
+        run: npm ci --ignore-scripts --prefix examples/sis-living-library
       - run: npm test
       - name: Reject incomplete native hook proof
         run: python3 -B -m unittest discover -s tests -p native_codex_probe_test.py

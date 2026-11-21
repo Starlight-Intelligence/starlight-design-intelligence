@@ -1,0 +1,1 @@
+{"extends":"./tsconfig.json","compilerOptions":{"noEmit":false,"allowImportingTsExtensions":false,"declaration":true,"outDir":"release/package","rootDir":"src","types":[]},"include":["src/index.ts","src/components.tsx","src/product-components.tsx","src/icons.tsx","src/css.d.ts"]}
