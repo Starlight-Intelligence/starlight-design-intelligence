@@ -201,7 +201,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 .ks-plan__steps { font-family: var(--sl-font-mono); font-size: 0.875rem; }
 .ks-plan__summary { color: var(--sl-muted); }
 .ks-plan__includes { margin: 4px 0 10px; padding: 0; list-style: none; display: grid; gap: 6px; }
-.ks-plan__includes li::before { content: '— '; color: var(--sl-muted); }
+.ks-plan__includes li::before { content: '· '; color: var(--sl-muted); }
 .ks-plan .sl-button { justify-self: start; min-height: 48px; font-size: 0.95rem; text-decoration: none; }
 @media (prefers-reduced-motion: no-preference) {
   .ks-plan__amount { animation: ks-fade 120ms var(--sl-ease); }
