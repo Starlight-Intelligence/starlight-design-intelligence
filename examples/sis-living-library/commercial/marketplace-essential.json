@@ -6,7 +6,7 @@
   "platforms": ["react-source"],
   "title": "Starlight Glass Core Essential",
   "shortDescription": "React components for interfaces where actions, state and evidence stay clear.",
-  "description": "Build an AI product interface with 19 typed React components, three semantic themes and 24 original utility icons. Use opaque reading surfaces with optional glass context. Inspect versioned component contracts before coding-agent changes. Essential provides the compiled package and editable component source for your own React application; Professional adds the independent Next.js starter.",
+  "description": "Build an AI product interface with 19 typed React components, three semantic themes and 24 original utility icons. Use opaque reading surfaces with optional glass context. Inspect versioned component contracts before coding-agent changes. The editable source is publicly viewable in the GitHub repository. The proposed paid offer covers a commercial license, updates and support, with a compiled React package for convenient installation. Professional includes the independent Next.js starter.",
   "price": {"currency":"EUR","amount":79,"status":"validation hypothesis; checkout closed","taxDisplay":"requires seller approval"},
   "compatibility": {
     "react": "React 19 peer dependencies; no hosted Starlight account required",

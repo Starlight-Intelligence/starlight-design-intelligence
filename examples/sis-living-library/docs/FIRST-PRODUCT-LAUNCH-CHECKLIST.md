@@ -5,6 +5,7 @@ Sell Essential first. Professional and Agent Command Center remain visible compa
 | Gate | Exact approval evidence | Owner / release consequence |
 |---|---|---|
 | Source | Reviewed PR #97, accepted exact SHA, 19-component contract, four preserved demos and all three editions reconciled | Integrator; no competing package |
+| Source distribution | Frank decided on 21 November 2026 to keep the source in this public repository. The proposed paid offer covers the commercial license, updates and support. | Record this in buyer-facing copy |
 | Engineering | Type checks, unit/negative tests, reproducible package, extracted consumer install/build, all required CI checks at the current head | Engineering verifier |
 | Archive | Offline ZIP/TGZ verification, complete manifest, byte/hash matches, no symlinks/traversal, final outer SHA recorded outside its own source commit | Packaging verifier; pin these exact bytes for delivery |
 | License | Owner approves `COMMERCIAL-LICENSE-DRAFT.md` successor, seat counts, client/agent use, update/support/refund terms, seller details and final license hash | Named owner; operative rights remain unchanged until explicit approval |
@@ -26,6 +27,8 @@ Sell Essential first. Professional and Agent Command Center remain visible compa
 6. Restart the approved backend and retry. Refund/revocation must survive restart and late payment-event replay. Record the selected policy for partial refunds.
 
 Current account discovery on 13 November exposes only the live FrankX context through both Stripe connections, and the execution environment has no Stripe test key or webhook secret. The real-provider gate is therefore blocked. No sandbox purchase is claimed until a test context is connected and the receipt above exists. Existing storefront delivery repair PR #1075 is the dependency; the dedicated sandbox follow-up must stay draft and leave live routes closed.
+
+Before the first licensed release, reconcile the assembler, verifier and package builder against one release descriptor for versions and rights once the owner approves the final terms.
 
 ## Approval record
 

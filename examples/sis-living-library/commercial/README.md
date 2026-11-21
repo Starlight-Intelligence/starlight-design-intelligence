@@ -1,6 +1,6 @@
 # Sandbox checkout preparation
 
-`sandbox-checkout.ts` is a server-only, injected-transport Stripe test adapter.
+`sandbox-checkout.ts` is a reference-only, server-side Stripe test adapter with injected transport. It stays in the repository and is excluded from all buyer archives.
 It has no default network transport, storefront route or connection to the demo.
 The implementation made no provider request and created no Stripe records.
 
@@ -22,7 +22,7 @@ Server-owned configuration selects prices for these allowlisted proposed SKUs:
 
 These are mapping proposals, not created products or verified prices. No browser
 may supply an amount, price ID, secret, return URL or server configuration. A host
-must authenticate/authorize requests and bind the attempt ID, edition and source
+must authenticate/authorize requests and bind the attempt ID, SKU and source
 revision to trusted server records before calling this module. Keep this source
 outside every client bundle; the runtime browser check is defense in depth.
 
@@ -36,7 +36,7 @@ retry using the same key and reconcile with Stripe before creating another inten
 
 `metadata.productSlug` and PaymentIntent metadata preserve the owning FrankX
 webhook convention. `tier`, `edition` and `sourceSha` identify the delivered
-edition candidate. A created test session is neither a payment receipt nor an
+edition candidate. The adapter derives edition from the SKU. A created test session is neither a payment receipt nor an
 entitlement. Canonical webhook verification, deduplication, entitlement and
 artifact delivery remain owned by `frankxai/frankx.ai-vercel-website`:
 `app/api/webhooks/stripe/route.ts` and `lib/delivery.ts`. No fulfillment or refund
