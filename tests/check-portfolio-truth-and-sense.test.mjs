@@ -736,3 +736,79 @@ test("catches void phrases broken up by inline Markdown emphasis or code spans",
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test("decodes JS escape sequences in rendered literals and brace-wrapped copy props", () => {
+  const dir = makeFixture({
+    "components/Offer.tsx": [
+      `export default function Offer() {`,
+      `  return <p>{"Book hourly\\nconsulting today."}</p>;`,
+      `}`,
+      `export function Card() {`,
+      `  return <Tile title={"Quarterly\\u00201:1 with the founder"} />;`,
+      `}`,
+      `export function Plain() {`,
+      `  return <Tile title="Read the edition\\nnotes" />;`,
+      `}`,
+      `export function Escaped() {`,
+      `  return <p>{"Book hourly\\x20consulting\\\\today"}</p>;`,
+      `}`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+    assert.deepEqual(hits.map((e) => e.line).sort((a, b) => a - b), [2, 5, 11], JSON.stringify(res.errors));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("accepts an ARIA level-1 heading whatever the attribute order", () => {
+  for (const heading of [
+    `<div aria-level={1} role="heading">Source-based releases</div>`,
+    `<div role="heading" aria-level="1">Source-based releases</div>`,
+  ]) {
+    const dir = makeFixture({
+      "app/page.tsx": `export default function Page() { return <main>${heading}<a href="/editions">Read Edition 01</a></main>; }`,
+      "public/llms.txt": `# GenCreator\n`,
+    });
+    try {
+      const res = auditRepository({ dir, brand: "gencreator", mode: "landing" });
+      assert.equal(res.landing.hasH1, true, heading);
+      assert.ok(!res.errors.some((e) => e.rule === "sense:missing-h1"), heading);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+  const dir = makeFixture({
+    "app/page.tsx": `export default function Page() { return <main><div aria-level={1}>A</div><span role="heading">B</span><a href="/x">Go</a></main>; }`,
+    "public/llms.txt": `# GenCreator\n`,
+  });
+  try {
+    const res = auditRepository({ dir, brand: "gencreator", mode: "landing" });
+    assert.equal(res.landing.hasH1, false, "both attributes must sit on the same opening tag");
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("copy-prop fallback does not re-scan bodies of excluded components", () => {
+  const dir = makeFixture({
+    "components/Docs.tsx": [
+      `export default function Docs() {`,
+      "  return <CodeBlock>{`const title = \"Book hourly consulting.\";`}</CodeBlock>;",
+      `}`,
+      `export function Live() {`,
+      `  const card = { title: "Quarterly 1:1 with the founder" };`,
+      `  return <Tile {...card} />;`,
+      `}`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+    assert.deepEqual(hits.map((e) => e.line), [5], JSON.stringify(res.errors));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
