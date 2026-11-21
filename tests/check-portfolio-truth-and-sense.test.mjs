@@ -692,3 +692,47 @@ test("landing structure checks still accept rendered JSX elements, attribute-bas
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test("audits the static text of interpolated template literals in JSX children", () => {
+  const dir = makeFixture({
+    "components/Offer.tsx": [
+      `export default function Offer({ name }: { name: string }) {`,
+      "  return <p>{`Book hourly consulting with ${name}.`}</p>;",
+      `}`,
+      `export function Branch({ ok, name }: { ok: boolean; name: string }) {`,
+      "  return <p>{ok ? `Quarterly 1:1 with ${name}` : null}</p>;",
+      `}`,
+      `export function Neutral({ name }: { name: string }) {`,
+      "  return <p>{`Read ${name}'s edition notes.`}</p>;",
+      `}`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+    assert.deepEqual(hits.map((e) => e.line).sort(), [2, 5], JSON.stringify(res.errors));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("catches void phrases broken up by inline Markdown emphasis or code spans", () => {
+  const dir = makeFixture({
+    "content/offer.md": [
+      `Book hourly **consulting** today.`,
+      ``,
+      `Ask about a __quarterly__ 1:1.`,
+      ``,
+      `Try \`hourly\` consulting.`,
+      ``,
+      `Keep snake_case_names readable.`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+    assert.deepEqual(hits.map((e) => e.line), [1, 3, 5], JSON.stringify(res.errors));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

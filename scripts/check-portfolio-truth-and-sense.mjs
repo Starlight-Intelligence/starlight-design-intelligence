@@ -113,7 +113,17 @@ function decodeCharRef(source, index) {
   return text === null ? null : { text, length: m[0].length };
 }
 
-function createSegmentBuilder(source, lineStarts, { decodeRefs = false } = {}) {
+// Inline Markdown emphasis and code-span markers are formatting, not words. `_` counts only at a word
+// edge so identifiers such as snake_case_names keep their shape.
+function isInlineMarkdownMarker(source, i) {
+  const ch = source[i];
+  if (ch === "*" || ch === "`" || (ch === "~" && (source[i - 1] === "~" || source[i + 1] === "~"))) return true;
+  if (ch !== "_") return false;
+  const word = /[\p{L}\p{N}]/u;
+  return !(word.test(source[i - 1] ?? "") && word.test(source[i + 1] ?? ""));
+}
+
+function createSegmentBuilder(source, lineStarts, { decodeRefs = false, stripInlineMarkdown = false } = {}) {
   let out = "";
   let charLines = [];
   let pendingSpace = false;
@@ -147,6 +157,7 @@ function createSegmentBuilder(source, lineStarts, { decodeRefs = false } = {}) {
       };
       for (let i = start; i < end; i += 1) {
         const ch = source[i];
+        if (stripInlineMarkdown && isInlineMarkdownMarker(source, i)) continue;
         if (decodeRefs && ch === "&") {
           const ref = decodeCharRef(source, i);
           if (ref && i + ref.length <= end) {
@@ -269,7 +280,7 @@ function extractMarkdownLogicalSegments(source) {
   const masked = maskPreserveNewlines(source, /<!--[\s\S]*?-->/g);
   const lineStarts = buildLineStarts(source);
   const segments = [];
-  const seg = createSegmentBuilder(masked, lineStarts, { decodeRefs: true });
+  const seg = createSegmentBuilder(masked, lineStarts, { decodeRefs: true, stripInlineMarkdown: true });
   const rawLines = masked.split("\n");
   let offset = 0;
   let inFence = null;
@@ -442,6 +453,14 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
   // checks read a view with these blanked so `const x = "<h1>..</h1>"` cannot satisfy them.
   const nonRenderedStringRanges = [];
 
+  // An interpolation renders unknown text, so it separates the static spans as a word gap.
+  const addLiteral = (seg, literal) => {
+    literal.parts.forEach((part, index) => {
+      if (index > 0) seg.addGap();
+      seg.addSlice(part.start, part.end);
+    });
+  };
+
   const blankRange = (start, end) => {
     for (let k = start; k < end; k += 1) {
       if (maskedChars[k] !== "\n") maskedChars[k] = " ";
@@ -462,12 +481,27 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
     const consumeQuote = (qPos) => {
       const q = source[qPos];
       let k = qPos + 1;
-      let hasInterp = false;
       let closed = false;
+      // Static spans of the literal. A template literal's `${...}` placeholders are skipped (with nested
+      // braces) so the surrounding copy is still audited: `Book hourly consulting with ${name}.`
+      const parts = [];
+      let partStart = k;
       while (k < n) {
         const ch = source[k];
         if (ch === "\\" && k + 1 < n) { k += 2; continue; }
-        if (q === "`" && ch === "$" && source[k + 1] === "{") hasInterp = true;
+        if (q === "`" && ch === "$" && source[k + 1] === "{") {
+          parts.push({ start: partStart, end: k });
+          let depth = 1;
+          k += 2;
+          while (k < n && depth > 0) {
+            if (source[k] === "\\" && k + 1 < n) { k += 2; continue; }
+            if (source[k] === "{") depth += 1;
+            else if (source[k] === "}") depth -= 1;
+            k += 1;
+          }
+          partStart = k;
+          continue;
+        }
         if (ch === q) { closed = true; k += 1; break; }
         k += 1;
       }
@@ -475,16 +509,18 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
       tokenCount += 1;
       if (maskStrings) nonRenderedStringRanges.push({ start: qPos, end: k });
       const bodyEnd = closed ? k - 1 : k;
+      parts.push({ start: partStart, end: bodyEnd });
+      const staticText = parts.map((p) => source.slice(p.start, p.end)).join(" ");
+      const literal = { start: qPos + 1, end: bodyEnd, parts };
       if (
-        !hasInterp &&
         "?:&|(,{>".includes(prevSigChar) &&
-        /[A-Za-z]/.test(source.slice(qPos + 1, bodyEnd)) &&
-        bodyEnd - (qPos + 1) >= 3
+        /[A-Za-z]/.test(staticText) &&
+        staticText.trim().length >= 3
       ) {
-        branchLiterals.push({ start: qPos + 1, end: bodyEnd });
+        branchLiterals.push(literal);
       }
-      if (tokenCount === 1 && !hasInterp && bodyEnd - (qPos + 1) >= 3) {
-        singleLiteral = { start: qPos + 1, end: bodyEnd };
+      if (tokenCount === 1 && staticText.trim().length >= 3) {
+        singleLiteral = literal;
       } else {
         singleLiteral = null;
       }
@@ -752,7 +788,7 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
         const exprRes = scanJs(i + 1, true);
         i = exprRes.end;
         if (exprRes.literalRange) {
-          seg.addSlice(exprRes.literalRange.start, exprRes.literalRange.end);
+          addLiteral(seg, exprRes.literalRange);
         } else if (exprRes.hasJsx) {
           seg.flush(segments);
         } else if (exprRes.hasCode) {
@@ -762,7 +798,7 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
           // Each potentially rendered branch literal is audited as its own segment.
           for (const lit of exprRes.branchLiterals) {
             const branchSeg = createSegmentBuilder(source, lineStarts);
-            branchSeg.addSlice(lit.start, lit.end);
+            addLiteral(branchSeg, lit);
             branchSeg.flush(segments);
           }
         }
