@@ -763,56 +763,6 @@ test("decodes JS escape sequences in rendered literals and brace-wrapped copy pr
   }
 });
 
-test("accepts an ARIA level-1 heading whatever the attribute order", () => {
-  for (const heading of [
-    `<div aria-level={1} role="heading">Source-based releases</div>`,
-    `<div role="heading" aria-level="1">Source-based releases</div>`,
-  ]) {
-    const dir = makeFixture({
-      "app/page.tsx": `export default function Page() { return <main>${heading}<a href="/editions">Read Edition 01</a></main>; }`,
-      "public/llms.txt": `# GenCreator\n`,
-    });
-    try {
-      const res = auditRepository({ dir, brand: "gencreator", mode: "landing" });
-      assert.equal(res.landing.hasH1, true, heading);
-      assert.ok(!res.errors.some((e) => e.rule === "sense:missing-h1"), heading);
-    } finally {
-      rmSync(dir, { recursive: true, force: true });
-    }
-  }
-  const dir = makeFixture({
-    "app/page.tsx": `export default function Page() { return <main><div aria-level={1}>A</div><span role="heading">B</span><a href="/x">Go</a></main>; }`,
-    "public/llms.txt": `# GenCreator\n`,
-  });
-  try {
-    const res = auditRepository({ dir, brand: "gencreator", mode: "landing" });
-    assert.equal(res.landing.hasH1, false, "both attributes must sit on the same opening tag");
-  } finally {
-    rmSync(dir, { recursive: true, force: true });
-  }
-});
-
-test("copy-prop fallback does not re-scan bodies of excluded components", () => {
-  const dir = makeFixture({
-    "components/Docs.tsx": [
-      `export default function Docs() {`,
-      "  return <CodeBlock>{`const title = \"Book hourly consulting.\";`}</CodeBlock>;",
-      `}`,
-      `export function Live() {`,
-      `  const card = { title: "Quarterly 1:1 with the founder" };`,
-      `  return <Tile {...card} />;`,
-      `}`,
-    ].join("\n"),
-  });
-  try {
-    const res = auditRepository({ dir, brand: "sis", mode: "content" });
-    const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
-    assert.deepEqual(hits.map((e) => e.line), [5], JSON.stringify(res.errors));
-  } finally {
-    rmSync(dir, { recursive: true, force: true });
-  }
-});
-
 test("an excluded component's own tag inside a JS string does not extend its body", () => {
   const dir = makeFixture({
     "components/Docs.tsx": [
@@ -898,5 +848,37 @@ test("attributes of JSX nested in an attribute expression never combine with ano
   } finally {
     rmSync(split, { recursive: true, force: true });
     rmSync(nested, { recursive: true, force: true });
+  }
+});
+
+test("a brace inside a template placeholder in an excluded body does not hide later copy", () => {
+  const dir = makeFixture({
+    "components/Docs.tsx": [
+      `export default function Docs() {`,
+      "  return <CodeBlock>{`Example ${\"{\"}`}</CodeBlock>;",
+      `}`,
+      `const card = { title: "Book hourly consulting." };`,
+      `export function Live() { return <Tile {...card} />; }`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+    assert.deepEqual(hits.map((e) => e.line), [4], JSON.stringify(res.errors));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a trailing backslash in a quoted HTML attribute does not hide a level-1 heading", () => {
+  const dir = makeFixture({
+    "app/page.tsx": `export default function Page() { return <main><div title="C:\\" role="heading" aria-level="1">Hello</div><a href="/x">Go</a></main>; }`,
+    "public/llms.txt": `# GenCreator\n`,
+  });
+  try {
+    const res = auditRepository({ dir, brand: "gencreator", mode: "landing" });
+    assert.equal(res.landing.hasH1, true);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
   }
 });

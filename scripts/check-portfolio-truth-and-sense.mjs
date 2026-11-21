@@ -485,8 +485,6 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
   // JS string literals that are not JSX attribute values never render as elements; landing structure
   // checks read a view with these blanked so `const x = "<h1>..</h1>"` cannot satisfy them.
   const nonRenderedStringRanges = [];
-  // Bodies of excluded (non-copy) components; the regex copy-prop fallback must not re-scan them.
-  const excludedBodyRanges = [];
 
   // An interpolation renders unknown text, so it separates the static spans as a word gap.
   // `decodeEscapes` lets an inherited JSX text segment (which never decodes escapes in raw JSX text)
@@ -767,29 +765,14 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
 
     if (isNonCopy) {
       // Skip the excluded element's body without collecting text, honouring nested same-name tags.
-      const bodyStart = i;
       let depth = 1;
-      // A `{...}` expression is skipped with the same JS tokenizer used for rendered code (strings,
-      // templates, comments, regex literals, nested JSX), so nothing inside it, such as a sample
-      // "<CodeBlock>" or a "{" in a comment, can change this element's nesting. Anything the
-      // tokenizer records while skipping is discarded: an excluded body is never audited.
       while (i < n) {
-        if (source[i] === "{") {
-          const saved = [segments.length, copyPropExprRanges.length, nonRenderedStringRanges.length];
-          const expr = scanJs(i + 1, true, false);
-          segments.length = saved[0];
-          copyPropExprRanges.length = saved[1];
-          nonRenderedStringRanges.length = saved[2];
-          i = expr.end;
-          continue;
-        }
         if (source[i] === "<" && source[i + 1] === "/") {
           let k = i + 2;
           while (k < n && /[A-Za-z0-9_.-]/.test(source[k])) k += 1;
           const gt = source.indexOf(">", k);
           const afterClose = gt < 0 ? n : gt + 1;
           if (source.slice(i + 2, k) === tagName && --depth === 0) {
-            excludedBodyRanges.push({ start: bodyStart, end: i });
             if (!useInherited) seg.flush(segments);
             else seg.addGap();
             return afterClose;
@@ -803,7 +786,6 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
         }
         i += 1;
       }
-      excludedBodyRanges.push({ start: bodyStart, end: i });
       if (!useInherited) seg.flush(segments);
       return i;
     }
@@ -906,14 +888,8 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
   }
 
   const copyPropRe = /(?<![\w$-])(?:title|description|subtitle|body|summary|label|headline|cta|alt|placeholder|aria-label|aria-description)\s*(?::\s*|=\s*(?:\{\s*\(*\s*)?)(["'`])((?:\\.|(?!\1)[\s\S])*?)\1/gi;
-  const propScanText = excludedBodyRanges.length
-    ? excludedBodyRanges.reduce((chars, { start, end }) => {
-      for (let k = start; k < end; k += 1) if (chars[k] !== "\n") chars[k] = " ";
-      return chars;
-    }, commentMasked.split("")).join("")
-    : commentMasked;
   let propMatch;
-  while ((propMatch = copyPropRe.exec(propScanText)) !== null) {
+  while ((propMatch = copyPropRe.exec(commentMasked)) !== null) {
     const val = propMatch[2];
     if (val.trim().length >= 4 && !/^\$\{/.test(val.trim())) {
       const valueOffset = propMatch.index + propMatch[0].indexOf(propMatch[1]) + 1;
@@ -939,45 +915,6 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
 
   segments.sort((a, b) => a.line - b.line);
   return { segments, commentMasked, markupMasked: markupChars.join("") };
-}
-
-// Opening tags with quoted values and `{...}` expressions intact, so `title="A > B"` cannot end a tag.
-function openingTags(markup) {
-  const tags = [];
-  const start = /<[A-Za-z]/g;
-  let match;
-  while ((match = start.exec(markup)) !== null) {
-    let i = match.index + 1;
-    let quote = "";
-    let braces = 0;
-    // The tag's own text keeps simple `{...}` values such as aria-level={1}, but drops an expression
-    // containing JSX: nested elements are found separately when the scan resumes after this "<".
-    let own = "";
-    let expr = "";
-    const limit = Math.min(markup.length, match.index + 4096);
-    for (; i < limit; i += 1) {
-      const c = markup[i];
-      const sink = (text) => { if (braces > 0) expr += text; else own += text; };
-      if (quote) {
-        sink(c);
-        if (c === "\\") { i += 1; sink(markup[i] ?? ""); } else if (c === quote) quote = "";
-        continue;
-      }
-      if (c === '"' || c === "'" || (c === "`" && braces > 0)) { quote = c; sink(c); continue; }
-      if (c === "{") { braces += 1; expr += c; continue; }
-      if (c === "}" && braces > 0) {
-        braces -= 1;
-        expr += c;
-        if (braces === 0) { own += /</.test(expr) ? "{}" : expr; expr = ""; }
-        continue;
-      }
-      if ((c === ">" || c === "<") && braces === 0) break;
-      sink(c);
-    }
-    if (markup[i] === ">") tags.push(`<${own}>`);
-    start.lastIndex = match.index + 1;
-  }
-  return tags;
 }
 
 function maskScriptAndStyleBodies(html) {
@@ -1188,10 +1125,7 @@ export function auditRepository({ dir, brand = "sis", mode = "landing", strict =
       .map((p) => stripCodeForLanding(readFileSync(p, "utf8").replace(/\r\n/g, "\n"), false).stripped)
       .join("\n");
 
-    // role="heading" and aria-level=1 may appear in either order, but on the same opening tag.
-    const ariaLevelOne = /\saria-level=(?:["']\s*1\s*["']|\{\s*1\s*\}|1(?![\w]))/i;
-    const hasH1 = /<h1[\s>]/i.test(markup) ||
-      openingTags(markup).some((tag) => /\srole=["']heading["']/i.test(tag) && ariaLevelOne.test(tag));
+    const hasH1 = /<h1[\s>]|role=["']heading["'][^>]*aria-level=(?:["']?1["']?|\{\s*1\s*\})/i.test(markup);
     // <Link> is case-sensitive so a native <link rel="stylesheet"> is never mistaken for a CTA.
     const hasCta = /<Link\b/.test(markup) || /<(?:a|button)\b/i.test(markup);
     const hasJsonLd = /application\/ld\+json|<JsonLd\b/i.test(combined + layoutText);
