@@ -1,4 +1,5 @@
 """Adversarial archive fixtures. No network, install, extraction or source execution."""
+import argparse
 import copy
 import gzip
 import io
@@ -14,6 +15,7 @@ import zipfile
 from verify_artifact import IntegrityError, PACKAGE_FILE, sha, verify_package, verify_product
 
 ROOT = Path(__file__).resolve().parents[1]
+ASSEMBLED_ARCHIVE = None
 REVISION = 'a' * 40
 
 EXPECTED_ESSENTIAL_SOURCE = frozenset('''
@@ -140,9 +142,9 @@ class ArtifactIntegrityTests(unittest.TestCase):
         self.assertEqual(result['edition'],'essential')
 
     def test_essential_archive_matches_buyer_inventory(self):
-        # CI also exercises the real assembler and passes its output to this suite.
+        # The package CI job supplies the actual assembler output.
         generated = {'README.md', 'RELEASE-MANIFEST.json', 'release/' + PACKAGE_FILE, 'release/package-receipt.json'}
-        with zipfile.ZipFile(self.write(product_fixture())) as archive:
+        with zipfile.ZipFile(ASSEMBLED_ARCHIVE or self.write(product_fixture())) as archive:
             self.assertEqual(set(archive.namelist()), EXPECTED_ESSENTIAL_SOURCE | generated)
         data = product_fixture()
         data['docs/FIRST-PRODUCT-LAUNCH-CHECKLIST.md'] = b'Internal seller notes'
@@ -218,4 +220,8 @@ class ArtifactIntegrityTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--assembled-archive', type=Path)
+    options, unittest_args = parser.parse_known_args()
+    ASSEMBLED_ARCHIVE = options.assembled_archive
+    unittest.main(argv=[__file__, *unittest_args])
