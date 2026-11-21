@@ -769,7 +769,21 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
       // Skip the excluded element's body without collecting text, honouring nested same-name tags.
       const bodyStart = i;
       let depth = 1;
+      // Tags inside `{...}` expressions (strings, templates, nested JSX) never change this element's
+      // nesting, so a code sample containing "<CodeBlock>" cannot extend the body to end of file.
+      let exprDepth = 0;
       while (i < n) {
+        const c = source[i];
+        if (c === "{") { exprDepth += 1; i += 1; continue; }
+        if (c === "}" && exprDepth > 0) { exprDepth -= 1; i += 1; continue; }
+        if (exprDepth > 0) {
+          if (c === '"' || c === "'" || c === "`") {
+            i += 1;
+            while (i < n && source[i] !== c) i += source[i] === "\\" ? 2 : 1;
+          }
+          i += 1;
+          continue;
+        }
         if (source[i] === "<" && source[i + 1] === "/") {
           let k = i + 2;
           while (k < n && /[A-Za-z0-9_.-]/.test(source[k])) k += 1;
@@ -879,7 +893,9 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
         const key = `${litStart}:${litEnd}`;
         if (!hasInterp && val.trim().length >= 4 && !seenPropSlices.has(key)) {
           seenPropSlices.add(key);
-          const propSeg = createSegmentBuilder(commentMasked, lineStarts, { decodeJsEscapes: true });
+          // String.raw`...` renders its escapes literally; every other JS literal decodes them.
+          const isRawTemplate = q === "`" && /\bString\s*\.\s*raw\s*$/.test(commentMasked.slice(range.start, pos));
+          const propSeg = createSegmentBuilder(commentMasked, lineStarts, { decodeJsEscapes: !isRawTemplate });
           propSeg.addSlice(litStart, litEnd);
           propSeg.flush(segments);
         }
@@ -924,6 +940,30 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
 
   segments.sort((a, b) => a.line - b.line);
   return { segments, commentMasked, markupMasked: markupChars.join("") };
+}
+
+// Opening tags with quoted values and `{...}` expressions intact, so `title="A > B"` cannot end a tag.
+function openingTags(markup) {
+  const tags = [];
+  const start = /<[A-Za-z]/g;
+  let match;
+  while ((match = start.exec(markup)) !== null) {
+    let i = match.index + 1;
+    let quote = "";
+    let braces = 0;
+    for (; i < markup.length; i += 1) {
+      const c = markup[i];
+      if (quote) { if (c === "\\") i += 1; else if (c === quote) quote = ""; continue; }
+      if (c === '"' || c === "'" || (c === "`" && braces > 0)) quote = c;
+      else if (c === "{") braces += 1;
+      else if (c === "}" && braces > 0) braces -= 1;
+      else if (c === ">" && braces === 0) break;
+      else if (c === "<" && braces === 0) break;
+    }
+    if (markup[i] === ">") tags.push(markup.slice(match.index, i + 1));
+    start.lastIndex = i;
+  }
+  return tags;
 }
 
 function maskScriptAndStyleBodies(html) {
@@ -1137,7 +1177,7 @@ export function auditRepository({ dir, brand = "sis", mode = "landing", strict =
     // role="heading" and aria-level=1 may appear in either order, but on the same opening tag.
     const ariaLevelOne = /\saria-level=(?:["']\s*1\s*["']|\{\s*1\s*\}|1(?![\w]))/i;
     const hasH1 = /<h1[\s>]/i.test(markup) ||
-      [...markup.matchAll(/<[A-Za-z][\w.-]*\b[^>]*>/g)].some(([tag]) => /\srole=["']heading["']/i.test(tag) && ariaLevelOne.test(tag));
+      openingTags(markup).some((tag) => /\srole=["']heading["']/i.test(tag) && ariaLevelOne.test(tag));
     // <Link> is case-sensitive so a native <link rel="stylesheet"> is never mistaken for a CTA.
     const hasCta = /<Link\b/.test(markup) || /<(?:a|button)\b/i.test(markup);
     const hasJsonLd = /application\/ld\+json|<JsonLd\b/i.test(combined + layoutText);

@@ -812,3 +812,52 @@ test("copy-prop fallback does not re-scan bodies of excluded components", () => 
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test("an excluded component's own tag inside a JS string does not extend its body", () => {
+  const dir = makeFixture({
+    "components/Docs.tsx": [
+      `export default function Docs() {`,
+      "  return <CodeBlock>{`const example = \"<CodeBlock>\";`}</CodeBlock>;",
+      `}`,
+      `const card = { title: "Book hourly consulting." };`,
+      `export function Live() { return <Tile {...card} />; }`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+    assert.deepEqual(hits.map((e) => e.line), [4], JSON.stringify(res.errors));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a '>' inside a quoted attribute does not truncate the ARIA heading tag", () => {
+  const dir = makeFixture({
+    "app/page.tsx": `export default function Page() { return <main><div title="A > B" role="heading" aria-level="1">Hello</div><a href="/x">Go</a></main>; }`,
+    "public/llms.txt": `# GenCreator\n`,
+  });
+  try {
+    const res = auditRepository({ dir, brand: "gencreator", mode: "landing" });
+    assert.equal(res.landing.hasH1, true);
+    assert.ok(!res.errors.some((e) => e.rule === "sense:missing-h1"));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("String.raw copy-prop templates keep their escapes literal", () => {
+  const dir = makeFixture({
+    "components/Tile.tsx": [
+      "export default function A() { return <Tile title={String.raw`Book hourly\\nconsulting today.`} />; }",
+      "export function B() { return <Tile title={`Book hourly\\nconsulting today.`} />; }",
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+    assert.deepEqual(hits.map((e) => e.line), [2], "raw stays literal; an ordinary template still decodes");
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
