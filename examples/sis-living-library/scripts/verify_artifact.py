@@ -147,6 +147,152 @@ def verify_package(raw, receipt, revision=None):
     return {'files': len(files), 'sha256': sha(raw), 'version': package['version'], 'components': 19, 'sourceFiles': list(source_files.values())}
 
 
+# Buyer inventories are explicit so new repository files require delivery review.
+ESSENTIAL_SOURCE = frozenset('''
+assets/icons/archive.svg
+assets/icons/arrowRight.svg
+assets/icons/arrowUpRight.svg
+assets/icons/branch.svg
+assets/icons/check.svg
+assets/icons/close.svg
+assets/icons/code.svg
+assets/icons/compass.svg
+assets/icons/download.svg
+assets/icons/eye.svg
+assets/icons/grid.svg
+assets/icons/layers.svg
+assets/icons/link.svg
+assets/icons/moon.svg
+assets/icons/orbit.svg
+assets/icons/pause.svg
+assets/icons/play.svg
+assets/icons/search.svg
+assets/icons/settings.svg
+assets/icons/shield.svg
+assets/icons/signal.svg
+assets/icons/spark.svg
+assets/icons/sun.svg
+assets/icons/warning.svg
+assets/living-theme-sheet.svg
+contracts/components.json
+docs/ARCHITECTURE.md
+docs/BRAND-ADAPTERS.md
+docs/INSTALLATION.md
+docs/licenses/IBM-Plex-Mono-OFL.txt
+docs/licenses/Instrument-Sans-OFL.txt
+docs/licenses/Instrument-Serif-OFL.txt
+scripts/verify_artifact.py
+src/components.css
+src/components.tsx
+src/css.d.ts
+src/icons.tsx
+src/index.ts
+src/product-components.css
+src/product-components.tsx
+src/tailwind.css
+src/tokens.css
+tokens/tokens.json
+'''.splitlines()[1:])
+NEXT_CONSUMER_SOURCE = frozenset('''
+examples/next-app/app/globals.css
+examples/next-app/app/launch/page.tsx
+examples/next-app/app/layout.tsx
+examples/next-app/app/page.tsx
+examples/next-app/next.config.mjs
+examples/next-app/package-lock.json
+examples/next-app/package.json
+examples/next-app/postcss.config.mjs
+examples/next-app/tsconfig.json
+'''.splitlines()[1:])
+COMMAND_CENTER_SOURCE = frozenset('''
+.gitignore
+glass.html
+index.html
+library.html
+package-lock.json
+package.json
+public/icons/archive.svg
+public/icons/arrowRight.svg
+public/icons/arrowUpRight.svg
+public/icons/branch.svg
+public/icons/check.svg
+public/icons/close.svg
+public/icons/code.svg
+public/icons/compass.svg
+public/icons/download.svg
+public/icons/eye.svg
+public/icons/grid.svg
+public/icons/layers.svg
+public/icons/link.svg
+public/icons/moon.svg
+public/icons/orbit.svg
+public/icons/pause.svg
+public/icons/play.svg
+public/icons/search.svg
+public/icons/settings.svg
+public/icons/shield.svg
+public/icons/signal.svg
+public/icons/spark.svg
+public/icons/sun.svg
+public/icons/warning.svg
+public/mobile-frame.html
+public/preview-lab-metrics.mjs
+public/preview-lab.html
+public/preview-lab.mjs
+public/qa.html
+public/qa/axe-LICENSE.txt
+public/qa/axe.min.js
+public/qa/runner.js
+public/r/component-contracts.json
+public/r/starlight-living.json
+public/responsive.html
+registry.json
+scripts/browser-check.mjs
+scripts/build-registry.mjs
+scripts/check-budgets.mjs
+scripts/command-model.test.mjs
+scripts/component-contract.mjs
+scripts/consumer-smoke.mjs
+scripts/foundations.test.mjs
+scripts/package-release.mjs
+scripts/products-browser.mjs
+scripts/registry.test.mjs
+scripts/source-provenance.mjs
+scripts/source-provenance.test.mjs
+scripts/standalone-check.mjs
+scripts/standalone.mjs
+src/App.tsx
+src/Experiences.tsx
+src/GlassProduct.tsx
+src/command-model.ts
+src/experiences.css
+src/fixtures.ts
+src/glass-product.css
+src/main.tsx
+src/standalone.tsx
+src/studio.css
+tests/visual/README.md
+tests/visual/desktop-browser.png
+tests/visual/desktop-console.png
+tests/visual/desktop-intelligence.png
+tests/visual/desktop-launch.png
+tests/visual/mobile-browser.png
+tests/visual/mobile-console.png
+tests/visual/mobile-intelligence.png
+tests/visual/mobile-launch.png
+tsconfig.json
+tsconfig.package.json
+vite.config.ts
+'''.splitlines()[1:])
+
+BUYER_SOURCE = {
+    'essential': ESSENTIAL_SOURCE,
+    'professional': ESSENTIAL_SOURCE | NEXT_CONSUMER_SOURCE,
+    'agent-command-center': ESSENTIAL_SOURCE | NEXT_CONSUMER_SOURCE | COMMAND_CENTER_SOURCE,
+}
+GENERATED_PRODUCT_FILES = frozenset({'README.md', 'release/' + PACKAGE_FILE, 'release/package-receipt.json'})
+
+
 def verify_product(file, expected_sha=None):
     file = Path(file)
     require(file.is_file() and not file.is_symlink() and file.stat().st_size <= MAX_ARCHIVE, 'Invalid or oversized product archive')
@@ -183,16 +329,13 @@ def verify_product(file, expected_sha=None):
     package_path = 'release/' + PACKAGE_FILE
     require(package_path in files and 'release/package-receipt.json' in files, 'Missing compiled package or receipt')
     package = verify_package(files[package_path], decode_json(files['release/package-receipt.json']), manifest['sourceRevision'])
-    required = {'README.md','docs/INSTALLATION.md','src/index.ts','src/components.tsx','src/product-components.tsx','src/icons.tsx','src/css.d.ts','src/tokens.css','src/components.css','src/product-components.css','src/tailwind.css','tokens/tokens.json','contracts/components.json','scripts/verify_artifact.py'}
-    require(required.issubset(files), 'Required customer source or verifier is missing')
+    require(set(files) == BUYER_SOURCE[edition] | GENERATED_PRODUCT_FILES, 'Unexpected or missing customer source')
     if edition in {'professional','agent-command-center'}:
         require({'examples/next-app/package.json','examples/next-app/package-lock.json','examples/next-app/app/page.tsx'}.issubset(files), 'Missing Next.js consumer')
         lock = decode_json(files['examples/next-app/package-lock.json'])
         dependency = lock.get('packages', {}).get('node_modules/' + PACKAGE_NAME, {})
         import base64
         require(dependency.get('integrity') == 'sha512-' + base64.b64encode(hashlib.sha512(files[package_path]).digest()).decode() and dependency.get('resolved') == 'file:../../release/' + PACKAGE_FILE, 'Stale Next.js consumer package integrity')
-    if edition == 'agent-command-center':
-        require({'package.json','package-lock.json','src/Experiences.tsx','src/command-model.ts'}.issubset(files), 'Missing Command Center application')
     for entry in package.pop('sourceFiles'):
         require(entry['path'] in files and len(files[entry['path']]) == entry['bytes'] and sha(files[entry['path']]) == entry['sha256'], 'Editable source differs from compiled package input')
     return {'schema': 'starlight.artifact_integrity.v1', 'file': file.name, 'sha256': sha(raw), 'sourceRevision': manifest['sourceRevision'], 'edition': edition, 'files': len(files) + 1, 'package': package, 'trustedChecksum': 'matched' if expected_sha else 'not-supplied', 'authenticity': 'unsigned; verify expected checksum through a trusted seller channel', 'license': 'UNLICENSED; no sale or redistribution permission granted'}
