@@ -736,3 +736,149 @@ test("catches void phrases broken up by inline Markdown emphasis or code spans",
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test("decodes JS escape sequences in rendered literals and brace-wrapped copy props", () => {
+  const dir = makeFixture({
+    "components/Offer.tsx": [
+      `export default function Offer() {`,
+      `  return <p>{"Book hourly\\nconsulting today."}</p>;`,
+      `}`,
+      `export function Card() {`,
+      `  return <Tile title={"Quarterly\\u00201:1 with the founder"} />;`,
+      `}`,
+      `export function Plain() {`,
+      `  return <Tile title="Read the edition\\nnotes" />;`,
+      `}`,
+      `export function Escaped() {`,
+      `  return <p>{"Book hourly\\x20consulting\\\\today"}</p>;`,
+      `}`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+    assert.deepEqual(hits.map((e) => e.line).sort((a, b) => a - b), [2, 5, 11], JSON.stringify(res.errors));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("an excluded component's own tag inside a JS string does not extend its body", () => {
+  const dir = makeFixture({
+    "components/Docs.tsx": [
+      `export default function Docs() {`,
+      "  return <CodeBlock>{`const example = \"<CodeBlock>\";`}</CodeBlock>;",
+      `}`,
+      `const card = { title: "Book hourly consulting." };`,
+      `export function Live() { return <Tile {...card} />; }`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+    assert.deepEqual(hits.map((e) => e.line), [4], JSON.stringify(res.errors));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a '>' inside a quoted attribute does not truncate the ARIA heading tag", () => {
+  const dir = makeFixture({
+    "app/page.tsx": `export default function Page() { return <main><div title="A > B" role="heading" aria-level="1">Hello</div><a href="/x">Go</a></main>; }`,
+    "public/llms.txt": `# GenCreator\n`,
+  });
+  try {
+    const res = auditRepository({ dir, brand: "gencreator", mode: "landing" });
+    assert.equal(res.landing.hasH1, true);
+    assert.ok(!res.errors.some((e) => e.rule === "sense:missing-h1"));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("String.raw copy-prop templates keep their escapes literal", () => {
+  const dir = makeFixture({
+    "components/Tile.tsx": [
+      "export default function A() { return <Tile title={String.raw`Book hourly\\nconsulting today.`} />; }",
+      "export function B() { return <Tile title={`Book hourly\\nconsulting today.`} />; }",
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+    assert.deepEqual(hits.map((e) => e.line), [2], "raw stays literal; an ordinary template still decodes");
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("braces inside comments or regex literals in an excluded body do not extend it", () => {
+  for (const sample of ["{/* { */}Example", "{/\\{/.source}Example", "{// {\n}Example"]) {
+    const dir = makeFixture({
+      "components/Docs.tsx": [
+        `export default function Docs() {`,
+        `  return <CodeBlock>${sample}</CodeBlock>;`,
+        `}`,
+        `const card = { title: "Book hourly consulting." };`,
+        `export function Live() { return <Tile {...card} />; }`,
+      ].join("\n"),
+    });
+    try {
+      const res = auditRepository({ dir, brand: "sis", mode: "content" });
+      const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+      assert.equal(hits.length, 1, `${JSON.stringify(sample)}: ${JSON.stringify(res.errors)}`);
+      assert.match(hits[0].excerpt, /hourly consulting/i);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+});
+
+test("attributes of JSX nested in an attribute expression never combine with another element's", () => {
+  const page = (body) => makeFixture({
+    "app/page.tsx": `export default function Page() { return <>${body}<a href="/x">Go</a></>; }`,
+    "public/llms.txt": `# GenCreator\n`,
+  });
+  const split = page(`<main children={<><div role="heading">Hello</div><span aria-level="1">World</span></>} />`);
+  const nested = page(`<main children={<div role="heading" aria-level="1">Hello</div>} />`);
+  try {
+    assert.equal(auditRepository({ dir: split, brand: "gencreator", mode: "landing" }).landing.hasH1, false);
+    assert.equal(auditRepository({ dir: nested, brand: "gencreator", mode: "landing" }).landing.hasH1, true,
+      "a complete heading nested in an attribute expression still counts");
+  } finally {
+    rmSync(split, { recursive: true, force: true });
+    rmSync(nested, { recursive: true, force: true });
+  }
+});
+
+test("a brace inside a template placeholder in an excluded body does not hide later copy", () => {
+  const dir = makeFixture({
+    "components/Docs.tsx": [
+      `export default function Docs() {`,
+      "  return <CodeBlock>{`Example ${\"{\"}`}</CodeBlock>;",
+      `}`,
+      `const card = { title: "Book hourly consulting." };`,
+      `export function Live() { return <Tile {...card} />; }`,
+    ].join("\n"),
+  });
+  try {
+    const res = auditRepository({ dir, brand: "sis", mode: "content" });
+    const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+    assert.deepEqual(hits.map((e) => e.line), [4], JSON.stringify(res.errors));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("a trailing backslash in a quoted HTML attribute does not hide a level-1 heading", () => {
+  const dir = makeFixture({
+    "app/page.tsx": `export default function Page() { return <main><div title="C:\\" role="heading" aria-level="1">Hello</div><a href="/x">Go</a></main>; }`,
+    "public/llms.txt": `# GenCreator\n`,
+  });
+  try {
+    const res = auditRepository({ dir, brand: "gencreator", mode: "landing" });
+    assert.equal(res.landing.hasH1, true);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});

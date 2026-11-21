@@ -123,7 +123,31 @@ function isInlineMarkdownMarker(source, i) {
   return !(word.test(source[i - 1] ?? "") && word.test(source[i + 1] ?? ""));
 }
 
-function createSegmentBuilder(source, lineStarts, { decodeRefs = false, stripInlineMarkdown = false } = {}) {
+// Decode one JS string escape at `index` (a backslash). Returns the rendered text and source length.
+const SIMPLE_JS_ESCAPES = { n: "\n", r: "\r", t: "\t", v: "\v", f: "\f", b: "\b", 0: "\0" };
+function decodeJsEscape(source, index, end) {
+  const next = source[index + 1];
+  if (next === undefined || index + 1 >= end) return null;
+  if (next === "\n") return { text: "", length: 2 };
+  if (next === "\r") return { text: "", length: source[index + 2] === "\n" ? 3 : 2 };
+  if (Object.hasOwn(SIMPLE_JS_ESCAPES, next) && !(next === "0" && /[0-9]/.test(source[index + 2] ?? ""))) {
+    return { text: SIMPLE_JS_ESCAPES[next], length: 2 };
+  }
+  const hex = (digits, length) => {
+    if (!/^[0-9a-f]+$/i.test(digits)) return null;
+    const code = Number.parseInt(digits, 16);
+    return code <= 0x10ffff ? { text: String.fromCodePoint(code), length } : null;
+  };
+  if (next === "x") return hex(source.slice(index + 2, index + 4), 4);
+  if (next === "u" && source[index + 2] === "{") {
+    const close = source.indexOf("}", index + 3);
+    return close > 0 && close < end ? hex(source.slice(index + 3, close), close - index + 1) : null;
+  }
+  if (next === "u") return hex(source.slice(index + 2, index + 6), 6);
+  return { text: next, length: 2 };
+}
+
+function createSegmentBuilder(source, lineStarts, { decodeRefs = false, stripInlineMarkdown = false, decodeJsEscapes = false } = {}) {
   let out = "";
   let charLines = [];
   let pendingSpace = false;
@@ -140,7 +164,8 @@ function createSegmentBuilder(source, lineStarts, { decodeRefs = false, stripInl
   };
 
   return {
-    addSlice(start, end) {
+    addSlice(start, end, overrides = {}) {
+      const decodeEscapesHere = overrides.decodeJsEscapes ?? decodeJsEscapes;
       const pushChar = (ch, at) => {
         if (/\s/.test(ch)) {
           if (out.length > 0) pendingSpace = true;
@@ -158,6 +183,14 @@ function createSegmentBuilder(source, lineStarts, { decodeRefs = false, stripInl
       for (let i = start; i < end; i += 1) {
         const ch = source[i];
         if (stripInlineMarkdown && isInlineMarkdownMarker(source, i)) continue;
+        if (decodeEscapesHere && ch === "\\") {
+          const escape = decodeJsEscape(source, i, end);
+          if (escape) {
+            for (const decoded of escape.text) pushChar(decoded, i);
+            i += escape.length - 1;
+            continue;
+          }
+        }
         if (decodeRefs && ch === "&") {
           const ref = decodeCharRef(source, i);
           if (ref && i + ref.length <= end) {
@@ -454,10 +487,12 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
   const nonRenderedStringRanges = [];
 
   // An interpolation renders unknown text, so it separates the static spans as a word gap.
-  const addLiteral = (seg, literal) => {
+  // `decodeEscapes` lets an inherited JSX text segment (which never decodes escapes in raw JSX text)
+  // decode them for this JS literal only.
+  const addLiteral = (seg, literal, { decodeEscapes = false } = {}) => {
     literal.parts.forEach((part, index) => {
       if (index > 0) seg.addGap();
-      seg.addSlice(part.start, part.end);
+      seg.addSlice(part.start, part.end, { decodeJsEscapes: decodeEscapes || undefined });
     });
   };
 
@@ -788,7 +823,7 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
         const exprRes = scanJs(i + 1, true);
         i = exprRes.end;
         if (exprRes.literalRange) {
-          addLiteral(seg, exprRes.literalRange);
+          addLiteral(seg, exprRes.literalRange, { decodeEscapes: true });
         } else if (exprRes.hasJsx) {
           seg.flush(segments);
         } else if (exprRes.hasCode) {
@@ -797,7 +832,7 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
         if (!exprRes.literalRange) {
           // Each potentially rendered branch literal is audited as its own segment.
           for (const lit of exprRes.branchLiterals) {
-            const branchSeg = createSegmentBuilder(source, lineStarts);
+            const branchSeg = createSegmentBuilder(source, lineStarts, { decodeJsEscapes: true });
             addLiteral(branchSeg, lit);
             branchSeg.flush(segments);
           }
@@ -839,7 +874,9 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
         const key = `${litStart}:${litEnd}`;
         if (!hasInterp && val.trim().length >= 4 && !seenPropSlices.has(key)) {
           seenPropSlices.add(key);
-          const propSeg = createSegmentBuilder(commentMasked, lineStarts);
+          // String.raw`...` renders its escapes literally; every other JS literal decodes them.
+          const isRawTemplate = q === "`" && /\bString\s*\.\s*raw\s*$/.test(commentMasked.slice(range.start, pos));
+          const propSeg = createSegmentBuilder(commentMasked, lineStarts, { decodeJsEscapes: !isRawTemplate });
           propSeg.addSlice(litStart, litEnd);
           propSeg.flush(segments);
         }
@@ -861,7 +898,8 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
         seenPropSlices.add(key);
         // A directly quoted JSX attribute (title="...") decodes character references like HTML.
         const isJsxStringAttr = /=\s*["'`]$/.test(propMatch[0].slice(0, propMatch[0].indexOf(propMatch[1]) + 1));
-        const propSeg = createSegmentBuilder(commentMasked, lineStarts, { decodeRefs: isJsxStringAttr });
+        // A quoted JSX attribute keeps JSX semantics (no JS escapes); object and brace values are JS strings.
+        const propSeg = createSegmentBuilder(commentMasked, lineStarts, { decodeRefs: isJsxStringAttr, decodeJsEscapes: !isJsxStringAttr });
         propSeg.addSlice(valueOffset, valueOffset + val.length);
         propSeg.flush(segments);
       }
