@@ -48,6 +48,13 @@ pack, the owning product repository, rights evidence, or the release contract.
 Actual skills live under `skills/<name>/SKILL.md`. This file is an inventory; do not create a root `skill.md`.
 <!-- STARLIGHT-REPO-CONTRACT:END -->
 
+## Frontier experience routing
+
+The [constitution](portfolio/frontier-experience-constitution.md) routes
+visual, editorial, character, multimedia and interface review work through
+existing skills and source authorities. Use the
+[review contract](evals/frontier-experience-review.md) for candidate evidence.
+
 ## Integrated specialist adapters
 
 - `design-orchestrator`
