@@ -29,10 +29,13 @@ jobs:
       - run: npm run validate:experience
       - run: npm run validate:observatory
       - run: npm run check:observatory-index
-      - run: npm test
-      - name: Reject incomplete native hook proof
-        run: python3 -B -m unittest discover -s tests -p native_codex_probe_test.py
       - name: Install Chromium for rendered foundation checks
         run: npx playwright install --with-deps chromium
+      - run: npm test
+        env:
+          # Rendered visual QA tests must run here, not skip, once Chromium is installed.
+          VISUAL_QA_REQUIRE_BROWSER: "1"
+      - name: Reject incomplete native hook proof
+        run: python3 -B -m unittest discover -s tests -p native_codex_probe_test.py
       - name: Exercise rendered interface defects and CLI failure behavior
         run: npm run test:interface
