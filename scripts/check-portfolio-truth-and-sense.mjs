@@ -769,19 +769,18 @@ function scanCodeFile(source, { nonCopyTags = new Set(DEFAULT_NON_COPY_JSX_TAGS)
       // Skip the excluded element's body without collecting text, honouring nested same-name tags.
       const bodyStart = i;
       let depth = 1;
-      // Tags inside `{...}` expressions (strings, templates, nested JSX) never change this element's
-      // nesting, so a code sample containing "<CodeBlock>" cannot extend the body to end of file.
-      let exprDepth = 0;
+      // A `{...}` expression is skipped with the same JS tokenizer used for rendered code (strings,
+      // templates, comments, regex literals, nested JSX), so nothing inside it, such as a sample
+      // "<CodeBlock>" or a "{" in a comment, can change this element's nesting. Anything the
+      // tokenizer records while skipping is discarded: an excluded body is never audited.
       while (i < n) {
-        const c = source[i];
-        if (c === "{") { exprDepth += 1; i += 1; continue; }
-        if (c === "}" && exprDepth > 0) { exprDepth -= 1; i += 1; continue; }
-        if (exprDepth > 0) {
-          if (c === '"' || c === "'" || c === "`") {
-            i += 1;
-            while (i < n && source[i] !== c) i += source[i] === "\\" ? 2 : 1;
-          }
-          i += 1;
+        if (source[i] === "{") {
+          const saved = [segments.length, copyPropExprRanges.length, nonRenderedStringRanges.length];
+          const expr = scanJs(i + 1, true, false);
+          segments.length = saved[0];
+          copyPropExprRanges.length = saved[1];
+          nonRenderedStringRanges.length = saved[2];
+          i = expr.end;
           continue;
         }
         if (source[i] === "<" && source[i + 1] === "/") {
@@ -951,17 +950,32 @@ function openingTags(markup) {
     let i = match.index + 1;
     let quote = "";
     let braces = 0;
-    for (; i < markup.length; i += 1) {
+    // The tag's own text keeps simple `{...}` values such as aria-level={1}, but drops an expression
+    // containing JSX: nested elements are found separately when the scan resumes after this "<".
+    let own = "";
+    let expr = "";
+    const limit = Math.min(markup.length, match.index + 4096);
+    for (; i < limit; i += 1) {
       const c = markup[i];
-      if (quote) { if (c === "\\") i += 1; else if (c === quote) quote = ""; continue; }
-      if (c === '"' || c === "'" || (c === "`" && braces > 0)) quote = c;
-      else if (c === "{") braces += 1;
-      else if (c === "}" && braces > 0) braces -= 1;
-      else if (c === ">" && braces === 0) break;
-      else if (c === "<" && braces === 0) break;
+      const sink = (text) => { if (braces > 0) expr += text; else own += text; };
+      if (quote) {
+        sink(c);
+        if (c === "\\") { i += 1; sink(markup[i] ?? ""); } else if (c === quote) quote = "";
+        continue;
+      }
+      if (c === '"' || c === "'" || (c === "`" && braces > 0)) { quote = c; sink(c); continue; }
+      if (c === "{") { braces += 1; expr += c; continue; }
+      if (c === "}" && braces > 0) {
+        braces -= 1;
+        expr += c;
+        if (braces === 0) { own += /</.test(expr) ? "{}" : expr; expr = ""; }
+        continue;
+      }
+      if ((c === ">" || c === "<") && braces === 0) break;
+      sink(c);
     }
-    if (markup[i] === ">") tags.push(markup.slice(match.index, i + 1));
-    start.lastIndex = i;
+    if (markup[i] === ">") tags.push(`<${own}>`);
+    start.lastIndex = match.index + 1;
   }
   return tags;
 }

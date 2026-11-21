@@ -861,3 +861,42 @@ test("String.raw copy-prop templates keep their escapes literal", () => {
     rmSync(dir, { recursive: true, force: true });
   }
 });
+
+test("braces inside comments or regex literals in an excluded body do not extend it", () => {
+  for (const sample of ["{/* { */}Example", "{/\\{/.source}Example", "{// {\n}Example"]) {
+    const dir = makeFixture({
+      "components/Docs.tsx": [
+        `export default function Docs() {`,
+        `  return <CodeBlock>${sample}</CodeBlock>;`,
+        `}`,
+        `const card = { title: "Book hourly consulting." };`,
+        `export function Live() { return <Tile {...card} />; }`,
+      ].join("\n"),
+    });
+    try {
+      const res = auditRepository({ dir, brand: "sis", mode: "content" });
+      const hits = res.errors.filter((e) => e.rule === "void-claim:consulting-or-1on1");
+      assert.equal(hits.length, 1, `${JSON.stringify(sample)}: ${JSON.stringify(res.errors)}`);
+      assert.match(hits[0].excerpt, /hourly consulting/i);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+});
+
+test("attributes of JSX nested in an attribute expression never combine with another element's", () => {
+  const page = (body) => makeFixture({
+    "app/page.tsx": `export default function Page() { return <>${body}<a href="/x">Go</a></>; }`,
+    "public/llms.txt": `# GenCreator\n`,
+  });
+  const split = page(`<main children={<><div role="heading">Hello</div><span aria-level="1">World</span></>} />`);
+  const nested = page(`<main children={<div role="heading" aria-level="1">Hello</div>} />`);
+  try {
+    assert.equal(auditRepository({ dir: split, brand: "gencreator", mode: "landing" }).landing.hasH1, false);
+    assert.equal(auditRepository({ dir: nested, brand: "gencreator", mode: "landing" }).landing.hasH1, true,
+      "a complete heading nested in an attribute expression still counts");
+  } finally {
+    rmSync(split, { recursive: true, force: true });
+    rmSync(nested, { recursive: true, force: true });
+  }
+});
