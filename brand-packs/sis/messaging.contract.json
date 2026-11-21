@@ -1,0 +1,59 @@
+{
+  "schema": "starlight.brand.messaging.v0.1",
+  "status": "candidate",
+  "brand": "Starlight Intelligence",
+  "canonical": [
+    "BRAND.md",
+    "NARRATIVE.md",
+    "TEAMMATES-POSITIONING.md"
+  ],
+  "tagline": {
+    "text": "Your AI teammates, your way.",
+    "approval": "pending",
+    "scope": "customer-facing product",
+    "clearance": "unverified"
+  },
+  "supporting": {
+    "text": "Build an AI workforce around your work, your tools, and your decisions.",
+    "approval": "pending"
+  },
+  "proof_line": {
+    "text": "Built on research. Refined through practice. Designed around you.",
+    "requires_evidence": true
+  },
+  "modes": [
+    "Horizon",
+    "Operator",
+    "Academy",
+    "Cultural"
+  ],
+  "claims_policy": {
+    "states": [
+      "verified_live",
+      "verified_preview",
+      "in_development",
+      "vision",
+      "unknown"
+    ],
+    "default": "unknown",
+    "prohibit_unqualified": [
+      "fully autonomous",
+      "scientifically proven",
+      "guaranteed ROI",
+      "unlimited",
+      "zero lock-in"
+    ]
+  },
+  "asset_policy": {
+    "approved_only_for_publication": true,
+    "unknown_is_not_approved": true,
+    "vector_first_logos": true
+  },
+  "release_gates": [
+    "owner_brand_approval",
+    "claim_evidence",
+    "asset_provenance",
+    "accessibility",
+    "legal_tagline_review"
+  ]
+}
