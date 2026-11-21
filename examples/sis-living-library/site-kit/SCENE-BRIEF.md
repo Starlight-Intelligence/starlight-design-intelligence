@@ -32,7 +32,7 @@ An AI product earns trust by showing which step mattered. The page does the same
 | sign-up | Start with one agent. | Start free (plan carried from pricing) | 16px email field, local validation, provider hook |
 | 5 | Footer: for agents (llms.txt, MCP, .well-known) | none | Type only |
 
-Desktop keeps the opening as one sentence on the left with the field running full width; the right side stays empty on purpose. Screen 2 becomes an asymmetric spread: the claim on the left five columns, the ledger on the right seven, so the eye moves from sentence to evidence.
+Desktop recomposes 1 and 2 into one asymmetric spread inside the first viewport: the claim and its action on the left, the ledger on the right on an opaque reading panel over the field, with its own claim set smaller so the h1 keeps rank. The eye moves from sentence to evidence without scrolling. Phones keep them as two screens.
 
 Pricing: one sentence headline, a billing switch, three plans as ruled rows (not cards), one recommended plan named in text, FAQ as native disclosures.
 

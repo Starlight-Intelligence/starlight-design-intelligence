@@ -9,27 +9,24 @@ export default function Home() {
     <>
       <section className="ks-open" aria-labelledby="claim">
         <ShaderField colors={fieldColors} />
-        <div className="ks-open__inner">
-          <h1 id="claim" className="ks-claim">
-            {home.claim}
-          </h1>
-          <p className="ks-lede">{home.lede}</p>
-          <Link className="sl-button sl-button--primary ks-action" href={site.primaryAction.href}>
-            {site.primaryAction.label}
-          </Link>
+        <div className="ks-open__grid">
+          <div className="ks-open__claim">
+            <h1 id="claim" className="ks-claim">
+              {home.claim}
+            </h1>
+            <p className="ks-lede">{home.lede}</p>
+            <Link className="sl-button sl-button--primary ks-action" href={site.primaryAction.href}>
+              {site.primaryAction.label}
+            </Link>
+          </div>
+          <div className="ks-open__evidence">
+            <h2 className="ks-heading ks-heading--evidence">{home.ledger.claim}</h2>
+            <RunLedger label={home.ledger.label} steps={home.ledger.steps} verdict={home.ledger.verdict} />
+            <Link className="ks-link" href={home.ledger.action.href}>
+              {home.ledger.action.label}
+            </Link>
+          </div>
         </div>
-      </section>
-
-      <section className="ks-screen ks-evidence" aria-labelledby="ledger-claim">
-        <div className="ks-evidence__text">
-          <h2 id="ledger-claim" className="ks-heading">
-            {home.ledger.claim}
-          </h2>
-          <Link className="ks-link" href={home.ledger.action.href}>
-            {home.ledger.action.label}
-          </Link>
-        </div>
-        <RunLedger label={home.ledger.label} steps={home.ledger.steps} verdict={home.ledger.verdict} />
       </section>
 
       <section className="ks-screen" aria-labelledby="method">
