@@ -110,13 +110,12 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 }
 @media (min-width: 960px) {
   .ks-evidence { display: grid; grid-template-columns: 5fr 7fr; align-items: center; gap: 7vw; }
-  .ks-evidence__text { align-self: center; }
 }
 
 /* Run ledger */
 .ks-ledger { margin: 0; display: grid; gap: 14px; }
 .ks-ledger__label { font-family: var(--sl-font-mono); font-size: 0.78rem; color: var(--sl-muted); }
-.ks-ledger__frame { position: relative; border-block: 1px solid color-mix(in srgb, var(--sl-line) 55%, transparent); }
+.ks-ledger__frame { position: relative; border-bottom: 1px solid color-mix(in srgb, var(--sl-line) 55%, transparent); }
 .ks-ledger__rows { list-style: none; margin: 0; padding: 0; }
 .ks-step {
   height: var(--ks-row); display: grid; align-content: center; column-gap: 12px; row-gap: 2px;
@@ -176,7 +175,6 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   .ks-method li { grid-template-columns: 1fr; gap: 14px; }
 }
 
-.ks-close { align-items: flex-start; }
 
 /* Pages */
 .ks-page { max-width: calc(var(--ks-max) + 2 * var(--ks-gutter)); margin-inline: auto; padding: 8rem var(--ks-gutter) 6rem; display: grid; gap: 56px; }
@@ -214,7 +212,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
   .ks-plan:first-child { padding-left: 0; border-left: 0; }
 }
 .ks-faq { display: grid; gap: 4px; max-width: var(--ks-read); }
-.ks-faq .ks-heading { margin-bottom: 20px; font-size: clamp(1.8rem, 6vw, 2.6rem); }
+.ks-faq .ks-heading { margin-bottom: 20px; }
 .ks-faq__item { border-top: 1px solid color-mix(in srgb, var(--sl-line) 45%, transparent); }
 .ks-faq__item summary { min-height: 56px; display: flex; align-items: center; cursor: pointer; font-weight: 600; list-style: none; }
 .ks-faq__item summary::-webkit-details-marker { display: none; }

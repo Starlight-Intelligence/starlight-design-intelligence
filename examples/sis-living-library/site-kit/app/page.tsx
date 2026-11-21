@@ -46,7 +46,7 @@ export default function Home() {
         </Link>
       </section>
 
-      <section className="ks-screen ks-close" aria-labelledby="price">
+      <section className="ks-screen" aria-labelledby="price">
         <h2 id="price" className="ks-heading ks-heading--large">
           {home.price.claim}
         </h2>

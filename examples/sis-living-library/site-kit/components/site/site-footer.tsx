@@ -4,9 +4,7 @@ import { site } from '@/lib/site.config';
 export function SiteFooter() {
   return (
     <footer className="ks-footer">
-      <p className="ks-footer__name">
-        {site.name}. {site.tagline}
-      </p>
+      <p className="ks-footer__name">{site.name}</p>
       <nav aria-label="For agents" className="ks-footer__agents">
         <span className="ks-label">For agents</span>
         <a href={site.agents.llms}>llms.txt</a>

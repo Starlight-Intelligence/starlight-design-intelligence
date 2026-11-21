@@ -27,7 +27,7 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
       <p className="ks-label">{doc.section}</p>
       <h1 className="ks-article__title">{doc.title}</h1>
       <p className="ks-lede">{doc.summary}</p>
-      {headings.length > 1 ? (
+      {headings.length > 2 ? (
         <nav aria-label="On this page" className="ks-toc">
           <span className="ks-label">On this page</span>
           {headings.map((h) => (

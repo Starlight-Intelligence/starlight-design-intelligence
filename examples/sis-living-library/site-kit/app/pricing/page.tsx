@@ -44,7 +44,7 @@ export default function Pricing() {
       <PricingPlans plans={pricing.plans} />
       <section className="ks-faq" aria-labelledby="faq">
         <h2 id="faq" className="ks-heading">
-          Questions before you start
+          Questions
         </h2>
         {pricing.faq.map((item) => (
           <details key={item.q} className="ks-faq__item">

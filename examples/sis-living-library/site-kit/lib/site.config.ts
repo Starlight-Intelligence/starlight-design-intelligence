@@ -43,7 +43,7 @@ export const site = {
     claim: 'Know what your agents did last night.',
     lede: 'Orrery replays every run and flags the steps that changed an outcome.',
     ledger: {
-      label: 'Run 4812 · overnight · support-triage agent',
+      label: 'Run 4812, overnight',
       claim: 'One step changed the outcome. Orrery finds it.',
       action: { label: 'See how replay works', href: '/docs/replay' },
       steps: [
@@ -54,14 +54,14 @@ export const site = {
         { id: 's5', tool: 'draft_reply', detail: 'refund offered, 188 tokens' },
         { id: 's6', tool: 'send', detail: 'queued for human review' },
       ] satisfies LedgerStep[],
-      verdict: 'Step 4 read a 31 day old invoice. The refund was wrong.',
+      verdict: 'Step 4 read a stale invoice. The refund was wrong.',
     },
     method: {
       title: 'Connect, replay, ship.',
       steps: [
-        'Point your trace exporter at Orrery. Runs arrive with every tool call and token.',
-        'Replay any run against a new prompt or model and read the step by step diff.',
-        'Ship the change when the diff is clean, and keep the receipt.',
+        'Point your trace exporter at Orrery.',
+        'Replay any run against a new prompt or model.',
+        'Ship when the diff is clean.',
       ],
       action: { label: 'Read the quickstart', href: '/docs/quickstart' },
     },
@@ -73,7 +73,7 @@ export const site = {
 
   pricing: {
     claim: 'Pay for the steps you replay.',
-    lede: 'Every plan includes replay, diffs and receipts. Plans differ by volume and retention.',
+    lede: 'Every plan includes replay, diffs and receipts.',
     plans: [
       {
         id: 'free',
@@ -109,8 +109,7 @@ export const site = {
     ] satisfies Plan[],
     faq: [
       { q: 'What counts as a step?', a: 'One tool call or one model call inside a run. Replays count the steps they execute.' },
-      { q: 'Can I change plans later?', a: 'Yes. Upgrades apply immediately and downgrades apply at the end of the billing period.' },
-      { q: 'Where are traces stored?', a: 'In the EU by default. Scale plans can keep traces in your own cloud account.' },
+            { q: 'Where are traces stored?', a: 'In the EU by default. Scale plans can keep traces in your own cloud account.' },
     ],
   },
 
