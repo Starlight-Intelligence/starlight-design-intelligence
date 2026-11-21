@@ -1,0 +1,64 @@
+{
+  "status": "proposed",
+  "canonicalRegistry": "graph/products.graph.json (lives in another repo; this row is staged here, not written there)",
+  "proposedBy": "Claude, 2026-11-21, branch agent/claude/glass-core-flagship-20261121",
+  "row": {
+    "id": "glass-core",
+    "name": "Starlight Glass Core: AI startup site kit",
+    "listType": "template",
+    "buyer": "Founder or first engineer at an AI startup with a working product and no site; ships on Next.js and wants owned source, a phone-first landing, pricing and docs, and a site agents can read.",
+    "stack": ["Next.js 16 App Router", "React 19", "TypeScript", "GSAP 3", "WebGL 1", "shadcn registry"],
+    "editions": [
+      { "edition": "essential", "contents": "Glass Core components + glass-core-site registry block", "priceHypothesis": { "amount": 79, "currency": "EUR", "evidence": "none yet" } },
+      { "edition": "professional", "priceHypothesis": { "amount": 149, "currency": "EUR", "evidence": "none yet" } },
+      { "edition": "agent-command-center", "priceHypothesis": { "amount": 349, "currency": "EUR", "evidence": "none yet" } }
+    ],
+    "priceContext": {
+      "note": "Context only, not evidence for these prices. No buyer has seen or paid any price.",
+      "source": "research/market-index/2026-11-21.jsonl",
+      "observed": [
+        "ThemeForest code templates: median USD 22 (n=20), top AI Next.js item USD 17 with 943 sales",
+        "Framer templates: median USD 99 (n=20), clusters at 99 and 129",
+        "shadcn kits single-user tiers: median USD 220 (n=12)"
+      ]
+    },
+    "mustBeat": [
+      {
+        "name": "Shadcnblocks",
+        "url": "https://www.shadcnblocks.com/pricing",
+        "price": "USD 149 Pro / 299 Premium / 399 Elite, one-time (read 2026-11-21)",
+        "dimension": "agent-native surface",
+        "test": "A fresh install serves llms.txt, /.well-known/starlight.json, JSON-LD Product+Offer and a read-only MCP endpoint generated from one config. Shadcnblocks ships an MCP for installing blocks, not for the buyer's site; it is not a site-level agent contract.",
+        "notBeaten": "breadth: 2,241+ components and 2,697+ blocks versus one site"
+      },
+      {
+        "name": "Tailark Pro",
+        "url": "https://tailark.com/pricing",
+        "price": "USD 249 Essentials / 299 Complete / 499 Team, one-time (read 2026-11-21)",
+        "dimension": "motion with a designed reduced-motion path",
+        "test": "Every animated element has a written job in SCENE-BRIEF.md and a reduced-motion equivalent verified by a Playwright reduced-motion project.",
+        "notBeaten": "page-set breadth (landing, pricing, blog, legal)"
+      },
+      {
+        "name": "Oberon (Framer, Tymofii Bak)",
+        "url": "https://www.framer.com/marketplace/templates/oberon/",
+        "price": "USD 129 one-time (read 2026-11-21); first paid item in Framer Best AI view, rank only, no sales visible",
+        "dimension": "owned, installable source",
+        "test": "Install log from an empty directory: create-next-app, shadcn add, next build pass with zero Framer or hosted dependency.",
+        "notBeaten": "no-code editing for non-engineers; visual polish comparison not yet made by a human buyer"
+      }
+    ],
+    "evidence": {
+      "installProof": "examples/sis-living-library/site-kit/INSTALL-PROOF.log",
+      "craftReceipt": "research/craft/glass-core-2026-11-21-Claude.md",
+      "sales": "[OPEN]",
+      "conversion": "[OPEN]",
+      "refundRate": "[OPEN]"
+    },
+    "gates": {
+      "license": "draft only; original source UNLICENSED",
+      "checkout": "inactive",
+      "listings": "drafted under research/listings/, not published"
+    }
+  }
+}
