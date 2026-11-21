@@ -1,10 +1,14 @@
 name: Living product browser checks
 on:
   pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, converted_to_draft]
     paths:
       - 'examples/sis-living-library/**'
       - '.github/workflows/living-products.yml'
   workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
@@ -34,6 +38,7 @@ jobs:
           python3 scripts/assemble-products.py --edition essential
           python3 -B scripts/artifact_verifier_test.py --assembled-archive release/starlight-glass-core-essential-0.2.0-rc.2.zip
   browser:
+    if: github.event_name != 'pull_request' || !github.event.pull_request.draft
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     defaults:
