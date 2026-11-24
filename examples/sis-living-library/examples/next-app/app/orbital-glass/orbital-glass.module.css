@@ -153,12 +153,12 @@
 
 @media (prefers-reduced-motion: reduce) {
   .light[data-replay] { animation: none; }
-  .replay { display: none; }
+  .card .replay { display: none; }
 }
 
 @media (forced-colors: active) {
   .stage { background: Canvas; border-color: CanvasText; }
-  .axis, .light, .replay { display: none; }
+  .axis, .light, .card .replay { display: none; }
   .orbit, .lens { border: 1px solid CanvasText; }
   .companion { border: 1px solid CanvasText; }
 }
