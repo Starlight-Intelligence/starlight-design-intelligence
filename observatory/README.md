@@ -10,6 +10,10 @@ This directory is the portfolio’s governed reference-research layer. It record
 4. Follow `observatory/retrieval-index.json` to the latest supporting `snapshot_id` metadata.
 5. Use the nominated direction only after Frank selects it; keep the other two intact.
 
+## Current research
+
+- [Starlight frontier reference research](frontier-reference-2026-11-24.md): four experimental identity applications, source observations, evaluation criteria and implementation briefs.
+
 ## Layout
 
 - `registry/targets.yaml`: first-wave targets, five selected surfaces, and capture policy.
