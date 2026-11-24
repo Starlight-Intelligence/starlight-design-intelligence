@@ -64,7 +64,7 @@ Every board uses the same proposition, “Keep the thinking that matters,” and
 
 ## Implementation recipes and adoption checks
 
-GitHub metadata observed 24 November. Push dates are maintenance signals, not verified releases or compatibility certification. The web build and target devices still need pinned-package smoke tests. Use the existing [skill integration policy](../skills/design-orchestrator/SKILL.md) and [integration playbook](../playbooks/design-skill-integration.md).
+GitHub metadata observed 24 November. Push dates are maintenance signals, not verified releases or compatibility certification. The [Lab package manifest](https://github.com/Starlight-Intelligence/starlightintelligence.ai/blob/main/package.json) already declares React 19 and GSAP 3.13-range. Reuse its pinned GSAP installation for warranted timelines and consider R3F v9 only for a bounded prototype. The web build and target devices still need pinned-package smoke tests. Use the existing [skill integration policy](../skills/design-orchestrator/SKILL.md) and [integration playbook](../playbooks/design-skill-integration.md).
 
 | Route | Source, license and maintenance check | Starlight recipe |
 |---|---|---|
@@ -132,7 +132,7 @@ The jobs below require original schematics, owned sources or descriptive princip
 
 ## Coverage and handoff
 
-- Style discovery preceded product screens and flows. Five full styles were retrieved: V–A–C, Apple, Vercel, Luma and Stripe. Seven style stills and four Refero screen images were opened. Six additional studio application images were inspected. The existing live brand guide was read against the October audit. Studio case evidence varies by row. A studio's description contributes evidence about the stated mechanism, while direct stills substantiate visual treatment. Section search returned “Tool not found” for the connector endpoint; Linear and Mapbox screen captures covered the guideline presentation question.
+- Style discovery preceded product screens and flows. Five full styles were retrieved: V–A–C, Apple, Vercel, Luma and Stripe. Seven style stills and four Refero screen images were opened. Six additional studio application images were inspected. The existing live brand guide was read against the October audit and the canonical Figma component specimens were visually inspected. Studio case evidence varies by row. A studio's description contributes evidence about the stated mechanism, while direct stills substantiate visual treatment. Section search returned “Tool not found” for the connector endpoint; Linear and Mapbox screen captures covered the guideline presentation question.
 - Use the existing Figma frames for side-by-side review. Original diagram and specimen frames remain editable. Existing Figma comments returned empty for the supplied file, so this packet relies on the live kit, October audit and explicit requested constraints.
 - Required next empirical evidence: same-geometry star-only and companion comparisons against the current kit, historical source supplied by the recovery team and Gemini. Run the five-reader test, desktop/phone and static/reduced-motion proof, then record the founder's product and film direction choices.
 - The Figma boards and this Observatory packet are research. Character lineage, production marks, active reference locks and site/runtime files remain at their existing authority.
