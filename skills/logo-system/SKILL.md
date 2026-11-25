@@ -30,6 +30,12 @@ Read the selected identity brief, naming decision, audience/category evidence, a
 9. **Validate exports.** Inspect SVG source and rasterize actual 16, 32, 64, 128, and 512 pixel outputs. Test one-color, grayscale, light/dark, transparent, high/low contrast, square/circle masks, and print-size proof.
 10. **Package provenance.** Record creator/tool, source files, selected direction, font source/license, external references, hashes, approval, and export script/version.
 
+## Living identity council
+
+When a brief asks for material or narrative evolution, preserve independent L0 geometry/type, L1 material, L2 behavior and L3 narrative decisions. Record the owner, surface, revision and release status for each layer. Attach actual originals alongside candidate applications at equal scale. A generated object can explore light or substance while the exact vector remains available for optical inspection.
+
+Have a separate critic inspect the delivered exports. Record the strongest objection, the creative team's defense, the change accepted or rejected by the director and the evidence still required. Preserve dissent and request founder approval against a named surface and revision. See the [council example](../../brand-image-system/council/2026-11-25-living-identity.md). The same procedure applies when this source is resolved from Starlight Logo Designer.
+
 ## Source And Export Contract
 
 Keep an editable master and reproducible exports:
