@@ -233,3 +233,9 @@ Every primitive takes `material: 'glass' | 'paper' | 'ink'` and shares the state
 - Don't use GSAP in this package; motion here is CSS transitions, and a route that needs a timeline brings its own score.
 - Don't use raw WebGL without a library or a CDN script tag; both are invisible to the gate.
 - Don't use floating glass cards as decoration over copy; glass frames a scene or it is not used.
+
+## Orbitum editorial application • review candidate
+
+The [living identity council study](../../brand-image-system/council/2026-11-25-living-identity.md) restricts the first Starlight application to an editorial title or handoff. Use the exact flat logo as a mask where the surface must carry identity. Specify rim, thickness, background, key-light direction and static poster together. Simulated glass can bend an underlying grid in a rendered image. The CSS treatment approximates an optical surface through contrast and composition.
+
+Retain the existing device gate and still poster, keep copy on an opaque reading surface, and provide a resolved static state. Compare clear glass, crystal, brushed metal and fluid under matching light and view before choosing a material. A material study grants no permission to put an optical effect on navigation, a partner lockup or a favicon.
