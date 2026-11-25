@@ -36,6 +36,12 @@ When a brief asks for material or narrative evolution, preserve independent L0 g
 
 Have a separate critic inspect the delivered exports. Record the strongest objection, the creative team's defense, the change accepted or rejected by the director and the evidence still required. Preserve dissent and request founder approval against a named surface and revision. See the [council example](../../brand-image-system/council/2026-11-25-living-identity.md). The same procedure applies when this source is resolved from Starlight Logo Designer.
 
+## Archival orbit and character lookup
+
+When a remembered mark includes a circle, orbit, aperture, star or companion, query the existing identity archive by date, visual feature and prior project name. Open the actual kit, its manifest, vector masters, board and character sheets. Put the flat mark, narrative subject and any campaign composition in separate columns. A mascot standing beside a mark establishes a historical pairing. Record the edition-specific role and any later decision before transferring it to an institutional identity.
+
+Compare candidate variants by paths, viewBox, component topology, orbit angle, color roles and deployment context. When two files differ only in serialization, compare their rendered paths before recording a geometric match. Distinguish a verified geometric match from an identical-file hash. Pair the dated evidence with [lab and protocol source authority](../../brand-packs/sis/SOURCE_AUTHORITY.md) and the [character supersession protocol](../../playbooks/visual-canon-critique-and-supersession.md). Keep private archive links, binaries, likenesses and hashes on the owner's restricted review surfaces.
+
 ## Source And Export Contract
 
 Keep an editable master and reproducible exports:
