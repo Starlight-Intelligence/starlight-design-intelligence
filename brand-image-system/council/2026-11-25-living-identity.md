@@ -32,6 +32,22 @@
 
 Seven recovered ink vectors were rendered at 16, 24, 32, 48, 64, 128 and 512 pixels in two polarities (98 samples). At 50% alpha using eight-neighbour component analysis, FrankX's two islands merge at 16 px. Agentic Income retains three of four through 32 px and recovers the fourth at 48 px. Starlight's detached dot occupies a single thresholded pixel at 16 and 24 px. The red team inspected the seven application plates and storyboards and reproduced the 16/32 px diagnostic. Audience recognition, real-device rendering, font rights and deployment performance remain separate release checks.
 
+## Second sitting • archival source recovery and responsive cuts
+
+Recovered dated source packages resolve the earlier open question about the aperture mark and the companion character. The August 4 first-edition kit contains the vector mark and the character system in separate asset groups. Later August editions document different character and emblem choices. A July protocol orbit and a subsequent August navigation study share their geometry. The November orbital-star board is a further expressive study. The dated mark/character crosswalk, historic titles, originals and reference hashes belong to the private council evidence. These recoveries amend the history behind the first sitting. They do not transfer historical approvals to another domain or replace the institutional mark.
+
+The critic found that the first new cinematic emblem used a very bright center and nearly lost its outer node. The creative team defended retaining the quiet handoff on the other panel and revised the emblem independently. The director advances the darker, deeper core, crossing ribbon and visible upper-right pearl for large, static editorial inspection. The original board remains the reference for restrained optical reflections. Keep the character portrayal scoped to the handoff. The other brands' scenes describe actions such as signing, teaching or verifying; a staged depiction cannot certify a person's likeness, a financial record or a completed task.
+
+Three experimental 16 px cuts address the first sitting's failures. The test compared exact source and cut at 16, 24 and 32 px in both polarities with 8-neighbour connectivity at 50% alpha. A 4 × 4 grid shifted each image by quarter pixels in both axes.
+
+| 16 px candidate | Source at nominal alignment | Candidate at nominal alignment | Alignments retaining expected component count, source → candidate |
+| --- | --- | --- | --- |
+| FrankX | Diagonal joins the main mark | Two separate components | 4/16 → 16/16 |
+| Agentic Income | Three components | Four components | 0/16 → 16/16 |
+| Starlight Intelligence | One square pixel on the companion | Three square pixels on the companion | 14/16 → 16/16 |
+
+Keep these editable cuts in the private proof kit as responsive alternatives. A passing raster topology test nominates a cut for real-device inspection. Existing icons, current source vectors and founder approval state retain their prior status.
+
 ## Review path
 
 Private review evidence belongs in the existing Starlight Creative Vault VIS intake and the owning Figma folios. The original geometry, proof sheets and review notes stay together by revision. Preserve the distinction between native Figma studies, historical sources, current product marks and generated applications.
