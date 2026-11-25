@@ -21,6 +21,17 @@
 | AI Architect Academy | Indigo construction joint | Fine joints merge at icon size. Pair the educational surface with an explicit title. |
 | Anime Legends | Gold seal on an edition | A generic medallion or illegible engraving weakens the studio imprint. |
 
+## Critique and disposition
+
+| Independent criticism | Creative defense | Director's resolution |
+| --- | --- | --- |
+| Glass rounded the four-ray contour, obscured the separation of the companion dot and flattened the original color structure. A premium light treatment alone does not identify Starlight. | A common studio light makes transparent objects comparable. Refracted background detail can make editorial handoff tangible. | Recommend Observatory Glass only on the editorial title or handoff. Restore the source geometry and its gold, ivory and cyan color roles. Retain Porcelain Atelier for a one-ink reading reference and Signal Instrument for instrument applications. |
+| The uncorrected native ink specimens lose meaningful details at favicon sizes. | Their recovered outlines are the appropriate baseline for an unbiased comparison. Enlarged renders are still useful at editorial scale. | Retain the historical geometry. Hold favicon changes for FrankX, Starlight Intelligence and Agentic Income pending optical-cut review on devices. |
+| A character at the center of a system handoff could imply approval, power or live execution. | An authored, opt-in sequence can show a witness leaving an artifact with the reader. | Keep the Queen out of operating states by default. Her editorial role needs an identified edition and founder-approved placement. |
+| Uniform raised objects risk making a bookplate, ledger, colophon and end credit interchangeable. | A restrained lighting direction gives the group a shared exhibition setting. | Keep the distinct commercial placement and material per brand. Enlarge the Arcanea bookplate wordmark and keep highlights clear of labels. |
+
+Seven recovered ink vectors were rendered at 16, 24, 32, 48, 64, 128 and 512 pixels in two polarities (98 samples). At 50% alpha using eight-neighbour component analysis, FrankX's two islands merge at 16 px. Agentic Income retains three of four through 32 px and recovers the fourth at 48 px. Starlight's detached dot occupies a single thresholded pixel at 16 and 24 px. The red team inspected the seven application plates and storyboards and reproduced the 16/32 px diagnostic. Audience recognition, real-device rendering, font rights and deployment performance remain separate release checks.
+
 ## Review path
 
 Private review evidence belongs in the existing Starlight Creative Vault VIS intake and the owning Figma folios. The original geometry, proof sheets and review notes stay together by revision. Preserve the distinction between native Figma studies, historical sources, current product marks and generated applications.
