@@ -12,7 +12,7 @@
 - **Website Assets**: Vercel Blob storage or each site's `public/assets/` or `app/assets/`. Never direct upload — always via approved registry entry.
 - **Buckets/Storage Best Practices**:
   - Vercel Blob: For Next.js sites (frankx.ai, gencreator.ai, arcanea.ai). Programmatic upload from approved jobs.
-  - S3-compatible (MinIO self-host or R2): Central raw + versions.
+  - Raw sources and versions: Google Drive, the estate registry's evidence storage. Cloudflare R2 is on hold in the registry (use Vercel Blob); do not add new R2 or self-hosted S3 buckets without a registry change. See `playbooks/brand-asset-operations.md`.
   - Git LFS or large file handling for repos.
 
 ## Usage Tracking (Always Up to Date)
