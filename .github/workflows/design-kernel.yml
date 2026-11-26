@@ -26,10 +26,14 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm audit --audit-level=moderate
       - run: npm run validate
+      - name: Check the constitution loading paths in the kernel
+        run: node scripts/audit-frontier-instructions.mjs --authority --pin "$(git rev-parse HEAD)" --check
       - run: npm run validate:experience
       - run: npm run validate:observatory
       - run: npm run check:observatory-index
       - run: npm test
+      - name: Exercise public and preview SEO against HTTP fixtures
+        run: python3 -B -m unittest discover -s tests -p route_seo_test.py
       - name: Reject incomplete native hook proof
         run: python3 -B -m unittest discover -s tests -p native_codex_probe_test.py
       - name: Install Chromium for rendered foundation checks

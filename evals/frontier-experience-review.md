@@ -78,3 +78,35 @@ Use the sibling reusable workflow `.github/workflows/frontier-scoped-review.yml`
 | `preview-base` | Optional exact branch for a private candidate review. The default branch and every other destination require publication review when covered. |
 
 A label can add a review. Removing it cannot exempt a covered path. Protect the caller and its declared paths independently of the candidate before making its emitted Frontier surface verdict a required check. An unconfigured or unavailable runner cannot produce a passing verdict. Keep existing product release and merge-queue policies. Confirm behavior on a real eligible review and dismissal before enabling branch requirements.
+
+## Instruction coverage
+
+Run the audit from a trusted design-kernel checkout. Supply the full constitution commit selected by the owning maintainer and the candidate checkout. The input pin identifies the selected policy. The audit compares references to that pin. Resolve the policy itself from the authority before choosing the pin.
+
+```sh
+node scripts/audit-frontier-instructions.mjs --repo ../product --ref HEAD --pin "$CONSTITUTION_SHA" --check
+```
+
+The JSON report records the Git revision, paths, import chains, source references and gaps. It reads the committed tree, including nested rules. An exact GitHub blob or raw URL can establish a direct pin. Bare native import lines in Claude and Gemini instructions and explicit local paths in OpenCode JSON can establish transitive pins. Cycle, external path, symlink, unsupported configuration, missing root, competing authority, mutable ref or stale pin needs resolution. Code samples, blockquotes and HTML comments cannot establish pins. For the authority's own checkout, use `--authority` at the scanned revision to resolve the local constitution.
+
+Skill and agent-rule rows identify explicit references when present. MCP and workflow rows record inventory only. A scoped instruction without an explicit path is a coverage gap even where a host might inherit an ancestor. Markdown semantics, host defaults, user overrides, remote MCP prompts and installed runtime behavior still require a fresh loading receipt in the relevant host.
+
+The included composite action checks the consumer's existing checkout. Call it from the owning read-only PR workflow after checkout and Node setup. Pin the action to a reviewed 40-character design-kernel commit, and pass the selected constitution commit in the `pin` input. Keep the consumer checkout step on the candidate under review. The action prints JSON, exits 1 on coverage failures and exits 2 on an invalid input or unreadable revision. Omit `--check` for a report-only discovery run. Keep downstream coverage reports in their owning visibility boundary.
+
+## Route SEO evidence
+
+Run `python3 -B scripts/audit-route-seo.py --manifest routes.json --origin "$CANDIDATE_ORIGIN" --mode public` against an explicitly selected indexable surface. Use `--mode preview` for a preview that should remain excluded from indexing. Bind the resulting JSON to the actual deployment revision in the owning receipt. The audit sends anonymous GET requests to the named candidate origin, never follows redirects and never discovers additional hosts from responses.
+
+```json
+{
+  "public_origin": "https://studio.example",
+  "sitemaps": ["/sitemap.xml", "/sitemap-pages.xml"],
+  "routes": [
+    {"path": "/edition", "visibility": "public", "canonical": "/edition", "structured_data": {"Article": ["headline"]}},
+    {"path": "/desk", "visibility": "private"}
+  ],
+  "redirects": [{"from": "/old-edition", "to": "/edition", "status": 308}]
+}
+```
+
+The first sitemap is the entry point. Declare each shard needed to cover the selected pages. For each public route the probe requires an HTML 200, one absolute canonical matching the declared public origin and path, a title, a description, syntactically valid JSON-LD and the declared schema.org types and nonempty fields. Use an empty structured-data map where the route has no required type. These assertions cover the supplied shape. Search-engine indexing, robots.txt crawl eligibility and rich-result eligibility require separate observations. Redirect checks compare the actual status and Location in a single response. Private paths must stay outside the declared sitemap and require authentication or a universal noindex directive. Public pages must be indexable in public mode and must carry universal noindex in preview mode. A protected preview whose page content cannot be inspected reports that coverage gap. Preview-only fixtures may supply an empty sitemap list. The probe does not grant access, change robots directives or represent a whole-site crawl.
