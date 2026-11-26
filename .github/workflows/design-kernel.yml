@@ -31,12 +31,14 @@ jobs:
       - run: npm run validate:experience
       - run: npm run validate:observatory
       - run: npm run check:observatory-index
+      - name: Install Chromium for rendered foundation checks
+        run: npx playwright install --with-deps chromium
       - run: npm test
+        env:
+          VISUAL_QA_REQUIRE_BROWSER: "1"
       - name: Exercise public and preview SEO against HTTP fixtures
         run: python3 -B -m unittest discover -s tests -p route_seo_test.py
       - name: Reject incomplete native hook proof
         run: python3 -B -m unittest discover -s tests -p native_codex_probe_test.py
-      - name: Install Chromium for rendered foundation checks
-        run: npx playwright install --with-deps chromium
       - name: Exercise rendered interface defects and CLI failure behavior
         run: npm run test:interface
