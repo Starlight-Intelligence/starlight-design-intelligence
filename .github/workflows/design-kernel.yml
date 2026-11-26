@@ -26,6 +26,8 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm audit --audit-level=moderate
       - run: npm run validate
+      - name: Check the constitution loading paths in the kernel
+        run: node scripts/audit-frontier-instructions.mjs --authority --pin "$(git rev-parse HEAD)" --check
       - run: npm run validate:experience
       - run: npm run validate:observatory
       - run: npm run check:observatory-index
@@ -33,8 +35,9 @@ jobs:
         run: npx playwright install --with-deps chromium
       - run: npm test
         env:
-          # Rendered visual QA tests must run here, not skip, once Chromium is installed.
           VISUAL_QA_REQUIRE_BROWSER: "1"
+      - name: Exercise public and preview SEO against HTTP fixtures
+        run: python3 -B -m unittest discover -s tests -p route_seo_test.py
       - name: Reject incomplete native hook proof
         run: python3 -B -m unittest discover -s tests -p native_codex_probe_test.py
       - name: Exercise rendered interface defects and CLI failure behavior

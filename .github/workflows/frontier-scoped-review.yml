@@ -1,0 +1,90 @@
+name: Frontier scoped surface review
+on:
+  workflow_call:
+    inputs:
+      surface-paths:
+        description: One literal file or directory prefix ending in / per line
+        type: string
+        required: true
+      evidence-location:
+        description: External review links, or authorized artifacts in the private owning repository
+        type: string
+        default: external
+      preview-base:
+        description: Optional preview-only base branch. Every other destination requires publication review.
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  scope:
+    name: Inspect Frontier paths
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      covered: ${{ steps.scope.outputs.covered }}
+      publication: ${{ steps.scope.outputs.publication }}
+    steps:
+      - name: Load the pinned scope classifier
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          repository: ${{ job.workflow_repository }}
+          ref: ${{ job.workflow_sha }}
+          sparse-checkout: |
+            /scripts/classify-frontier-surface.mjs
+            /tests/frontier-surface.test.mjs
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+      - name: Exercise trusted scope fixtures
+        run: node --test tests/frontier-surface.test.mjs
+      - name: Read complete PR inventory
+        id: scope
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SURFACE_PATHS: ${{ inputs.surface-paths }}
+          PREVIEW_BASE: ${{ inputs.preview-base }}
+          EVIDENCE_LOCATION: ${{ inputs.evidence-location }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          [[ "$PR_NUMBER" =~ ^[0-9]+$ ]]
+          endpoint="repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER"
+          scratch="$(mktemp -d)"
+          trap 'rm -rf "$scratch"' EXIT
+          gh api "$endpoint" > "$scratch/before.json"
+          gh api --paginate --slurp "$endpoint/files?per_page=100" > "$scratch/files.json"
+          gh api "$endpoint" > "$scratch/after.json"
+          node scripts/classify-frontier-surface.mjs "$scratch/before.json" "$scratch/files.json" "$scratch/after.json"
+
+  frontier:
+    needs: scope
+    if: needs.scope.outputs.covered == 'true'
+    uses: ./.github/workflows/frontier-review.yml
+    with:
+      publication-required: ${{ needs.scope.outputs.publication == 'true' }}
+      require-artifacts: ${{ inputs.evidence-location == 'repository' }}
+
+  verdict:
+    name: Frontier surface verdict
+    if: always()
+    needs: [scope, frontier]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Require the expected result for this revision
+        env:
+          SCOPE_RESULT: ${{ needs.scope.result }}
+          COVERED: ${{ needs.scope.outputs.covered }}
+          PUBLICATION: ${{ needs.scope.outputs.publication }}
+          REVIEW_RESULT: ${{ needs.frontier.result }}
+        run: |
+          set -euo pipefail
+          [[ "$SCOPE_RESULT" == success && "$PUBLICATION" =~ ^(true|false)$ ]]
+          case "$COVERED/$REVIEW_RESULT" in
+            true/success) echo "Covered surface passed the canonical review." ;;
+            false/skipped) echo "Complete inventory contained no covered path or review opt-in." ;;
+            *) echo "Review missing, failed, or canceled for this scope."; exit 1 ;;
+          esac

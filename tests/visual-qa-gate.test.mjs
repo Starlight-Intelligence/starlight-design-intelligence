@@ -125,7 +125,7 @@ rendered("text over imagery is reported unresolved, never silently passed or fai
     browser, brand: "gencreator", readySelector: "h1",
     html: page('<h1>Edition</h1><div class="hero" id="hero"><p>Over the image</p></div>', ".hero{background:linear-gradient(#221f1b,#fbf9f5);color:#fbf9f5}")
   });
-  assert.equal(report.verdict, "PASS");
+  assert.equal(report.verdict, "REVIEW");
   assert.ok(report.samples.every((s) => s.unresolved.some((u) => /background-image/u.test(u.reason))));
 });
 

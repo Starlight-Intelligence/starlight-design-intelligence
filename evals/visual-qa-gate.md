@@ -27,7 +27,7 @@ opens. An invalid declaration exits 2; it is never reported as a visual result.
 ## Known limits
 
 - Text over a `background-image` or gradient cannot be resolved from computed style. It is listed
-  under each sample's `unresolved` for human review and neither passes nor fails the gate. Cinematic
+  under each sample's `unresolved` for human review. A surface with unresolved contrast and no measured failure returns `REVIEW`. Unsupported foreground color formats also require review. Cinematic
   surfaces with text over media must clear those entries by inspection or by a solid scrim.
 - Background is resolved through DOM ancestry. Absolutely positioned text over a sibling's
   background is measured against its ancestors, not what is painted beneath it.
@@ -55,5 +55,5 @@ node ../starlight-design-intelligence/scripts/visual-qa-gate.mjs \
 - `--interface-foundations` adds the emoji, uppercase, placeholder and accessible-name checks.
 - Programmatic: `import { runVisualQaGate, launchChromium } from ".../scripts/visual-qa-gate.mjs"`.
 
-Exit 0 PASS, 1 REVISE, 2 configuration or navigation error. Receipts are
+Exit 0 for `PASS`, 1 for a measured failure (`REVISE`), 2 for a configuration or navigation error, and 3 for unresolved contrast (`REVIEW`). Receipts are
 `starlight.visual_qa_gate.v1`, never overwritten, and bind a caller-supplied commit only.

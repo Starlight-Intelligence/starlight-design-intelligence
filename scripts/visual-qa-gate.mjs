@@ -11,7 +11,7 @@
 //     --ready-selector main --commit "$(git rev-parse HEAD)" [--output receipt.json] [--interface-foundations]
 //   node <sdi>/scripts/visual-qa-gate.mjs --html dist/index.html --brand-pack ./brand-pack.json ...
 // Set PLAYWRIGHT_CHROMIUM_EXECUTABLE to reuse a preinstalled Chromium.
-// Exit codes: 0 PASS, 1 REVISE (findings), 2 configuration or navigation error.
+// Exit codes: 0 PASS, 1 REVISE (findings), 2 configuration or navigation error, 3 visual inspection required.
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
@@ -177,8 +177,11 @@ export async function runVisualQaGate({
   const expected = viewports.length * reducedMotion.length;
   const passed = !declared.findings.length && samples.length === expected &&
     samples.every((sample) => sample.complete && !sample.failures.length);
+  const requiresReview = samples.some((sample) => sample.unresolved.length > 0);
+  let verdict = "REVISE";
+  if (passed) verdict = requiresReview ? "REVIEW" : "PASS";
   return {
-    verdict: passed ? "PASS" : "REVISE",
+    verdict,
     brand: {
       brand_id: declared.contract.brandId, source: declared.source,
       canvas_role: declared.contract.canvasRole ?? null, text_role: declared.contract.textRole ?? null,
@@ -247,7 +250,7 @@ async function main() {
     if (values.output) writeFileSync(resolve(values.output), serialized, { flag: "wx" });
     else process.stdout.write(serialized);
     console.error(summarize(report));
-    process.exitCode = report.verdict === "PASS" ? 0 : 1;
+    process.exitCode = { PASS: 0, REVISE: 1, REVIEW: 3 }[report.verdict];
   } finally {
     await browser.close();
   }

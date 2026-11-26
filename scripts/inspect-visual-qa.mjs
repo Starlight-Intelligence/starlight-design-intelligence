@@ -99,7 +99,10 @@ export function inspectVisualQa(brand) {
     const style = getComputedStyle(element);
     const bg = background(element);
     const fgRaw = parse(style.color);
-    if (!fgRaw) continue;
+    if (!fgRaw) {
+      unresolved.push({ selector: location(element), reason: `unsupported foreground ${style.color}` });
+      continue;
+    }
     if (!bg.color) { unresolved.push({ selector: location(element), reason: bg.reason }); continue; }
     const fg = over(fgRaw, bg.color);
     const size = Number.parseFloat(style.fontSize);
