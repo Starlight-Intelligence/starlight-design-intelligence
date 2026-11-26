@@ -11,6 +11,19 @@ A final logo is an optically corrected vector system with provenance and small-s
 
 Read the selected identity brief, naming decision, audience/category evidence, anti-references, typography rights, and production surfaces. Stop if the canonical name, owner, or selected direction is unknown.
 
+## Best-of-Brand recovery
+
+Start each established-brand job by opening the strongest historical artwork alongside the current product mark and the latest board. Load the owning brand’s VIS record, the actual source pixels or vector, its intended surface and any founder decision for that specific version. A filename, alt text, prompt, thumbnail link or memory of the mark cannot condition a design.
+
+1. Preserve retrieved bytes. Record SHA-256, decoded dimensions, source version and access scope. Keep a renamed, recompressed, cropped or enlarged file as a separate version. Group exact bytes first. Use decoded-pixel hashes, perceptual distance, embeddings, OCR and source metadata to find candidates. Inspect the artwork before assigning a family. A higher resolution or similarity score establishes neither ancestry nor quality.
+2. Make a comparison using real art. Show the incumbent, historical leader and proposed change together on equivalent backgrounds and scales. Include the actual 16/32px treatment. Identify which features survive black, reverse and effects-off. Compare identity fidelity, distinctiveness, optical craft and intended use. Preserve a superior incumbent when a revision fails on its intended surface.
+3. Record geometry separately for each brand, family and tier. Identify apex, leg/curve construction, aperture, base closure, detachable pieces, silhouette and lettering. For Arcanea, compare the inward-cut open-foot A with closed bridges; distinguish segmented crystal, ceremonial lozenge and dragon coil. Treat lettering traced from pixels as a facsimile. Record an exact typeface only from a verified authored source or font asset with usage evidence.
+4. Give each production pass actual source attachments or verified resolver outputs. Bind the bytes of each attached source to its reference digest. For vector, shader and motion work also bind the selected path or mask. A text description cannot replace a required image. When a reference is missing, continue archival review on verified material and hold the dependent creation.
+5. Store the founder’s wording, date, target version and scope. “Prioritize these references” grants archival priority. Keep aesthetic ranking, reference priority, rights, founder selection and publication approval in separate fields. Never infer a founder vote from visual resemblance, a board label, file age or agent consensus.
+6. Give a second reviewer the same unlabeled comparison or the source files and intended surface, without the first reviewer’s verdict. Record the reviewer, evidence viewed, failure mode and disposition. A material or cinematic expression must preserve its own family’s geometry. Keep inferior proposals in history with a visible reason and a link to the source comparison.
+
+Before producing a new identity treatment, validate the actual source attachments with `python tools/reference_gate.py packet.json`. Read [the packet example](tools/reference-packet.md) for fields and review scope.
+
 ## Workflow
 
 1. **Inventory before drawing.** Find every existing source mark, export, sketch, generated image, favicon, social avatar, app icon, and lockup. Record path, Git history/source, dimensions, vector/raster state, approval, and use.
