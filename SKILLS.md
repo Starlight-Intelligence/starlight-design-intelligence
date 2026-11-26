@@ -18,6 +18,9 @@ Contract: `starlight.repo_profile.v2` · Team: `frankx-product-revenue-team` · 
   - `design-audit`
   - `design-system-extractor`
   - `editorial-articulation`
+  - `design-editorial-experience`
+  - `review-character-continuity`
+  - `edit-multimedia-edition`
   - `typography-art-direction`
   - `motion-and-interaction`
   - `conversion-clarity`
@@ -50,10 +53,23 @@ Actual skills live under `skills/<name>/SKILL.md`. This file is an inventory; do
 
 ## Frontier experience routing
 
-The [constitution](portfolio/frontier-experience-constitution.md) routes
-visual, editorial, character, multimedia and interface review work through
-existing skills and source authorities. Use the
-[review contract](evals/frontier-experience-review.md) for candidate evidence.
+Use an owning repository's kernel pin. In a design-kernel checkout,
+`node scripts/design-toolkit.mjs read <stage> <full-kernel-commit>` returns
+the [constitution](portfolio/frontier-experience-constitution.md), the selected
+skill and the [review contract](evals/frontier-experience-review.md) with
+their Git revision, bytes as UTF-8 and SHA-256. Read the instructions, then
+resolve the owning project, brand and referenced private authorities. The command
+only demonstrates a local source read. Record host/session and actual adapter
+results separately. Installed packages without Git can open the same relative
+paths from the package and verify their package source receipt.
+
+| Stage | Reusable skill | Required evidence |
+| --- | --- | --- |
+| `visual-design` | [Design orchestrator](skills/design-orchestrator/SKILL.md) | Real user journey, owning design system and rendered result |
+| `editorial-experience` | [Design editorial experience](skills/design-editorial-experience/SKILL.md) | Source passage, editable draft and reader preview |
+| `character-consistency` | [Review character continuity](skills/review-character-continuity/SKILL.md) | Exact master, scoped decision, verified input bytes and derivative comparison |
+| `multimedia-production` | [Edit multimedia edition](skills/edit-multimedia-edition/SKILL.md) | Versioned export, playback or crop inspection, rights and destination |
+| `interface-review` | [Browser verification](skills/browser-verify/SKILL.md) | Responsive captures, exercised task, recovery and independent verdict |
 
 ## Integrated specialist adapters
 
