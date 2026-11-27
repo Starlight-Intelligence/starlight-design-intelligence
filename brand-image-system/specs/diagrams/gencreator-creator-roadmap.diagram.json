@@ -1,0 +1,64 @@
+{
+  "id": "gencreator-creator-roadmap",
+  "brand": "gencreator",
+  "archetype": "curriculum-roadmap",
+  "eyebrow": "GENCREATOR · TERRITORY B PUBLISHING",
+  "editionTag": "AUTHORED EDITION",
+  "title": "Source-Led Creator Publishing & Release Roadmap",
+  "subtitle": "Four deliberate stages turning raw studio notes and working code into verified, source-linked creative editions.",
+  "sourceNote": "Source: brand-packs/gencreator/DESIGN.md · BRAND.md · Territory B Creative Publishing",
+  "stages": [
+    {
+      "phase": "STAGE 01 · SOURCE",
+      "icon": "book",
+      "title": "Source Excavation",
+      "summary": "Gather primary notebooks, working commits, recorded demos, and verified references before drafting.",
+      "skills": [
+        "Primary source register",
+        "Claim-to-artifact mapping",
+        "Voice & audience lock",
+        "Zero uncited claims"
+      ],
+      "outcome": "Pinned sources.json + annotated studio brief"
+    },
+    {
+      "phase": "STAGE 02 · CRAFT",
+      "icon": "code",
+      "title": "Authored Draft & Editorial Gate",
+      "summary": "Shape clear prose in Instrument Serif and Sans with explicit human point of view and concrete examples.",
+      "skills": [
+        "Sentence-case structure",
+        "Anti-hype copy audit",
+        "Technical accuracy check",
+        "Authorial voice review"
+      ],
+      "outcome": "Reviewed manuscript passing editorial gate"
+    },
+    {
+      "phase": "STAGE 03 · VISUAL",
+      "icon": "layers",
+      "title": "Deterministic Visual Edition",
+      "summary": "Compile crisp paper-and-ink SVG diagrams and studio frames with spot-red state markers.",
+      "skills": [
+        "90% paper & ink balance",
+        "WCAG AA >= 4.5:1 contrast",
+        "Zero baked raster UI text",
+        "Dark + light SVG pair"
+      ],
+      "outcome": "Inspectable SVG set + OG composition"
+    },
+    {
+      "phase": "STAGE 04 · RELEASE",
+      "icon": "check",
+      "title": "Provenance Sidecar & Release",
+      "summary": "Attach cryptographic hashes, rights state, and named human approval prior to multi-surface publication.",
+      "skills": [
+        ".vis.provenance.json lock",
+        "SHA-256 registry manifest",
+        "Rights & likeness check",
+        "Named human sign-off"
+      ],
+      "outcome": "Published edition + verifiable release receipt"
+    }
+  ]
+}

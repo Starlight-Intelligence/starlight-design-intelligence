@@ -1,0 +1,113 @@
+{
+  "id": "sis-agentic-architecture",
+  "brand": "sis",
+  "archetype": "layered-architecture",
+  "eyebrow": "STARLIGHT INTELLIGENCE · LAYERED SUBSTRATE",
+  "editionTag": "SIP ATTESTED",
+  "title": "Governed Multi-Agent Memory & Verification Architecture",
+  "subtitle": "Four inspectable operational planes connecting operator surfaces, specialist councils, hybrid memory vaults, and human release gates.",
+  "sourceNote": "Source: brand-packs/sis/DESIGN.md · REFERENCE-LOCKS.md · Starlight Intelligence Protocol",
+  "planes": [
+    {
+      "tag": "PLANE 01 · SURFACES",
+      "title": "Operator & Horizon Surfaces",
+      "summary": "Calm reading surfaces for traces, briefs, and live session state.",
+      "nodes": [
+        {
+          "icon": "eye",
+          "badge": "TRACE UI",
+          "title": "Observatory Cockpit",
+          "detail": "Live OTLP trace inspection, confidence deltas, and run receipts."
+        },
+        {
+          "icon": "terminal",
+          "badge": "MULTI-HARNESS",
+          "title": "CLI & Studio Harnesses",
+          "detail": "Claude Code, Codex, Gemini, and OpenCode sharing one contract."
+        },
+        {
+          "icon": "globe",
+          "badge": "PUBLIC LAB",
+          "title": "Research & Evidence Editions",
+          "detail": "Rubric-locked technical explainers with deterministic SVG diagrams."
+        }
+      ]
+    },
+    {
+      "tag": "PLANE 02 · COORDINATION",
+      "title": "Queen & Specialist Council",
+      "summary": "Emergent task routing with maker-checker separation.",
+      "nodes": [
+        {
+          "icon": "queen-star",
+          "badge": "ROUTER",
+          "title": "Orchestrator & Queen",
+          "detail": "Decomposes slices, assigns isolated worktrees, and tracks leases."
+        },
+        {
+          "icon": "workflow",
+          "badge": "MAKER LANE",
+          "title": "Domain Specialists",
+          "detail": "Scoped builders operating inside explicit file and repo allowlists."
+        },
+        {
+          "icon": "check",
+          "badge": "CHECKER LANE",
+          "title": "Independent Verifier",
+          "detail": "Cross-harness exact-SHA review with zero overlapping write scope."
+        }
+      ]
+    },
+    {
+      "tag": "PLANE 03 · MEMORY",
+      "title": "Gateway & Semantic Vaults",
+      "summary": "Event-sourced JSONL truth indexed with SQLite FTS5 recall.",
+      "nodes": [
+        {
+          "icon": "gateway",
+          "badge": "RRF HYBRID",
+          "title": "SIS Memory Gateway",
+          "detail": "Loopback session store, privacy tag filtering, and hybrid retrieval."
+        },
+        {
+          "icon": "vault",
+          "badge": "6 VAULTS",
+          "title": "Typed Semantic Vaults",
+          "detail": "Strategic, Technical, Creative, Operational, Wisdom, and Horizon logs."
+        },
+        {
+          "icon": "database",
+          "badge": "THE VEIL",
+          "title": "Sanitization & Provenance",
+          "detail": "Local secret scrubbing and .vis.provenance.json sidecar locks."
+        }
+      ]
+    },
+    {
+      "tag": "PLANE 04 · GOVERNANCE",
+      "title": "SIP Attestation & Human Gate",
+      "summary": "Fail-closed money, rights, and production release boundaries.",
+      "humanGate": true,
+      "nodes": [
+        {
+          "icon": "shield",
+          "badge": "DOCTRINE 0",
+          "title": "Human Approval Gate",
+          "detail": "Named human sign-off required on spend, pricing, auth, and external sends."
+        },
+        {
+          "icon": "code",
+          "badge": "SIGNED RECEIPT",
+          "title": "PR Gate & Exact-SHA Proof",
+          "detail": "Cryptographic commit verification, CI checks, and rollback readiness."
+        },
+        {
+          "icon": "layers",
+          "badge": "BUILT ON SIP",
+          "title": "Protocol Attestation",
+          "detail": "Earned per-artifact provenance across public and partner releases."
+        }
+      ]
+    }
+  ]
+}
