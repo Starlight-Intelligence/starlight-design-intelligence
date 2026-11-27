@@ -10,7 +10,7 @@ Write `receipt.json` beside the export. Fields not applicable are `null`, never 
   "direction_chosen": "A",
   "direction_rejected": { "id": "B", "reason": "no understanding gain for a technical topology" },
   "sources": ["sources.json@sha256"],
-  "retrieval": { "reference_revision": null, "character_ids": [], "asset_hashes_verified": null, "integration_status": "not_asserted" },
+  "retrieval": { "contract_source": "frankxai/visual-intelligence draft PR 92 (re-check on merge)", "tool": "visual.character.resolve", "identity_ids": [], "reference_revision": null, "asset_hashes_verified": null, "rights": "unknown", "approval": "unknown", "integration_status": "not_asserted" },
   "generation": { "provider": "none", "cost_usd": 0, "model_text": false },
   "render": { "tool": "scripts/compile-brand-diagrams.mjs", "themes": ["dark", "light"], "sha256": {}, "min_contrast": 0, "overflow": 0 },
   "critique": { "reviewer": "separate-session", "score": 0, "scale": 30, "hard_gates": { "factual": "pass", "source_identity": "pass", "accessibility": "pass", "rights": "pass" } },

@@ -13,7 +13,7 @@ Read first, once: `AGENTS.md`, `DESIGN.md`, the owning `brand-packs/<brand>/`, a
 ## Non-negotiables
 
 1. **Exact text, labels, numbers and charts are deterministic HTML/SVG.** Never model-generated, never baked into a raster. Generated imagery may supply a backplate only.
-2. **Never generate, regenerate or invent a character.** Characters come from retrieval (`casting/casting-resolver.mjs` → VIS retrieval interface). Missing reference means report it; do not draw a substitute.
+2. **Never generate, regenerate or invent a character.** Characters come from retrieval (`casting/casting-resolver.mjs` → `visual.character.resolve`; contract from visual-intelligence draft PR 92, re-check on merge). Missing reference means report it; do not draw a substitute.
 3. **Characters only when they improve understanding** (explain a role, show a relationship, reduce abstraction, keep series continuity). Technical diagrams default to none. Name the gain or cast nobody.
 4. **No private bytes in this repo.** Fixtures are synthetic.
 5. **Maker is never the sole reviewer.** The critique stage runs in a separate agent/session from composition.
