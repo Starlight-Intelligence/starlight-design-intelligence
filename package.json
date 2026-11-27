@@ -17,6 +17,7 @@
     "validate:release": "node scripts/validate-release-evidence.mjs",
     "validate:media": "node scripts/validate-media-job.mjs",
     "validate:assets": "node scripts/register-media-asset.mjs --audit",
+    "validate:dam": "node scripts/validate-dam-registry.mjs",
     "register:asset": "node scripts/register-media-asset.mjs",
     "validate:interface": "node scripts/validate-interface-foundations.mjs",
     "test:interface": "node browser-checks/interface-foundations.mjs",
