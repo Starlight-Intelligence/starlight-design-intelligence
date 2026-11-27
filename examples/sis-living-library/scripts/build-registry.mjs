@@ -8,7 +8,7 @@ const item={
   $schema:'https://ui.shadcn.com/schema/registry-item.json',
   name:'starlight-living',type:'registry:ui',title:'Starlight Living Library',
   description:'Source-owned reference components, three material themes and original Signal icons. Review candidate.',
-  files:await Promise.all(sources.map(async name=>({path:`src/${name}`,type:name.endsWith('.css')?'registry:file':'registry:ui',target:`@ui/starlight/${name}`,content:await readFile(path.join(root,'src',name),'utf8')}))),
+  files:await Promise.all(sources.map(async name=>({path:`src/${name}`,type:name.endsWith('.css')?'registry:file':'registry:ui',target:`@ui/starlight/${name}`,content:(await readFile(path.join(root,'src',name),'utf8')).replace(/\r\n/g,'\n')}))),
 };
 await mkdir(path.join(root,'public','r'),{recursive:true});
 await writeFile(path.join(root,'public','r','starlight-living.json'),JSON.stringify(item,null,2)+'\n');
