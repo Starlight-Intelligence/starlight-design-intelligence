@@ -129,7 +129,7 @@ How the briefs use them:
 - **Destinations.** Every brief targets `/` (homepage sections and share images) and states that the route is unverified.
 - **Style references.** `style_refs` is `[]` because no local assets were available.
 
-This kernel repository was read at `be8dfaa414cddca02e209fe4634a972a8d469f56` on `origin/main` (`5fb0bdd` at fetch).
+This kernel repository was read at its `origin/main` base `5fb0bdd`.
 
 ## Destinations
 
