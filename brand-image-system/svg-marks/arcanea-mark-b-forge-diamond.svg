@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none" role="img" aria-label="Arcanea Celestial Key candidate mark">
+  <!-- Candidate B: Octagonal Forge Diamond with Internal Source Axis -->
+  <polygon points="24,4 42,24 24,44 6,24" stroke="currentColor" stroke-width="3.2" stroke-linejoin="miter"/>
+  <path d="M24 12V36M14 24H34" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/>
+  <polygon points="24,18 30,24 24,30 18,24" fill="currentColor"/>
+</svg>

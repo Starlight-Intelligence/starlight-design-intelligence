@@ -87,3 +87,4 @@ subordinate to the selected brand pack and canonical release contract.
 ## Specialist Digital Product & Funnel Skills
 
 - `digital-product-funnel-designer`: Refero-backed conversion funnel archetypes, two-pane pack inspectors, value-first lead magnets, and voice-gated digital product packaging (`playbooks/refero-funnel-atlas.md` + `playbooks/lead-magnets-and-products-design/INDEX.md`).
+- `google-flow-multimodal-studio`: BrowserOS Neo Google Flow steering, stills-first Omni 1.2 / Veo 3.1 promotion, 30-point visual QA, Cloudflare R2 `vis-media` manifests, and domain visual slot mapping (`playbooks/google-flow-production-os.md`).
