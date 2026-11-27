@@ -1,0 +1,28 @@
+{
+  "name": "starlight-living-agent-next-consumer",
+  "version": "0.1.0-rc.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@starlight/living-design": "file:../../release/starlight-living-design-0.2.0.tgz",
+    "@starlight/living-agent-ui": "file:../../release/starlight-living-agent-ui-0.1.0-rc.1.tgz",
+    "@copilotkit/react-core": "1.87.1",
+    "@copilotkit/a2ui-renderer": "1.87.1",
+    "@fontsource/instrument-sans": "5.3.0",
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "next": "16.4.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "@types/node": "24.0.0",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2"
+  }
+}
