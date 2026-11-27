@@ -46,6 +46,17 @@ Starlight Design Intelligence turns that judgment into reusable brand packs, ski
 
 There is no separate `starlight-design-agent-skills` authority. Creating another canonical layer would increase drift. Installations must retain a source reference to this repository and pass `npm test` before release.
 
+## Install in Claude Code
+
+The same skills ChatGPT and Codex load through `plugin.json` install in Claude Code from this repository's marketplace:
+
+```
+/plugin install starlight-design-intelligence --marketplace Starlight-Intelligence/starlight-design-intelligence
+/plugin install starlight-living-design --marketplace Starlight-Intelligence/starlight-design-intelligence
+```
+
+Then invoke `/starlight-design-intelligence:design-orchestrator` or any specialist skill directly.
+
 ## Living Design plugin
 
 [Starlight Living Design](plugins/starlight-living-design/README.md) connects four proposed visual families to twelve character/role recipes, six design skills, and an offline identity and capability atlas. The six skills under `skills/` are canonical; `node scripts/sync-living-design-skills.mjs` regenerates their package copies. Source tests enforce matching content. Private reference artwork is excluded from Git. Runtime binding, brand acceptance, and product deployment remain separate integration work.
