@@ -1,0 +1,68 @@
+{
+  "schema": "starlight.infogenius.character-retrieval-response.v1",
+  "request_id": "fixture",
+  "reference_revision": "synthetic-fixture-0",
+  "fixture": true,
+  "characters": [
+    {
+      "id": "synthetic.canon-a",
+      "status": "approved-canon",
+      "lineage": "synthetic-lineage-a",
+      "class": "approved-canon",
+      "rights_state": "synthetic",
+      "assets": [
+        {
+          "asset_id": "synthetic-sheet-a",
+          "sha256": "a1db446e703392b6436b95629334b9ce03b7b9621cf024e3204fc9d05b3db0d1",
+          "bytes_base64": "U1lOVEhFVElDLUZJWFRVUkUtQS1OT1QtQU4tSU1BR0U="
+        }
+      ]
+    },
+    {
+      "id": "synthetic.candidate-b",
+      "status": "candidate",
+      "lineage": "synthetic-lineage-b",
+      "class": "candidate",
+      "rights_state": "synthetic",
+      "assets": [
+        {
+          "asset_id": "synthetic-sheet-b",
+          "sha256": "e88c22ef91a8377abc735101e6ca8a6ad76c4ac18879152b77e3939d4cd64856",
+          "bytes_base64": "U1lOVEhFVElDLUZJWFRVUkUtQi1OT1QtQU4tSU1BR0U="
+        }
+      ]
+    },
+    {
+      "id": "synthetic.tampered-c",
+      "status": "approved-canon",
+      "lineage": "synthetic-lineage-c",
+      "rights_state": "synthetic",
+      "assets": [
+        {
+          "asset_id": "synthetic-sheet-c",
+          "sha256": "ef7fd688a38700309e4437c8527d85ef2407b96a9f51acfc4904fe56677af8a3",
+          "bytes_base64": "VEFNUEVSRUQ="
+        }
+      ]
+    },
+    {
+      "id": "clawd",
+      "status": "vendor-guest",
+      "lineage": "vendor-clawd",
+      "rights_state": "pending",
+      "assets": []
+    },
+    {
+      "id": "brio",
+      "status": "unavailable",
+      "lineage": "brio",
+      "assets": []
+    },
+    {
+      "id": "biro",
+      "status": "unavailable",
+      "lineage": "biro",
+      "assets": []
+    }
+  ]
+}

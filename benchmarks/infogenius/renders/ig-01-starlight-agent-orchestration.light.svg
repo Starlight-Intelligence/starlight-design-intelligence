@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 860" width="1480" height="860" role="img" aria-labelledby="title-ig-01-starlight-agent-orchestration-light desc-ig-01-starlight-agent-orchestration-light" data-brand="sis" data-archetype="hub-spoke" data-theme="light">
+<title id="title-ig-01-starlight-agent-orchestration-light">Small Team, Independent Verifier, Named Gates</title>
+<desc id="desc-ig-01-starlight-agent-orchestration-light">Release-affecting work uses the smallest 3 to 5 role team and an independent verifier.</desc>
+<defs>
+    <linearGradient id="bg-grad-ig-01-starlight-agent-orchestration-light" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EFEDE7"/>
+      <stop offset="100%" stop-color="#E6E2D8"/>
+    </linearGradient>
+    <pattern id="grid-ig-01-starlight-agent-orchestration-light" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#DFDBD0" stroke-width="0.75"/>
+    </pattern>
+    <marker id="arrow-ig-01-starlight-agent-orchestration-light" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#0E5A7A"/>
+    </marker>
+  </defs>
+<rect x="0" y="0" width="1480" height="860" fill="#EFEDE7"/>
+<rect x="0" y="0" width="1480" height="860" fill="url(#grid-ig-01-starlight-agent-orchestration-light)" opacity="0.55"/>
+<rect x="16" y="16" width="1448" height="828" rx="20" fill="none" stroke="#C9C3B5" stroke-width="1"/>
+<rect x="56" y="42" width="257" height="26" rx="13" fill="#E0F2FE" stroke="#93C5FD" stroke-width="1"/>
+<text x="184.5" y="58.85" fill="#0C4A6E" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STARLIGHT · AGENT ORCHESTRATION</text>
+<rect x="323" y="42" width="115" height="26" rx="13" fill="#FEF3C7" stroke="#E5B869" stroke-width="1"/>
+<text x="380.5" y="58.85" fill="#6B440B" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">BENCHMARK 01</text>
+<rect x="1115" y="42" width="309" height="26" rx="13" fill="#EAE6DC" stroke="#9E9788" stroke-width="1"/>
+<text x="1269.5" y="58.85" fill="#232D40" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">Starlight Intelligence Systems · LIGHT</text>
+<text x="56" y="104" fill="#0B101B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="30" font-weight="700">Small Team, Independent Verifier, Named Gates</text>
+<text x="56" y="132" fill="#232D40" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400">Release-affecting work uses the smallest 3 to 5 role team and an independent verifier.</text>
+<line x1="56" y1="168" x2="1424" y2="168" stroke="#C9C3B5" stroke-width="1"/>
+<line x1="56" y1="800" x2="1424" y2="800" stroke="#C9C3B5" stroke-width="1"/>
+<text x="56" y="822" fill="#455166" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="12" font-weight="500">Source: AGENTS.md, Starlight repository contract</text>
+<text x="1424" y="822" fill="#0C5472" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11.5" font-weight="600" text-anchor="end">WCAG AA &gt;= 4.5:1 · ZERO RASTER TEXT</text>
+<circle cx="740" cy="486" r="184" fill="none" stroke="#C9C3B5" stroke-width="1" stroke-dasharray="5 5"/>
+<circle cx="740" cy="486" r="248" fill="none" stroke="#DFDBD0" stroke-width="1"/>
+<path d="M 570 469 C 503 469, 503 415, 436 415" fill="none" stroke="#0E5A7A" stroke-width="1.75"/>
+<circle cx="436" cy="415" r="4" fill="#0C5472"/>
+<rect x="76" y="359" width="360" height="112" rx="14" fill="#FAF8F3" stroke="#C9C3B5" stroke-width="1.2"/>
+<g transform="translate(94, 377) scale(0.92)" width="22" height="22" fill="none" stroke="#0C5472" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 8L4 12l4.5 4M15.5 8L20 12l-4.5 4M13.5 5.5l-3 13"/></g>
+<rect x="126" y="375" width="86" height="22" rx="11" fill="#EAE6DC" stroke="#9E9788" stroke-width="1"/>
+<text x="169" y="389.68" fill="#232D40" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">ROLE TEAM</text>
+<text x="94" y="421" fill="#0B101B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16.5" font-weight="700">3 to 5 roles</text>
+<text x="94" y="447" fill="#232D40" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Preserve unrelated dirty files.</text>
+<path d="M 570 503 C 503 503, 503 557, 436 557" fill="none" stroke="#0E5A7A" stroke-width="1.75"/>
+<circle cx="436" cy="557" r="4" fill="#0C5472"/>
+<rect x="76" y="501" width="360" height="112" rx="14" fill="#FAF8F3" stroke="#C9C3B5" stroke-width="1.2"/>
+<g transform="translate(94, 519) scale(0.92)" width="22" height="22" fill="none" stroke="#0C5472" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.6-3 8.4-7 9.5-4-1.1-7-4.9-7-9.5V6l7-3z"/><path d="M9 12.2l2 2 4-4.2"/></g>
+<rect x="126" y="517" width="100" height="22" rx="11" fill="#EAE6DC" stroke="#9E9788" stroke-width="1"/>
+<text x="176" y="531.67" fill="#232D40" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">HUMAN GATES</text>
+<text x="94" y="563" fill="#0B101B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16.5" font-weight="700">Named approval needed</text>
+<text x="94" y="589" fill="#232D40" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">DNS, secrets, billing, spend, migrations, legal/IP.</text>
+<path d="M 910 469 C 977 469, 977 415, 1044 415" fill="none" stroke="#0E5A7A" stroke-width="1.75"/>
+<circle cx="1044" cy="415" r="4" fill="#0C5472"/>
+<rect x="1044" y="359" width="360" height="112" rx="14" fill="#FAF8F3" stroke="#C9C3B5" stroke-width="1.2"/>
+<g transform="translate(1062, 377) scale(0.92)" width="22" height="22" fill="none" stroke="#0C5472" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.3l2.3 2.3 4.8-5"/></g>
+<rect x="1094" y="375" width="79" height="22" rx="11" fill="#EAE6DC" stroke="#9E9788" stroke-width="1"/>
+<text x="1133.5" y="389.68" fill="#232D40" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">VERIFIER</text>
+<text x="1062" y="421" fill="#0B101B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16.5" font-weight="700">Independent verifier</text>
+<text x="1062" y="447" fill="#232D40" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Required for release-affecting work.</text>
+<path d="M 910 503 C 977 503, 977 557, 1044 557" fill="none" stroke="#0E5A7A" stroke-width="1.75"/>
+<circle cx="1044" cy="557" r="4" fill="#0C5472"/>
+<rect x="1044" y="501" width="360" height="112" rx="14" fill="#FAF8F3" stroke="#C9C3B5" stroke-width="1.2"/>
+<g transform="translate(1062, 519) scale(0.92)" width="22" height="22" fill="none" stroke="#0C5472" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16.5H6.5A2.5 2.5 0 0 0 4 22V5.5z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></g>
+<rect x="1094" y="517" width="72" height="22" rx="11" fill="#EAE6DC" stroke="#9E9788" stroke-width="1"/>
+<text x="1130" y="531.67" fill="#232D40" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">HANDOFF</text>
+<text x="1062" y="563" fill="#0B101B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16.5" font-weight="700">Required handoff</text>
+<text x="1062" y="589" fill="#232D40" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Artifacts, checks, verdict, risks, rollback.</text>
+<rect x="570" y="388" width="340" height="196" rx="20" fill="#EAE6DC" stroke="#0C5472" stroke-width="1.8"/>
+<g transform="translate(726, 410) scale(1.17)" width="28" height="28" fill="none" stroke="#0C5472" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8L14.3 9.7L21.2 12L14.3 14.3L12 21.2L9.7 14.3L2.8 12L9.7 9.7Z"/><circle cx="18.2" cy="5.8" r="1.5" fill="#0C5472" stroke="none"/></g>
+<rect x="676.08" y="448" width="130" height="24" rx="12" fill="#E0F2FE" stroke="#93C5FD" stroke-width="1"/>
+<text x="741.08" y="463.85" fill="#0C4A6E" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">ASSIGNED SLICE</text>
+<text x="740" y="504" fill="#0B101B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="21" font-weight="700" text-anchor="middle">Release-affecting work</text>
+<text x="740" y="532" fill="#232D40" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="400" text-anchor="middle">Work only in assigned paths.</text>
+</svg>

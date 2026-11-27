@@ -1,0 +1,69 @@
+{
+  "id": "ig-03-living-glasshouse-memory",
+  "brand": "sis",
+  "archetype": "layered-architecture",
+  "eyebrow": "STARLIGHT \u00b7 MEMORY ARCHITECTURE",
+  "editionTag": "BENCHMARK 03",
+  "title": "Living Glasshouse: How Knowledge Is Kept and Recalled",
+  "subtitle": "Glasshouse is a proposed visual family for the SIS memory plane. The mapping below is a metaphor, not a shipped product.",
+  "sourceNote": "Source: sis-agentic-architecture spec, Plane 03; living-design catalog family (proposal). Garden words are this benchmark's metaphor",
+  "planes": [
+    {
+      "tag": "STAGE 01 \u00b7 CAPTURE",
+      "title": "Plant: gateway intake",
+      "summary": "Loopback session store with privacy filtering.",
+      "nodes": [
+        {
+          "icon": "gateway",
+          "badge": "GATEWAY",
+          "title": "SIS Memory Gateway",
+          "detail": "Session store, privacy tag filtering, hybrid retrieval."
+        },
+        {
+          "icon": "shield",
+          "badge": "THE VEIL",
+          "title": "Sanitization",
+          "detail": "Local secret scrubbing and .vis.provenance.json sidecar locks."
+        }
+      ]
+    },
+    {
+      "tag": "STAGE 02 \u00b7 KEEP",
+      "title": "Beds: typed vaults",
+      "summary": "Event-sourced JSONL is the source of truth.",
+      "nodes": [
+        {
+          "icon": "vault",
+          "badge": "6 VAULTS",
+          "title": "Typed vaults",
+          "detail": "Strategic, Technical, Creative, Operational, Wisdom, Horizon."
+        },
+        {
+          "icon": "database",
+          "badge": "JSONL",
+          "title": "Event-sourced JSONL",
+          "detail": "Event-sourced source of truth."
+        }
+      ]
+    },
+    {
+      "tag": "STAGE 03 \u00b7 RECALL",
+      "title": "Harvest: find it again",
+      "summary": "SQLite FTS5 index with hybrid ranking.",
+      "nodes": [
+        {
+          "icon": "compass",
+          "badge": "FTS5",
+          "title": "Full-text recall",
+          "detail": "Indexed from the event log."
+        },
+        {
+          "icon": "eye",
+          "badge": "RRF HYBRID",
+          "title": "Hybrid retrieval",
+          "detail": "Hybrid retrieval, as on the memory gateway."
+        }
+      ]
+    }
+  ]
+}

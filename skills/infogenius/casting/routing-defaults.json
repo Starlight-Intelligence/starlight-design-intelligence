@@ -1,0 +1,39 @@
+{
+  "schema": "starlight.infogenius.casting-routing.v1",
+  "status": "proposal",
+  "note": "Editorial routing defaults are PROPOSALS. They nominate a cast; they never approve a character, never override the owning brand pack, and never substitute for retrieval. Every route still resolves through the VIS retrieval interface.",
+  "routes": [
+    { "route_id": "founder-creator-story", "topics": ["founder", "creator", "origin", "build-in-public", "human-ai-collaboration"], "brand_scope": ["frankx"], "nominated": ["mini-frank", "nilo", "brio", "riff"] },
+    { "route_id": "frankx-technical-authority", "topics": ["frankx-architecture", "advanced-ai-architecture", "technical-authority"], "brand_scope": ["frankx"], "nominated": ["omega"] },
+    { "route_id": "orchestration", "topics": ["orchestration", "agent-team", "routing", "queen"], "brand_scope": ["sis"], "nominated": ["starlight-queen"] },
+    { "route_id": "architecture", "topics": ["architecture", "systems", "infrastructure"], "brand_scope": ["sis", "frankx"], "nominated": ["noble-machines"] },
+    { "route_id": "memory-knowledge", "topics": ["memory", "knowledge", "cultivation"], "brand_scope": ["sis"], "nominated": ["living-glasshouse"] },
+    { "route_id": "research-exploration", "topics": ["research", "exploration", "discovery"], "brand_scope": ["sis"], "nominated": ["prismatic-tide"] },
+    { "route_id": "mythic-education", "topics": ["mythic-education", "guardian", "gates", "world-lore"], "brand_scope": ["arcanea"], "nominated": ["arcanea"] }
+  ],
+  "technical_default": "none",
+  "technical_topics": ["architecture", "data", "benchmark", "pricing", "metrics", "routing", "memory", "capability-tree"],
+  "custom_pet_rule": "Custom pets keep distinct sprite lineages. A request for one lineage is never satisfied by a different lineage.",
+  "rejected_references": [
+    { "id": "arcanea-fire", "reason": "rejected; never a positive reference" },
+    { "id": "unity-v1", "reason": "rejected; never a positive reference" },
+    { "id": "unity-v2", "reason": "rejected; never a positive reference" }
+  ],
+  "distinct_identities": [
+    { "id": "biro", "never_merge_with": "brio", "rule": "Biro is never silently merged into Brio. Treat as two lookups; an explicit owner decision is required to alias them." }
+  ],
+  "vendor_guests": [
+    { "id": "clawd", "vendor": "anthropic" },
+    { "id": "claude-pet", "vendor": "anthropic" },
+    { "id": "codex-pet", "vendor": "openai" },
+    { "id": "github-mona", "vendor": "github" }
+  ],
+  "vendor_guest_policy": {
+    "ownership": "vendor-owned",
+    "label": "Unofficial vendor guest",
+    "rights_state": "pending",
+    "logos": "none; no logo or lockup that implies endorsement",
+    "partner_claim": "none",
+    "cobrand_requires_permission": ["anthropic", "openai"]
+  }
+}

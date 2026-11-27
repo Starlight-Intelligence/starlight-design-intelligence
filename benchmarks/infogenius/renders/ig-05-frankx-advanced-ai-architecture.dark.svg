@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 888" width="1440" height="888" role="img" aria-labelledby="title-ig-05-frankx-advanced-ai-architecture-dark desc-ig-05-frankx-advanced-ai-architecture-dark" data-brand="frankx" data-archetype="stack-tiers" data-theme="dark">
+<title id="title-ig-05-frankx-advanced-ai-architecture-dark">From Brand Authority to Gated Release</title>
+<desc id="desc-ig-05-frankx-advanced-ai-architecture-dark">A process view of the kernel: brand pack decides, specialists produce, deterministic tools render, a gate verifies.</desc>
+<defs>
+    <linearGradient id="bg-grad-ig-05-frankx-advanced-ai-architecture-dark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A0A0B"/>
+      <stop offset="100%" stop-color="#0F141C"/>
+    </linearGradient>
+    <pattern id="grid-ig-05-frankx-advanced-ai-architecture-dark" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#182230" stroke-width="0.75"/>
+    </pattern>
+    <marker id="arrow-ig-05-frankx-advanced-ai-architecture-dark" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#38BDF8"/>
+    </marker>
+  </defs>
+<rect x="0" y="0" width="1440" height="888" fill="#0A0A0B"/>
+<rect x="0" y="0" width="1440" height="888" fill="url(#grid-ig-05-frankx-advanced-ai-architecture-dark)" opacity="0.55"/>
+<rect x="16" y="16" width="1408" height="856" rx="20" fill="none" stroke="#28364A" stroke-width="1"/>
+<rect x="56" y="42" width="264" height="26" rx="13" fill="#0D2922" stroke="#1D5B4B" stroke-width="1"/>
+<text x="188" y="58.85" fill="#6EE7B7" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">FRANKX · DESIGN RELEASE PIPELINE</text>
+<rect x="330" y="42" width="115" height="26" rx="13" fill="#2B1F0B" stroke="#6B4C16" stroke-width="1"/>
+<text x="387.5" y="58.85" fill="#FCD34D" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">BENCHMARK 05</text>
+<rect x="1261" y="42" width="123" height="26" rx="13" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="1322.5" y="58.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">FrankX · DARK</text>
+<text x="56" y="104" fill="#F8FAFC" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="30" font-weight="700">From Brand Authority to Gated Release</text>
+<text x="56" y="132" fill="#D4DEE9" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400">A process view of the kernel: brand pack decides, specialists produce, deterministic tools render, a gate verifies.</text>
+<line x1="56" y1="168" x2="1384" y2="168" stroke="#28364A" stroke-width="1"/>
+<line x1="56" y1="828" x2="1384" y2="828" stroke="#28364A" stroke-width="1"/>
+<text x="56" y="850" fill="#9FB0C4" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="12" font-weight="500">Source: AGENTS.md; skills/design-orchestrator; evals/web-release-gate.md; benchmarks/infogenius/RUBRIC.md</text>
+<text x="1384" y="850" fill="#34D399" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11.5" font-weight="600" text-anchor="end">WCAG AA &gt;= 4.5:1 · ZERO RASTER TEXT</text>
+<rect x="88" y="194" width="1264" height="122" rx="16" fill="#11161F" stroke="#3B4F6B" stroke-width="1.25"/>
+<rect x="88" y="194" width="6" height="122" rx="3" fill="#34D399"/>
+<rect x="114" y="218" width="48" height="48" rx="12" fill="#171F2C" stroke="#28364A" stroke-width="1"/>
+<g transform="translate(126, 230) scale(1)" width="24" height="24" fill="none" stroke="#34D399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16.5H6.5A2.5 2.5 0 0 0 4 22V5.5z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></g>
+<text x="138" y="286" fill="#9FB0C4" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="700" text-anchor="middle">TIER 01</text>
+<text x="184" y="232" fill="#F8FAFC" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">Brand pack authority</text>
+<text x="184" y="258" fill="#D4DEE9" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400">The owning brand pack sets color, type, motion and copy.</text>
+<rect x="184" y="274" width="99" height="24" rx="12" fill="#0D2922" stroke="#1D5B4B" stroke-width="1"/>
+<text x="233.5" y="289.85" fill="#6EE7B7" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">BRAND PACK</text>
+<rect x="291" y="274" width="121" height="24" rx="12" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="351.5" y="289.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">RIGHTS LIMITS</text>
+<rect x="1232.51" y="216" width="96" height="26" rx="13" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="1280.51" y="233.03" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">AUTHORITY</text>
+<line x1="720" y1="318" x2="720" y2="350" stroke="#38BDF8" stroke-width="1.8" marker-end="url(#arrow-ig-05-frankx-advanced-ai-architecture-dark)"/>
+<rect x="88" y="354" width="1264" height="122" rx="16" fill="#11161F" stroke="#28364A" stroke-width="1.25"/>
+<rect x="88" y="354" width="6" height="122" rx="3" fill="#38BDF8"/>
+<rect x="114" y="378" width="48" height="48" rx="12" fill="#171F2C" stroke="#28364A" stroke-width="1"/>
+<g transform="translate(126, 390) scale(1)" width="24" height="24" fill="none" stroke="#34D399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="6.5" height="5" rx="1.2"/><rect x="14.5" y="4" width="6.5" height="5" rx="1.2"/><rect x="8.8" y="15" width="6.5" height="5" rx="1.2"/><path d="M9.5 6.5h5M12 9v6"/></g>
+<text x="138" y="446" fill="#9FB0C4" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="700" text-anchor="middle">TIER 02</text>
+<text x="184" y="392" fill="#F8FAFC" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">Specialist routing</text>
+<text x="184" y="418" fill="#D4DEE9" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400">The design orchestrator calls one bounded specialist per stage.</text>
+<rect x="184" y="434" width="128" height="24" rx="12" fill="#0D2922" stroke="#1D5B4B" stroke-width="1"/>
+<text x="248" y="449.85" fill="#6EE7B7" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">ONE STAGE EACH</text>
+<rect x="320" y="434" width="99" height="24" rx="12" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="369.5" y="449.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">BRAND KEPT</text>
+<rect x="1216.98" y="376" width="112" height="26" rx="13" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="1272.98" y="393.02" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">ORCHESTRATE</text>
+<line x1="720" y1="478" x2="720" y2="510" stroke="#38BDF8" stroke-width="1.8" marker-end="url(#arrow-ig-05-frankx-advanced-ai-architecture-dark)"/>
+<rect x="88" y="514" width="1264" height="122" rx="16" fill="#11161F" stroke="#28364A" stroke-width="1.25"/>
+<rect x="88" y="514" width="6" height="122" rx="3" fill="#34D399"/>
+<rect x="114" y="538" width="48" height="48" rx="12" fill="#171F2C" stroke="#28364A" stroke-width="1"/>
+<g transform="translate(126, 550) scale(1)" width="24" height="24" fill="none" stroke="#34D399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L20.5 8L12 12.5L3.5 8L12 3.5Z"/><path d="M3.5 12L12 16.5L20.5 12"/><path d="M3.5 16L12 20.5L20.5 16"/></g>
+<text x="138" y="606" fill="#9FB0C4" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="700" text-anchor="middle">TIER 03</text>
+<text x="184" y="552" fill="#F8FAFC" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">Deterministic render</text>
+<text x="184" y="578" fill="#D4DEE9" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400">Exact text and charts compile to SVG and HTML; no model-drawn labels.</text>
+<rect x="184" y="594" width="113" height="24" rx="12" fill="#0D2922" stroke="#1D5B4B" stroke-width="1"/>
+<text x="240.5" y="609.85" fill="#6EE7B7" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">LIGHT + DARK</text>
+<rect x="305" y="594" width="106" height="24" rx="12" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="358" y="609.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">AA CONTRAST</text>
+<rect x="1255.81" y="536" width="73" height="26" rx="13" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="1292.31" y="553.02" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">RENDER</text>
+<line x1="720" y1="638" x2="720" y2="670" stroke="#38BDF8" stroke-width="1.8" marker-end="url(#arrow-ig-05-frankx-advanced-ai-architecture-dark)"/>
+<rect x="88" y="674" width="1264" height="122" rx="16" fill="#11161F" stroke="#28364A" stroke-width="1.25"/>
+<rect x="88" y="674" width="6" height="122" rx="3" fill="#38BDF8"/>
+<rect x="114" y="698" width="48" height="48" rx="12" fill="#171F2C" stroke="#28364A" stroke-width="1"/>
+<g transform="translate(126, 710) scale(1)" width="24" height="24" fill="none" stroke="#34D399" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.6-3 8.4-7 9.5-4-1.1-7-4.9-7-9.5V6l7-3z"/><path d="M9 12.2l2 2 4-4.2"/></g>
+<text x="138" y="766" fill="#9FB0C4" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="10.5" font-weight="700" text-anchor="middle">TIER 04</text>
+<text x="184" y="712" fill="#F8FAFC" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="20" font-weight="700">Independent release gate</text>
+<text x="184" y="738" fill="#D4DEE9" font-family="Inter, &apos;Segoe UI&apos;, system-ui, -apple-system, sans-serif" font-size="14" font-weight="400">Distinct maker, verifier and approver before release.</text>
+<rect x="184" y="754" width="128" height="24" rx="12" fill="#0D2922" stroke="#1D5B4B" stroke-width="1"/>
+<text x="248" y="769.85" fill="#6EE7B7" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">DISTINCT ROLES</text>
+<rect x="320" y="754" width="128" height="24" rx="12" fill="#171F2C" stroke="#3B4F6B" stroke-width="1"/>
+<text x="384" y="769.85" fill="#D4DEE9" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">HUMAN APPROVAL</text>
+<rect x="1209.21" y="696" width="119" height="26" rx="13" fill="#2B1F0B" stroke="#6B4C16" stroke-width="1"/>
+<text x="1268.71" y="713.02" fill="#FCD34D" font-family="&apos;JetBrains Mono&apos;, &apos;IBM Plex Mono&apos;, ui-monospace, SFMono-Regular, monospace" font-size="11.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">RELEASE GATE</text>
+</svg>

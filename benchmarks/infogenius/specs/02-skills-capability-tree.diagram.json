@@ -1,0 +1,112 @@
+{
+  "id": "ig-02-skills-capability-tree",
+  "brand": "sis",
+  "archetype": "layered-architecture",
+  "eyebrow": "STARLIGHT \u00b7 SKILLS MAP",
+  "editionTag": "BENCHMARK 02",
+  "title": "Design Skills by Capability (Benchmark Grouping)",
+  "subtitle": "The four groups are this benchmark's own; SKILLS.md lists the skills, not the groups.",
+  "sourceNote": "Source: SKILLS.md required routing; each node is a skills/<name>/ directory",
+  "planes": [
+    {
+      "tag": "BRANCH 01 \u00b7 RELEASE",
+      "title": "Brand and release authority",
+      "summary": "Decide what is allowed to ship.",
+      "nodes": [
+        {
+          "icon": "shield",
+          "badge": "RELEASE",
+          "title": "world-class-web-release",
+          "detail": "Release contract for web surfaces."
+        },
+        {
+          "icon": "book",
+          "badge": "BRAND",
+          "title": "brand-constitution",
+          "detail": "Brand rules an implementer can follow."
+        },
+        {
+          "icon": "compass",
+          "badge": "IDENTITY",
+          "title": "logo-system",
+          "detail": "Vector-first logo practice."
+        }
+      ]
+    },
+    {
+      "tag": "BRANCH 02 \u00b7 CRAFT",
+      "title": "Visual craft",
+      "summary": "Make the surface read well.",
+      "nodes": [
+        {
+          "icon": "layers",
+          "badge": "TYPE",
+          "title": "typography-art-direction",
+          "detail": "Hierarchy and font choices."
+        },
+        {
+          "icon": "spark",
+          "badge": "MOTION",
+          "title": "motion-and-interaction",
+          "detail": "Motion that names its purpose."
+        },
+        {
+          "icon": "eye",
+          "badge": "ANTI-SLOP",
+          "title": "anti-slop-frontend",
+          "detail": "Rejects generic output."
+        }
+      ]
+    },
+    {
+      "tag": "BRANCH 03 \u00b7 CHARACTER",
+      "title": "Character systems",
+      "summary": "Proposed cast contracts and continuity.",
+      "nodes": [
+        {
+          "icon": "workflow",
+          "badge": "LINEAGE",
+          "title": "design-character-lineage",
+          "detail": "Proposed character families."
+        },
+        {
+          "icon": "vault",
+          "badge": "CONTRACT",
+          "title": "compose-agent-identity",
+          "detail": "Linked role and values contracts."
+        },
+        {
+          "icon": "check",
+          "badge": "CONTINUITY",
+          "title": "review-character-continuity",
+          "detail": "Checks against an exact master."
+        }
+      ]
+    },
+    {
+      "tag": "BRANCH 04 \u00b7 VERIFY",
+      "title": "Verification",
+      "summary": "Prove it on the rendered result.",
+      "nodes": [
+        {
+          "icon": "globe",
+          "badge": "BROWSER",
+          "title": "browser-verify",
+          "detail": "Desktop and mobile captures."
+        },
+        {
+          "icon": "eye",
+          "badge": "AUDIT",
+          "title": "design-audit",
+          "detail": "Findings with severity."
+        },
+        {
+          "icon": "code",
+          "badge": "TYPE GATE",
+          "title": "font-licensing-gate",
+          "detail": "Font rights before use."
+        }
+      ]
+    }
+  ]
+}

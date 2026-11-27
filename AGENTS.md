@@ -90,3 +90,7 @@ Contract: `starlight.repo_profile.v2` · Team: `frankx-product-revenue-team` · 
 - Required handoff: artifacts, checks, verifier verdict, risks, approvals, rollback, and next bounded action.
 - Human-gated actions: DNS, secrets, billing, spend, migrations, destructive operations, permissions, legal/IP, brand identity, external sends, and high-risk production changes.
 <!-- STARLIGHT-REPO-CONTRACT:END -->
+
+## InfoGenius (infographics, diagrams, data visuals)
+
+For a sourced infographic, technical diagram, data visual, lesson or deck visual, start at `skills/infogenius/SKILL.md` and load further files only as its table directs. Exact text, labels, numbers and charts are deterministic HTML/SVG. Do not generate or invent characters; casting goes through `skills/infogenius/casting/`. Maker is never the sole reviewer. Scored by `benchmarks/infogenius/RUBRIC.md` (26/30 plus hard gates). Existing skills and workflows are unchanged.

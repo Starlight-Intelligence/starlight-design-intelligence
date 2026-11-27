@@ -1,0 +1,1 @@
+Synthetic fixture for the InfoGenius casting resolver. Every asset is a short ASCII string (not an image) with its real SHA-256. It contains no private bytes, no real character art and no Library IDs. `synthetic.tampered-c` carries bytes that deliberately fail their declared hash.
