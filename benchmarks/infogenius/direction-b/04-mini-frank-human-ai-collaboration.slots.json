@@ -1,0 +1,98 @@
+{
+  "schema": "starlight.infogenius.direction-b-slots.v1",
+  "brief": 4,
+  "brief_id": "04-mini-frank-human-ai-collaboration",
+  "brand": "frankx",
+  "status": "slot spec only; no character art; Biro is never merged into Brio",
+  "canvas": {
+    "width": 1600,
+    "height": 900
+  },
+  "regions": [
+    {
+      "id": "title",
+      "role": "title and one-line claim",
+      "x": 40,
+      "y": 90,
+      "w": 1520,
+      "h": 110
+    },
+    {
+      "id": "human-side",
+      "role": "the human's decisions",
+      "x": 40,
+      "y": 220,
+      "w": 480,
+      "h": 560
+    },
+    {
+      "id": "shared-work",
+      "role": "the shared artifact between them",
+      "x": 540,
+      "y": 220,
+      "w": 520,
+      "h": 560
+    },
+    {
+      "id": "ai-side",
+      "role": "the companion's contribution",
+      "x": 1080,
+      "y": 220,
+      "w": 480,
+      "h": 560
+    },
+    {
+      "id": "source",
+      "role": "source note",
+      "x": 40,
+      "y": 800,
+      "w": 1520,
+      "h": 80
+    }
+  ],
+  "casting": {
+    "topics": [
+      "human-ai-collaboration"
+    ],
+    "visual_kind": "story",
+    "understanding_gain": "shows-relationship"
+  },
+  "slots": [
+    {
+      "id": "companion-a",
+      "region": "human-side",
+      "box": {
+        "x": 80,
+        "y": 270,
+        "w": 400,
+        "h": 460
+      },
+      "query": {
+        "name": "mini-frank",
+        "preferred_edition": null,
+        "pose_expression_note": "Looking toward the shared artifact; expression to be confirmed against recovered references.",
+        "minimum_status": "resolved"
+      }
+    },
+    {
+      "id": "companion-b",
+      "region": "ai-side",
+      "box": {
+        "x": 1120,
+        "y": 270,
+        "w": 400,
+        "h": 460
+      },
+      "query": {
+        "name": "nilo",
+        "preferred_edition": null,
+        "pose_expression_note": "Facing the shared artifact; pose to be confirmed against recovered references.",
+        "minimum_status": "resolved"
+      }
+    }
+  ],
+  "direction_a": {
+    "spec": null,
+    "note": "Direction A for brief 4 is defined but not rendered; the fallback has no committed spec yet."
+  }
+}

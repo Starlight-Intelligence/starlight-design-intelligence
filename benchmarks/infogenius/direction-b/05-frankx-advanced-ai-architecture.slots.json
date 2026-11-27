@@ -1,0 +1,75 @@
+{
+  "schema": "starlight.infogenius.direction-b-slots.v1",
+  "brief": 5,
+  "brief_id": "05-frankx-advanced-ai-architecture",
+  "brand": "frankx",
+  "status": "slot spec only; no character art; proposal until the owner opts in",
+  "canvas": {
+    "width": 1600,
+    "height": 900
+  },
+  "regions": [
+    {
+      "id": "title",
+      "role": "title and one-line claim",
+      "x": 40,
+      "y": 90,
+      "w": 1520,
+      "h": 110
+    },
+    {
+      "id": "ladder",
+      "role": "four-rung ladder carried by Direction A content",
+      "x": 40,
+      "y": 220,
+      "w": 1040,
+      "h": 600
+    },
+    {
+      "id": "guide",
+      "role": "guide beside the top rung",
+      "x": 1100,
+      "y": 220,
+      "w": 460,
+      "h": 600
+    },
+    {
+      "id": "source",
+      "role": "source note",
+      "x": 40,
+      "y": 830,
+      "w": 1520,
+      "h": 50
+    }
+  ],
+  "casting": {
+    "topics": [
+      "frankx-architecture"
+    ],
+    "visual_kind": "technical",
+    "understanding_gain": "explains-role",
+    "explicit_character_optin": false
+  },
+  "slots": [
+    {
+      "id": "technical-guide",
+      "region": "guide",
+      "box": {
+        "x": 1140,
+        "y": 270,
+        "w": 380,
+        "h": 500
+      },
+      "query": {
+        "name": "omega",
+        "preferred_edition": null,
+        "pose_expression_note": "Gesturing up the ladder toward the human-stop rung; pose to be confirmed against recovered references.",
+        "minimum_status": "resolved"
+      }
+    }
+  ],
+  "direction_a": {
+    "spec": "benchmarks/infogenius/specs/05-frankx-advanced-ai-architecture.diagram.json",
+    "note": "Technical brief: Omega only with explicit owner opt-in and a named gain."
+  }
+}

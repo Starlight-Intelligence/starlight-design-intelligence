@@ -1,0 +1,75 @@
+{
+  "schema": "starlight.infogenius.direction-b-slots.v1",
+  "brief": 9,
+  "brief_id": "09-agentic-income-commercial-system",
+  "brand": "agentic-income",
+  "status": "slot spec only; no character art; routing-defaults.json has no route for this brand, so no character is nominated",
+  "canvas": {
+    "width": 1600,
+    "height": 900
+  },
+  "regions": [
+    {
+      "id": "title",
+      "role": "title and one-line claim",
+      "x": 40,
+      "y": 90,
+      "w": 1520,
+      "h": 110
+    },
+    {
+      "id": "stages",
+      "role": "three-stage commercial system carried by Direction A content",
+      "x": 40,
+      "y": 220,
+      "w": 1200,
+      "h": 600
+    },
+    {
+      "id": "guide",
+      "role": "optional guide beside the stages",
+      "x": 1260,
+      "y": 220,
+      "w": 300,
+      "h": 600
+    },
+    {
+      "id": "source",
+      "role": "source note",
+      "x": 40,
+      "y": 830,
+      "w": 1520,
+      "h": 50
+    }
+  ],
+  "casting": {
+    "topics": [
+      "commercial-system"
+    ],
+    "visual_kind": "technical",
+    "explicit_character_optin": false
+  },
+  "slots": [
+    {
+      "id": "guide",
+      "region": "guide",
+      "nomination": "owner-required",
+      "box": {
+        "x": 1280,
+        "y": 270,
+        "w": 260,
+        "h": 500
+      },
+      "query": {
+        "name": null,
+        "preferred_edition": null,
+        "pose_expression_note": "Pose to be decided only after the owner nominates a character for this brand.",
+        "minimum_status": "resolved"
+      }
+    }
+  ],
+  "direction_a": {
+    "spec": "benchmarks/infogenius/specs/09-agentic-income-commercial-system.diagram.json",
+    "note": "No earnings claims; Direction A ships unless the owner nominates a character."
+  }
+}

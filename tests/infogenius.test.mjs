@@ -1,15 +1,16 @@
 import assert from "node:assert/strict";
 import { spawnSync } from "node:child_process";
-import { copyFileSync, existsSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 
 import { compileDiagramSvg } from "../scripts/compile-brand-diagrams.mjs";
-import { renderBenchmark } from "../scripts/render-infogenius-benchmark.mjs";
+import { checkRenders, loadBriefs, renderBenchmark, resultsMarkdown } from "../scripts/render-infogenius-benchmark.mjs";
+import { SCHEMA as SLOT_SCHEMA, buildOutputs, checkOutputs, decideDirection, renderSlotPreview, validateSlotSpec } from "../scripts/infogenius-direction-b.mjs";
 import {
-  CLI_ENTRY, CONFLICT_CODES, ENV_CACHE, ENV_MANIFEST, MCP_TOOL, NOT_RESOLVED_EXIT_CODE,
+  ALL_BRANDS, CLI_ENTRY, CONFLICT_CODES, ENV_CACHE, ENV_MANIFEST, MCP_TOOL, NOT_RESOLVED_EXIT_CODE,
   buildResolveRequest, classifyId, createCommandTransport, createFixtureTransport, resolveCasting, routeEditorial, validateResult, verifyReferenceHashes
 } from "../skills/infogenius/casting/casting-resolver.mjs";
 
@@ -165,11 +166,12 @@ test("command transport maps exit 3 to a non-resolved result and rejects other f
 });
 
 test("routing defaults are proposals and match the declared map", () => {
-  assert.equal(routeEditorial(["founder"]).status, "proposal");
-  assert.deepEqual(routeEditorial(["founder"]).nominated, ["mini-frank", "nilo", "brio", "riff"]);
-  assert.deepEqual(routeEditorial(["orchestration"]).nominated, ["starlight-queen"]);
-  assert.deepEqual(routeEditorial(["memory"]).nominated, ["living-glasshouse"]);
-  assert.deepEqual(routeEditorial(["mythic-education"]).nominated, ["arcanea"]);
+  assert.equal(routeEditorial(["founder"], "frankx").status, "proposal");
+  assert.deepEqual(routeEditorial(["founder"], "frankx").nominated, ["mini-frank", "nilo", "brio", "riff"]);
+  assert.deepEqual(routeEditorial(["orchestration"], "sis").nominated, ["starlight-queen"]);
+  assert.deepEqual(routeEditorial(["memory"], "sis").nominated, ["living-glasshouse"]);
+  assert.deepEqual(routeEditorial(["mythic-education"], "arcanea").nominated, ["arcanea"]);
+  assert.deepEqual(routeEditorial(["founder"]).nominated, [], "no brand means no brand-scoped route applies");
 });
 
 test("fixture contains no image bytes and is flagged synthetic", () => {
@@ -184,7 +186,7 @@ test("fixture contains no image bytes and is flagged synthetic", () => {
 test("benchmark suite defines ten briefs with the required hard gates in the rubric", () => {
   const { briefs } = JSON.parse(read("benchmarks/infogenius/briefs.json"));
   assert.equal(briefs.length, 10);
-  assert.deepEqual(briefs.filter((b) => b.deterministic_render).map((b) => b.n), [1, 2, 3, 5, 9]);
+  assert.deepEqual(briefs.filter((b) => b.deterministic_render).map((b) => b.n), [1, 2, 3, 5, 6, 7, 9, 10]);
   const rubric = read("benchmarks/infogenius/RUBRIC.md");
   for (const g of ["26 of 30", "Factual correctness", "Source identity", "Accessibility", "Rights", "maker cannot be the sole reviewer"]) assert.ok(rubric.toLowerCase().includes(g.toLowerCase()), g);
   for (const b of briefs.filter((x) => x.deterministic_render)) assert.ok(existsSync(join(ROOT, b.spec)), b.spec);
@@ -192,7 +194,7 @@ test("benchmark suite defines ten briefs with the required hard gates in the rub
 
 test("benchmark renders are deterministic, AA-contrast, overflow-free in both themes", () => {
   const rows = renderBenchmark({ write: false });
-  assert.equal(rows.length, 10);
+  assert.equal(rows.length, loadBriefs().rendered.length * 2);
   const again = renderBenchmark({ write: false });
   rows.forEach((r, i) => {
     assert.equal(r.sha256, again[i].sha256);
@@ -268,4 +270,185 @@ test("routing enforces brand_scope when a brand is given", () => {
   assert.deepEqual(routeEditorial(["founder"], "sis").nominated, []);
   assert.deepEqual(routeEditorial(["mythic-education"], "frankx").nominated, []);
   assert.deepEqual(routeEditorial(["mythic-education"], "arcanea").nominated, ["arcanea"]);
+});
+
+// ---- Round 3: decision shape, brand_scope, orphan checks, Direction B ----
+
+const SYN = {
+  technical_topics: ["pipeline"],
+  routes: [
+    { route_id: "a-only", topics: ["topic-x"], brand_scope: ["brand-a"], nominated: ["synthetic.a-char"] },
+    { route_id: "b-only", topics: ["topic-x"], brand_scope: ["brand-b"], nominated: ["synthetic.b-char"] },
+    { route_id: "everyone", topics: ["topic-y"], brand_scope: [ALL_BRANDS], nominated: ["synthetic.shared"] },
+    { route_id: "unscoped", topics: ["topic-z"], nominated: ["synthetic.unscoped"] }
+  ]
+};
+const okResult = (id) => ({ status: "resolved", identity_id: id, matched_alias: id, rights: "unknown", approval: "unknown", positive_references: [{ edition: "e1", sha256: "a".repeat(64) }] });
+
+test("a route scoped to brand A is never nominated for a brief of brand B", () => {
+  assert.deepEqual(routeEditorial(["topic-x"], "brand-a", SYN).nominated, ["synthetic.a-char"]);
+  assert.deepEqual(routeEditorial(["topic-x"], "brand-b", SYN).nominated, ["synthetic.b-char"]);
+  assert.deepEqual(routeEditorial(["topic-x"], "brand-c", SYN).nominated, []);
+  assert.deepEqual(routeEditorial(["topic-x"], undefined, SYN).nominated, [], "a missing brand never matches a scoped route");
+  const asked = [];
+  const d = resolveCasting({ brief: { brand: "brand-b", topics: ["topic-x"], visual_kind: "story", understanding_gain: "explains-role" }, routing: SYN, transport: (n) => { asked.push(n); return okResult(n); } });
+  assert.deepEqual(asked, ["synthetic.b-char"], "only brand B's route is resolved; brand A's character is never asked for");
+  assert.ok(!JSON.stringify(d).includes("synthetic.a-char"));
+});
+
+test("an explicit all-brands scope applies to any brand; a missing scope applies to none", () => {
+  for (const b of ["brand-a", "brand-b", "brand-c", undefined]) assert.deepEqual(routeEditorial(["topic-y"], b, SYN).nominated, ["synthetic.shared"], String(b));
+  for (const b of ["brand-a", undefined]) assert.deepEqual(routeEditorial(["topic-z"], b, SYN).nominated, []);
+});
+
+test("every return path of resolveCasting has the same shape and a receipt with the reason and inputs", () => {
+  const story = { brand: "brand-a", topics: ["topic-x"], visual_kind: "story", understanding_gain: "explains-role" };
+  const cases = {
+    "no gain": { brief: { ...story, understanding_gain: undefined }, transport: () => okResult("x") },
+    "technical without opt-in": { brief: { brand: "brand-a", topics: ["pipeline"], visual_kind: "technical", understanding_gain: "explains-role" }, transport: () => okResult("x") },
+    "nothing routed for this brand": { brief: { ...story, brand: "brand-c" }, transport: () => okResult("x") },
+    "only a rejected reference": { brief: { ...story, requested_ids: ["unity-v1"] }, transport: () => okResult("x") },
+    "no transport": { brief: story, transport: null },
+    "every candidate blocked": { brief: story, transport: () => ({ status: "ambiguous", rights: "unknown", approval: "unknown" }) },
+    "cast": { brief: story, transport: (n) => okResult(n) }
+  };
+  const keys = Object.keys(resolveCasting({ brief: story, routing: SYN, transport: null })).sort();
+  const rkeys = Object.keys(resolveCasting({ brief: story, routing: SYN, transport: null }).receipt).sort();
+  for (const [name, c] of Object.entries(cases)) {
+    const d = resolveCasting({ ...c, routing: SYN });
+    assert.deepEqual(Object.keys(d).sort(), keys, `${name}: top-level shape`);
+    assert.deepEqual(Object.keys(d.receipt).sort(), rkeys, `${name}: receipt shape`);
+    assert.equal(typeof d.use_character, "boolean", name);
+    assert.ok(typeof d.status === "string" && d.status, `${name}: status`);
+    assert.ok(typeof d.reason === "string" && d.reason.length > 5, `${name}: reason`);
+    assert.equal(d.receipt.reason, d.reason, `${name}: receipt carries the reason`);
+    assert.equal(d.receipt.decision, d.status, name);
+    assert.equal(d.receipt.inputs.brand, c.brief.brand, `${name}: receipt carries the inputs`);
+    assert.ok(Array.isArray(d.receipt.inputs.topics) && Array.isArray(d.receipt.inputs.requested_ids), name);
+    assert.equal(d.receipt.rights, "unknown"); assert.equal(d.receipt.approval, "unknown");
+    assert.equal(d.receipt.integration_status, "not_asserted");
+  }
+  assert.equal(resolveCasting({ ...cases["no gain"], routing: SYN }).status, "no_character");
+  assert.equal(resolveCasting({ ...cases["no transport"], routing: SYN }).status, "unavailable");
+  assert.equal(resolveCasting({ ...cases["cast"], routing: SYN }).status, "cast");
+  assert.deepEqual(resolveCasting({ ...cases["cast"], routing: SYN }).receipt.identity_ids, ["synthetic.a-char"]);
+});
+
+test("render --check names orphan or stale files in renders and previews, and the message counts come from briefs.json", () => {
+  const rows = renderBenchmark({ write: false });
+  const { rendered } = loadBriefs();
+  assert.equal(new Set(rows.map((r) => r.brief)).size, rendered.length);
+  const rd = mkdtempSync(join(tmpdir(), "ig-orph-r-"));
+  const pd = mkdtempSync(join(tmpdir(), "ig-orph-p-"));
+  for (const r of rows) { writeFileSync(join(rd, r.file), r.svg); writeFileSync(join(pd, r.file.replace(/\.svg$/, ".png")), "x"); }
+  assert.deepEqual(checkRenders(rows, rd, pd), []);
+  writeFileSync(join(rd, "ig-99-removed-brief.dark.svg"), "<svg/>");
+  writeFileSync(join(rd, "notes.txt"), "x");
+  writeFileSync(join(pd, "ig-99-removed-brief.dark.png"), "x");
+  const problems = checkRenders(rows, rd, pd);
+  assert.equal(problems.length, 3, problems.join("\n"));
+  for (const n of ["ig-99-removed-brief.dark.svg", "notes.txt", "ig-99-removed-brief.dark.png"]) assert.ok(problems.some((p) => p.includes(n)), n);
+  const script = join(ROOT, "scripts", "render-infogenius-benchmark.mjs");
+  const ok = spawnSync(process.execPath, [script, "--check"], { encoding: "utf8" });
+  assert.equal(ok.status, 0, ok.stderr);
+  assert.ok(ok.stdout.includes(`${rendered.length} briefs`), ok.stdout);
+  assert.ok(ok.stdout.includes(`briefs ${rendered.map((b) => b.n).join(", ")}`), ok.stdout);
+  const md = resultsMarkdown(rows, { date: "d", node: "n" });
+  assert.ok(md.includes(`Briefs rendered (${rendered.length} of 10): ${rendered.map((b) => b.n).join(", ")}`));
+  assert.throws(() => resultsMarkdown(rows.slice(2), { date: "d", node: "n" }), /deterministic_render/);
+});
+
+const slotSpec = (over = {}) => ({
+  schema: SLOT_SCHEMA, brief: 1, brand: "brand-a", canvas: { width: 1000, height: 600 },
+  regions: [{ id: "stage", role: "stage", x: 0, y: 0, w: 500, h: 600 }, { id: "body", role: "body", x: 500, y: 0, w: 500, h: 600 }],
+  casting: { topics: ["topic-x"], visual_kind: "story", understanding_gain: "explains-role" },
+  slots: [{ id: "s1", region: "stage", box: { x: 20, y: 20, w: 200, h: 300 }, query: { name: "synthetic.a-char", preferred_edition: null, pose_expression_note: "synthetic note", minimum_status: "resolved" } }],
+  direction_a: { spec: null },
+  ...over
+});
+
+test("slot spec validation rejects art, logos, bad geometry, vendor guests without the unofficial flag and rejected references", () => {
+  assert.deepEqual(validateSlotSpec(slotSpec()), []);
+  const bad = (mut) => validateSlotSpec(slotSpec({ slots: [mut(structuredClone(slotSpec().slots[0]))] }));
+  assert.ok(bad((s) => ({ ...s, image: "x.png" })).some((e) => /not allowed/.test(e)));
+  assert.ok(bad((s) => ({ ...s, logo: "x" })).some((e) => /not allowed/.test(e)));
+  assert.ok(bad((s) => ({ ...s, box: { x: 400, y: 0, w: 300, h: 100 } })).some((e) => /not inside region/.test(e)));
+  assert.ok(bad((s) => ({ ...s, query: { ...s.query, minimum_status: "ambiguous" } })).some((e) => /minimum_status/.test(e)));
+  assert.ok(bad((s) => ({ ...s, query: { ...s.query, name: "clawd" } })).some((e) => /unofficial/.test(e)));
+  assert.deepEqual(bad((s) => ({ ...s, unofficial: true, query: { ...s.query, name: "clawd" } })), []);
+  assert.ok(bad((s) => ({ ...s, query: { ...s.query, name: "unity-v1" } })).some((e) => /rejected/.test(e)));
+  assert.ok(bad((s) => ({ ...s, query: { ...s.query, name: null } })).some((e) => /query.name/.test(e)));
+  const two = validateSlotSpec(slotSpec({ slots: [slotSpec().slots[0], { ...slotSpec().slots[0], id: "s2", box: { x: 100, y: 100, w: 200, h: 200 } }] }));
+  assert.ok(two.some((e) => /overlaps/.test(e)));
+});
+
+test("Direction B is blocked, with a recorded reason and fallback to A, for ambiguous, not_found, unresolved and no positive reference", () => {
+  const spec = slotSpec({ direction_a: { spec: "benchmarks/infogenius/specs/01-starlight-agent-orchestration.diagram.json" } });
+  const run = (res) => decideDirection(spec, res === undefined ? {} : { s1: res });
+  const allowed = run(okResult("synthetic.a-char"));
+  assert.equal(allowed.direction, "B");
+  assert.equal(allowed.fallback, null);
+  const base = { rights: "unknown", approval: "unknown", positive_references: [] };
+  const blocked = {
+    ambiguous: run({ ...base, status: "ambiguous" }),
+    not_found: run({ ...base, status: "not_found" }),
+    unresolved: run({ ...base, status: "unresolved" }),
+    "no result at all": run(undefined),
+    no_positive_reference: run({ ...okResult("synthetic.a-char"), positive_references: [] }),
+    conflict: run({ ...okResult("synthetic.a-char"), conflicts: ["confusable_alias_not_merged"] })
+  };
+  for (const [name, d] of Object.entries(blocked)) {
+    assert.equal(d.direction, "A", name);
+    assert.equal(d.fallback.direction, "A", name);
+    assert.equal(d.fallback.spec, spec.direction_a.spec, name);
+    assert.ok(d.fallback.reason.length > 10 && d.reasons.length >= 1, name);
+    assert.equal(d.resolver.rights, "unknown"); assert.equal(d.resolver.approval, "unknown");
+  }
+  assert.equal(blocked.ambiguous.reasons[0].code, "ambiguous");
+  assert.equal(blocked.not_found.reasons[0].code, "not_found");
+  assert.equal(blocked.unresolved.reasons[0].code, "unresolved");
+  assert.equal(blocked.no_positive_reference.reasons[0].code, "no_positive_reference");
+  assert.match(blocked["no result at all"].fallback.reason, /no resolver result supplied/);
+  // one blocked slot blocks the whole composition
+  const two = slotSpec({ slots: [spec.slots[0], { ...spec.slots[0], id: "s2", box: { x: 250, y: 20, w: 200, h: 300 }, query: { ...spec.slots[0].query, name: "synthetic.b-char" } }] });
+  assert.equal(decideDirection(two, { s1: okResult("synthetic.a-char"), s2: { ...base, status: "ambiguous" } }).direction, "A");
+  // a technical brief without owner opt-in is gated even when the resolver succeeds
+  const tech = slotSpec({ casting: { topics: ["topic-x"], visual_kind: "technical", understanding_gain: "explains-role", explicit_character_optin: false } });
+  const gated = decideDirection(tech, { s1: okResult("synthetic.a-char") });
+  assert.equal(gated.direction, "A");
+  assert.ok(gated.reasons.some((r) => r.code === "casting_gate"));
+  // an invalid spec fails closed
+  assert.equal(decideDirection(slotSpec({ slots: [] }), {}).direction, "A");
+});
+
+test("committed direction-b specs cover briefs 1, 4, 5, 9, hold no art, and today fall back to A", () => {
+  const dir = join(ROOT, "benchmarks/infogenius/direction-b");
+  const files = readdirSync(dir).filter((f) => f.endsWith(".slots.json")).sort();
+  assert.deepEqual(files.map((f) => f.slice(0, 2)), ["01", "04", "05", "09"]);
+  const outs = buildOutputs(dir);
+  for (const f of files) {
+    const spec = JSON.parse(readFileSync(join(dir, f), "utf8"));
+    assert.deepEqual(validateSlotSpec(spec), [], f);
+    const svg = renderSlotPreview(spec);
+    assert.ok(svg.includes("slot: needs resolver") && svg.includes("NO CHARACTER ART"), f);
+    assert.ok(!/<image|<path|<circle|<ellipse|href=/.test(svg), `${f}: preview is outline boxes and text only`);
+    assert.equal(decideDirection(spec, {}).direction, "A", f);
+  }
+  const decisions = JSON.parse(outs["decisions.json"]).decisions;
+  assert.ok(decisions.every((d) => d.direction === "A" && d.fallback.reason));
+  assert.deepEqual(checkOutputs(dir), []);
+  const brief9 = JSON.parse(readFileSync(join(dir, "09-agentic-income-commercial-system.slots.json"), "utf8"));
+  assert.deepEqual(routeEditorial(brief9.casting.topics, brief9.brand).nominated, [], "no route nominates a character for agentic-income");
+  const brief4 = JSON.parse(readFileSync(join(dir, "04-mini-frank-human-ai-collaboration.slots.json"), "utf8"));
+  assert.ok(brief4.slots.every((sl) => !/biro/i.test(sl.query.name)), "Biro is never queried or aliased into a slot");
+});
+
+test("direction-b --check fails on an orphan preview and drift", () => {
+  const dir = mkdtempSync(join(tmpdir(), "ig-db-"));
+  for (const f of readdirSync(join(ROOT, "benchmarks/infogenius/direction-b")).filter((f) => f.endsWith(".slots.json"))) copyFileSync(join(ROOT, "benchmarks/infogenius/direction-b", f), join(dir, f));
+  assert.ok(checkOutputs(dir).length > 0, "nothing written yet: missing outputs are reported");
+  for (const [rel, content] of Object.entries(buildOutputs(dir))) { mkdirSync(dirname(join(dir, rel)), { recursive: true }); writeFileSync(join(dir, rel), content); }
+  assert.deepEqual(checkOutputs(dir), []);
+  writeFileSync(join(dir, "previews", "04-removed.preview.svg"), "<svg/>");
+  assert.ok(checkOutputs(dir).some((p) => p.includes("04-removed.preview.svg") && /orphan/.test(p)));
 });

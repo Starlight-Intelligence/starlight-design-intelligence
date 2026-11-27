@@ -1,0 +1,75 @@
+{
+  "schema": "starlight.infogenius.direction-b-slots.v1",
+  "brief": 1,
+  "brief_id": "01-starlight-agent-orchestration",
+  "brand": "sis",
+  "status": "slot spec only; no character art; proposal until the owner opts in and the resolver returns a positive reference",
+  "canvas": {
+    "width": 1600,
+    "height": 900
+  },
+  "regions": [
+    {
+      "id": "title",
+      "role": "title and one-line claim",
+      "x": 40,
+      "y": 90,
+      "w": 1520,
+      "h": 110
+    },
+    {
+      "id": "stage",
+      "role": "character stage beside the hub",
+      "x": 40,
+      "y": 220,
+      "w": 560,
+      "h": 600
+    },
+    {
+      "id": "diagram",
+      "role": "hub-spoke diagram carried by Direction A content",
+      "x": 640,
+      "y": 220,
+      "w": 920,
+      "h": 600
+    },
+    {
+      "id": "source",
+      "role": "source note",
+      "x": 40,
+      "y": 830,
+      "w": 1520,
+      "h": 50
+    }
+  ],
+  "casting": {
+    "topics": [
+      "orchestration"
+    ],
+    "visual_kind": "technical",
+    "understanding_gain": "explains-role",
+    "explicit_character_optin": false
+  },
+  "slots": [
+    {
+      "id": "orchestrator",
+      "region": "stage",
+      "box": {
+        "x": 100,
+        "y": 270,
+        "w": 440,
+        "h": 500
+      },
+      "query": {
+        "name": "starlight-queen",
+        "preferred_edition": null,
+        "pose_expression_note": "Attentive, pointing toward the hub; supports reading the orchestrator role, never decorative. Pose or expression to be confirmed against recovered references.",
+        "minimum_status": "resolved"
+      }
+    }
+  ],
+  "direction_a": {
+    "spec": "benchmarks/infogenius/specs/01-starlight-agent-orchestration.diagram.json",
+    "note": "Technical brief: a character needs explicit owner opt-in with a named gain, so B is gated even before retrieval."
+  }
+}

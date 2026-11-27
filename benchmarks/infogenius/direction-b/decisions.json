@@ -1,0 +1,144 @@
+{
+  "schema": "starlight.infogenius.direction-b-decisions.v1",
+  "resolver_results": "none supplied; no resolver transport was run for this file",
+  "decisions": [
+    {
+      "file": "01-starlight-agent-orchestration.slots.json",
+      "brief": 1,
+      "direction": "A",
+      "fallback": {
+        "direction": "A",
+        "spec": "benchmarks/infogenius/specs/01-starlight-agent-orchestration.diagram.json",
+        "reason": "orchestrator: resolver status unresolved (no resolver result supplied); no substitute generated; technical diagram default is no character; explicit opt-in with a named gain required"
+      },
+      "reasons": [
+        {
+          "slot": "orchestrator",
+          "code": "unresolved",
+          "reason": "orchestrator: resolver status unresolved (no resolver result supplied); no substitute generated"
+        },
+        {
+          "code": "casting_gate",
+          "reason": "technical diagram default is no character; explicit opt-in with a named gain required"
+        }
+      ],
+      "slots": [
+        {
+          "slot": "orchestrator",
+          "status": "unresolved",
+          "positive_references": 0,
+          "result_supplied": false
+        }
+      ],
+      "resolver": {
+        "tool": "visual.character.resolve",
+        "rights": "unknown",
+        "approval": "unknown"
+      }
+    },
+    {
+      "file": "04-mini-frank-human-ai-collaboration.slots.json",
+      "brief": 4,
+      "direction": "A",
+      "fallback": {
+        "direction": "A",
+        "spec": null,
+        "reason": "companion-a: resolver status unresolved (no resolver result supplied); no substitute generated; companion-b: resolver status unresolved (no resolver result supplied); no substitute generated"
+      },
+      "reasons": [
+        {
+          "slot": "companion-a",
+          "code": "unresolved",
+          "reason": "companion-a: resolver status unresolved (no resolver result supplied); no substitute generated"
+        },
+        {
+          "slot": "companion-b",
+          "code": "unresolved",
+          "reason": "companion-b: resolver status unresolved (no resolver result supplied); no substitute generated"
+        }
+      ],
+      "slots": [
+        {
+          "slot": "companion-a",
+          "status": "unresolved",
+          "positive_references": 0,
+          "result_supplied": false
+        },
+        {
+          "slot": "companion-b",
+          "status": "unresolved",
+          "positive_references": 0,
+          "result_supplied": false
+        }
+      ],
+      "resolver": {
+        "tool": "visual.character.resolve",
+        "rights": "unknown",
+        "approval": "unknown"
+      }
+    },
+    {
+      "file": "05-frankx-advanced-ai-architecture.slots.json",
+      "brief": 5,
+      "direction": "A",
+      "fallback": {
+        "direction": "A",
+        "spec": "benchmarks/infogenius/specs/05-frankx-advanced-ai-architecture.diagram.json",
+        "reason": "technical-guide: resolver status unresolved (no resolver result supplied); no substitute generated; technical diagram default is no character; explicit opt-in with a named gain required"
+      },
+      "reasons": [
+        {
+          "slot": "technical-guide",
+          "code": "unresolved",
+          "reason": "technical-guide: resolver status unresolved (no resolver result supplied); no substitute generated"
+        },
+        {
+          "code": "casting_gate",
+          "reason": "technical diagram default is no character; explicit opt-in with a named gain required"
+        }
+      ],
+      "slots": [
+        {
+          "slot": "technical-guide",
+          "status": "unresolved",
+          "positive_references": 0,
+          "result_supplied": false
+        }
+      ],
+      "resolver": {
+        "tool": "visual.character.resolve",
+        "rights": "unknown",
+        "approval": "unknown"
+      }
+    },
+    {
+      "file": "09-agentic-income-commercial-system.slots.json",
+      "brief": 9,
+      "direction": "A",
+      "fallback": {
+        "direction": "A",
+        "spec": "benchmarks/infogenius/specs/09-agentic-income-commercial-system.diagram.json",
+        "reason": "guide: no character nominated; the owner must nominate one, none is invented"
+      },
+      "reasons": [
+        {
+          "slot": "guide",
+          "code": "no_character_nominated",
+          "reason": "guide: no character nominated; the owner must nominate one, none is invented"
+        }
+      ],
+      "slots": [
+        {
+          "slot": "guide",
+          "status": "unresolved",
+          "positive_references": 0
+        }
+      ],
+      "resolver": {
+        "tool": "visual.character.resolve",
+        "rights": "unknown",
+        "approval": "unknown"
+      }
+    }
+  ]
+}

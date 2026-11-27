@@ -48,7 +48,8 @@
       "character_policy": "character-led direction B expected; Mini Frank/Nilo/Brio/Riff proposals; retrieval and hash verification mandatory; Biro never merged into Brio",
       "deterministic_render": false,
       "spec": null,
-      "note": "Not rendered here: requires private reference bytes. Run only with the installed private retrieval source."
+      "note": "Not rendered here: requires private reference bytes. Run only with the installed private retrieval source.",
+      "not_rendered_reason": "needs private reference bytes; run only with the installed private retrieval source. Direction B slot spec in direction-b/."
     },
     {
       "n": 5,
@@ -70,9 +71,9 @@
       "visual_kind": "technical",
       "archetype": "curriculum-roadmap",
       "character_policy": "none",
-      "deterministic_render": false,
-      "spec": null,
-      "note": "Not rendered in this run; spec to be authored from the GenCreator pack."
+      "deterministic_render": true,
+      "spec": "benchmarks/infogenius/specs/06-gencreator-production-workflow.diagram.json",
+      "note": "Five steps from brand-packs/gencreator/NARRATIVE.md edition contracts; every node cites its file. Compiler uppercases step and evidence labels, which GenCreator's DESIGN direction avoids; limitation, not a decision."
     },
     {
       "n": 7,
@@ -80,11 +81,11 @@
       "title": "Starlight Academy illustrated lesson",
       "brand": "sis",
       "visual_kind": "editorial",
-      "archetype": "curriculum-roadmap",
+      "archetype": "hub-spoke",
       "character_policy": "optional, only if it reduces abstraction; retrieval required",
-      "deterministic_render": false,
-      "spec": null,
-      "note": "Not rendered in this run."
+      "deterministic_render": true,
+      "spec": "benchmarks/infogenius/specs/07-starlight-academy-illustrated-lesson.diagram.json",
+      "note": "Four spokes from the SIS Academy mode text (COPY, NARRATIVE, DESIGN, MOTION); every node cites its file. No character; the repo has no illustration source for an Academy lesson, so this is the lesson structure, not an illustrated scene."
     },
     {
       "n": 8,
@@ -96,7 +97,8 @@
       "character_policy": "Arcanea mythic education route; locked Guardians only; staging forms stay labelled staging; Arcanea Fire and Unity v1/v2 never positive references",
       "deterministic_render": false,
       "spec": null,
-      "note": "Not rendered in this run. Arcanea language stays on Arcanea surfaces."
+      "note": "Not rendered in this run. Arcanea language stays on Arcanea surfaces.",
+      "not_rendered_reason": "needs private reference retrieval for locked Guardians; Arcanea language stays on Arcanea surfaces. Not attempted this round."
     },
     {
       "n": 9,
@@ -114,13 +116,13 @@
       "n": 10,
       "id": "10-premium-landing-page-visual-narrative",
       "title": "Premium landing-page visual narrative",
-      "brand": "owner-selected",
+      "brand": "owner-selected (not set; rendered with the sis pack as the repo default)",
       "visual_kind": "editorial",
-      "archetype": "hud-blueprint",
+      "archetype": "comparison-matrix",
       "character_policy": "decided by casting resolver per surface.brand_id",
-      "deterministic_render": false,
-      "spec": null,
-      "note": "Not rendered in this run; needs web-release-gate captures at 1440 and 390."
+      "deterministic_render": true,
+      "spec": "benchmarks/infogenius/specs/10-premium-landing-page-visual-narrative.diagram.json",
+      "note": "Repo supports the release-gate process, not any brand's landing-page copy. Renders the four gate scores beside the SKILL step that earns each; no page copy invented."
     }
   ],
   "source_revision": "5fb0bdd (main at run time; specs cite repo files at this revision)"

@@ -46,14 +46,26 @@ export function classifyId(rawId) {
   return { id, kind: "standard" };
 }
 
-/** Propose a cast from topics. Proposal only; never approval. */
-export function routeEditorial(topics = [], brand = undefined) {
+/** brand_scope token meaning a route applies to every brand. Anything else is an explicit brand list. */
+export const ALL_BRANDS = "all-brands";
+
+/**
+ * Propose a cast from topics for ONE brand. Proposal only; never approval.
+ * A route applies only when its brand_scope lists the brief's brand or carries the explicit
+ * all-brands token. A missing or empty scope, or a missing brand, never matches (fail closed).
+ * `routing` defaults to routing-defaults.json and can be replaced with inline data for tests.
+ */
+export function routeEditorial(topics = [], brand = undefined, routing = ROUTING) {
   const wanted = topics.map(norm);
-  // brand_scope is enforced when a brand is given, so a cast routed for one brand is never nominated for another.
-  const inScope = (r) => brand === undefined || (r.brand_scope ?? []).includes(norm(brand));
-  const hits = ROUTING.routes.filter((r) => inScope(r) && r.topics.some((t) => wanted.includes(t)));
+  const b = brand === undefined || brand === null ? null : norm(brand);
+  const inScope = (r) => {
+    const scope = (r.brand_scope ?? []).map(norm);
+    return scope.includes(ALL_BRANDS) || (b !== null && scope.includes(b));
+  };
+  const hits = routing.routes.filter((r) => inScope(r) && r.topics.some((t) => wanted.includes(norm(t))));
   return {
     status: "proposal",
+    brand: b,
     routes: hits.map((r) => r.route_id),
     nominated: [...new Set(hits.flatMap((r) => r.nominated))]
   };
@@ -160,59 +172,71 @@ const LABEL = ROUTING.vendor_guest_policy.label;
  * resolveCasting({ brief, transport })
  * brief: { brand, topics[], visual_kind: "technical"|"editorial"|"story", requested_ids[], understanding_gain?, brand_scope? }
  */
-export function resolveCasting({ brief, transport = null }) {
+export function resolveCasting({ brief, transport = null, routing = ROUTING }) {
   const kind = brief.visual_kind ?? "technical";
-  const topicTechnical = ROUTING.technical_topics.some((t) => (brief.topics ?? []).map(norm).includes(t));
+  const topics = brief.topics ?? [];
+  const topicTechnical = routing.technical_topics.some((t) => topics.map(norm).includes(t));
   const technical = kind === "technical" || (kind !== "story" && topicTechnical);
   const gain = brief.understanding_gain ?? null;
-  const base = {
-    schema: "starlight.infogenius.casting-decision.v1", brief_kind: kind, proposals_only: true, blocked: [], cast: [], notes: [],
-    // Every decision carries a receipt, including early exits, so callers can always read result.receipt.
-    receipt: { contract_source: "frankxai/visual-intelligence draft PR 92 (unverified; re-check on merge)", tool: MCP_TOOL, identity_ids: [], asset_hashes_verified: false, rights: "unknown", approval: "unknown", integration_status: "not_asserted", fixture: false, reference_revision: null }
+  const proposal = routeEditorial(topics, brief.brand, routing);
+  const requested = (brief.requested_ids?.length ? brief.requested_ids : proposal.nominated).map(norm);
+  const blocked = [];
+  const notes = [];
+  const cast = [];
+  const inputs = {
+    brand: brief.brand ?? null, topics: topics.map(norm), visual_kind: kind, understanding_gain: gain,
+    explicit_character_optin: Boolean(brief.explicit_character_optin), cobrand: Boolean(brief.cobrand), requested_ids: requested
   };
 
-  const requested = (brief.requested_ids?.length ? brief.requested_ids : routeEditorial(brief.topics, brief.brand).nominated).map(norm);
-  const proposal = routeEditorial(brief.topics, brief.brand);
+  // One exit for every return path: identical keys, always a receipt with the reason and the inputs considered.
+  const decide = ({ use_character, status, reason, revision = null }) => ({
+    schema: "starlight.infogenius.casting-decision.v1", brief_kind: kind, proposals_only: true,
+    use_character, status, reason, understanding_gain: gain, routing: proposal, cast, blocked, notes,
+    receipt: {
+      contract_source: "frankxai/visual-intelligence draft PR 92 (unverified; re-check on merge)", tool: MCP_TOOL,
+      decision: status, reason, inputs,
+      identity_ids: cast.map((c) => c.identity_id),
+      asset_hashes_verified: cast.length > 0 && cast.every((c) => c.asset_hashes_verified),
+      rights: "unknown", approval: "unknown", integration_status: "not_asserted",
+      fixture: cast.some((c) => c.fixture), reference_revision: revision
+    }
+  });
 
   // Rule: characters only when they improve understanding; never forced into technical diagrams.
-  if (!gain || !UNDERSTANDING_GAINS.includes(gain)) {
-    return { ...base, use_character: false, reason: "no stated understanding gain; characters are never decoration", routing: proposal };
-  }
-  if (technical && !brief.explicit_character_optin) {
-    return { ...base, use_character: false, reason: "technical diagram default is no character; explicit opt-in with a named gain required", routing: proposal };
-  }
+  if (!gain || !UNDERSTANDING_GAINS.includes(gain)) return decide({ use_character: false, status: "no_character", reason: "no stated understanding gain; characters are never decoration" });
+  if (technical && !brief.explicit_character_optin) return decide({ use_character: false, status: "no_character", reason: "technical diagram default is no character; explicit opt-in with a named gain required" });
 
   const eligible = [];
   for (const raw of requested) {
     const c = classifyId(raw);
-    if (c.kind === "rejected") { base.blocked.push({ id: c.id, reason: "rejected reference; never used as a positive reference" }); continue; }
+    if (c.kind === "rejected") { blocked.push({ id: c.id, reason: "rejected reference; never used as a positive reference" }); continue; }
     if (c.kind === "vendor-guest") {
-      base.notes.push(`${c.id}: ${LABEL}; vendor-owned; rights ${ROUTING.vendor_guest_policy.rights_state}; no logo, no partner claim`);
+      notes.push(`${c.id}: ${LABEL}; vendor-owned; rights ${ROUTING.vendor_guest_policy.rights_state}; no logo, no partner claim`);
       if (ROUTING.vendor_guest_policy.cobrand_requires_permission.includes(c.vendor) && brief.cobrand) {
-        base.blocked.push({ id: c.id, reason: `${c.vendor} co-branding requires permission and approval` }); continue;
+        blocked.push({ id: c.id, reason: `${c.vendor} co-branding requires permission and approval` }); continue;
       }
     }
     eligible.push(c);
   }
-  if (!eligible.length) return { ...base, use_character: false, reason: "no eligible characters after policy checks", routing: proposal };
-  if (!transport) return { ...base, use_character: false, status: "unavailable", reason: "no retrieval transport; identity not resolved; nothing generated", routing: proposal };
+  if (!eligible.length) return decide({ use_character: false, status: "no_character", reason: requested.length ? "no eligible characters after policy checks" : "no character requested or routed for this brand and topics" });
+  if (!transport) return decide({ use_character: false, status: "unavailable", reason: "no retrieval transport; identity not resolved; nothing generated" });
 
   let revision = null;
   for (const e of eligible) {
     const res = transport(buildResolveRequest(e.id).arguments.name);
     const errs = validateResult(res);
-    if (errs.length) { base.blocked.push({ id: e.id, reason: `invalid resolver result: ${errs.join("; ")}` }); continue; }
-    if (res.status !== RESOLVED) { base.blocked.push({ id: e.id, reason: `status ${res.status}; not resolved, no substitute generated`, status: res.status }); continue; }
+    if (errs.length) { blocked.push({ id: e.id, reason: `invalid resolver result: ${errs.join("; ")}` }); continue; }
+    if (res.status !== RESOLVED) { blocked.push({ id: e.id, reason: `status ${res.status}; not resolved, no substitute generated`, status: res.status }); continue; }
     const codes = (res.conflicts ?? []).map((c) => (typeof c === "string" ? c : c.code));
-    if (codes.length) { base.blocked.push({ id: e.id, reason: `conflicts: ${codes.join(", ")}; resolve with the identity owner`, conflicts: codes }); continue; }
+    if (codes.length) { blocked.push({ id: e.id, reason: `conflicts: ${codes.join(", ")}; resolve with the identity owner`, conflicts: codes }); continue; }
     const isGuest = e.kind === "vendor-guest" || res.class === "vendor-guest";
-    if (res.class === "vendor-guest" && e.kind !== "vendor-guest" && brief.cobrand) { base.blocked.push({ id: e.id, reason: "vendor guest co-branding requires permission and approval" }); continue; }
+    if (res.class === "vendor-guest" && e.kind !== "vendor-guest" && brief.cobrand) { blocked.push({ id: e.id, reason: "vendor guest co-branding requires permission and approval" }); continue; }
     const asserted = brief.lineage_required?.[e.id];
-    if (asserted && (asserted !== res.identity_id || (res.rejected_lineages ?? []).some((l) => (l.id ?? l) === asserted))) { base.blocked.push({ id: e.id, reason: `identity mismatch (${res.identity_id} != ${asserted}) or lineage rejected; lineages are never substituted` }); continue; }
+    if (asserted && (asserted !== res.identity_id || (res.rejected_lineages ?? []).some((l) => (l.id ?? l) === asserted))) { blocked.push({ id: e.id, reason: `identity mismatch (${res.identity_id} != ${asserted}) or lineage rejected; lineages are never substituted` }); continue; }
     const hashes = verifyReferenceHashes(res, { cacheDir: brief.cache_dir });
     const positives = res.positive_references ?? [];
     revision = revision ?? res.fixture_revision ?? null;
-    base.cast.push({
+    cast.push({
       id: e.id, identity_id: res.identity_id, matched_alias: res.matched_alias,
       positive_reference_editions: positives.map((p) => p.edition),
       proposals: res.proposals ?? [], rejected_lineages: res.rejected_lineages ?? [], missing_references: res.missing_references ?? [],
@@ -222,10 +246,9 @@ export function resolveCasting({ brief, transport = null }) {
       asset_hashes_verified: hashes.all_verified, fixture: Boolean(res.fixture)
     });
   }
-  return {
-    ...base, use_character: base.cast.length > 0, understanding_gain: gain, routing: proposal,
-    receipt: { contract_source: "frankxai/visual-intelligence draft PR 92 (unverified; re-check on merge)", tool: MCP_TOOL, identity_ids: base.cast.map((c) => c.identity_id), asset_hashes_verified: base.cast.length > 0 && base.cast.every((c) => c.asset_hashes_verified), rights: "unknown", approval: "unknown", integration_status: "not_asserted", fixture: base.cast.some((c) => c.fixture), reference_revision: revision }
-  };
+  return cast.length
+    ? decide({ use_character: true, status: "cast", reason: `${cast.length} character(s) resolved; proposals only, rights and approval unknown`, revision })
+    : decide({ use_character: false, status: "no_character", reason: "every requested character was blocked or not resolved", revision });
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

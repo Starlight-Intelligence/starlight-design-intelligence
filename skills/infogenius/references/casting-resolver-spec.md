@@ -17,7 +17,7 @@ Where the relayed description was prose, this repo chose snake_case JSON keys: `
 ## Flow
 1. `resolveCasting({ brief, transport })` in `casting/casting-resolver.mjs`.
 2. Gate: a named understanding gain (`explains-role`, `shows-relationship`, `reduces-abstraction`, `continuity-with-series`) is required. Technical briefs also need `explicit_character_optin: true`. Otherwise `use_character: false`.
-3. Names come from `requested_ids`, else from proposal routing (`casting/routing-defaults.json`).
+3. Names come from `requested_ids`, else from proposal routing (`casting/routing-defaults.json`). `routeEditorial(topics, brand)` applies a route only when its `brand_scope` lists the brief's brand or carries the explicit token `all-brands`; a route with no scope, or a brief with no brand, never matches. A route scoped to brand A is never nominated for brand B.
 4. Policy filter: rejected references blocked; vendor guests labelled; co-brand with Anthropic/OpenAI blocked absent permission.
 5. For each name: `buildResolveRequest(name)` then `transport(name)`. The result is validated (`validateResult`): `resolved` needs `identity_id` and `matched_alias`; asserted rights or approval are rejected.
 6. Any status other than `resolved` blocks the name; nothing is substituted or generated.
@@ -30,6 +30,9 @@ Where the relayed description was prose, this repo chose snake_case JSON keys: `
 - `createFixtureTransport(path, { cacheDir })`: synthetic fixture; writes ASCII bytes into a temp cache laid out `<aa>/<sha256>`.
 - `createCommandTransport({ entry, manifest, cache })`: spawns `node <entry> --name <name>` with the two env vars. Exit 0 is a result; exit 3 is a non-resolved result read from stdout; any other exit code throws. Exit 3 with `status: "resolved"` throws as a contract violation. The default entry `bin/vis-character.mjs` is relative to the visual-intelligence checkout, so pass an absolute `entry`.
 - none: `status: "unavailable"`; nothing is generated.
+
+## Decision shape
+Every return path, including the no-gain and technical-without-opt-in exits, returns the same keys: `schema, brief_kind, proposals_only, use_character, status (cast | no_character | unavailable), reason, understanding_gain, routing, cast, blocked, notes, receipt`. `receipt` always carries `decision`, `reason` and `inputs` (brand, topics, visual_kind, understanding_gain, explicit_character_optin, cobrand, requested_ids) beside `identity_ids`, `asset_hashes_verified`, `rights`/`approval` (always `unknown`), `integration_status: not_asserted`, `fixture` and `reference_revision`.
 
 ## Routing defaults (proposals)
 Founder and creator stories, FrankX technical authority, orchestration, architecture, memory, research and mythic education each nominate names. These nominate; the resolver and the owner decide. Names in `routing-defaults.json` are routing keys, not verified identity ids.

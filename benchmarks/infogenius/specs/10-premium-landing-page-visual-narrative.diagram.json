@@ -1,0 +1,88 @@
+{
+  "id": "ig-10-premium-landing-page-visual-narrative",
+  "brand": "sis",
+  "archetype": "comparison-matrix",
+  "eyebrow": "FLAGSHIP PAGE · RELEASE GATE",
+  "editionTag": "BENCHMARK 10",
+  "title": "Four Scores a Flagship Page Must Clear",
+  "subtitle": "Thresholds from the web release gate, each beside the step that earns it. No brand has been selected for this brief, so this is the repository's process, not a brand's page.",
+  "sourceNote": "Sources: evals/web-release-gate.md · skills/world-class-web-release/SKILL.md · evals/editorial-articulation-gate.md.",
+  "dimensionHeader": "SCORE",
+  "columns": [
+    {
+      "title": "Gate threshold",
+      "subtitle": "evals/web-release-gate.md"
+    },
+    {
+      "title": "Step that earns it",
+      "subtitle": "skills/world-class-web-release/SKILL.md"
+    }
+  ],
+  "rows": [
+    {
+      "dimension": "Language",
+      "note": "Editorial articulation",
+      "cells": [
+        {
+          "fit": "GATE",
+          "summary": "At least 18/20, and no automatic failure.",
+          "source": "evals/web-release-gate.md; evals/editorial-articulation-gate.md"
+        },
+        {
+          "fit": "STEP 6",
+          "summary": "Read every sentence aloud; reject name-swappable copy.",
+          "source": "skills/world-class-web-release/SKILL.md, step 6"
+        }
+      ]
+    },
+    {
+      "dimension": "Type",
+      "note": "Typography",
+      "cells": [
+        {
+          "fit": "GATE",
+          "summary": "At least 15/16.",
+          "source": "evals/web-release-gate.md"
+        },
+        {
+          "fit": "HARD STOP",
+          "summary": "No role, specimen, source, license or mobile proof blocks the build.",
+          "source": "skills/world-class-web-release/SKILL.md, Hard Stops"
+        }
+      ]
+    },
+    {
+      "dimension": "Visual",
+      "note": "Web visual quality rubric",
+      "cells": [
+        {
+          "fit": "GATE",
+          "summary": "At least 28/30 using evals/web-visual-quality-rubric.md.",
+          "source": "evals/web-release-gate.md"
+        },
+        {
+          "fit": "STEP 5",
+          "summary": "Resolve hierarchy, pacing, proof and responsive behavior before motion.",
+          "source": "skills/world-class-web-release/SKILL.md, step 5"
+        }
+      ]
+    },
+    {
+      "dimension": "Motion",
+      "note": "Only if it earns its place",
+      "cells": [
+        {
+          "fit": "GATE",
+          "summary": "At least 16/18, or a documented cut decision.",
+          "source": "evals/web-release-gate.md"
+        },
+        {
+          "fit": "STEP 7",
+          "summary": "Motion must orient, explain, confirm or reveal causality.",
+          "source": "skills/world-class-web-release/SKILL.md, step 7"
+        }
+      ]
+    }
+  ],
+  "height": 700
+}

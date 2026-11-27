@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1480 700" width="1480" height="700" role="img" aria-labelledby="title-ig-10-premium-landing-page-visual-narrative-dark desc-ig-10-premium-landing-page-visual-narrative-dark" data-brand="sis" data-archetype="comparison-matrix" data-theme="dark">
+<title id="title-ig-10-premium-landing-page-visual-narrative-dark">Four Scores a Flagship Page Must Clear</title>
+<desc id="desc-ig-10-premium-landing-page-visual-narrative-dark">Thresholds from the web release gate, each beside the step that earns it. No brand has been selected for this brief, so this is the repository&apos;s process, not a brand&apos;s page.</desc>
+<defs>
+    <linearGradient id="bg-grad-ig-10-premium-landing-page-visual-narrative-dark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070A10"/>
+      <stop offset="100%" stop-color="#0C121E"/>
+    </linearGradient>
+    <pattern id="grid-ig-10-premium-landing-page-visual-narrative-dark" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#141E30" stroke-width="0.75"/>
+    </pattern>
+    <marker id="arrow-ig-10-premium-landing-page-visual-narrative-dark" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#82D8E6"/>
+    </marker>
+  </defs>
+<rect x="0" y="0" width="1480" height="700" fill="#070A10"/>
+<rect x="0" y="0" width="1480" height="700" fill="url(#grid-ig-10-premium-landing-page-visual-narrative-dark)" opacity="0.55"/>
+<rect x="16" y="16" width="1448" height="668" rx="20" fill="none" stroke="#283959" stroke-width="1"/>
+<rect x="56" y="42" width="235" height="26" rx="13" fill="#112438" stroke="#244B70" stroke-width="1"/>
+<text x="173.5" y="58.85" fill="#BAE6FD" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">FLAGSHIP PAGE · RELEASE GATE</text>
+<rect x="301" y="42" width="115" height="26" rx="13" fill="#2A2010" stroke="#684F24" stroke-width="1"/>
+<text x="358.5" y="58.85" fill="#F6D89E" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">BENCHMARK 10</text>
+<rect x="1122" y="42" width="302" height="26" rx="13" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1273" y="58.85" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">Starlight Intelligence Systems · DARK</text>
+<text x="56" y="104" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="30" font-weight="700">Four Scores a Flagship Page Must Clear</text>
+<text x="56" y="132" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400">Thresholds from the web release gate, each beside the step that earns it. No brand has been selected for this brief, so this is the repository&apos;s process, not a brand&apos;s page.</text>
+<line x1="56" y1="168" x2="1424" y2="168" stroke="#283959" stroke-width="1"/>
+<line x1="56" y1="640" x2="1424" y2="640" stroke="#283959" stroke-width="1"/>
+<text x="56" y="662" fill="#A2B0C8" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="12" font-weight="500">Sources: evals/web-release-gate.md · skills/world-class-web-release/SKILL.md · evals/editorial-articulation-gate.md.</text>
+<text x="1424" y="662" fill="#7DD3FC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11.5" font-weight="600" text-anchor="end">WCAG AA &gt;= 4.5:1 · ZERO RASTER TEXT</text>
+<rect x="56" y="196" width="1368" height="396" rx="16" fill="#0F1624" stroke="#283959" stroke-width="1.25"/>
+<rect x="56" y="196" width="1368" height="68" rx="16" fill="#162033" stroke="#283959" stroke-width="1"/>
+<text x="78" y="236" fill="#A2B0C8" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="12" font-weight="700" letter-spacing="0.5">SCORE</text>
+<line x1="384" y1="196" x2="384" y2="592" stroke="#283959" stroke-width="1"/>
+<text x="404" y="227" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Gate threshold</text>
+<text x="404" y="247" fill="#7DD3FC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="12" font-weight="500">evals/web-release-gate.md</text>
+<line x1="904" y1="196" x2="904" y2="592" stroke="#283959" stroke-width="1"/>
+<text x="924" y="227" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Step that earns it</text>
+<text x="924" y="247" fill="#7DD3FC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="12" font-weight="500">skills/world-class-web-release/SKILL.md</text>
+<line x1="56" y1="264" x2="1424" y2="264" stroke="#283959" stroke-width="1"/>
+<text x="78" y="298" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="600">Language</text>
+<text x="78" y="320" fill="#A2B0C8" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="12" font-weight="400">Editorial articulation</text>
+<rect x="404" y="278" width="51" height="22" rx="11" fill="#2A2010" stroke="#684F24" stroke-width="1"/>
+<text x="429.5" y="292.68" fill="#F6D89E" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">GATE</text>
+<text x="404" y="322" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="500">At least 18/20, and no automatic failure.</text>
+<rect x="924" y="278" width="65" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="956.5" y="292.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">STEP 6</text>
+<text x="924" y="322" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="500">Read every sentence aloud; reject name-swappable copy.</text>
+<rect x="57" y="346" width="1366" height="82" fill="#162033"/>
+<line x1="56" y1="346" x2="1424" y2="346" stroke="#283959" stroke-width="1"/>
+<text x="78" y="380" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="600">Type</text>
+<text x="78" y="402" fill="#A2B0C8" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="12" font-weight="400">Typography</text>
+<rect x="404" y="360" width="51" height="22" rx="11" fill="#2A2010" stroke="#684F24" stroke-width="1"/>
+<text x="429.5" y="374.68" fill="#F6D89E" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">GATE</text>
+<text x="404" y="404" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="500">At least 15/16.</text>
+<rect x="924" y="360" width="86" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="967" y="374.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">HARD STOP</text>
+<text x="924" y="404" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="500">No role, specimen, source, license or mobile proof blocks the build.</text>
+<line x1="56" y1="428" x2="1424" y2="428" stroke="#283959" stroke-width="1"/>
+<text x="78" y="462" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="600">Visual</text>
+<text x="78" y="484" fill="#A2B0C8" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="12" font-weight="400">Web visual quality rubric</text>
+<rect x="404" y="442" width="51" height="22" rx="11" fill="#2A2010" stroke="#684F24" stroke-width="1"/>
+<text x="429.5" y="456.68" fill="#F6D89E" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">GATE</text>
+<text x="404" y="486" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="500">At least 28/30 using evals/web-visual-quality-rubric.md.</text>
+<rect x="924" y="442" width="65" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="956.5" y="456.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">STEP 5</text>
+<text x="924" y="486" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="500">Resolve hierarchy, pacing, proof and responsive behavior before motion.</text>
+<rect x="57" y="510" width="1366" height="82" fill="#162033"/>
+<line x1="56" y1="510" x2="1424" y2="510" stroke="#283959" stroke-width="1"/>
+<text x="78" y="544" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="600">Motion</text>
+<text x="78" y="566" fill="#A2B0C8" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="12" font-weight="400">Only if it earns its place</text>
+<rect x="404" y="524" width="51" height="22" rx="11" fill="#2A2010" stroke="#684F24" stroke-width="1"/>
+<text x="429.5" y="538.67" fill="#F6D89E" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">GATE</text>
+<text x="404" y="568" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="500">At least 16/18, or a documented cut decision.</text>
+<rect x="924" y="524" width="65" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="956.5" y="538.67" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">STEP 7</text>
+<text x="924" y="568" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="500">Motion must orient, explain, confirm or reveal causality.</text>
+</svg>
