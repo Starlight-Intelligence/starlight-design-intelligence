@@ -20,6 +20,8 @@
     "register:asset": "node scripts/register-media-asset.mjs",
     "validate:interface": "node scripts/validate-interface-foundations.mjs",
     "test:interface": "node browser-checks/interface-foundations.mjs",
+    "qa:visual": "node scripts/visual-qa-gate.mjs",
+    "test:visual-qa": "node --test tests/visual-qa-gate.test.mjs",
     "test:fonts": "node --test tests/font-artifact.test.mjs",
     "test": "node --test",
     "validate:experience": "node scripts/validate-experience.mjs",

@@ -15,6 +15,7 @@
   ],
   "exports": {
     ".": "./src/index.ts",
+    "./agent": "./src/agent/index.ts",
     "./gate": "./src/gate/index.ts",
     "./glass": "./src/glass/index.ts",
     "./primitives": "./src/primitives/index.ts",

@@ -1,0 +1,16 @@
+name: Audit Frontier instruction references
+description: Report committed instruction coverage against a selected design-kernel revision.
+inputs:
+  pin:
+    description: Full commit SHA of the constitution selected by the owning repository.
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Check committed instruction references
+      shell: bash
+      env:
+        CONSTITUTION_PIN: ${{ inputs.pin }}
+      run: |
+        node "$GITHUB_ACTION_PATH/../../../scripts/audit-frontier-instructions.mjs" \
+          --repo "$GITHUB_WORKSPACE" --pin "$CONSTITUTION_PIN" --check

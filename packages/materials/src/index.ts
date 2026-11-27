@@ -1,3 +1,4 @@
+export * from './agent/index.ts';
 export * from './gate/index.ts';
 export * from './glass/index.ts';
 export * from './primitives/index.ts';

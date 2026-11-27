@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none" role="img" aria-label="Agentic Income Relay Step mark">
+  <!-- Candidate Exploration Only: Three Stepping Compounding Bars (signal amber accent #d97706) -->
+  <rect x="8" y="28" width="8" height="12" fill="currentColor"/>
+  <rect x="20" y="19" width="8" height="21" fill="currentColor"/>
+  <rect x="32" y="8" width="8" height="32" fill="#d97706"/>
+  <path d="M12 24L24 15L36 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="square"/>
+</svg>

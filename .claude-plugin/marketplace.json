@@ -1,0 +1,17 @@
+{
+  "name": "starlight-design",
+  "owner": { "name": "Frank Riemer" },
+  "metadata": { "description": "Starlight design plugins for Claude Code, mirroring the ChatGPT/Codex plugin entries in plugin.json." },
+  "plugins": [
+    {
+      "name": "starlight-design-intelligence",
+      "source": "./",
+      "description": "Art direction to browser proof: design-orchestrator plus specialist design skills and brand packs."
+    },
+    {
+      "name": "starlight-living-design",
+      "source": "./plugins/starlight-living-design",
+      "description": "Character-led AI interfaces, agent identity and team capability maps."
+    }
+  ]
+}

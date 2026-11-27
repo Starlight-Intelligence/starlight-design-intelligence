@@ -1,0 +1,8 @@
+{
+  "name": "starlight-living-design",
+  "version": "0.1.0",
+  "description": "Design character-led AI interfaces through visual lineages, agent contracts, companion journeys and inspectable capability maps. Does not install a runtime, connect accounts or deploy agents.",
+  "author": { "name": "Frank Riemer" },
+  "repository": "https://github.com/Starlight-Intelligence/starlight-design-intelligence",
+  "keywords": ["design", "agents", "characters", "companion"]
+}
