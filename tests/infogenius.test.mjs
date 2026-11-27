@@ -1,5 +1,7 @@
 import assert from "node:assert/strict";
-import { existsSync, readFileSync } from "node:fs";
+import { spawnSync } from "node:child_process";
+import { copyFileSync, existsSync, mkdtempSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
@@ -133,6 +135,20 @@ test("benchmark renders are deterministic, AA-contrast, overflow-free in both th
     assert.ok(existsSync(committed));
     assert.equal(readFileSync(committed, "utf8"), compileDiagramSvg(JSON.parse(read(`benchmarks/infogenius/specs/${r.id.replace(/^ig-/, "")}.diagram.json`)), { theme: r.theme, rootDir: ROOT }).svg);
   });
+});
+
+test("render --check fails and names the file when a committed render differs by one byte", () => {
+  const script = join(ROOT, "scripts", "render-infogenius-benchmark.mjs");
+  const src = join(ROOT, "benchmarks/infogenius/renders");
+  const dir = mkdtempSync(join(tmpdir(), "ig-check-"));
+  for (const f of readdirSync(src)) copyFileSync(join(src, f), join(dir, f));
+  const clean = spawnSync(process.execPath, [script, "--check", "--out", dir], { encoding: "utf8" });
+  assert.equal(clean.status, 0, clean.stderr);
+  const victim = "ig-01-starlight-agent-orchestration.dark.svg";
+  writeFileSync(join(dir, victim), readFileSync(join(dir, victim), "utf8") + " ");
+  const bad = spawnSync(process.execPath, [script, "--check", "--out", dir], { encoding: "utf8" });
+  assert.notEqual(bad.status, 0);
+  assert.ok(bad.stderr.includes(victim), bad.stderr);
 });
 
 test("discovery pointers exist in AGENTS.md and CLAUDE.md and the skill is registered", () => {

@@ -31,11 +31,22 @@ export function renderBenchmark({ outDir = join(BENCH, "renders"), write = true 
         brief: brief.n, id: spec.id, brand: spec.brand, archetype: spec.archetype, theme, file,
         provider: "none", cost_usd: 0, time_ms: Number(ms.toFixed(2)),
         min_contrast: out.minContrastRatio, overflow: out.overflowChecks.filter((o) => !o.passed).length,
-        sha256: out.sha256, review: "pending"
+        sha256: out.sha256, review: "pending", svg: out.svg
       });
     }
   }
   return rows;
+}
+
+/** Compare each freshly compiled SVG byte for byte with the committed file; return one message per problem. */
+export function checkRenders(rows, outDir) {
+  const problems = [];
+  for (const r of rows) {
+    const path = join(outDir, r.file);
+    if (!existsSync(path)) { problems.push(`missing render: ${r.file}`); continue; }
+    if (!readFileSync(path).equals(Buffer.from(r.svg, "utf8"))) problems.push(`render differs from fresh compile: ${r.file}`);
+  }
+  return problems;
 }
 
 export function resultsMarkdown(rows, meta) {
@@ -51,13 +62,13 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   const outDir = oi >= 0 ? resolve(args[oi + 1]) : join(BENCH, "renders");
   const rows = renderBenchmark({ outDir, write: !check });
   if (check) {
-    const stale = rows.filter((r) => !existsSync(join(outDir, r.file)) || readFileSync(join(outDir, r.file), "utf8").length === 0);
-    if (stale.length) { console.error(`missing renders: ${stale.map((s) => s.file).join(", ")}`); process.exit(1); }
-    console.log(`Verified ${rows.length} renders compile (${rows.length / 2} briefs x 2 themes)`);
+    const problems = checkRenders(rows, outDir);
+    if (problems.length) { for (const p of problems) console.error(p); process.exit(1); }
+    console.log(`Verified ${rows.length} renders byte-identical to a fresh in-memory compile (${rows.length / 2} briefs x 2 themes)`);
   } else {
     const date = new Date().toISOString().slice(0, 10);
     writeFileSync(join(BENCH, "RESULTS.md"), resultsMarkdown(rows, { date, node: process.version }), "utf8");
-    writeFileSync(join(BENCH, "results.json"), JSON.stringify({ date, node: process.version, rows }, null, 2) + "\n", "utf8");
+    writeFileSync(join(BENCH, "results.json"), JSON.stringify({ date, node: process.version, rows: rows.map(({ svg, ...r }) => r) }, null, 2) + "\n", "utf8");
     console.log(resultsMarkdown(rows, { date, node: process.version }));
   }
 }
