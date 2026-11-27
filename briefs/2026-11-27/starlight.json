@@ -1,0 +1,424 @@
+[
+  {
+    "id": "starlight-2026-11-27-001",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/",
+      "placement": "Homepage hero, full-bleed authored scene behind the opening statement"
+    },
+    "audience": "Curious builders and founders meeting Starlight for the first time",
+    "purpose": "Intelligence becoming possibility: one human-scale subject, one idea, invitation to explore",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/e13-architectural-intelligence-3200.webp",
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/community/starlight-observatory-garden-v1.webp"
+    ],
+    "prompt": "A small rooftop observatory garden at the moment just after sunset, seen from a low angle: on the right, a person seen from behind at a worktable under a pergola, sketching on paper beside a brass telescope, a warm gold lamp lighting their hands and the page; on the left, the dusk sky and garden fall into deep ink for copy. Real plants, weathered teak, brass, linen. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision. Composition lock: one full-bleed authored scene, the darker region on the left for HTML copy, the lit focal subject on the right, one directional warm key light from upper left with a real contact shadow.",
+    "negative": "no visible face, no stars painted across the sky; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-002",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/",
+      "placement": "Homepage hero 4:5 art-directed mobile source"
+    },
+    "audience": "Mobile visitors",
+    "purpose": "Same scene recomposed so the person and the lit worktable read at 375px",
+    "aspect": "4:5",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/i02-human-values-studio-3200.webp"
+    ],
+    "prompt": "Vertical recomposition of the rooftop observatory garden: top third dusk sky in ink for copy, lower two thirds the pergola worktable with a person seen from behind sketching, brass telescope edge, warm gold lamp on hands and paper. Real plants and weathered teak. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision. One directional warm key from upper left.",
+    "negative": "no visible face; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-003",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/",
+      "placement": "Homepage 9:16 story/reel cover for social distribution of the homepage"
+    },
+    "audience": "Followers on Instagram/TikTok/Shorts",
+    "purpose": "Thumb-stopping vertical version that keeps one subject",
+    "aspect": "9:16",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/i01-arrival-provisioning-3200.webp"
+    ],
+    "prompt": "Tall vertical frame: a single lit doorway at the end of a long dark corridor of a research building, a person seen from behind walking toward it carrying a notebook, warm gold light spilling from the doorway onto the floor. Top 30% dark ink for copy. Concrete, oak door frame, linen. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision.",
+    "negative": "no visible face; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-004",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/growth",
+      "placement": "Growth offers page hero (proposed €2,000 / €5,000 / €750 offers; page held from search until release gate passes)"
+    },
+    "audience": "Small business owners evaluating a growth engagement",
+    "purpose": "Show growth as a team at a shared table making visible progress",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/i02-human-values-studio-3200.webp"
+    ],
+    "prompt": "A shared studio table in late afternoon, seen from a three-quarter angle: on the right two people seen from behind and in partial profile (faces turned away) pin printed customer journey cards onto a corkboard, one card circled in gold pencil; on the left the room falls into ink shadow. Warm low sun from upper left raking across the cards. Cork, paper, oak, wool. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision. Composition lock: one full-bleed authored scene, the darker region on the left for HTML copy, the lit focal subject on the right, one directional warm key light from upper left with a real contact shadow.",
+    "negative": "no faces turned to camera, no charts going up and to the right, no money imagery; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-005",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/growth",
+      "placement": "Growth offer card image (4:5) for offer tiles"
+    },
+    "audience": "Prospects scanning the three offer tiles",
+    "purpose": "One object per tile set: a growth map in progress",
+    "aspect": "4:5",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/e13-architectural-intelligence-3200.webp"
+    ],
+    "prompt": "Vertical close still life: a hand-drawn map of a customer path on heavy paper pinned to a corkboard, a gold pushpin marking one decision point, a pencil hanging on a string, warm key light from upper left with contact shadows. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision.",
+    "negative": "Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-006",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/workshops",
+      "placement": "Workshops page hero (€3,900 planning estimate)"
+    },
+    "audience": "Team leads considering a facilitated workshop",
+    "purpose": "A real working room prepared for a team session",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/crew-council.jpg"
+    ],
+    "prompt": "A daylight workshop room before participants arrive: a long table with laptops closed, printed exercise sheets, sticky notes in ivory and one gold stack, a whiteboard with a simple drawn agent workflow (boxes and arrows, no text). Big window light from the left, warm, slight haze. Concrete, oak, paper. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision. Composition lock: one full-bleed authored scene, the darker region on the left for HTML copy, the lit focal subject on the right, one directional warm key light from upper left with a real contact shadow.",
+    "negative": "no people; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-007",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/kernel",
+      "placement": "Multi-agent Ops playbook and kit teaser in the \"Where to go next\" section. Pack state: in build, not on sale, no price; image must be labelled concept in alt/caption"
+    },
+    "audience": "Developers who finished the free kernel and want coordinated agent teams",
+    "purpose": "Preview the Multi-agent Ops idea honestly: a team run with an acceptance contract checked by a different vendor, without implying availability",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/core-exploded-3200.webp",
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/teams-crew.png"
+    ],
+    "prompt": "A clean operations desk at night seen from above at an angle: five identical ivory index cards laid in a row, each connected by thin cyan thread to the next (system state), ending at a single sealed envelope with a gold wax seal labelled by colour only, representing the pre-registered acceptance contract; a second, differently coloured pen rests on the envelope suggesting an independent reviewer. Warm desk lamp from upper left, deep ink surroundings. palette: ink #070A10 foundation, panel #0D1119, ivory #EDE6D8, connection cyan #82D8E6 only on elements that show system state, gold #C9A15C only where a human decision is made.",
+    "negative": "no price tags, no \"buy\" cues, no robots; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-008",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/kernel",
+      "placement": "Multi-agent Ops square card for playbook listings and share previews (concept-labelled, not on sale)"
+    },
+    "audience": "Visitors browsing playbooks",
+    "purpose": "Thumbnail-sized emblem-free object that stands for acceptance-checked teamwork",
+    "aspect": "1:1",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/core-exploded-3200.webp"
+    ],
+    "prompt": "Square still life: a single sealed ivory envelope with a gold wax seal resting on a dark panel surface, a thin cyan thread looping from the left edge into the seal, one warm key light from upper left, crisp contact shadow, generous negative space. palette: ink #070A10 foundation, panel #0D1119, ivory #EDE6D8, connection cyan #82D8E6 only on elements that show system state, gold #C9A15C only where a human decision is made.",
+    "negative": "no star mark on the seal, no letters; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-009",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/playbooks",
+      "placement": "Playbooks index hero"
+    },
+    "audience": "Builders choosing which open playbook to run",
+    "purpose": "A playbook as a well-worn field guide that records every decision",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/observatory.png"
+    ],
+    "prompt": "A field-guide notebook lying open on a weathered worktable outdoors at golden hour, its pages showing hand-drawn step diagrams and checkboxes (no readable words), a pencil and a small brass compass beside it, a gold ribbon bookmark. Right side lit, left side falls into ink shade. Paper, brass, teak. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision. Composition lock: one full-bleed authored scene, the darker region on the left for HTML copy, the lit focal subject on the right, one directional warm key light from upper left with a real contact shadow.",
+    "negative": "Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-010",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/agent-kits",
+      "placement": "Agent kits index hero"
+    },
+    "audience": "Developers looking for installable agent kits",
+    "purpose": "Kits as organised, inspectable parts",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/core-exploded-3200.webp"
+    ],
+    "prompt": "An exploded-view arrangement of a tidy hardware-style kit on a dark panel surface: labelled-by-shape compartments in a matte obsidian tray holding small porcelain modules, a coil of cable, a slim instruction booklet; one module lifted and lit with a narrow cyan rim to show it is active. Porcelain, obsidian, liquid glass edges. Warm key from upper left, contact shadows. palette: ink #070A10 foundation, panel #0D1119, ivory #EDE6D8, connection cyan #82D8E6 only on elements that show system state, gold #C9A15C only where a human decision is made.",
+    "negative": "Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-011",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/agent-kits/teams",
+      "placement": "Team kits page hero"
+    },
+    "audience": "Teams adopting multi-role agent kits",
+    "purpose": "Several roles that fit together, with one human checkpoint",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/teams-crew.png"
+    ],
+    "prompt": "Five porcelain modules of different shapes slotted together on an obsidian base like a puzzle, a sixth slot left open and lit by a warm gold light marking where the human decision sits; thin cyan rim light on the connected modules only. Dark ink backdrop, upper-left key light, contact shadow. palette: ink #070A10 foundation, panel #0D1119, ivory #EDE6D8, connection cyan #82D8E6 only on elements that show system state, gold #C9A15C only where a human decision is made. Composition lock: one full-bleed authored scene, the darker region on the left for HTML copy, the lit focal subject on the right, one directional warm key light from upper left with a real contact shadow.",
+    "negative": "Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-012",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/agents",
+      "placement": "Agents directory hero"
+    },
+    "audience": "Visitors exploring the agent catalog",
+    "purpose": "Agents as recognizable roles at work, without pretending they are people",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/teams-crew.png",
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/i01-arrival-provisioning-3200.webp"
+    ],
+    "prompt": "A research lab bench at night with several distinct instruments working on their own: a plotter drawing a line, a small robotic microscope stage, a label printer feeding a blank label, a camera on a copy stand, each with a tiny cyan status LED; on the right a person seen from behind reviews a printout under a warm gold lamp. palette: ink #070A10 foundation, panel #0D1119, ivory #EDE6D8, connection cyan #82D8E6 only on elements that show system state, gold #C9A15C only where a human decision is made. Composition lock: one full-bleed authored scene, the darker region on the left for HTML copy, the lit focal subject on the right, one directional warm key light from upper left with a real contact shadow.",
+    "negative": "no humanoid robots, no faces on machines; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-013",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/agents/teams",
+      "placement": "Agent teams page hero"
+    },
+    "audience": "Buyers of coordinated agent teams",
+    "purpose": "Show coordination: who contributes, what changed, what happens next",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/teams-crew.png"
+    ],
+    "prompt": "A long workbench viewed from the end: a relay of trays moving along it, each tray holding a document at a different stage (blank, sketched, annotated, signed), thin cyan threads marking handoffs between trays, the final tray under a warm gold lamp where a person's hand holds a pen over a signature line. palette: ink #070A10 foundation, panel #0D1119, ivory #EDE6D8, connection cyan #82D8E6 only on elements that show system state, gold #C9A15C only where a human decision is made. Composition lock: one full-bleed authored scene, the darker region on the left for HTML copy, the lit focal subject on the right, one directional warm key light from upper left with a real contact shadow.",
+    "negative": "only one hand visible, no face; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-014",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/teams",
+      "placement": "Teams landing hero"
+    },
+    "audience": "Organisations exploring Starlight for their team",
+    "purpose": "Human team and agent tools at one shared table",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/crew-council.jpg"
+    ],
+    "prompt": "A round shared table in a warm studio at dusk, three people seen from behind and in turned-away profile leaning over a large printed map of a workflow, a small instrument cluster with cyan status LEDs at the edge of the table, gold pendant lamp over the map. Oak, wool, paper, brass. palette: ink #070A10 foundation, panel #0D1119, ivory #EDE6D8, connection cyan #82D8E6 only on elements that show system state, gold #C9A15C only where a human decision is made. Composition lock: one full-bleed authored scene, the darker region on the left for HTML copy, the lit focal subject on the right, one directional warm key light from upper left with a real contact shadow.",
+    "negative": "no faces toward camera; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-015",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/platform/foundry",
+      "placement": "Foundry sub-page hero"
+    },
+    "audience": "Developers building their own agents on the platform",
+    "purpose": "Making and shaping: a workshop where tools are made",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/core-exploded-3200.webp"
+    ],
+    "prompt": "A craftsman's workshop bench at night with porcelain components in the middle of assembly: calipers, a small vise holding a glass-edged module, a soldering iron resting in its stand, a notebook with measurements (no readable text), warm lamp from upper left, the right side lit and the left in ink. Porcelain, steel, glass, oak. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision. Composition lock: one full-bleed authored scene, the darker region on the left for HTML copy, the lit focal subject on the right, one directional warm key light from upper left with a real contact shadow.",
+    "negative": "Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-016",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/marketplace",
+      "placement": "Marketplace index hero"
+    },
+    "audience": "Builders browsing marketplace listings",
+    "purpose": "A curated market of tools: orderly, inspectable, trustworthy",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/e13-architectural-intelligence-3200.webp"
+    ],
+    "prompt": "A quiet gallery-style shelf wall at night, each niche holding one distinct porcelain or obsidian object with a small blank ivory tag, a single niche lit warmer gold where a person's hand reaches in from the right to take an object. Directional warm key from upper left, soft falloff. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision. Composition lock: one full-bleed authored scene, the darker region on the left for HTML copy, the lit focal subject on the right, one directional warm key light from upper left with a real contact shadow.",
+    "negative": "no price tags, no shopping carts; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-017",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/joint-infrastructure",
+      "placement": "Joint infrastructure page hero (page carries pricing text)"
+    },
+    "audience": "Partners considering shared infrastructure",
+    "purpose": "Shared civic-scale infrastructure that people maintain together",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/e13-architectural-intelligence-3200.webp"
+    ],
+    "prompt": "Civilizational-scale scene at blue hour: a modern water-and-energy facility built into a green hillside, terraced gardens on its roof, a footbridge leading to it with two small figures walking, warm gold windows in the control building. Wide lens, aerial three-quarter angle, the left half quiet ink sky for copy. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision.",
+    "negative": "no neon city, no sci-fi towers; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-018",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/start",
+      "placement": "Start page image beside the onboarding steps"
+    },
+    "audience": "New visitors choosing a first step",
+    "purpose": "A threshold: the first step is small and clear",
+    "aspect": "4:5",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/i01-arrival-provisioning-3200.webp"
+    ],
+    "prompt": "Vertical frame: three worn stone steps leading up to an open wooden door at dawn, a warm gold light inside the doorway, a notebook resting on the first step. Ink shadow at top for copy. Stone, oak, paper. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision.",
+    "negative": "Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-019",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/founders",
+      "placement": "Founders page hero (replacement candidate for crew-council.jpg)"
+    },
+    "audience": "Founders evaluating Starlight as their operating partner",
+    "purpose": "Founder-scale ambition with grounded tools",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/crew-council.jpg",
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/community/starlight-observatory-garden-v1.webp"
+    ],
+    "prompt": "An early-morning workshop with its garage door rolled up to a coastal landscape, a person seen from behind at a workbench sketching a product on large paper, a prototype in porcelain and wood beside them, warm gold sunrise light raking across the bench. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision. Composition lock: one full-bleed authored scene, the darker region on the left for HTML copy, the lit focal subject on the right, one directional warm key light from upper left with a real contact shadow.",
+    "negative": "no visible face; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-020",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/workflows",
+      "placement": "Workflows index hero"
+    },
+    "audience": "Builders looking for proven workflow patterns",
+    "purpose": "Workflows as paths that can be followed and inspected",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/og/workflows.png"
+    ],
+    "prompt": "A large architect's plan table viewed from above: a hand-drawn flowchart on vellum with clear branches and loops, small brass markers placed on three nodes, a cyan pencil line tracing the active path, a gold marker at the single human approval node. Warm key from upper left. palette: ink #070A10 foundation, panel #0D1119, ivory #EDE6D8, connection cyan #82D8E6 only on elements that show system state, gold #C9A15C only where a human decision is made.",
+    "negative": "no readable text; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-021",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/learn/[slug]",
+      "placement": "Learn article template default hero"
+    },
+    "audience": "Readers of Starlight learn articles",
+    "purpose": "An editorial hero that works for any learn article",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/observatory.png"
+    ],
+    "prompt": "Documentary close-up of a reading desk by a window at dawn: an open book with diagrams, a pair of glasses, a mug, a pencil; the right side lit warm gold, the left side in ink shade. Paper, ceramic, oak. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision.",
+    "negative": "no readable text; Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "starlight-2026-11-27-022",
+    "brand": "starlight",
+    "destination": {
+      "repo": "Starlight-Intelligence/starlightintelligence.ai",
+      "route": "/notes/build-a-business-on-open-agent-systems",
+      "placement": "Note article hero"
+    },
+    "audience": "Founders reading the open-agent-systems business note",
+    "purpose": "Building a business on open tools: a small shop with open drawers of parts",
+    "aspect": "16:9",
+    "style_refs": [
+      "Starlight-Intelligence/starlightintelligence.ai:public/assets/home/heroes/core-exploded-3200.webp"
+    ],
+    "prompt": "A small independent workshop storefront at night seen from inside: open drawers of labelled-by-colour parts along the wall, a workbench with an assembled product under a gold lamp on the right, the street window on the left in ink blue darkness. Oak, brass, porcelain. palette: ink #070A10 foundation, panel #0D1119 shadows, ivory #EDE6D8 highlights, gold #C9A15C to #F0C87E only as light inside the scene marking a person, an arrival or a human decision. Composition lock: one full-bleed authored scene, the darker region on the left for HTML copy, the lit focal subject on the right, one directional warm key light from upper left with a real contact shadow.",
+    "negative": "Starlight anti-signature: starfield or particle backgrounds, anonymous robots at laptops, floating glass cards, generic astronauts, random neon cities, decorative brains, technology stock imagery, floating monolith, iridescent particles, all-over rainbow reflection, product screenshot in a browser frame, cyan or teal light in a scene that shows no system state, gradients used as filler, any four-point star or star-with-dot mark (the master vector is never generated), invented insignia or glyphs, any Arcanea mythic creature, god, gate or rune, anthropomorphic AI teammates presented as people, text or slogans inside the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  }
+]
