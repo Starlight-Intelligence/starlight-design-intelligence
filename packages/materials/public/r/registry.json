@@ -166,6 +166,52 @@
           "target": "~/components/starlight-materials/primitives/ui/sheet.tsx"
         }
       ]
+    },
+    {
+      "name": "agent-run",
+      "type": "registry:component",
+      "title": "Agent run kit",
+      "description": "The surfaces of an agent run on ink: run steps in the product run contract's status vocabulary, tool calls, an approval gate, an answer with numbered sources, model route and memory chips, and a composer that is a plain form. Presentational Server Components, no client script, no run logic.",
+      "dependencies": [
+        "cn",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "@starlight/material",
+        "@starlight/material-button"
+      ],
+      "files": [
+        {
+          "path": "src/agent/run-state.ts",
+          "type": "registry:lib",
+          "target": "~/components/starlight-materials/agent/run-state.ts"
+        },
+        {
+          "path": "src/agent/run-step.tsx",
+          "type": "registry:component",
+          "target": "~/components/starlight-materials/agent/run-step.tsx"
+        },
+        {
+          "path": "src/agent/tool-call.tsx",
+          "type": "registry:component",
+          "target": "~/components/starlight-materials/agent/tool-call.tsx"
+        },
+        {
+          "path": "src/agent/answer.tsx",
+          "type": "registry:component",
+          "target": "~/components/starlight-materials/agent/answer.tsx"
+        },
+        {
+          "path": "src/agent/composer.tsx",
+          "type": "registry:component",
+          "target": "~/components/starlight-materials/agent/composer.tsx"
+        },
+        {
+          "path": "src/agent/index.ts",
+          "type": "registry:lib",
+          "target": "~/components/starlight-materials/agent/index.ts"
+        }
+      ]
     }
   ]
 }

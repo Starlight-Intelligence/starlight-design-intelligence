@@ -26,13 +26,64 @@ jobs:
       - run: npm ci --ignore-scripts
       - run: npm audit --audit-level=moderate
       - run: npm run validate
+      - name: Check the constitution loading paths in the kernel
+        run: node scripts/audit-frontier-instructions.mjs --authority --pin "$(git rev-parse HEAD)" --check
       - run: npm run validate:experience
       - run: npm run validate:observatory
       - run: npm run check:observatory-index
-      - run: npm test
-      - name: Reject incomplete native hook proof
-        run: python3 -B -m unittest discover -s tests -p native_codex_probe_test.py
       - name: Install Chromium for rendered foundation checks
         run: npx playwright install --with-deps chromium
+      - run: npm test
+        env:
+          VISUAL_QA_REQUIRE_BROWSER: "1"
+      - name: Exercise public and preview SEO against HTTP fixtures
+        run: python3 -B -m unittest discover -s tests -p route_seo_test.py
+      - name: Reject incomplete native hook proof
+        run: python3 -B -m unittest discover -s tests -p native_codex_probe_test.py
       - name: Exercise rendered interface defects and CLI failure behavior
         run: npm run test:interface
+
+  living-library:
+    name: Living Library browser review
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: examples/sis-living-library
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: 24.14.0
+          cache: npm
+          cache-dependency-path: examples/sis-living-library/package-lock.json
+      - run: npm ci --ignore-scripts
+      - run: npm run build
+      - run: npm test
+      - name: Install the lockfile-pinned Chromium headless shell
+        run: npx playwright install --only-shell chromium
+      - run: npm run test:browser
+      - name: Check out the material comparison reference
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          ref: 2da708810b4c0459a5962d441b669a5d323b2e4f
+          path: material-reference
+          persist-credentials: false
+          sparse-checkout: examples/sis-living-library
+      - name: Build the reference with its own lockfile
+        working-directory: material-reference/examples/sis-living-library
+        run: |
+          npm ci --ignore-scripts
+          npm run build
+      - name: Compare responsive material inspector pixels
+        env:
+          MATERIAL_REFERENCE_DIR: ${{ github.workspace }}/material-reference/examples/sis-living-library
+        run: npm run test:visual
+      - name: Upload responsive captures and browser report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: living-library-browser-review
+          path: examples/sis-living-library/test-results/
+          if-no-files-found: warn
+          retention-days: 14
