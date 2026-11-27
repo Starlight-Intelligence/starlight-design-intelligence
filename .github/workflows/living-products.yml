@@ -1,0 +1,75 @@
+name: Living product browser checks
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review, converted_to_draft]
+    paths:
+      - 'examples/sis-living-library/**'
+      - '.github/workflows/living-products.yml'
+  workflow_dispatch:
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  package:
+    strategy:
+      matrix:
+        os: [ubuntu-24.04, windows-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: examples/sis-living-library
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: examples/sis-living-library/package-lock.json
+      - run: npm ci
+      - run: npm run build:package
+      - name: Verify the Essential buyer archive file list
+        if: runner.os == 'Linux'
+        run: |
+          python3 scripts/assemble-products.py --edition essential
+          python3 -B scripts/artifact_verifier_test.py --assembled-archive release/starlight-glass-core-essential-0.2.0-rc.2.zip
+  browser:
+    if: github.event_name != 'pull_request' || !github.event.pull_request.draft
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: examples/sis-living-library
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: examples/sis-living-library/package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
+      - name: Check audit measurement and provenance helpers
+        run: node --test scripts/release-audit-metrics.test.mjs
+      - run: npm run build && npm run check:budgets
+      - name: Compare reviewed visual baselines
+        run: npm run test:products
+      - name: Audit preferences, keyboard, narrow reflow and production-build runtime
+        run: node scripts/release-browser-audit.mjs
+      - name: Preserve candidate evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: living-products-candidate-evidence
+          path: |
+            examples/sis-living-library/test-results/products/
+            examples/sis-living-library/test-results/release-audit/
+            examples/sis-living-library/tests/visual/
+          retention-days: 3

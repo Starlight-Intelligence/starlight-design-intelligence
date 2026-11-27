@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@import "@starlight/living-design/styles.css";
+@import "@starlight/living-design/tailwind.css";
+body{margin:0;background:var(--sl-bg);color:var(--sl-text);font-family:var(--sl-font-sans);line-height:1.6}

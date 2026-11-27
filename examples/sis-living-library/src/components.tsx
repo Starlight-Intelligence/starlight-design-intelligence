@@ -234,6 +234,20 @@ export function CommandPanel({ open, onOpenChange, title = 'Find a component', i
       onOpenChange(false);
       return;
     }
+    if (event.key === 'Tab') {
+      const actions = Array.from(dialog.current?.querySelectorAll<HTMLElement>('button,input,select,textarea,a[href],[tabindex]') ?? [])
+        .filter(element => element.tabIndex >= 0 && !element.matches(':disabled,[hidden]') && !element.closest('[inert]') && element.getClientRects().length > 0);
+      const first = actions[0], last = actions.at(-1);
+      if (!first || !last) { event.preventDefault(); dialog.current?.focus(); return; }
+      // Keep keyboard traversal in the modal even when the browser's native
+      // dialog traversal would move to browser chrome at the last control.
+      if (event.shiftKey && (document.activeElement === first || !dialog.current?.contains(document.activeElement))) {
+        event.preventDefault(); last.focus();
+      } else if (!event.shiftKey && (document.activeElement === last || !dialog.current?.contains(document.activeElement))) {
+        event.preventDefault(); first.focus();
+      }
+      return;
+    }
     if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
     const actions = Array.from(dialog.current?.querySelectorAll<HTMLButtonElement>('[data-command-item]') ?? []);
     if (!actions.length) return;

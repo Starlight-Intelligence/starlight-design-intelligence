@@ -1,3 +1,28 @@
+# Starlight Design Foundry / RC 0.2.2
+
+Extends the existing Living Library and PR #97 in place. Glass Core provides 19 typed React components, three candidate themes, 24 original utility icons, bounded CSS glass, opaque alternatives, token exports and read-only agent contracts. The Agent Command Center demonstrates mission approval, step execution, cancellation, idempotency, evidence and token/cost caps with explicit synthetic state.
+
+```sh
+npm ci
+npm test
+npm run build
+npm run check:budgets
+npm run build:package
+python3 scripts/assemble-products.py
+```
+
+`npm run dev` opens four experiences; `/library.html` retains the original component workbench. `npm run test:products` runs the existing 24-state browser checks and reviewed visual comparisons. Hosted execution at source 5e253f87d593a89b525fe2dad6ed0600be79688d passed all 24 axe/reflow/local-journey states. The changed Console and Launch screenshots were independently inspected and accepted; see tests/visual/README.md. Local Chromium remains socket-blocked, while the existing Vercel project provides a verified preview. Actual runtime performance, native assistive technology and wider browser coverage remain release gates.
+
+The independent Next.js consumer is `examples/next-app`. After `build:package`, install its local archive, refresh the lock integrity and run `npm ci && npm run build`. Read-only agent discovery is `public/r/component-contracts.json`; shadcn source installation remains `public/r/starlight-living.json`. Registry metadata grants no filesystem, provider, payment or deployment authority.
+
+Target offers: Glass Core Essential €79; Professional €149; Agent Command Center €349. These map to existing storefront SKUs, remain closed, and carry no new license grant. The test-only checkout adapter is not connected to a provider or either application. Browser refresh resets the command simulation; it is not production authorization or persistence.
+
+Read [commercial packaging](docs/COMMERCIAL-PACKAGING.md), [listing/content drafts](docs/MARKETPLACE-DRAFTS.md), [installation](docs/INSTALLATION.md), [brand adapters](docs/BRAND-ADAPTERS.md) and the [execution record](../../docs/foundry/EXECUTION-2026-11-13.md). No production promotion, publication, payments, or new spend.
+
+Historical 0.1 workbench context follows. Its verification does not cover the current RC.
+
+---
+
 # Starlight Living Design
 
 **Interfaces for intelligence you can inspect.** A source-owned reference library for agent workspaces, knowledge products and creative studios: 12 React components, 24 original SVG icons, three candidate themes, purposeful motion and a shadcn-compatible registry payload.

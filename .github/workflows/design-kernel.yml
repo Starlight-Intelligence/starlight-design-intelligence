@@ -31,6 +31,8 @@ jobs:
       - run: npm run validate:experience
       - run: npm run validate:observatory
       - run: npm run check:observatory-index
+      - name: Install independently scoped component test dependencies
+        run: npm ci --ignore-scripts --prefix examples/sis-living-library
       - name: Install Chromium for rendered foundation checks
         run: npx playwright install --with-deps chromium
       - run: npm test

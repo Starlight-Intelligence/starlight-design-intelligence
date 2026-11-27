@@ -30,7 +30,7 @@ for (const width of [375, 768, 1440]) {
       for (const [index, root] of roots.entries()) {
         const revision = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: root, encoding: 'utf8' }).trim();
         info.annotations.push({ type: index === 0 ? 'reference' : 'candidate', description: revision });
-        await page.goto(`http://127.0.0.1:${4219 + index}`, { waitUntil: 'networkidle' });
+        await page.goto(`http://127.0.0.1:${4219 + index}${index === 1 ? '/library.html' : ''}`, { waitUntil: 'networkidle' });
         await page.getByRole('group', { name: 'Color theme' }).getByRole('button', { name: theme }).click();
         const region = page.getByRole('region', { name: 'Inspect a material' });
         await region.getByLabel('Surface', { exact: true }).selectOption('glass');

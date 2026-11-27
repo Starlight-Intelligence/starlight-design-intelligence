@@ -14,7 +14,7 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const evidence = process.env.STARLIGHT_EVIDENCE_DIR || path.join(root, 'test-results');
 await mkdir(evidence, { recursive: true });
 const browser = await chromium.launch({ executablePath: process.env.STARLIGHT_CHROMIUM_PATH, args: ['--no-sandbox'], headless: true });
-const report = { at: new Date().toISOString(), url: `http://127.0.0.1:${port}`, tests: [], axe: [], screenshots: [], consoleErrors: [], pageErrors: [] };
+const report = { at: new Date().toISOString(), url: `http://127.0.0.1:${port}/library.html`, tests: [], axe: [], screenshots: [], consoleErrors: [], pageErrors: [] };
 report.sourceHashes = Object.fromEntries(await Promise.all(['src/App.tsx','src/components.tsx','src/components.css','src/icons.tsx','src/tokens.css','src/studio.css','src/MaterialReview.tsx','src/material-review.css'].map(async file => [file, createHash('sha256').update(await readFile(path.join(root,file))).digest('hex')])));
 const axe = await readFile(path.join(root, 'node_modules/axe-core/axe.min.js'), 'utf8');
 const context = await browser.newContext({ viewport: { width: 1440, height: 1000 }, acceptDownloads: true });
