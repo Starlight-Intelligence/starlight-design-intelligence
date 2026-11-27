@@ -37,6 +37,15 @@ jobs:
         run: |
           python3 scripts/assemble-products.py --edition essential
           python3 -B scripts/artifact_verifier_test.py --assembled-archive release/starlight-glass-core-essential-0.2.0-rc.2.zip
+      - name: Verify the Orbital Glass Next.js consumer
+        if: runner.os == 'Linux'
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+        run: |
+          npm ci --prefix examples/next-app
+          npm run build --prefix examples/next-app
+          npx playwright install --with-deps chromium
+          node scripts/orbital-glass-browser.mjs
   browser:
     if: github.event_name != 'pull_request' || !github.event.pull_request.draft
     runs-on: ubuntu-24.04
