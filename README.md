@@ -4,6 +4,8 @@ Owned methodology, reusable skill system, premium taste layer.
 
 This repo is the source of truth for how FrankX, Starlight Intelligence Systems, Arcanea, and related products should look, move, explain themselves, and earn release approval.
 
+[Frontier Experience Constitution](portfolio/frontier-experience-constitution.md) governs product and media experience reviews across the portfolio.
+
 ## Operating Thesis
 
 AI can generate interfaces quickly. The scarce layer is judgment: hierarchy, restraint, interaction quality, motion, brand memory, visual proof, and the ability to make every product feel like it belongs to a coherent world.
@@ -43,6 +45,17 @@ Starlight Design Intelligence turns that judgment into reusable brand packs, ski
 - `starlight-agent-skills`: portable substrate skills for Starlight/SIS runtime consumption.
 
 There is no separate `starlight-design-agent-skills` authority. Creating another canonical layer would increase drift. Installations must retain a source reference to this repository and pass `npm test` before release.
+
+## Install in Claude Code
+
+The same skills ChatGPT and Codex load through `plugin.json` install in Claude Code from this repository's marketplace:
+
+```
+/plugin install starlight-design-intelligence --marketplace Starlight-Intelligence/starlight-design-intelligence
+/plugin install starlight-living-design --marketplace Starlight-Intelligence/starlight-design-intelligence
+```
+
+Then invoke `/starlight-design-intelligence:design-orchestrator` or any specialist skill directly.
 
 ## Living Design plugin
 

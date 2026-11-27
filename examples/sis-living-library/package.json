@@ -9,6 +9,7 @@
     "check": "tsc --noEmit",
     "test": "node --test scripts/*.test.mjs",
     "registry:build": "node scripts/build-registry.mjs",
+    "test:visual": "playwright test --config scripts/material-visual.config.cjs",
     "test:browser": "node scripts/browser-check.mjs",
     "test:consumer": "node scripts/consumer-smoke.mjs",
     "build:standalone": "npm run build && node scripts/standalone.mjs",

@@ -6,6 +6,9 @@ Six workflows, twelve candidate character bundles, four visual families, one loc
 
 ## Start
 
+Claude Code: `/plugin install starlight-living-design --marketplace Starlight-Intelligence/starlight-design-intelligence`
+
+
 Invoke **Design character lineage** for new cast work, **Compose agent identity** for contracts, **Design companion journey** for UI, **Visualize agent team** for capability maps, **Bind character runtime** for infrastructure handoff, or **Review living design** for acceptance.
 
 With Node 22 or newer: `node scripts/living-design.mjs validate`; `node scripts/living-design.mjs inspect candidate.nacre`; `node scripts/living-design.mjs build --out /absolute/new-output-directory`.

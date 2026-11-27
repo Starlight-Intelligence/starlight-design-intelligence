@@ -1,10 +1,12 @@
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import assert from 'node:assert/strict';
 import { mkdtempSync, cpSync, readFileSync, writeFileSync, symlinkSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
 import { parse } from 'yaml';
-import { root, routes, verifySources } from '../scripts/design-toolkit.mjs';
+import { root, routes, verifySources, readDesignSources } from '../scripts/design-toolkit.mjs';
 import { included, validateSkills } from '../scripts/build-design-plugin.mjs';
 
 test('all six upstream snapshots retain exact source bytes and notices', () => {
@@ -34,7 +36,7 @@ test('source verification rejects modified, unlocked, missing and symlinked cont
 test('every callable adapter has matching unique portable metadata', () => {
   const files = new Map(Object.values(routes).map(path => [path, readFileSync(join(root, path))]));
   assert.deepEqual(validateSkills(files).failures, []);
-  assert.equal(validateSkills(files).names.length, 6);
+  assert.equal(validateSkills(files).names.length, new Set(Object.values(routes)).size);
   const invalid = new Map([['skills/bad/SKILL.md', Buffer.from('---\nname: other\ndescription: nope\n---\n')]]);
   assert.ok(validateSkills(invalid).failures.length);
 });
@@ -54,4 +56,22 @@ test('complete style pairs remain available even when upstream index omits a fol
 test('archive scope excludes host configuration, credentials and generated artifacts', () => {
   for (const path of ['.git/config', '.github/workflows/ci.yml', 'tests/x.mjs', 'node_modules/x.js', 'vendor/x/example.env', 'vendor/x/cache.pyc', '../secret.json']) assert.equal(included(path), false, path);
   for (const path of ['plugin.json', 'skills/design-orchestrator/SKILL.md', 'vendor/impeccable/NOTICE.md', 'brand-packs/frankx/DESIGN.md']) assert.equal(included(path), true, path);
+});
+
+test('five production tasks read the committed constitution, skill and review contract', () => {
+  const revision = execFileSync('git', ['-C', root, 'rev-parse', 'HEAD'], {encoding: 'utf8'}).trim();
+  for (const stage of ['visual-design', 'editorial-experience', 'character-consistency', 'multimedia-production', 'interface-review']) {
+    const receipt = readDesignSources(stage, revision);
+    assert.equal(receipt.scope, 'design-source-read');
+    assert.deepEqual(receipt.sources.map(source => source.path), [
+      'portfolio/frontier-experience-constitution.md', routes[stage], 'evals/frontier-experience-review.md'
+    ]);
+    for (const source of receipt.sources) {
+      assert.equal(createHash('sha256').update(source.content).digest('hex'), source.sha256);
+      assert.ok(source.content.length > 100);
+    }
+  }
+  assert.throws(() => readDesignSources('unknown', revision), /Unknown design route/);
+  assert.throws(() => readDesignSources('visual-design', 'main'), /full kernel commit/);
+  assert.throws(() => readDesignSources('multimedia-production', '0'.repeat(40)));
 });

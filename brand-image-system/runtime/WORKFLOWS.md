@@ -14,3 +14,6 @@ Core reusable workflows for every brand.
 Each workflow declares routes, outputs, QA, taste standard (liquid glass + Vercel/GitHub + meaningful).
 
 See individual JSONs.
+## Established identity jobs
+
+Before running an identity hero, lockup or material treatment, open the [logo-system retrieval gate](../../../skills/logo-system/SKILL.md#best-of-brand-recovery). Keep the verified historical input packet with the job. Hold generation when an anchor fails resolution. Existing brand and publication approvals continue to govern promotion.

@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtemp,writeFile,rm} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {createHash} from 'node:crypto';
+import {verifyMiniFrankMasters,assertCanonicalGenerationAllowed} from '../scripts/verify-mini-frank.mjs';
+const names=['Mini-Frank-Character-Model-Sheet.png','Mini-Frank-Cast-Model-Sheet.png'];
+const hash=x=>createHash('sha256').update(x).digest('hex');
+test('missing masters fail closed',async()=>{const dir=await mkdtemp(join(tmpdir(),'mini-frank-'));try{const r=await verifyMiniFrankMasters(dir);assert.equal(r.master_verified,false);assert.deepEqual(r.assets.map(x=>x.status),['MISSING','MISSING']);assert.throws(()=>assertCanonicalGenerationAllowed(r,names),/BLOCKED/);}finally{await rm(dir,{recursive:true,force:true});}});
+test('tampered master fails closed',async()=>{const dir=await mkdtemp(join(tmpdir(),'mini-frank-'));try{await writeFile(join(dir,names[0]),'tampered');const r=await verifyMiniFrankMasters(dir);assert.equal(r.assets[0].status,'HASH_MISMATCH');assert.equal(r.master_verified,false);}finally{await rm(dir,{recursive:true,force:true});}});
+test('synthetic fixture passes only with both verified attachments',async()=>{const dir=await mkdtemp(join(tmpdir(),'mini-frank-'));try{const data=['synthetic-one','synthetic-two'];for(let i=0;i<2;i++)await writeFile(join(dir,names[i]),data[i]);const expected=Object.fromEntries(names.map((n,i)=>[n,hash(data[i])]));const r=await verifyMiniFrankMasters(dir,{expected});assert.equal(r.master_verified,true);assert.throws(()=>assertCanonicalGenerationAllowed(r,[names[0]]),/missing/);assert.equal(assertCanonicalGenerationAllowed(r,names),true);}finally{await rm(dir,{recursive:true,force:true});}});

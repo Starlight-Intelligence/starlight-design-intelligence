@@ -112,8 +112,8 @@ const observedFonts = [
     }
   },
   {
-    "url": "https://starlightintelligence.academy/_next/static/immutable/media/23b7a97ae3b5c134-s.p.0fcfx2a-jndc5.woff2",
-    "sha256": "ad4580d8cb4b5f627c2d18457656732f7f7b070f7837fbc380e08054157e6f6c",
+    "url": "https://starlightintelligence.academy/_next/static/immutable/media/a036da9e181f7bda-s.p.3b4nq-163zziz.woff2",
+    "sha256": "5b7716398b823c97f0553b4d0d45bdba9b8a6efe73c429d3fc1cbceadd64adb0",
     "family": "IBM Plex Mono SemiBold",
     "postscriptName": "IBMPlexMono-SemiBold",
     "glyphCount": 280,

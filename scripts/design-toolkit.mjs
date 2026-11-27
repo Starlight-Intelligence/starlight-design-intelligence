@@ -2,7 +2,7 @@ import { createHash } from 'node:crypto';
 import { existsSync, lstatSync, readdirSync, readFileSync, realpathSync } from 'node:fs';
 import { dirname, join, relative, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { spawnSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 
 export const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const routes = Object.freeze({
@@ -11,9 +11,28 @@ export const routes = Object.freeze({
   impeccable: 'skills/impeccable-studio/SKILL.md',
   browser: 'skills/browser-verify/SKILL.md',
   references: 'skills/design-reference-selector/SKILL.md',
-  threejs: 'skills/image-to-threejs/SKILL.md'
+  threejs: 'skills/image-to-threejs/SKILL.md',
+  'visual-design': 'skills/design-orchestrator/SKILL.md',
+  'editorial-experience': 'skills/design-editorial-experience/SKILL.md',
+  'character-consistency': 'skills/review-character-continuity/SKILL.md',
+  'multimedia-production': 'skills/edit-multimedia-edition/SKILL.md',
+  'interface-review': 'skills/browser-verify/SKILL.md'
 });
 const hash = data => createHash('sha256').update(data).digest('hex');
+
+// Read from one immutable Git tree even when the local working copy has edits.
+export function readDesignSources(stage, revision, base = root) {
+  if (!Object.hasOwn(routes, stage)) throw new Error('Unknown design route');
+  if (!/^[a-f0-9]{40}$/.test(revision ?? '')) throw new Error('Use a full kernel commit SHA');
+  const git = args => execFileSync('git', ['--no-replace-objects', '-C', base, ...args], { stdio: ['ignore', 'pipe', 'pipe'] });
+  if (git(['cat-file', '-t', revision]).toString().trim() !== 'commit') throw new Error('Expected a kernel commit');
+  const paths = ['portfolio/frontier-experience-constitution.md', routes[stage], 'evals/frontier-experience-review.md'];
+  const sources = paths.map(path => {
+    const bytes = git(['cat-file', 'blob', `${revision}:${path}`]);
+    return { path, sha256: hash(bytes), content: bytes.toString('utf8') };
+  });
+  return { scope: 'design-source-read', revision, stage, sources };
+}
 
 export function verifySources(base = root) {
   const lock = JSON.parse(readFileSync(join(base, 'vendor/source-lock.json'), 'utf8'));
@@ -74,11 +93,14 @@ export function doctor(base = root) {
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const [command = 'list', stage] = process.argv.slice(2);
+  const [command = 'list', stage, revision] = process.argv.slice(2);
   if (command === 'list') console.log(JSON.stringify(routes, null, 2));
   else if (command === 'route' && Object.hasOwn(routes, stage)) console.log(join(root, routes[stage]));
-  else if (command === 'verify') {
+  else if (command === 'read') {
+    try { console.log(JSON.stringify(readDesignSources(stage, revision), null, 2)); }
+    catch (error) { console.error(error.message); process.exitCode = 1; }
+  } else if (command === 'verify') {
     const result = verifySources(); console.log(JSON.stringify(result, null, 2)); if (!result.valid) process.exitCode = 1;
   } else if (command === 'doctor') console.log(JSON.stringify(doctor(), null, 2));
-  else { console.error('Usage: design-toolkit.mjs list | route <all|taste|impeccable|browser|references|threejs> | verify | doctor'); process.exitCode = 2; }
+  else { console.error('Usage: design-toolkit.mjs list | route <stage> | read <stage> <commit-sha> | verify | doctor'); process.exitCode = 2; }
 }
