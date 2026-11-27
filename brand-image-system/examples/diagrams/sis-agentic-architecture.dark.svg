@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 940" width="1520" height="940" role="img" aria-labelledby="title-sis-agentic-architecture-dark desc-sis-agentic-architecture-dark" data-brand="sis" data-archetype="layered-architecture" data-theme="dark">
+<title id="title-sis-agentic-architecture-dark">Governed Multi-Agent Memory &amp; Verification Architecture</title>
+<desc id="desc-sis-agentic-architecture-dark">Four inspectable operational planes connecting operator surfaces, specialist councils, hybrid memory vaults, and human release gates.</desc>
+<defs>
+    <linearGradient id="bg-grad-sis-agentic-architecture-dark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070A10"/>
+      <stop offset="100%" stop-color="#0C121E"/>
+    </linearGradient>
+    <pattern id="grid-sis-agentic-architecture-dark" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#141E30" stroke-width="0.75"/>
+    </pattern>
+    <marker id="arrow-sis-agentic-architecture-dark" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#82D8E6"/>
+    </marker>
+  </defs>
+<rect x="0" y="0" width="1520" height="940" fill="#070A10"/>
+<rect x="0" y="0" width="1520" height="940" fill="url(#grid-sis-agentic-architecture-dark)" opacity="0.55"/>
+<rect x="16" y="16" width="1488" height="908" rx="20" fill="none" stroke="#283959" stroke-width="1"/>
+<rect x="56" y="42" width="339" height="26" rx="13" fill="#112438" stroke="#244B70" stroke-width="1"/>
+<text x="225.5" y="58.85" fill="#BAE6FD" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STARLIGHT INTELLIGENCE · LAYERED SUBSTRATE</text>
+<rect x="405" y="42" width="115" height="26" rx="13" fill="#2A2010" stroke="#684F24" stroke-width="1"/>
+<text x="462.5" y="58.85" fill="#F6D89E" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">SIP ATTESTED</text>
+<rect x="1162" y="42" width="302" height="26" rx="13" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1313" y="58.85" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">Starlight Intelligence Systems · DARK</text>
+<text x="56" y="104" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="30" font-weight="700">Governed Multi-Agent Memory &amp; Verification Architecture</text>
+<text x="56" y="132" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400">Four inspectable operational planes connecting operator surfaces, specialist councils, hybrid memory vaults, and human release gates.</text>
+<line x1="56" y1="168" x2="1464" y2="168" stroke="#283959" stroke-width="1"/>
+<line x1="56" y1="880" x2="1464" y2="880" stroke="#283959" stroke-width="1"/>
+<text x="56" y="902" fill="#A2B0C8" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="12" font-weight="500">Source: brand-packs/sis/DESIGN.md · REFERENCE-LOCKS.md · Starlight Intelligence Protocol</text>
+<text x="1464" y="902" fill="#7DD3FC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11.5" font-weight="600" text-anchor="end">WCAG AA &gt;= 4.5:1 · ZERO RASTER TEXT</text>
+<rect x="56" y="194" width="348" height="148" rx="14" fill="#162033" stroke="#3E5682" stroke-width="1.2"/>
+<rect x="56" y="194" width="5" height="148" rx="2.5" fill="#7DD3FC"/>
+<rect x="76" y="212" width="161" height="23" rx="11.5" fill="#112438" stroke="#244B70" stroke-width="1"/>
+<text x="156.5" y="227.18" fill="#BAE6FD" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">PLANE 01 · SURFACES</text>
+<text x="76" y="260" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="18.5" font-weight="700">Operator &amp; Horizon Surfaces</text>
+<text x="76" y="284" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Calm reading surfaces for traces, briefs, and</text>
+<text x="76" y="303" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">live session state.</text>
+<rect x="426" y="194" width="335.33" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(444, 212) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6.2 6 12 6s9.5 6 9.5 6-3.7 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.6"/></g>
+<rect x="666.73" y="210" width="79" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="706.23" y="224.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">TRACE UI</text>
+<text x="444" y="260" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Observatory Cockpit</text>
+<text x="444" y="284" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Live OTLP trace inspection, confidence</text>
+<text x="444" y="303" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">deltas, and run receipts.</text>
+<rect x="777.33" y="194" width="335.33" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(795.33, 212) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7.5 9.5L11 12l-3.5 2.5"/><path d="M13 14.5h4"/></g>
+<rect x="982.44" y="210" width="115" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1039.94" y="224.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">MULTI-HARNESS</text>
+<text x="795.33" y="260" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">CLI &amp; Studio Harnesses</text>
+<text x="795.33" y="284" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Claude Code, Codex, Gemini, and OpenCode</text>
+<text x="795.33" y="303" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">sharing one contract.</text>
+<rect x="1128.67" y="194" width="335.33" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(1146.67, 212) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M3.8 12h16.4M12 3.5c2.6 2.4 4 5.4 4 8.5s-1.4 6.1-4 8.5c-2.6-2.4-4-5.4-4-8.5s1.4-6.1 4-8.5z"/></g>
+<rect x="1355.15" y="210" width="93" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1401.65" y="224.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">PUBLIC LAB</text>
+<text x="1146.67" y="260" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Research &amp; Evidence Editions</text>
+<text x="1146.67" y="284" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Rubric-locked technical explainers with</text>
+<text x="1146.67" y="303" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">deterministic SVG diagrams.</text>
+<line x1="230" y1="344" x2="230" y2="361" stroke="#82D8E6" stroke-width="1.6" marker-end="url(#arrow-sis-agentic-architecture-dark)"/>
+<rect x="56" y="364" width="348" height="148" rx="14" fill="#162033" stroke="#3E5682" stroke-width="1.2"/>
+<rect x="56" y="364" width="5" height="148" rx="2.5" fill="#7DD3FC"/>
+<rect x="76" y="382" width="190" height="23" rx="11.5" fill="#112438" stroke="#244B70" stroke-width="1"/>
+<text x="171" y="397.18" fill="#BAE6FD" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">PLANE 02 · COORDINATION</text>
+<text x="76" y="430" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="18.5" font-weight="700">Queen &amp; Specialist Council</text>
+<text x="76" y="454" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Emergent task routing with maker-checker</text>
+<text x="76" y="473" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">separation.</text>
+<rect x="426" y="364" width="335.33" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(444, 382) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8L14.3 9.7L21.2 12L14.3 14.3L12 21.2L9.7 14.3L2.8 12L9.7 9.7Z"/><circle cx="18.2" cy="5.8" r="1.5" fill="#7DD3FC" stroke="none"/></g>
+<rect x="680.98" y="380" width="65" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="713.48" y="394.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">ROUTER</text>
+<text x="444" y="430" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Orchestrator &amp; Queen</text>
+<text x="444" y="454" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Decomposes slices, assigns isolated</text>
+<text x="444" y="473" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">worktrees, and tracks leases.</text>
+<rect x="777.33" y="364" width="335.33" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(795.33, 382) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="6.5" height="5" rx="1.2"/><rect x="14.5" y="4" width="6.5" height="5" rx="1.2"/><rect x="8.8" y="15" width="6.5" height="5" rx="1.2"/><path d="M9.5 6.5h5M12 9v6"/></g>
+<rect x="1003.82" y="380" width="93" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1050.32" y="394.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">MAKER LANE</text>
+<text x="795.33" y="430" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Domain Specialists</text>
+<text x="795.33" y="454" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Scoped builders operating inside explicit file</text>
+<text x="795.33" y="473" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">and repo allowlists.</text>
+<rect x="1128.67" y="364" width="335.33" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(1146.67, 382) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M8.5 12.3l2.3 2.3 4.8-5"/></g>
+<rect x="1340.9" y="380" width="108" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1394.9" y="394.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">CHECKER LANE</text>
+<text x="1146.67" y="430" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Independent Verifier</text>
+<text x="1146.67" y="454" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Cross-harness exact-SHA review with zero</text>
+<text x="1146.67" y="473" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">overlapping write scope.</text>
+<line x1="230" y1="514" x2="230" y2="531" stroke="#82D8E6" stroke-width="1.6" marker-end="url(#arrow-sis-agentic-architecture-dark)"/>
+<rect x="56" y="534" width="348" height="148" rx="14" fill="#162033" stroke="#3E5682" stroke-width="1.2"/>
+<rect x="56" y="534" width="5" height="148" rx="2.5" fill="#7DD3FC"/>
+<rect x="76" y="552" width="147" height="23" rx="11.5" fill="#112438" stroke="#244B70" stroke-width="1"/>
+<text x="149.5" y="567.17" fill="#BAE6FD" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">PLANE 03 · MEMORY</text>
+<text x="76" y="600" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="18.5" font-weight="700">Gateway &amp; Semantic Vaults</text>
+<text x="76" y="624" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Event-sourced JSONL truth indexed with</text>
+<text x="76" y="643" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">SQLite FTS5 recall.</text>
+<rect x="426" y="534" width="335.33" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(444, 552) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="18" cy="17" r="2.2"/><path d="M8.2 11.2L15.8 7.8"/><path d="M8.2 12.8l7.6 3.4"/></g>
+<rect x="652.48" y="550" width="93" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="698.98" y="564.67" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">RRF HYBRID</text>
+<text x="444" y="600" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">SIS Memory Gateway</text>
+<text x="444" y="624" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Loopback session store, privacy tag filtering,</text>
+<text x="444" y="643" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">and hybrid retrieval.</text>
+<rect x="777.33" y="534" width="335.33" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(795.33, 552) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="12" cy="12" r="3.5"/><path d="M12 8.5v-2M12 17.5v-2M8.5 12h-2M17.5 12h-2"/></g>
+<rect x="1018.07" y="550" width="79" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1057.57" y="564.67" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">6 VAULTS</text>
+<text x="795.33" y="600" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Typed Semantic Vaults</text>
+<text x="795.33" y="624" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Strategic, Technical, Creative, Operational,</text>
+<text x="795.33" y="643" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Wisdom, and Horizon logs.</text>
+<rect x="1128.67" y="534" width="335.33" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(1146.67, 552) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="2.8"/><path d="M4.5 6v6c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V6"/><path d="M4.5 12v6c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-6"/></g>
+<rect x="1369.4" y="550" width="79" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1408.9" y="564.67" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">THE VEIL</text>
+<text x="1146.67" y="600" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Sanitization &amp; Provenance</text>
+<text x="1146.67" y="624" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Local secret scrubbing and</text>
+<text x="1146.67" y="643" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">.vis.provenance.json sidecar locks.</text>
+<line x1="230" y1="684" x2="230" y2="701" stroke="#82D8E6" stroke-width="1.6" marker-end="url(#arrow-sis-agentic-architecture-dark)"/>
+<rect x="56" y="704" width="348" height="148" rx="14" fill="#162033" stroke="#3E5682" stroke-width="1.2"/>
+<rect x="56" y="704" width="5" height="148" rx="2.5" fill="#F0C87E"/>
+<rect x="76" y="722" width="176" height="23" rx="11.5" fill="#2A2010" stroke="#684F24" stroke-width="1"/>
+<text x="164" y="737.17" fill="#F6D89E" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">PLANE 04 · GOVERNANCE</text>
+<text x="76" y="770" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="18.5" font-weight="700">SIP Attestation &amp; Human Gate</text>
+<text x="76" y="794" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Fail-closed money, rights, and production release</text>
+<text x="76" y="813" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">boundaries.</text>
+<rect x="426" y="704" width="335.33" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(444, 722) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.6-3 8.4-7 9.5-4-1.1-7-4.9-7-9.5V6l7-3z"/><path d="M9 12.2l2 2 4-4.2"/></g>
+<rect x="652.48" y="720" width="93" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="698.98" y="734.67" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">DOCTRINE 0</text>
+<text x="444" y="770" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Human Approval Gate</text>
+<text x="444" y="794" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Named human sign-off required on spend,</text>
+<text x="444" y="813" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">pricing, auth, and external sends.</text>
+<rect x="777.33" y="704" width="335.33" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(795.33, 722) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 8L4 12l4.5 4M15.5 8L20 12l-4.5 4M13.5 5.5l-3 13"/></g>
+<rect x="975.32" y="720" width="122" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1036.32" y="734.67" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">SIGNED RECEIPT</text>
+<text x="795.33" y="770" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">PR Gate &amp; Exact-SHA Proof</text>
+<text x="795.33" y="794" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Cryptographic commit verification, CI checks,</text>
+<text x="795.33" y="813" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">and rollback readiness.</text>
+<rect x="1128.67" y="704" width="335.33" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(1146.67, 722) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5L20.5 8L12 12.5L3.5 8L12 3.5Z"/><path d="M3.5 12L12 16.5L20.5 12"/><path d="M3.5 16L12 20.5L20.5 16"/></g>
+<rect x="1340.9" y="720" width="108" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1394.9" y="734.67" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">BUILT ON SIP</text>
+<text x="1146.67" y="770" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Protocol Attestation</text>
+<text x="1146.67" y="794" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Earned per-artifact provenance across public</text>
+<text x="1146.67" y="813" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">and partner releases.</text>
+</svg>

@@ -1,10 +1,13 @@
 """Adversarial archive fixtures. No network, install, extraction or source execution."""
+import argparse
 import copy
 import gzip
 import io
 import json
 from pathlib import Path
 import stat
+import subprocess
+import sys
 import tarfile
 import tempfile
 import unittest
@@ -14,7 +17,54 @@ import zipfile
 from verify_artifact import IntegrityError, PACKAGE_FILE, sha, verify_package, verify_product
 
 ROOT = Path(__file__).resolve().parents[1]
+ASSEMBLED_ARCHIVE = None
 REVISION = 'a' * 40
+
+EXPECTED_ESSENTIAL_SOURCE = frozenset('''
+assets/icons/archive.svg
+assets/icons/arrowRight.svg
+assets/icons/arrowUpRight.svg
+assets/icons/branch.svg
+assets/icons/check.svg
+assets/icons/close.svg
+assets/icons/code.svg
+assets/icons/compass.svg
+assets/icons/download.svg
+assets/icons/eye.svg
+assets/icons/grid.svg
+assets/icons/layers.svg
+assets/icons/link.svg
+assets/icons/moon.svg
+assets/icons/orbit.svg
+assets/icons/pause.svg
+assets/icons/play.svg
+assets/icons/search.svg
+assets/icons/settings.svg
+assets/icons/shield.svg
+assets/icons/signal.svg
+assets/icons/spark.svg
+assets/icons/sun.svg
+assets/icons/warning.svg
+assets/living-theme-sheet.svg
+contracts/components.json
+docs/ARCHITECTURE.md
+docs/BRAND-ADAPTERS.md
+docs/INSTALLATION.md
+docs/licenses/IBM-Plex-Mono-OFL.txt
+docs/licenses/Instrument-Sans-OFL.txt
+docs/licenses/Instrument-Serif-OFL.txt
+scripts/verify_artifact.py
+src/components.css
+src/components.tsx
+src/css.d.ts
+src/icons.tsx
+src/index.ts
+src/product-components.css
+src/product-components.tsx
+src/tailwind.css
+src/tokens.css
+tokens/tokens.json
+'''.splitlines()[1:])
 
 
 def record(name, raw):
@@ -51,8 +101,8 @@ def package_fixture(mutate=None, linked=False):
 
 def product_fixture():
     package, receipt = package_fixture()
-    paths = ['README.md','docs/INSTALLATION.md','src/index.ts','src/components.tsx','src/product-components.tsx','src/icons.tsx','src/css.d.ts','src/tokens.css','src/components.css','src/product-components.css','src/tailwind.css','tokens/tokens.json','contracts/components.json','scripts/verify_artifact.py']
-    data = {name:(ROOT/name).read_bytes() for name in paths}
+    data = {name: (ROOT/name).read_bytes() for name in EXPECTED_ESSENTIAL_SOURCE}
+    data['README.md'] = b'Installation instructions'
     data['release/'+PACKAGE_FILE] = package
     data['release/package-receipt.json'] = json.dumps(receipt).encode()
     return data
@@ -92,6 +142,27 @@ class ArtifactIntegrityTests(unittest.TestCase):
         self.assertEqual(result['trustedChecksum'],'matched')
         self.assertIn('unsigned',result['authenticity'])
         self.assertEqual(result['edition'],'essential')
+
+    def test_essential_archive_matches_buyer_inventory(self):
+        # The package CI job supplies the actual assembler output.
+        generated = {'README.md', 'RELEASE-MANIFEST.json', 'release/' + PACKAGE_FILE, 'release/package-receipt.json'}
+        with zipfile.ZipFile(ASSEMBLED_ARCHIVE or self.write(product_fixture())) as archive:
+            self.assertEqual(set(archive.namelist()), EXPECTED_ESSENTIAL_SOURCE | generated)
+        data = product_fixture()
+        data['docs/FIRST-PRODUCT-LAUNCH-CHECKLIST.md'] = b'Internal seller notes'
+        self.write(data)
+        with self.assertRaisesRegex(IntegrityError, 'Unexpected or missing customer source'):
+            verify_product(self.path)
+
+    def test_cli_warns_without_trusted_checksum(self):
+        self.write(product_fixture())
+        command = [sys.executable, '-B', str(ROOT/'scripts/verify_artifact.py'), str(self.path)]
+        result = subprocess.run(command, check=True, capture_output=True, text=True)
+        self.assertIn('authenticity is unverified', result.stderr)
+        self.assertEqual(json.loads(result.stdout)['trustedChecksum'], 'not-supplied')
+        trusted = subprocess.run(command + ['--sha256', sha(self.path.read_bytes())], check=True, capture_output=True, text=True)
+        self.assertEqual(trusted.stderr, '')
+        self.assertEqual(json.loads(trusted.stdout)['trustedChecksum'], 'matched')
 
     def test_wrong_trusted_checksum_and_manifest_tampering_fail(self):
         self.write(product_fixture())
@@ -135,7 +206,7 @@ class ArtifactIntegrityTests(unittest.TestCase):
         data = product_fixture()
         del data['src/icons.tsx']
         self.write(data)
-        with self.assertRaisesRegex(IntegrityError,'Required customer source'):
+        with self.assertRaisesRegex(IntegrityError,'missing customer source'):
             verify_product(self.path)
         data = product_fixture()
         data['release/package-receipt.json'] = b'{"schema":"bad","schema":"bad2"}'
@@ -161,4 +232,8 @@ class ArtifactIntegrityTests(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--assembled-archive', type=Path)
+    options, unittest_args = parser.parse_known_args()
+    ASSEMBLED_ARCHIVE = options.assembled_archive
+    unittest.main(argv=[__file__, *unittest_args])

@@ -1,0 +1,21 @@
+{
+  "name": "starlight-oavs-transformation-experiment",
+  "version": "0.1.0",
+  "description": "Noncanonical deterministic rigid-link transformation experiment",
+  "scripts": {
+    "test": "node --test checks/*.spec.mjs",
+    "build:web": "node scripts/build_web.mjs",
+    "validate:geometry": "python scripts/validate_mechanism.py",
+    "build:manifest": "python scripts/build_manifest.py"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "esbuild": "0.25.12",
+    "gltf-validator": "2.0.0-dev.3.10",
+    "three": "0.187.0"
+  },
+  "private": true
+}

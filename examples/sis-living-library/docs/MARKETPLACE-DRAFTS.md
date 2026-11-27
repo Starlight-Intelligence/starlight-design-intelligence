@@ -1,6 +1,6 @@
 # Listing and launch drafts
 
-Unpublished copy for review. Candidate source, proposed terms and prices; no marketplace approval or commercial availability.
+Unpublished copy for review. The source for all three editions is publicly viewable in the GitHub repository. The proposed paid offer covers the commercial license, updates and support. Marketplace approval and commercial availability are pending.
 
 ## Glass Core
 

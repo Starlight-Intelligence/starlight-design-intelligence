@@ -1,0 +1,78 @@
+{
+  "$schema": "../../schemas/brand-pack.schema.json",
+  "brandId": "sacred-visions",
+  "displayName": "Sacred Visions",
+  "operatingUnit": "sacred-visions-archive",
+  "sourceDocs": [
+    "brand-packs/sacred-visions/BRAND.md",
+    "brand-packs/sacred-visions/DESIGN.md",
+    "brand-packs/sacred-visions/COPY.md",
+    "brand-packs/sacred-visions/NARRATIVE.md"
+  ],
+  "canonicalRepos": ["frankxai/sacred-visions"],
+  "surfaceModes": ["archive-editorial", "exhibition-cinema", "collector-edition"],
+  "audiences": [
+    "visual art collectors",
+    "scripture and art-history readers",
+    "museum-grade design enthusiasts"
+  ],
+  "positioning": {
+    "oneLine": "An archive-first illuminated manuscript and museum exhibition platform for sacred visual commentary.",
+    "proof": [
+      "Text / Tradition / Visualization provenance framework",
+      "Verified public-domain museum source plates",
+      "Chiaroscuro editorial overlays and bounded collector editions"
+    ],
+    "failureModes": [
+      "presenting AI interpretation as biblical fact",
+      "generic motivational poster aesthetics",
+      "garbled generated text inside parchment art"
+    ]
+  },
+  "voice": {
+    "traits": ["quiet", "reverent", "literate", "provenance-led"],
+    "bannedPhrases": [
+      "AI Bible Art",
+      "unlock ancient riches",
+      "miracle secret",
+      "inspirational graphics"
+    ]
+  },
+  "visual": {
+    "principles": [
+      "Keep Text, Tradition, and Visualization separated",
+      "Pair antique vellum and ink black with 1px celestial gold rules",
+      "Render all citations and overlays deterministically in code"
+    ],
+    "colors": {
+      "ink": "#0B0B0D",
+      "parchment": "#E9E0CE",
+      "ivory": "#F6F1E7",
+      "gold": "#C9A24B",
+      "crimson": "#7C1F2B"
+    },
+    "typography": {
+      "displayRole": "high-contrast museum serif (Cormorant Garamond or EB Garamond)",
+      "readingRole": "quiet humanist sans for archive UI and provenance captions"
+    },
+    "imageDirection": [
+      "museum macro parchment and chiaroscuro cloister studies",
+      "sculptural sacred symbolism with zero baked text",
+      "slow candlelit motion pans with static poster fallbacks"
+    ]
+  },
+  "channels": {
+    "primary": ["website", "visions-in-motion", "instagram-reels", "collector-editions"]
+  },
+  "approvals": {
+    "requiredBeforePublicAction": true,
+    "route": "editorial-provenance-review-and-named-human"
+  },
+  "doNotUse": [
+    "fake Latin or pseudo-scripture pixels",
+    "neon fantasy gradients",
+    "hype devotional slogans",
+    "unattributed museum scans"
+  ],
+  "updatedAt": "2026-11-16"
+}

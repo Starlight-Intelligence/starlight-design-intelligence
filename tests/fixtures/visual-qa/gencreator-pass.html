@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edition review</title>
+<style>
+  :root { --ink: #221f1b; --paper: #fbf9f5; --signal: #c8322a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 "Instrument Sans", system-ui, sans-serif; }
+  main { max-width: 72rem; margin: 0 auto; padding: 24px 16px; display: grid; gap: 24px; }
+  h1 { font: 400 clamp(2rem, 6vw, 4rem)/1.05 "Instrument Serif", Georgia, serif; margin: 0; }
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+  article { border-top: 1px solid var(--ink); padding-top: 12px; }
+  .edition { color: var(--signal); font-size: 28px; }
+  pre { overflow-x: auto; max-width: 100%; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Edition 14 is ready for review</h1>
+  <p>Every claim below links to its source. Approve the edition when each source has been checked.</p>
+  <p class="edition">Edition 14</p>
+  <section class="grid" aria-label="Sources">
+    <article><h2>Interview notes</h2><p>Three sources, reviewed by the author.</p></article>
+    <article><h2>Draft essay</h2><p>Two open comments remain on the second section.</p></article>
+    <article><h2>Release checklist</h2><p>Typography and alt text verified at three widths.</p></article>
+  </section>
+  <pre>source-id: 7f3a9c1e4b2d8f6a0c5e9b3d7a1f4c8e2b6d0a9f3c7e1b5d9a3f7c1e5b9d3a7f</pre>
+</main>
+</body>
+</html>

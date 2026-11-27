@@ -1,0 +1,164 @@
+.page {
+  min-height: 100svh;
+  display: grid;
+  align-items: center;
+  padding: clamp(1.25rem, 5vw, 5rem);
+  background: var(--sl-bg);
+  color: var(--sl-text);
+}
+
+.layout {
+  width: min(100%, 74rem);
+  margin-inline: auto;
+  display: grid;
+  grid-template:
+    "intro stage" 1fr
+    "card stage" auto / minmax(0, 0.96fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.intro { grid-area: intro; }
+
+.kicker {
+  margin: 0 0 1.1rem;
+  font: 0.72rem/1.4 var(--sl-font-mono);
+  letter-spacing: 0.105em;
+  text-transform: uppercase;
+  color: var(--sl-accent);
+}
+
+.intro h1 {
+  margin: 0;
+  font: 500 clamp(3.5rem, 7.5vw, 7.4rem)/0.94 var(--sl-font-sans);
+  letter-spacing: -0.07em;
+}
+
+.intro em {
+  display: block;
+  font: italic 400 1.16em/0.88 var(--sl-font-serif);
+  letter-spacing: -0.045em;
+  color: var(--sl-accent);
+}
+
+.lede {
+  max-width: 30ch;
+  margin: 1.5rem 0 0;
+  color: var(--sl-muted);
+  font-size: clamp(1rem, 1.65vw, 1.22rem);
+}
+
+.stage {
+  grid-area: stage;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  aspect-ratio: 1.04;
+  border: 1px solid var(--sl-line);
+  border-radius: var(--sl-radius-lg);
+  background:
+    radial-gradient(ellipse at 47% 60%, #27464d 0%, transparent 52%),
+    radial-gradient(ellipse at 71% 20%, #283943 0%, transparent 42%),
+    #111d29;
+}
+
+.axis,
+.orbit,
+.lens,
+.light,
+.companion {
+  position: absolute;
+  pointer-events: none;
+}
+
+.axis {
+  inset: 8%;
+  background:
+    linear-gradient(transparent 49.8%, rgb(154 216 205 / 15%) 50%, transparent 50.2%),
+    linear-gradient(90deg, transparent 49.8%, rgb(154 216 205 / 15%) 50%, transparent 50.2%);
+}
+
+.orbit {
+  inset: 26% 9%;
+  border: 1px solid rgb(155 216 205 / 46%);
+  border-radius: 50%;
+  transform: rotate(-26deg);
+}
+
+.lens,
+.light {
+  inset: 19% 22%;
+  border-radius: 50%;
+}
+
+.lens {
+  border: 1px solid rgb(187 236 232 / 56%);
+  background:
+    radial-gradient(ellipse at 27% 20%, rgb(253 241 210 / 28%), transparent 33%),
+    radial-gradient(ellipse at 75% 75%, rgb(115 229 224 / 29%), transparent 46%),
+    linear-gradient(143deg, rgb(161 211 222 / 19%), rgb(8 19 35 / 76%) 51%, rgb(61 122 126 / 26%));
+  box-shadow:
+    inset 5px 8px 14px rgb(224 253 249 / 22%),
+    inset -4px -7px 15px rgb(103 214 222 / 26%),
+    0 24px 48px rgb(4 12 20 / 40%);
+}
+
+.light {
+  background: conic-gradient(from 252deg, transparent 0 7%, rgb(255 238 200 / 88%) 13%, transparent 29% 61%, rgb(146 236 235 / 84%) 73%, transparent 89%);
+  mask-image: radial-gradient(ellipse closest-side, transparent 90%, black 98%, transparent);
+}
+
+.light[data-replay] { animation: inspect-rim 1.2s cubic-bezier(.2, .8, .2, 1) both; }
+
+.companion {
+  top: 25%;
+  right: 18%;
+  width: 0.65rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #b7ede6;
+  box-shadow: 0 0 1.1rem rgb(162 234 226 / 70%);
+}
+
+.card {
+  grid-area: card;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: var(--sl-space-6);
+}
+
+.card h2 { margin: 0; font-size: 1rem; font-weight: 600; }
+.card p { margin: 0.3rem 0 0; color: var(--sl-muted); max-width: 32ch; font-size: 0.9rem; }
+
+@keyframes inspect-rim {
+  0% { transform: rotate(-31deg); opacity: 0.5; }
+  45% { opacity: 1; }
+  100% { transform: rotate(0); opacity: 1; }
+}
+
+@media (max-width: 46rem) {
+  .layout {
+    grid-template: "intro" auto "stage" auto "card" auto / minmax(0, 1fr);
+    max-width: 35rem;
+  }
+
+  .intro h1 { font-size: clamp(2.6rem, 11vw, 4.5rem); }
+  .intro em { display: inline; }
+  .lede { margin-top: 0.85rem; }
+  .stage { aspect-ratio: 1.25; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .light[data-replay] { animation: none; }
+  .card .replay { display: none; }
+}
+
+@media (forced-colors: active) {
+  .stage { background: Canvas; border-color: CanvasText; }
+  .axis, .light, .card .replay { display: none; }
+  .orbit, .lens { border: 1px solid CanvasText; }
+  .companion { border: 1px solid CanvasText; }
+}

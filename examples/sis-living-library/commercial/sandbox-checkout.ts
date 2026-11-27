@@ -1,12 +1,13 @@
-/** Server-only preparation adapter. No default fetch, storefront route or fulfillment. */
+/** Reference-only test adapter. No default fetch, storefront route or fulfillment. */
 export const SANDBOX_CHECKOUT_ENDPOINT = 'https://api.stripe.com/v1/checkout/sessions';
 
-export const CHECKOUT_SKUS = [
-  'aurora-ui-kit:essential',
-  'aurora-ui-kit:pro',
-  'command-center-template:agent',
-] as const;
-export type CheckoutSku = (typeof CHECKOUT_SKUS)[number];
+const EDITION_BY_SKU = {
+  'aurora-ui-kit:essential': 'essential',
+  'aurora-ui-kit:pro': 'professional',
+  'command-center-template:agent': 'agent-command-center',
+} as const;
+export type CheckoutSku = keyof typeof EDITION_BY_SKU;
+export const CHECKOUT_SKUS = Object.keys(EDITION_BY_SKU) as CheckoutSku[];
 
 export interface SandboxConfig {
   mode: 'test';
@@ -22,7 +23,6 @@ export interface SandboxIntent {
   sku: CheckoutSku;
   /** Stable, server-issued purchase-attempt ID; reuse for retries of one intent. */
   idempotencyKey: string;
-  edition: string;
   sourceSha: string;
 }
 
@@ -70,12 +70,11 @@ export async function createSandboxCheckout(
       !/^sk_test_[A-Za-z0-9]{8,}$/.test(config.secretKey)) refuse('TEST_KEY_REQUIRED');
   // Snapshot before the first await; caller mutation cannot swap in a live key.
   const secretKey = config.secretKey;
-  if (!intent || !CHECKOUT_SKUS.includes(intent.sku)) refuse('UNKNOWN_SKU');
+  if (!intent || !Object.hasOwn(EDITION_BY_SKU, intent.sku)) refuse('UNKNOWN_SKU');
   if (typeof transport !== 'function') refuse('TRANSPORT_REQUIRED');
   if (typeof intent.idempotencyKey !== 'string' ||
       !/^[A-Za-z0-9_-]{16,128}$/.test(intent.idempotencyKey)) refuse('INVALID_IDEMPOTENCY_KEY');
-  if (typeof intent.edition !== 'string' || !/^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$/.test(intent.edition) ||
-      typeof intent.sourceSha !== 'string' || !/^[a-f0-9]{40}$/.test(intent.sourceSha)) refuse('INVALID_SOURCE_EDITION');
+  if (typeof intent.sourceSha !== 'string' || !/^[a-f0-9]{40}$/.test(intent.sourceSha)) refuse('INVALID_SOURCE_EDITION');
   const price = config.prices?.[intent.sku];
   if (typeof price !== 'string' || !/^price_[A-Za-z0-9]{3,}$/.test(price)) refuse('PRICE_NOT_CONFIGURED');
   const success = trustedUrl(config.successUrl);
@@ -92,7 +91,7 @@ export async function createSandboxCheckout(
     'line_items[0][quantity]': '1',
   });
   // Preserve FrankX's canonical webhook/delivery productSlug convention.
-  const metadata = { productSlug, tier, edition: intent.edition, sourceSha: intent.sourceSha };
+  const metadata = { productSlug, tier, edition: EDITION_BY_SKU[intent.sku], sourceSha: intent.sourceSha };
   for (const [key, value] of Object.entries(metadata)) {
     body.set(`metadata[${key}]`, value);
     body.set(`payment_intent_data[metadata][${key}]`, value);

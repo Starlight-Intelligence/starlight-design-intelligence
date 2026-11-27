@@ -1,0 +1,48 @@
+{
+  "id": "frankx-opencode-gateway-stack",
+  "brand": "frankx",
+  "archetype": "stack-tiers",
+  "eyebrow": "FRANKX · BUILDER STACK BLUEPRINT",
+  "editionTag": "PRODUCTION PATTERN",
+  "title": "OpenCode to Cloudflare AI Gateway Execution Stack",
+  "subtitle": "Four concrete operational layers from local terminal harness through cached gateway routing to verified git receipts.",
+  "sourceNote": "Source: brand-packs/frankx/DESIGN.md · TOKENS.md · OpenCode + Cloudflare AI Gateway workflow",
+  "tiers": [
+    {
+      "step": "TIER 01",
+      "icon": "terminal",
+      "title": "OpenCode CLI & Local Agent Harness",
+      "summary": "Developer-controlled repo worktree with scoped tool permissions, diff inspection, and typed task specs.",
+      "role": "MAKER WORKTREE",
+      "badges": ["ISOLATED GIT WORKTREE", "SCOPED ALLOWLIST", "ZERO SECRET INLINE"],
+      "connectorLabel": "HTTPS + OTLP TRACE HEADERS"
+    },
+    {
+      "step": "TIER 02",
+      "icon": "gateway",
+      "title": "Cloudflare AI Gateway",
+      "summary": "Centralized request telemetry, deterministic response caching, rate budgets, and provider fallback policies.",
+      "role": "EDGE CONTROL PLANE",
+      "badges": ["REQUEST CACHING", "RATE & COST BUDGETS", "FALLBACK ROUTING"],
+      "connectorLabel": "POLICY-CHECKED INFERENCE DISPATCH"
+    },
+    {
+      "step": "TIER 03",
+      "icon": "cpu",
+      "title": "Workers AI & Frontier Model Router",
+      "summary": "Task-matched execution routing mechanical transforms to fast edge models and deep architecture to frontier reasoning.",
+      "role": "MODEL EXECUTION",
+      "badges": ["WORKERS AI EDGE", "FRONTIER REASONING", "SCHEMA OUTPUTS"],
+      "connectorLabel": "ARTIFACTS + STRUCTURED RECEIPTS"
+    },
+    {
+      "step": "TIER 04",
+      "icon": "shield",
+      "title": "Deterministic Verification & Git Receipt",
+      "summary": "Automated test suite, WCAG AA diagram checks, independent PR review, and human sign-off before production release.",
+      "role": "RELEASE GATE",
+      "gate": true,
+      "badges": ["NODE:TEST SUITE", "EXACT-SHA REVIEW", "HUMAN MERGE GATE"]
+    }
+  ]
+}

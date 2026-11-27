@@ -1,0 +1,3 @@
+# Gemini workspace
+
+@./AGENTS.md
