@@ -11,6 +11,7 @@ A material is a surface that answers to light, pointer, scroll and state, and th
 | `src/gate/` | `gpuPlan()`, the 8 ms median frame budget, `readEnv()`, and `useGlassPlan()`, an SSR-safe hook that answers `{ mode: 'css', reason: 'server' }` on the server and during hydration, then re-reads on preference, breakpoint and data-saver changes. Ported from the web-studio glass lab with its seven tests. |
 | `src/glass/` | `GlassSurface`: the poster image and a CSS `backdrop-filter` panel with no script; a three.js refraction pass mounts over the same poster only when the gate says `webgl` and a 12-frame `gl.finish()` probe stays under 8 ms median. Pauses off screen with `IntersectionObserver`, resumes on re-entry, and tears down through one path on a preference change, a resize under 900px, a lost context, a failed poster or unmount. `mountGlass()` is the same wrapper without React. |
 | `src/primitives/` | `Button`, `Card`, `Sheet` from shadcn 4.22 with a `material` prop (`glass`, `paper`, `ink`) and the state contract in `material.ts`: press depth, a visible gold focus ring on every material, hover only inside `(hover: hover) and (pointer: fine)`. |
+| `src/agent/` | The agent run kit, a candidate addition after v0.1: `RunTimeline` and `RunStep` over `run-state.ts`, which mirrors the status names and labels of the product run contract (`RunNodeStatus` in `@starlight/agent-client`) and holds no rules of its own, `ToolCall`, `ApprovalGate`, `Answer` with `CitationMark` and `SourceChip`, `ModelRoute`, `MemoryChip`, `Composer`. Server Components on ink, no client script. Figma mapping and token drift are in [docs/figma-bridge.md](docs/figma-bridge.md). |
 | `src/tokens/` | `tokens.css` (CSS custom properties, `--sl-*`) and `theme.css` (Tailwind 4 `@theme`), both generated from `DESIGN.md` by `pnpm tokens`. Edit the tokens in DESIGN.md, never here. |
 | `src/styles/materials.css` | shadcn's semantic variables mapped onto the tokens, the glass tiers, and the designed still under `prefers-reduced-transparency` and `prefers-reduced-motion`. |
 | `registry.json` | A shadcn registry, built to `public/r/`. |
@@ -34,7 +35,7 @@ then:
 npx shadcn@latest add @starlight/glass-surface
 ```
 
-Items: `materials-styles`, `material`, `glass-gate`, `glass-surface`, `material-button`, `material-card`, `material-sheet`. Each resolves its own dependencies through the namespace, down to `materials-styles`. Until this package's branch merges, point the namespace at `agent/claude/materials-pkg` instead of `main`.
+Items: `materials-styles`, `material`, `glass-gate`, `glass-surface`, `material-button`, `material-card`, `material-sheet`, `agent-run`. Each resolves its own dependencies through the namespace, down to `materials-styles`. Until this package's branch merges, point the namespace at `agent/claude/materials-pkg` instead of `main`.
 
 The files land under `components/starlight-materials/` with their tree intact, because they import each other by relative path with `.ts` and `.tsx` extensions (so the same sources run under `node --test` with no build). Set `"allowImportingTsExtensions": true` in the consuming `tsconfig.json`; Next.js projects have `noEmit: true`, which is what that option requires. Add to the global stylesheet, after Tailwind:
 
