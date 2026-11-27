@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Starlight · companion signal</title>
+<style>
+:root{color-scheme:dark;background:#070a10;color:#ede6d8;font:16px system-ui}
+body{margin:0;min-height:100svh;display:grid;place-items:center}
+main{width:min(87vw,36rem);padding:2rem 0}
+h1{font:clamp(2.5rem,8vw,4.75rem)/1.02 Georgia,serif;letter-spacing:-.045em;margin:0 0 1rem}
+p{max-width:36ch;line-height:1.55}
+figure{margin:2rem 0;background:#111821;display:grid;place-items:center;min-height:16rem;border:1px solid #273142}
+img,svg{display:block;width:112px;height:112px}
+button{font:inherit;padding:.65rem 1rem;background:#ede6d8;color:#070a10;border:0;border-radius:5px}
+button:focus-visible{outline:2px solid #82d8e6;outline-offset:5px}
+button[hidden]{display:inline-block;visibility:hidden}
+@media(prefers-reduced-motion:reduce){svg *{transform:none!important;opacity:1!important}}
+</style>
+<script src="./gsap.min.js" defer></script>
+<script src="./motion.js" defer></script>
+</head>
+<body>
+<main>
+<h1>Companion signal</h1>
+<p>The companion dot settles beside the original star in one 900 ms sequence.</p>
+<figure id="specimen"><img src="./starlight-star.svg" alt="Starlight Intelligence star"></figure>
+<button type="button" id="replay" hidden>Play motion</button>
+<p id="status" role="status">Static mark</p>
+</main>
+</body>
+</html>

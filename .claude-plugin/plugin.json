@@ -1,0 +1,10 @@
+{
+  "name": "starlight-design-intelligence",
+  "version": "0.1.0",
+  "description": "Art direction to browser proof. Starlight design kernel, brand packs, and specialist skills (Taste, Impeccable, design references, Playwright browser checks, image-to-Three.js) routed by the design-orchestrator skill. Installs no runtime, hooks or telemetry.",
+  "author": { "name": "Frank Riemer" },
+  "homepage": "https://github.com/Starlight-Intelligence/starlight-design-intelligence",
+  "repository": "https://github.com/Starlight-Intelligence/starlight-design-intelligence",
+  "license": "SEE LICENSE IN THIRD_PARTY_NOTICES.md",
+  "keywords": ["design", "brand", "web", "motion", "visual-qa"]
+}

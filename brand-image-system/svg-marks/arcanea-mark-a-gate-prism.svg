@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none" role="img" aria-label="Arcanea Gate Prism candidate mark">
+  <!-- Candidate A: Architectural Gate Arch + Primordial Lumina/Nero Cut -->
+  <path d="M24 5L39 20V41H31.5V23.5L24 16L16.5 23.5V41H9V20L24 5Z" fill="currentColor"/>
+  <path d="M24 23L29.5 31.5L24 41L18.5 31.5L24 23Z" fill="currentColor" opacity="0.92"/>
+  <circle cx="24" cy="11.5" r="2.2" fill="currentColor"/>
+</svg>

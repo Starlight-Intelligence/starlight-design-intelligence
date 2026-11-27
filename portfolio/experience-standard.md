@@ -10,6 +10,9 @@ acceptance checks and 15 bounded upgrades. Jobs and actions are proposed design
 requirements. Dated observations establish their stated scope only. Nothing here
 proves that a production journey passes.
 
+The [Frontier Experience Constitution](frontier-experience-constitution.md)
+sets the shared mandate and the pre-release review bar.
+
 ## What remains brand-specific
 
 Resolve the domain profile, runtime pack, local product contract and recorded owner

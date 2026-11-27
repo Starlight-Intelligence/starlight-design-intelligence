@@ -9,6 +9,7 @@ Contract: `starlight.repo_profile.v2` · Team: `frankx-product-revenue-team` · 
 - health: `git status --short`
 - lint: `npm run validate`
 - rendered foundations: `npm run test:interface` (requires installed Playwright Chromium)
+- visual QA gate (375/768/1440 overflow, WCAG AA contrast, brand-pack conformance): `npm run test:visual-qa`; rendered cases skip without Chromium unless `VISUAL_QA_REQUIRE_BROWSER=1`. Set `PLAYWRIGHT_CHROMIUM_EXECUTABLE` to reuse a preinstalled browser. See `evals/visual-qa-gate.md`.
 - preview/artifact foundations: `npm run validate:interface -- --help`
 - portfolio contract: `npm run validate:portfolio`
 - observatory integrity: `npm run validate:observatory`
