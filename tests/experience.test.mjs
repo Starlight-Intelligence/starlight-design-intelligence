@@ -55,7 +55,7 @@ test("bundle hashes committed bytes and excludes subsequent working-tree edits",
   git(["add", "."]); git(["commit", "-qm", "source fixture"]);
   const sha = git(["rev-parse", "HEAD"]);
   const path = "brand-image-system/runtime/brands/frankx/brand-pack.json";
-  const bytes = readFileSync(join(fixture, path));
+  const bytes = execFileSync("git", ["show", `${sha}:${path}`], { cwd: fixture });
   writeFileSync(join(fixture, path), "uncommitted corruption");
   const out = join(fixture, "bundle");
   const manifest = exportBrandHandoff({ root: fixture, brand: "frankx", out });
