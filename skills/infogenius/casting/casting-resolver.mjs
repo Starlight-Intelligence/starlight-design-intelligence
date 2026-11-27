@@ -47,9 +47,11 @@ export function classifyId(rawId) {
 }
 
 /** Propose a cast from topics. Proposal only; never approval. */
-export function routeEditorial(topics = []) {
+export function routeEditorial(topics = [], brand = undefined) {
   const wanted = topics.map(norm);
-  const hits = ROUTING.routes.filter((r) => r.topics.some((t) => wanted.includes(t)));
+  // brand_scope is enforced when a brand is given, so a cast routed for one brand is never nominated for another.
+  const inScope = (r) => brand === undefined || (r.brand_scope ?? []).includes(norm(brand));
+  const hits = ROUTING.routes.filter((r) => inScope(r) && r.topics.some((t) => wanted.includes(t)));
   return {
     status: "proposal",
     routes: hits.map((r) => r.route_id),
@@ -163,10 +165,14 @@ export function resolveCasting({ brief, transport = null }) {
   const topicTechnical = ROUTING.technical_topics.some((t) => (brief.topics ?? []).map(norm).includes(t));
   const technical = kind === "technical" || (kind !== "story" && topicTechnical);
   const gain = brief.understanding_gain ?? null;
-  const base = { schema: "starlight.infogenius.casting-decision.v1", brief_kind: kind, proposals_only: true, blocked: [], cast: [], notes: [] };
+  const base = {
+    schema: "starlight.infogenius.casting-decision.v1", brief_kind: kind, proposals_only: true, blocked: [], cast: [], notes: [],
+    // Every decision carries a receipt, including early exits, so callers can always read result.receipt.
+    receipt: { contract_source: "frankxai/visual-intelligence draft PR 92 (unverified; re-check on merge)", tool: MCP_TOOL, identity_ids: [], asset_hashes_verified: false, rights: "unknown", approval: "unknown", integration_status: "not_asserted", fixture: false, reference_revision: null }
+  };
 
-  const requested = (brief.requested_ids?.length ? brief.requested_ids : routeEditorial(brief.topics).nominated).map(norm);
-  const proposal = routeEditorial(brief.topics);
+  const requested = (brief.requested_ids?.length ? brief.requested_ids : routeEditorial(brief.topics, brief.brand).nominated).map(norm);
+  const proposal = routeEditorial(brief.topics, brief.brand);
 
   // Rule: characters only when they improve understanding; never forced into technical diagrams.
   if (!gain || !UNDERSTANDING_GAINS.includes(gain)) {

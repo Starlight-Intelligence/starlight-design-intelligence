@@ -254,3 +254,18 @@ test("discovery pointers exist in AGENTS.md and CLAUDE.md and the skill is regis
   assert.ok(read("CLAUDE.md").includes("skills/infogenius/SKILL.md"));
   assert.ok(read("SKILLS.md").includes("`infogenius`"));
 });
+
+test("every casting decision, including early exits, carries a receipt", () => {
+  const early = resolveCasting({ brief: { brand: "sis", topics: ["orchestration"], visual_kind: "technical" }, transport: T });
+  assert.equal(early.use_character, false);
+  assert.ok(early.receipt && early.receipt.integration_status === "not_asserted" && early.receipt.asset_hashes_verified === false);
+  const optin = resolveCasting({ brief: { brand: "sis", topics: ["orchestration"], visual_kind: "technical", understanding_gain: "explains-role" }, transport: T });
+  assert.ok(optin.receipt);
+});
+
+test("routing enforces brand_scope when a brand is given", () => {
+  assert.deepEqual(routeEditorial(["founder"], "frankx").nominated, ["mini-frank", "nilo", "brio", "riff"]);
+  assert.deepEqual(routeEditorial(["founder"], "sis").nominated, []);
+  assert.deepEqual(routeEditorial(["mythic-education"], "frankx").nominated, []);
+  assert.deepEqual(routeEditorial(["mythic-education"], "arcanea").nominated, ["arcanea"]);
+});
