@@ -41,7 +41,7 @@ export function readContracts(bundle=defaultBundle) {
   if(files.length>1000) fail('Contract count exceeds 1000');
   return files.map(p=>{
     if(fs.statSync(p).size>262144) fail('Contract exceeds 256 KiB');
-    const raw=fs.readFileSync(p,'utf8');
+    const raw=fs.readFileSync(p,'utf8').replace(/\r\n/g,'\n');
     const m=/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]+)$/.exec(raw);
     if(!m) fail('Missing frontmatter or body: '+p);
     let data;try{data=JSON.parse(m[1]);}catch{fail('Use JSON-object frontmatter (YAML subset): '+p);}

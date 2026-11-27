@@ -58,7 +58,13 @@ export function verifySources(base = root) {
         }
         if (rel.startsWith('..') || lstatSync(absolute).isSymbolicLink() || !lstatSync(absolute).isFile()) throw new Error('escaped or nonregular source');
         const bytes = readFileSync(absolute);
-        if (bytes.length !== file.bytes || hash(bytes) !== file.sha256) failures.push(`${file.path}: source bytes differ`);
+        const exactMatch = bytes.length === file.bytes && hash(bytes) === file.sha256;
+        let crlfNormalizedMatch = false;
+        if (!exactMatch && !bytes.includes(0) && bytes.includes(0x0d)) {
+          const normalized = Buffer.from(bytes.toString('utf8').replace(/\r\n/g, '\n'), 'utf8');
+          crlfNormalizedMatch = normalized.length === file.bytes && hash(normalized) === file.sha256;
+        }
+        if (!exactMatch && !crlfNormalizedMatch) failures.push(`${file.path}: source bytes differ`);
       } catch (e) { failures.push(`${file.path}: ${e.message}`); }
     }
     if (!declared.has(`${prefix}LICENSE`)) failures.push(`${source.id}: license missing`);

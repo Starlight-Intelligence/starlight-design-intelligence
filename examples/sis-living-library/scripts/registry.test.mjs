@@ -5,9 +5,12 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
+import {createRequire} from 'node:module';
 import {gunzipSync} from 'node:zlib';
 import {buildContract,validateContract} from './component-contract.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const require=createRequire(import.meta.url);
+const tscCompiler=path.join(path.dirname(require.resolve('typescript/package.json')),'bin','tsc');
 const readJSON=async file=>JSON.parse(await fs.readFile(path.join(root,file),'utf8'));
 const source=await readJSON('contracts/components.json');
 test('agent contract rejects authority escalation, traversal and malformed exports',()=>{
@@ -42,7 +45,7 @@ test('manifest source hashes bind all components to actual bytes',async()=>{
 });
 test('all discovery examples compile against the real component API',async()=>{
   const file=path.join(root,'src/__contract-check.tsx');
-  try{await fs.writeFile(file,`import {${source.components.map(c=>c.export).join(',')}} from './index';\nexport const examples = <>${source.components.map(c=>c.example).join('\n')}</>;\n`);execFileSync(path.join(root,'node_modules/.bin/tsc'),['--noEmit','--project','tsconfig.json'],{cwd:root,stdio:'pipe'});}
+  try{await fs.writeFile(file,`import {${source.components.map(c=>c.export).join(',')}} from './index';\nexport const examples = <>${source.components.map(c=>c.example).join('\n')}</>;\n`);execFileSync(process.execPath,[tscCompiler,'--noEmit','--project','tsconfig.json'],{cwd:root,stdio:'pipe'});}
   finally{await fs.rm(file,{force:true});}
 });
 test('clean package is reproducible and every archive entry matches the receipt',async()=>{

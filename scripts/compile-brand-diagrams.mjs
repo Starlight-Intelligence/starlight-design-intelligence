@@ -2054,7 +2054,7 @@ export function compileSpecDirectory({
 
   for (const fileName of specFiles) {
     const specPath = join(resolvedSpecDir, fileName);
-    const rawSpec = readFileSync(specPath, "utf8");
+    const rawSpec = readFileSync(specPath, "utf8").replace(/\r\n/g, "\n");
     const spec = JSON.parse(rawSpec);
     const specSha256 = sha256Buffer(Buffer.from(rawSpec, "utf8"));
     const variants = {};
@@ -2066,7 +2066,7 @@ export function compileSpecDirectory({
 
       if (checkOnly) {
         if (existsSync(outPath)) {
-          const existingSvg = readFileSync(outPath, "utf8");
+          const existingSvg = readFileSync(outPath, "utf8").replace(/\r\n/g, "\n");
           if (existingSvg !== compiled.svg) {
             driftErrors.push(`Compiled SVG out of date: ${outFile}`);
           }
@@ -2113,7 +2113,7 @@ export function compileSpecDirectory({
     if (!existsSync(registryPath)) {
       driftErrors.push(`Missing diagram registry manifest: ${registryPath}`);
     } else {
-      const existingRegistry = readFileSync(registryPath, "utf8");
+      const existingRegistry = readFileSync(registryPath, "utf8").replace(/\r\n/g, "\n");
       if (existingRegistry !== registryJson) {
         driftErrors.push(`Diagram registry manifest out of date: ${registryPath}`);
       }

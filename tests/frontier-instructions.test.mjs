@@ -4,6 +4,7 @@ import { mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from "node
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 import { audit } from "../scripts/audit-frontier-instructions.mjs";
 
 const pin = "a".repeat(40);
@@ -84,7 +85,7 @@ test("checks owning-local policy at the selected revision separately from produc
 
 test("CLI enforces failures only in check mode and distinguishes invalid input", t => {
   const { repo } = fixture(t, { "README.md": "no instructions" });
-  const cli = new URL("../scripts/audit-frontier-instructions.mjs", import.meta.url).pathname;
+  const cli = fileURLToPath(new URL("../scripts/audit-frontier-instructions.mjs", import.meta.url));
   const run = args => execFileSync(process.execPath, [cli, "--repo", repo, ...args], { stdio:"pipe", encoding:"utf8" });
   assert.equal(JSON.parse(run(["--pin",pin])).rows[0].status, "missing");
   assert.throws(() => run(["--pin",pin,"--check"]), { status:1 });
