@@ -65,5 +65,8 @@
         }
       ]
     }
-  ]
+  ],
+  "layout": {
+    "footerClaim": false
+  }
 }

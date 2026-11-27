@@ -27,7 +27,6 @@
 <line x1="56" y1="168" x2="1464" y2="168" stroke="#C9C3B5" stroke-width="1"/>
 <line x1="56" y1="760" x2="1464" y2="760" stroke="#C9C3B5" stroke-width="1"/>
 <text x="56" y="782" fill="#455166" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="12" font-weight="500">Source: sis-agentic-architecture spec, Plane 03; living-design catalog family (proposal). Garden words are this benchmark&apos;s metaphor</text>
-<text x="1464" y="782" fill="#0C5472" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11.5" font-weight="600" text-anchor="end">WCAG AA &gt;= 4.5:1 · ZERO RASTER TEXT</text>
 <rect x="56" y="194" width="348" height="148" rx="14" fill="#EAE6DC" stroke="#9E9788" stroke-width="1.2"/>
 <rect x="56" y="194" width="5" height="148" rx="2.5" fill="#0C5472"/>
 <rect x="76" y="212" width="154" height="23" rx="11.5" fill="#E0F2FE" stroke="#93C5FD" stroke-width="1"/>

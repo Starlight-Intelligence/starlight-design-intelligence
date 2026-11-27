@@ -53,14 +53,14 @@
     {
       "n": 5,
       "id": "05-frankx-advanced-ai-architecture",
-      "title": "FrankX advanced AI architecture",
+      "title": "FrankX: from vibe-coded demo to agentic engineering",
       "brand": "frankx",
       "visual_kind": "technical",
       "archetype": "stack-tiers",
       "character_policy": "none; Omega only with explicit opt-in and named gain",
       "deterministic_render": true,
       "spec": "benchmarks/infogenius/specs/05-frankx-advanced-ai-architecture.diagram.json",
-      "note": "Authority, routing, deterministic render, independent gate."
+      "note": "Four rungs from FrankX stance 2 and the reader ladder in brand-packs/frankx/POINT_OF_VIEW.md; every node cites that file. Replaces the round 1 process view."
     },
     {
       "n": 6,

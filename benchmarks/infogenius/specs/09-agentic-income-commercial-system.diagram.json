@@ -2,18 +2,22 @@
   "id": "ig-09-agentic-income-commercial-system",
   "brand": "agentic-income",
   "archetype": "curriculum-roadmap",
-  "eyebrow": "AGENTIC INCOME · COMMERCIAL SYSTEM",
+  "eyebrow": "AGENTIC INCOME \u00b7 COMMERCIAL SYSTEM",
   "editionTag": "BENCHMARK 09",
   "title": "Earn, Automate, Compound With Full Economics",
   "subtitle": "Every attempt stays in the account. No earnings promises; paid access is unavailable until checkout exists.",
-  "sourceNote": "Source: brand-packs/agentic-income/BRAND.md · NARRATIVE.md",
+  "sourceNote": "Source: brand-packs/agentic-income/BRAND.md \u00b7 NARRATIVE.md",
   "stages": [
     {
       "phase": "STAGE 01",
       "icon": "compass",
       "title": "Earn",
       "summary": "Name the customer's job, output, acceptance test and resource ceiling first.",
-      "skills": ["Acceptance test", "Resource ceiling", "Delivery limit"],
+      "skills": [
+        "Acceptance test",
+        "Resource ceiling",
+        "Delivery limit"
+      ],
       "outcome": "Scoped offer"
     },
     {
@@ -21,7 +25,11 @@
       "icon": "workflow",
       "title": "Automate",
       "summary": "Record every attempt under one case ID, including retries, rework and refunds.",
-      "skills": ["All-attempt ledger", "Model and tool spend", "Human labor"],
+      "skills": [
+        "All-attempt ledger",
+        "Model and tool spend",
+        "Human labor"
+      ],
       "outcome": "Inspectable ledger"
     },
     {
@@ -29,8 +37,20 @@
       "icon": "layers",
       "title": "Compound",
       "summary": "Keep the skill, schema, scaffold and validator so another operator can inspect the method.",
-      "skills": ["Validator", "Handover", "Dated evidence"],
+      "skills": [
+        "Validator",
+        "Handover",
+        "Dated evidence"
+      ],
       "outcome": "Reusable method"
     }
-  ]
+  ],
+  "layout": {
+    "aligned": true,
+    "compact": true,
+    "footerClaim": false
+  },
+  "labels": {
+    "skills": "CHECKS"
+  }
 }

@@ -38,5 +38,10 @@
       "title": "Required handoff",
       "detail": "Artifacts, checks, verdict, risks, rollback."
     }
-  ]
+  ],
+  "height": 760,
+  "layout": {
+    "centerHub": true,
+    "footerClaim": false
+  }
 }

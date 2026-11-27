@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 860" width="1520" height="860" role="img" aria-labelledby="title-ig-09-agentic-income-commercial-system-light desc-ig-09-agentic-income-commercial-system-light" data-brand="agentic-income" data-archetype="curriculum-roadmap" data-theme="light">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 698" width="1520" height="698" role="img" aria-labelledby="title-ig-09-agentic-income-commercial-system-light desc-ig-09-agentic-income-commercial-system-light" data-brand="agentic-income" data-archetype="curriculum-roadmap" data-theme="light">
 <title id="title-ig-09-agentic-income-commercial-system-light">Earn, Automate, Compound With Full Economics</title>
 <desc id="desc-ig-09-agentic-income-commercial-system-light">Every attempt stays in the account. No earnings promises; paid access is unavailable until checkout exists.</desc>
 <defs>
@@ -13,9 +13,9 @@
       <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#8F4900"/>
     </marker>
   </defs>
-<rect x="0" y="0" width="1520" height="860" fill="#F4F0E7"/>
-<rect x="0" y="0" width="1520" height="860" fill="url(#grid-ig-09-agentic-income-commercial-system-light)" opacity="0.55"/>
-<rect x="16" y="16" width="1488" height="828" rx="20" fill="none" stroke="#CBC3B2" stroke-width="1"/>
+<rect x="0" y="0" width="1520" height="698" fill="#F4F0E7"/>
+<rect x="0" y="0" width="1520" height="698" fill="url(#grid-ig-09-agentic-income-commercial-system-light)" opacity="0.55"/>
+<rect x="16" y="16" width="1488" height="666" rx="20" fill="none" stroke="#CBC3B2" stroke-width="1"/>
 <rect x="56" y="42" width="279" height="26" rx="13" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
 <text x="195.5" y="58.85" fill="#14532D" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">AGENTIC INCOME · COMMERCIAL SYSTEM</text>
 <rect x="345" y="42" width="115" height="26" rx="13" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
@@ -25,55 +25,54 @@
 <text x="56" y="104" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="30" font-weight="700">Earn, Automate, Compound With Full Economics</text>
 <text x="56" y="132" fill="#292E31" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="15" font-weight="400">Every attempt stays in the account. No earnings promises; paid access is unavailable until checkout exists.</text>
 <line x1="56" y1="168" x2="1464" y2="168" stroke="#CBC3B2" stroke-width="1"/>
-<line x1="56" y1="800" x2="1464" y2="800" stroke="#CBC3B2" stroke-width="1"/>
-<text x="56" y="822" fill="#495055" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="12" font-weight="500">Source: brand-packs/agentic-income/BRAND.md · NARRATIVE.md</text>
-<text x="1464" y="822" fill="#8F4900" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11.5" font-weight="600" text-anchor="end">WCAG AA &gt;= 4.5:1 · ZERO RASTER TEXT</text>
+<line x1="56" y1="638" x2="1464" y2="638" stroke="#CBC3B2" stroke-width="1"/>
+<text x="56" y="660" fill="#495055" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="12" font-weight="500">Source: brand-packs/agentic-income/BRAND.md · NARRATIVE.md</text>
 <line x1="80" y1="204" x2="1440" y2="204" stroke="#9E9685" stroke-width="2" stroke-dasharray="6 5"/>
 <circle cx="84" cy="204" r="9" fill="#FCFBF7" stroke="#8F4900" stroke-width="2.5"/>
 <circle cx="84" cy="204" r="3.5" fill="#8F4900"/>
 <line x1="503.33" y1="204" x2="529.33" y2="204" stroke="#8F4900" stroke-width="1.8" marker-end="url(#arrow-ig-09-agentic-income-commercial-system-light)"/>
-<rect x="56" y="256" width="453.33" height="522" rx="16" fill="#FCFBF7" stroke="#CBC3B2" stroke-width="1.25"/>
-<rect x="56" y="256" width="453.33" height="5" rx="2.5" fill="#8F4900"/>
-<rect x="78" y="278" width="86" height="24" rx="12" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
-<text x="121" y="293.85" fill="#14532D" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STAGE 01</text>
-<g transform="translate(465.33, 278) scale(0.92)" width="22" height="22" fill="none" stroke="#8F4900" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2.2 5.2-5.2 2.2 2.2-5.2 5.2-2.2z"/></g>
-<text x="78" y="330" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="19" font-weight="700">Earn</text>
-<text x="78" y="363" fill="#292E31" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="13.5" font-weight="400">Name the customer&apos;s job, output, acceptance test and</text>
-<text x="78" y="383" fill="#292E31" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="13.5" font-weight="400">resource ceiling first.</text>
-<text x="78" y="472" fill="#495055" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="0.6">SKILLS &amp; GATES</text>
-<rect x="78" y="486" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
-<text x="88" y="503" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Acceptance test</text>
-<rect x="78" y="518" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
-<text x="88" y="535" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Resource ceiling</text>
-<rect x="78" y="550" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
-<text x="88" y="567" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Delivery limit</text>
-<rect x="78" y="692" width="409.33" height="68" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
-<text x="90" y="712" fill="#14532D" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="0.5">ARTIFACT OUTCOME</text>
-<text x="90" y="731" fill="#14532D" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="600">Scoped offer</text>
+<rect x="56" y="236" width="453.33" height="380" rx="16" fill="#FCFBF7" stroke="#CBC3B2" stroke-width="1.25"/>
+<rect x="56" y="236" width="453.33" height="5" rx="2.5" fill="#8F4900"/>
+<rect x="78" y="258" width="86" height="24" rx="12" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
+<text x="121" y="273.85" fill="#14532D" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STAGE 01</text>
+<g transform="translate(465.33, 258) scale(0.92)" width="22" height="22" fill="none" stroke="#8F4900" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2.2 5.2-5.2 2.2 2.2-5.2 5.2-2.2z"/></g>
+<text x="78" y="310" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="19" font-weight="700">Earn</text>
+<text x="78" y="343" fill="#292E31" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="13.5" font-weight="400">Name the customer&apos;s job, output, acceptance test and</text>
+<text x="78" y="363" fill="#292E31" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="13.5" font-weight="400">resource ceiling first.</text>
+<text x="78" y="414" fill="#495055" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="0.6">CHECKS</text>
+<rect x="78" y="428" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
+<text x="88" y="445" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Acceptance test</text>
+<rect x="78" y="460" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
+<text x="88" y="477" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Resource ceiling</text>
+<rect x="78" y="492" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
+<text x="88" y="509" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Delivery limit</text>
+<rect x="78" y="530" width="409.33" height="68" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
+<text x="90" y="550" fill="#14532D" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="0.5">ARTIFACT OUTCOME</text>
+<text x="90" y="569" fill="#14532D" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="600">Scoped offer</text>
 <circle cx="561.33" cy="204" r="9" fill="#FCFBF7" stroke="#8F4900" stroke-width="2.5"/>
 <circle cx="561.33" cy="204" r="3.5" fill="#8F4900"/>
 <line x1="980.67" y1="204" x2="1006.67" y2="204" stroke="#8F4900" stroke-width="1.8" marker-end="url(#arrow-ig-09-agentic-income-commercial-system-light)"/>
-<rect x="533.33" y="246" width="453.33" height="532" rx="16" fill="#FCFBF7" stroke="#CBC3B2" stroke-width="1.25"/>
-<rect x="533.33" y="246" width="453.33" height="5" rx="2.5" fill="#8F4900"/>
-<rect x="555.33" y="268" width="86" height="24" rx="12" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
-<text x="598.33" y="283.85" fill="#14532D" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STAGE 02</text>
-<g transform="translate(942.67, 268) scale(0.92)" width="22" height="22" fill="none" stroke="#8F4900" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="6.5" height="5" rx="1.2"/><rect x="14.5" y="4" width="6.5" height="5" rx="1.2"/><rect x="8.8" y="15" width="6.5" height="5" rx="1.2"/><path d="M9.5 6.5h5M12 9v6"/></g>
-<text x="555.33" y="320" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="19" font-weight="700">Automate</text>
-<text x="555.33" y="353" fill="#292E31" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="13.5" font-weight="400">Record every attempt under one case ID, including retries,</text>
-<text x="555.33" y="373" fill="#292E31" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="13.5" font-weight="400">rework and refunds.</text>
-<text x="555.33" y="462" fill="#495055" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="0.6">SKILLS &amp; GATES</text>
-<rect x="555.33" y="476" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
-<text x="565.33" y="493" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">All-attempt ledger</text>
-<rect x="555.33" y="508" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
-<text x="565.33" y="525" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Model and tool spend</text>
-<rect x="555.33" y="540" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
-<text x="565.33" y="557" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Human labor</text>
-<rect x="555.33" y="692" width="409.33" height="68" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
-<text x="567.33" y="712" fill="#14532D" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="0.5">ARTIFACT OUTCOME</text>
-<text x="567.33" y="731" fill="#14532D" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="600">Inspectable ledger</text>
+<rect x="533.33" y="236" width="453.33" height="380" rx="16" fill="#FCFBF7" stroke="#CBC3B2" stroke-width="1.25"/>
+<rect x="533.33" y="236" width="453.33" height="5" rx="2.5" fill="#8F4900"/>
+<rect x="555.33" y="258" width="86" height="24" rx="12" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
+<text x="598.33" y="273.85" fill="#14532D" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STAGE 02</text>
+<g transform="translate(942.67, 258) scale(0.92)" width="22" height="22" fill="none" stroke="#8F4900" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="6.5" height="5" rx="1.2"/><rect x="14.5" y="4" width="6.5" height="5" rx="1.2"/><rect x="8.8" y="15" width="6.5" height="5" rx="1.2"/><path d="M9.5 6.5h5M12 9v6"/></g>
+<text x="555.33" y="310" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="19" font-weight="700">Automate</text>
+<text x="555.33" y="343" fill="#292E31" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="13.5" font-weight="400">Record every attempt under one case ID, including retries,</text>
+<text x="555.33" y="363" fill="#292E31" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="13.5" font-weight="400">rework and refunds.</text>
+<text x="555.33" y="414" fill="#495055" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="0.6">CHECKS</text>
+<rect x="555.33" y="428" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
+<text x="565.33" y="445" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">All-attempt ledger</text>
+<rect x="555.33" y="460" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
+<text x="565.33" y="477" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Model and tool spend</text>
+<rect x="555.33" y="492" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
+<text x="565.33" y="509" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Human labor</text>
+<rect x="555.33" y="530" width="409.33" height="68" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
+<text x="567.33" y="550" fill="#14532D" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="0.5">ARTIFACT OUTCOME</text>
+<text x="567.33" y="569" fill="#14532D" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="600">Inspectable ledger</text>
 <circle cx="1038.67" cy="204" r="9" fill="#FCFBF7" stroke="#8F4900" stroke-width="2.5"/>
 <circle cx="1038.67" cy="204" r="3.5" fill="#8F4900"/>
-<rect x="1010.67" y="236" width="453.33" height="542" rx="16" fill="#FCFBF7" stroke="#CBC3B2" stroke-width="1.25"/>
+<rect x="1010.67" y="236" width="453.33" height="380" rx="16" fill="#FCFBF7" stroke="#CBC3B2" stroke-width="1.25"/>
 <rect x="1010.67" y="236" width="453.33" height="5" rx="2.5" fill="#7C3F00"/>
 <rect x="1032.67" y="258" width="86" height="24" rx="12" fill="#FEF3C7" stroke="#F59E0B" stroke-width="1"/>
 <text x="1075.67" y="273.85" fill="#713F12" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STAGE 03</text>
@@ -81,14 +80,14 @@
 <text x="1032.67" y="310" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="19" font-weight="700">Compound</text>
 <text x="1032.67" y="343" fill="#292E31" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="13.5" font-weight="400">Keep the skill, schema, scaffold and validator so another</text>
 <text x="1032.67" y="363" fill="#292E31" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="13.5" font-weight="400">operator can inspect the method.</text>
-<text x="1032.67" y="452" fill="#495055" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="0.6">SKILLS &amp; GATES</text>
-<rect x="1032.67" y="466" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
-<text x="1042.67" y="483" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Validator</text>
-<rect x="1032.67" y="498" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
-<text x="1042.67" y="515" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Handover</text>
-<rect x="1032.67" y="530" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
-<text x="1042.67" y="547" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Dated evidence</text>
-<rect x="1032.67" y="692" width="409.33" height="68" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
-<text x="1044.67" y="712" fill="#14532D" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="0.5">ARTIFACT OUTCOME</text>
-<text x="1044.67" y="731" fill="#14532D" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="600">Reusable method</text>
+<text x="1032.67" y="414" fill="#495055" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="0.6">CHECKS</text>
+<rect x="1032.67" y="428" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
+<text x="1042.67" y="445" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Validator</text>
+<rect x="1032.67" y="460" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
+<text x="1042.67" y="477" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Handover</text>
+<rect x="1032.67" y="492" width="409.33" height="26" rx="7" fill="#EAE4D7" stroke="#CBC3B2" stroke-width="1"/>
+<text x="1042.67" y="509" fill="#101213" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="500">Dated evidence</text>
+<rect x="1032.67" y="530" width="409.33" height="68" rx="10" fill="#DCFCE7" stroke="#86EFAC" stroke-width="1"/>
+<text x="1044.67" y="550" fill="#14532D" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="0.5">ARTIFACT OUTCOME</text>
+<text x="1044.67" y="569" fill="#14532D" font-family="Inter, &apos;Segoe UI&apos;, system-ui, sans-serif" font-size="12" font-weight="600">Reusable method</text>
 </svg>

@@ -222,6 +222,33 @@ test("render --check fails and names the file when a committed render differs by
   assert.ok(bad.stderr.includes(victim), bad.stderr);
 });
 
+test("compiler layout options are opt-in: shared examples stay byte-identical, benchmark specs use them", () => {
+  const dir = join(ROOT, "brand-image-system", "specs", "diagrams");
+  for (const f of readdirSync(dir).filter((x) => x.endsWith(".diagram.json"))) {
+    const spec = JSON.parse(readFileSync(join(dir, f), "utf8"));
+    for (const theme of ["dark", "light"]) {
+      const committed = readFileSync(join(ROOT, "brand-image-system", "examples", "diagrams", `${spec.id}.${theme}.svg`), "utf8");
+      assert.equal(compileDiagramSvg(spec, { theme, rootDir: ROOT }).svg, committed, `${spec.id} ${theme}`);
+    }
+  }
+  const spec9 = JSON.parse(read("benchmarks/infogenius/specs/09-agentic-income-commercial-system.diagram.json"));
+  const withOpts = compileDiagramSvg(spec9, { theme: "dark", rootDir: ROOT }).svg;
+  const { layout, labels, ...plain } = spec9;
+  const without = compileDiagramSvg(plain, { theme: "dark", rootDir: ROOT }).svg;
+  assert.ok(!withOpts.includes("ZERO RASTER TEXT") && without.includes("ZERO RASTER TEXT"));
+  assert.ok(without.includes("SKILLS &amp; GATES") && !withOpts.includes("SKILLS &amp; GATES"));
+  assert.notEqual(withOpts, without);
+});
+
+test("benchmark brief 5 cites only FrankX files present in this repo", () => {
+  const spec = JSON.parse(read("benchmarks/infogenius/specs/05-frankx-advanced-ai-architecture.diagram.json"));
+  const cited = spec.sourceNote.match(/brand-packs\/frankx\/[A-Z_]+\.md/g) ?? [];
+  assert.ok(cited.length >= 1);
+  for (const c of cited) assert.ok(existsSync(join(ROOT, c)), c);
+  assert.equal(spec.tiers.length, 4);
+  assert.ok(!/arcanea|guardian|gate of/i.test(JSON.stringify(spec)));
+});
+
 test("discovery pointers exist in AGENTS.md and CLAUDE.md and the skill is registered", () => {
   assert.ok(read("AGENTS.md").includes("skills/infogenius/SKILL.md"));
   assert.ok(read("CLAUDE.md").includes("skills/infogenius/SKILL.md"));

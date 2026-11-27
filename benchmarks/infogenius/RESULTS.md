@@ -6,15 +6,30 @@ Briefs rendered: 1, 2, 3, 5, 9. Briefs 4, 6, 7, 8, 10 are defined, not rendered.
 
 | Brief | Brand | Archetype | Theme | Provider | Cost USD | Time ms | Min contrast | Overflow | SHA-256 (12) | Review |
 |---|---|---|---|---|---|---|---|---|---|---|
-| 1 | sis | hub-spoke | dark | none | 0 | 3.59 | 9.04:1 | 0 | b38bb03b7368 | pending |
-| 1 | sis | hub-spoke | light | none | 0 | 1.65 | 6.84:1 | 0 | ab4dfd70bcb1 | pending |
-| 2 | sis | layered-architecture | dark | none | 0 | 1.74 | 9.04:1 | 0 | c1ac281db52a | pending |
-| 2 | sis | layered-architecture | light | none | 0 | 1.34 | 6.84:1 | 0 | e239e5471b18 | pending |
-| 3 | sis | layered-architecture | dark | none | 0 | 0.96 | 9.04:1 | 0 | 3533dc83f768 | pending |
-| 3 | sis | layered-architecture | light | none | 0 | 0.58 | 6.84:1 | 0 | 47dc23dcac35 | pending |
-| 5 | frankx | stack-tiers | dark | none | 0 | 0.74 | 8.19:1 | 0 | 6db080b98758 | pending |
-| 5 | frankx | stack-tiers | light | none | 0 | 0.57 | 7.29:1 | 0 | 134f5b2ae3fe | pending |
-| 9 | agentic-income | curriculum-roadmap | dark | none | 0 | 1.28 | 6.82:1 | 0 | 51f81e73b6e7 | pending |
-| 9 | agentic-income | curriculum-roadmap | light | none | 0 | 0.86 | 5.92:1 | 0 | 6ea3307f1c48 | pending |
+| 1 | sis | hub-spoke | dark | none | 0 | 4.45 | 9.04:1 | 0 | c0c30d59869d | pending |
+| 1 | sis | hub-spoke | light | none | 0 | 2.17 | 6.84:1 | 0 | 0db340d8a5cf | pending |
+| 2 | sis | layered-architecture | dark | none | 0 | 2.09 | 9.04:1 | 0 | 07f6fc1d6d51 | pending |
+| 2 | sis | layered-architecture | light | none | 0 | 1.78 | 6.84:1 | 0 | c5bd6bbf8822 | pending |
+| 3 | sis | layered-architecture | dark | none | 0 | 1.3 | 9.04:1 | 0 | 422101312988 | pending |
+| 3 | sis | layered-architecture | light | none | 0 | 0.78 | 6.84:1 | 0 | 985e26766518 | pending |
+| 5 | frankx | stack-tiers | dark | none | 0 | 1.05 | 8.19:1 | 0 | b3b15baf473c | pending |
+| 5 | frankx | stack-tiers | light | none | 0 | 0.87 | 7.29:1 | 0 | 24aa08091d62 | pending |
+| 9 | agentic-income | curriculum-roadmap | dark | none | 0 | 1.51 | 6.82:1 | 0 | 3963487e3f4f | pending |
+| 9 | agentic-income | curriculum-roadmap | light | none | 0 | 1.37 | 7.21:1 | 0 | 2a102f2a31e2 | pending |
 
-`Review: pending` means no independent reviewer has scored the render; a maker's own check is not approval (see RUBRIC.md).
+`Review: pending` means no independent reviewer has scored the render; a maker's own check is not approval (see RUBRIC.md). Round 2 changes are unreviewed; no render is approved.
+
+## Previews
+
+PNG, 1600 px wide, rendered from the committed SVGs by `node scripts/render-infogenius-previews.mjs` (`npx --yes @resvg/resvg-js-cli --fit-width 1600 <svg> <png>`). Each is under 400 KB. Review aids only; PNG bytes depend on installed fonts, the SVG is the deterministic artifact. Nothing here is approved.
+
+- `previews/ig-01-starlight-agent-orchestration.dark.png` (147677 bytes)
+- `previews/ig-01-starlight-agent-orchestration.light.png` (148133 bytes)
+- `previews/ig-02-skills-capability-tree.dark.png` (185484 bytes)
+- `previews/ig-02-skills-capability-tree.light.png` (186727 bytes)
+- `previews/ig-03-living-glasshouse-memory.dark.png` (149506 bytes)
+- `previews/ig-03-living-glasshouse-memory.light.png` (150171 bytes)
+- `previews/ig-05-frankx-advanced-ai-architecture.dark.png` (151025 bytes)
+- `previews/ig-05-frankx-advanced-ai-architecture.light.png` (152708 bytes)
+- `previews/ig-09-agentic-income-commercial-system.dark.png` (123220 bytes)
+- `previews/ig-09-agentic-income-commercial-system.light.png` (124023 bytes)

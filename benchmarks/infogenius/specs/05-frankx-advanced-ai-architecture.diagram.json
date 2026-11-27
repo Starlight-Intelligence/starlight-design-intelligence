@@ -2,56 +2,59 @@
   "id": "ig-05-frankx-advanced-ai-architecture",
   "brand": "frankx",
   "archetype": "stack-tiers",
-  "eyebrow": "FRANKX \u00b7 DESIGN RELEASE PIPELINE",
+  "eyebrow": "FRANKX \u00b7 POINT OF VIEW \u00b7 STANCE 2",
   "editionTag": "BENCHMARK 05",
-  "title": "From Brand Authority to Gated Release",
-  "subtitle": "A process view of the kernel: brand pack decides, specialists produce, deterministic tools render, a gate verifies.",
-  "sourceNote": "Source: AGENTS.md; skills/design-orchestrator; evals/web-release-gate.md; benchmarks/infogenius/RUBRIC.md",
+  "title": "A Demo Is a Start; Engineering Makes It Durable",
+  "subtitle": "FrankX stance 2: prompting your way to a working demo is fine; durable products add the engineering layer.",
+  "sourceNote": "Sources, all brand-packs/frankx/POINT_OF_VIEW.md: tier 01 and 04 stance 2 claim; tier 02 reader table, vibe coder row; tier 03 reader table, agentic engineer row.",
   "tiers": [
     {
-      "step": "TIER 01",
+      "step": "RUNG 01",
       "icon": "book",
-      "title": "Brand pack authority",
-      "summary": "The owning brand pack sets color, type, motion and copy.",
-      "role": "AUTHORITY",
+      "title": "A demo that works",
+      "summary": "Prompting your way to a working demo is a fine start; vibe coders are early, not wrong.",
+      "role": "START",
       "badges": [
-        "BRAND PACK",
-        "RIGHTS LIMITS"
+        "VIBE CODING",
+        "EARLY"
       ]
     },
     {
-      "step": "TIER 02",
+      "step": "RUNG 02",
       "icon": "workflow",
-      "title": "Specialist routing",
-      "summary": "The design orchestrator calls one bounded specialist per stage.",
+      "title": "Reliability habits",
+      "summary": "The first habits to add: git, a test, an eval and a cost cap.",
+      "role": "HABITS",
+      "badges": [
+        "GIT + TEST",
+        "EVAL + COST CAP"
+      ]
+    },
+    {
+      "step": "RUNG 03",
+      "icon": "layers",
+      "title": "Agentic engineering",
+      "summary": "Orchestration, verification by a second model, permissions and receipts.",
       "role": "ORCHESTRATE",
       "badges": [
-        "ONE STAGE EACH",
-        "BRAND KEPT"
+        "SECOND-MODEL CHECK",
+        "PERMISSIONS"
       ]
     },
     {
-      "step": "TIER 03",
-      "icon": "layers",
-      "title": "Deterministic render",
-      "summary": "Exact text and charts compile to SVG and HTML; no model-drawn labels.",
-      "role": "RENDER",
-      "badges": [
-        "LIGHT + DARK",
-        "AA CONTRAST"
-      ]
-    },
-    {
-      "step": "TIER 04",
+      "step": "RUNG 04",
       "icon": "shield",
-      "title": "Independent release gate",
-      "summary": "Distinct maker, verifier and approver before release.",
-      "role": "RELEASE GATE",
+      "title": "A human who can stop the run",
+      "summary": "Durable products keep a person with the power to halt a run. A small tool needs a small process.",
+      "role": "HUMAN STOP",
       "gate": true,
       "badges": [
-        "DISTINCT ROLES",
-        "HUMAN APPROVAL"
+        "STOP",
+        "SMALL PROCESS"
       ]
     }
-  ]
+  ],
+  "layout": {
+    "footerClaim": false
+  }
 }

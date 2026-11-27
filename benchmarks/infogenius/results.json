@@ -11,10 +11,10 @@
       "file": "ig-01-starlight-agent-orchestration.dark.svg",
       "provider": "none",
       "cost_usd": 0,
-      "time_ms": 3.59,
+      "time_ms": 4.45,
       "min_contrast": 9.04,
       "overflow": 0,
-      "sha256": "b38bb03b73684ccde7d8da184e6e31881fc25969d16f7d9b05a4975d14157aa2",
+      "sha256": "c0c30d59869dcf985d9f8f366e2b4940b86a399212b52df316ed3215296e5397",
       "review": "pending"
     },
     {
@@ -26,10 +26,10 @@
       "file": "ig-01-starlight-agent-orchestration.light.svg",
       "provider": "none",
       "cost_usd": 0,
-      "time_ms": 1.65,
+      "time_ms": 2.17,
       "min_contrast": 6.84,
       "overflow": 0,
-      "sha256": "ab4dfd70bcb16359d813e1117881341da50a3be0b656b8a73c418a7fffc4056b",
+      "sha256": "0db340d8a5cf0865703685b483d9fcb54ae347615c54d566ac5cbc5f96dc7957",
       "review": "pending"
     },
     {
@@ -41,10 +41,10 @@
       "file": "ig-02-skills-capability-tree.dark.svg",
       "provider": "none",
       "cost_usd": 0,
-      "time_ms": 1.74,
+      "time_ms": 2.09,
       "min_contrast": 9.04,
       "overflow": 0,
-      "sha256": "c1ac281db52ab45a60fa6fc52ceb23d18b52b8988a0c21055eee60821e7272bc",
+      "sha256": "07f6fc1d6d513df84652eb07564dad2b01ab60561ec3ebec3a365533889b4e36",
       "review": "pending"
     },
     {
@@ -56,10 +56,10 @@
       "file": "ig-02-skills-capability-tree.light.svg",
       "provider": "none",
       "cost_usd": 0,
-      "time_ms": 1.34,
+      "time_ms": 1.78,
       "min_contrast": 6.84,
       "overflow": 0,
-      "sha256": "e239e5471b186594219328ce6857df5538b96d35475c0962d3bcf16cc8d70e93",
+      "sha256": "c5bd6bbf8822be4ac985152f16e244cea3102047c9ca95371420015efac2ed52",
       "review": "pending"
     },
     {
@@ -71,10 +71,10 @@
       "file": "ig-03-living-glasshouse-memory.dark.svg",
       "provider": "none",
       "cost_usd": 0,
-      "time_ms": 0.96,
+      "time_ms": 1.3,
       "min_contrast": 9.04,
       "overflow": 0,
-      "sha256": "3533dc83f768ab2caa89c55171a6faa68f0266825bb56359c6607bf8d90b7000",
+      "sha256": "4221013129888e67cd62f17ec8f74b98a84c4bbc618119b415d2ed7b3e87783c",
       "review": "pending"
     },
     {
@@ -86,10 +86,10 @@
       "file": "ig-03-living-glasshouse-memory.light.svg",
       "provider": "none",
       "cost_usd": 0,
-      "time_ms": 0.58,
+      "time_ms": 0.78,
       "min_contrast": 6.84,
       "overflow": 0,
-      "sha256": "47dc23dcac3548c7e0d1943ca6cf3d97774312ab305183c8d9d4d7c2f3b2651c",
+      "sha256": "985e267665187342bfae7b9de0cd0ff0b446200e9995775fe7674cdc98cf7df3",
       "review": "pending"
     },
     {
@@ -101,10 +101,10 @@
       "file": "ig-05-frankx-advanced-ai-architecture.dark.svg",
       "provider": "none",
       "cost_usd": 0,
-      "time_ms": 0.74,
+      "time_ms": 1.05,
       "min_contrast": 8.19,
       "overflow": 0,
-      "sha256": "6db080b98758dda32efa66954d8d4f0ced5cba0676e5c8909fa57dada6482338",
+      "sha256": "b3b15baf473c4286ebf3ae57cfeaf15f58f45ad6e0e577f0c049512897ad5b7d",
       "review": "pending"
     },
     {
@@ -116,10 +116,10 @@
       "file": "ig-05-frankx-advanced-ai-architecture.light.svg",
       "provider": "none",
       "cost_usd": 0,
-      "time_ms": 0.57,
+      "time_ms": 0.87,
       "min_contrast": 7.29,
       "overflow": 0,
-      "sha256": "134f5b2ae3fe8b431d409d7dec5f70c01675a6f4ae11054fef66447ddddd3944",
+      "sha256": "24aa08091d62ebc60aca82cfeec8fd12098928c81035e22cb3093f6e092b8b17",
       "review": "pending"
     },
     {
@@ -131,10 +131,10 @@
       "file": "ig-09-agentic-income-commercial-system.dark.svg",
       "provider": "none",
       "cost_usd": 0,
-      "time_ms": 1.28,
+      "time_ms": 1.51,
       "min_contrast": 6.82,
       "overflow": 0,
-      "sha256": "51f81e73b6e75cd6bb6b5493e833c6306b3c4d4382807b079ca602e818bd0263",
+      "sha256": "3963487e3f4fd528ae8a19e36bc898a46c809e62c1423c02a093a1b5f9bedac9",
       "review": "pending"
     },
     {
@@ -146,10 +146,10 @@
       "file": "ig-09-agentic-income-commercial-system.light.svg",
       "provider": "none",
       "cost_usd": 0,
-      "time_ms": 0.86,
-      "min_contrast": 5.92,
+      "time_ms": 1.37,
+      "min_contrast": 7.21,
       "overflow": 0,
-      "sha256": "6ea3307f1c4835d50b90afb6a6def45c95d88ae0d9a8ff3da5f075729a3acdc3",
+      "sha256": "2a102f2a31e2e8c94f7eba259fcdb725924641e2c4720956d8a0dd7bf12cbe1f",
       "review": "pending"
     }
   ]
