@@ -1,0 +1,280 @@
+[
+  {
+    "id": "arcanea-2026-11-27-001",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/",
+      "placement": "Homepage hero, full-bleed"
+    },
+    "audience": "Creators and worldbuilders arriving at Arcanea",
+    "purpose": "First read of the canon cosmology without characters: First Light meeting Primordial Darkness, the fertile unknown from which worlds are made",
+    "aspect": "16:9",
+    "style_refs": [],
+    "prompt": "Non-figurative cosmic scene: a field of deep fertile darkness (Nero, the Primordial Darkness, potential and mystery, not evil) on the left, softly textured like velvet smoke with faint Cosmic Blue depth; from the right a single source of First Light (Lumina, form-giver) emerges as a teal-white luminous horizon whose edge resolves into fine crystalline structure where light gives form. The meeting line runs diagonally, creating layered parallax planes. No figures. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "no faces in the light or the darkness, no evil or demonic reading of the darkness; Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-002",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/",
+      "placement": "Homepage hero 9:16 mobile and story source"
+    },
+    "audience": "Mobile visitors and social followers",
+    "purpose": "Vertical version of the Light/Darkness meeting for phone viewports",
+    "aspect": "9:16",
+    "style_refs": [],
+    "prompt": "Tall vertical composition: fertile velvet darkness fills the top, a horizon of First Light rises from the bottom third in teal-white with fine crystalline edges where light gives form, gold highlights sparingly on the crystal tips, deep Cosmic Blue between. Abstract, no figures. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-003",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/pricing",
+      "placement": "Pricing page header band"
+    },
+    "audience": "Creators deciding on a plan",
+    "purpose": "Calm, premium backdrop that does not compete with plan cards",
+    "aspect": "16:9",
+    "style_refs": [],
+    "prompt": "Very restrained abstract band: a thin horizontal seam of teal light crossing deep void, with soft Cosmic Blue haze above and below and three faint gold motes along the seam, lots of empty dark space for plan cards to overlay. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight. Low contrast so text overlays stay legible.",
+    "negative": "no busy texture, no lighting needed to read text; Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-004",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/studio",
+      "placement": "Studio landing hero"
+    },
+    "audience": "Creators about to use the Arcanea creation studio",
+    "purpose": "The studio as a premium creative instrument, layered and luminous",
+    "aspect": "16:9",
+    "style_refs": [
+      "Arcanea-Labs/arcanea-ai-app:apps/web/public/brand/arcanea-dashboard-hero-premium.png"
+    ],
+    "prompt": "A dark creative studio rendered as an AI-lab: a sculpted obsidian desk in the right third with a floating constellation of teal light threads above it forming a world graph (nodes as small luminous points connected by fine lines), gold highlights on three nodes, layered translucent planes receding into Cosmic Blue depth on the left. No figures, no UI text. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-005",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/create",
+      "placement": "Create entry card / onboarding image"
+    },
+    "audience": "New creators starting their first creation",
+    "purpose": "Invitation to make: the five canon elements as raw creative materials",
+    "aspect": "4:5",
+    "style_refs": [],
+    "prompt": "Vertical still life on a void-black stone plinth: five small vessels in a row each holding one canon element as material: Fire as a contained ember in red-orange-gold, Water as a crystal bowl of blue-silver water, Earth as green moss on brown stone, Wind as a white-silver swirl of mist in glass, Void/Spirit as a black sphere with gold and soft purple-white inner light. Teal rim light from the left, deep shadow. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "no hands, no wizard, no wand; Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-006",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/imagine",
+      "placement": "Imagine tool empty-state / header square"
+    },
+    "audience": "Creators using the image tool",
+    "purpose": "An empty-state image that suggests possibility without imposing canon",
+    "aspect": "1:1",
+    "style_refs": [],
+    "prompt": "Square composition: a single droplet of teal light suspended above a dark mirror surface, its reflection resolving into faint crystalline structure, soft Cosmic Blue haze, one fine gold glint. Minimal, centered, generous negative space. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-007",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/worlds",
+      "placement": "Worlds index hero"
+    },
+    "audience": "Worldbuilders browsing and forking worlds",
+    "purpose": "Worlds as islands of lore connected by threads, the user’s own worlds rather than canon realms",
+    "aspect": "16:9",
+    "style_refs": [],
+    "prompt": "Several floating islands of land at different depths in a cosmic void, each a distinct biome (forest, desert mesa, ice shelf, coral shallows), connected by fine teal threads of light, the nearest island on the right with a tiny lit settlement; parallax depth, Cosmic Blue far planes. These are generic user worlds, not named canon realms. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "no named realms such as Veldoria or Aurevalde; Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-008",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/worlds/create",
+      "placement": "World creation page hero"
+    },
+    "audience": "Creators about to found a new world",
+    "purpose": "The moment of a world being formed",
+    "aspect": "16:9",
+    "style_refs": [],
+    "prompt": "A newly forming sphere of land and water coalescing from teal light and dust in deep void, half-formed continents glowing at their edges, gold specks where first settlements could appear, layered rings of fine dust giving depth. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-009",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/library",
+      "placement": "Library index hero"
+    },
+    "audience": "Readers exploring the Library of Arcanea",
+    "purpose": "A premium library: knowledge as light and paper",
+    "aspect": "16:9",
+    "style_refs": [
+      "Arcanea-Labs/arcanea-ai-app:apps/web/public/brand/arcanea-hero.jpg"
+    ],
+    "prompt": "A tall dark library hall with shelves receding into Cosmic Blue haze, a single reading lectern in the right third holding an open book whose pages emit soft teal light, gold edge on the page tips, dust in the light shafts. No figures, no readable text or script on spines. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-010",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/books",
+      "placement": "Books index card image"
+    },
+    "audience": "Readers choosing a book",
+    "purpose": "A neutral book-object image usable as a fallback cover tile",
+    "aspect": "4:5",
+    "style_refs": [],
+    "prompt": "Vertical still life: a closed clothbound book in deep Cosmic Blue on a void-black surface, gold foil edges catching a narrow teal rim light, no title or symbols on the cover, soft shadow. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight.",
+    "negative": "no lettering, no emblem on the cover; Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-011",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/academy",
+      "placement": "Academy landing hero"
+    },
+    "audience": "Learners joining the Academy and its ranks",
+    "purpose": "The Academy as an institution of practice; ranks Apprentice to Luminor are progress, not creatures",
+    "aspect": "16:9",
+    "style_refs": [],
+    "prompt": "Interior of a vast institutional hall at night, columns of dark stone rising into Cosmic Blue gloom, five tiers of stone steps ascending toward a band of teal light (suggesting the five ranks as progression), gold light on the topmost step only, a few empty study benches. No figures. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "no robed students, no wizards; Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-012",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/academy/houses",
+      "placement": "Houses overview hero"
+    },
+    "audience": "Learners choosing among the seven Academy Houses",
+    "purpose": "Seven institutional houses (Lumina, Nero, Pyros, Aqualis, Terra, Ventus, Synthesis) shown as seven lit halls without inventing heraldry",
+    "aspect": "16:9",
+    "style_refs": [],
+    "prompt": "A curved colonnade with seven arched doorways in dark stone, each doorway washed in the light of one house's domain: warm white light (Lumina), deep velvet dark with faint gold (Nero), red-orange ember glow (Pyros), blue-silver water caustics (Aqualis), green-brown stone-filtered light (Terra), white-silver moving air haze (Ventus), and a teal-gold blend of all (Synthesis). Doorways empty, no banners, no crests. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "no crests, banners, heraldic animals or emblems; Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-013",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/lore/elements",
+      "placement": "Elements page grid image"
+    },
+    "audience": "Readers learning the five elements",
+    "purpose": "One material study per element using only canon colours",
+    "aspect": "1:1",
+    "style_refs": [],
+    "prompt": "Square grid-free still life: five raw material samples arranged in a loose arc on void-black stone: Fire (red, orange, gold) as glowing ember, Water (blue, silver, crystal) as a clear crystal shard wet with water, Earth (green, brown, stone) as mossy stone, Wind (white, silver) as a wisp of silver mist caught in a glass dome, Void/Spirit (black/gold, purple/white) as a black glass sphere with gold and pale purple-white light inside. Teal rim light. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-014",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/lore/godbeasts",
+      "placement": "Laeylinn feature image on the godbeasts page (canon: Laeylinn = Worldtree Deer, Godbeast of the Heart Gate)"
+    },
+    "audience": "Readers exploring the godbeasts",
+    "purpose": "Depict the only canon-stated creature form for Laeylinn without inventing further traits",
+    "aspect": "4:5",
+    "style_refs": [],
+    "prompt": "A great deer whose antlers grow as the branches of a living world tree, standing in a dim forest clearing, rendered as silhouette and rim light rather than detailed anatomy so unconfirmed traits stay open; soft teal-green light filtering through the antler-branches, gold highlights on new leaves, deep Cosmic Blue night behind. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "no rider, no human companion, no added wings or extra limbs; Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-015",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/lore/godbeasts",
+      "placement": "Veloura feature image on the godbeasts page (canon: Veloura = Phoenix-Serpent, Godbeast of the Flow Gate)"
+    },
+    "audience": "Readers exploring the godbeasts",
+    "purpose": "Depict the canon Phoenix-Serpent form for Veloura with motion and flow, nothing more",
+    "aspect": "4:5",
+    "style_refs": [],
+    "prompt": "A long serpentine body with phoenix plumage along its length, coiling through a flowing current of water and light in a dark void, rendered with motion blur and rim light so the form reads as flow rather than fixed anatomy; teal and silver currents, gold flame-edged feathers, deep Cosmic Blue surroundings. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight. Mood: dark cinematic premium, refined mythic restraint, layered depth with parallax planes and deep shadow; AI-lab premium, never fantasy-game.",
+    "negative": "no rider, no human companion, no dragon head; Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "arcanea-2026-11-27-016",
+    "brand": "arcanea",
+    "destination": {
+      "repo": "Arcanea-Labs/arcanea-ai-app",
+      "route": "/shop",
+      "placement": "Shop index tile"
+    },
+    "audience": "Collectors browsing the Arcanea shop",
+    "purpose": "A premium collectible-object image that invents no canon item",
+    "aspect": "1:1",
+    "style_refs": [
+      "Arcanea-Labs/arcanea-ai-app:apps/web/public/brand/arcanea-collectible-reliquary-premium.png"
+    ],
+    "prompt": "Square product-style still life: an empty dark glass display case on a void-black plinth, a narrow teal light inside the case, gold trim on the base, soft reflection on the floor, space reserved for a real product photo to be composited later. palette: cosmic void #09090b ground, Atlantean Teal #00bcd4 as the primary light, Cosmic Blue #0d47a1 in the depths, Arcanean Gold #ffd700 as a sparing highlight.",
+    "negative": "no invented artifact or crystal inside the case; Arcanea anti-signature: generic fantasy-game look, purple-to-pink gradients, generic purple fantasy UI, stock fantasy 3D render, saturated primary red green or blue, flat vector illustration, Cinzel or any rendered lettering, runes or invented script, emoji or glyph icons, any named god, goddess, guardian, godbeast or primordial given a human face, body, gender presentation, costume or species that CANON_LOCKED does not state, Malachar, Shadowfen scenery, staging realms or Awakened presented as canon, the Arcanea mark redrawn or any new emblem; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  }
+]

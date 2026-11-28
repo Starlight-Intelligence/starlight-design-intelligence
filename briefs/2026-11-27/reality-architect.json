@@ -1,0 +1,121 @@
+[
+  {
+    "id": "reality-architect-2026-11-27-001",
+    "brand": "reality-architect",
+    "destination": {
+      "repo": "frankxai/realityarchitect",
+      "route": "/",
+      "placement": "Homepage hero behind “Imagine it. Build it. Witness it.” Route unverified: frankxai/realityarchitect is not checked out in this session."
+    },
+    "audience": "Reflective creators and founders who want to architect a life with honest records",
+    "purpose": "Night-to-dawn architectural frame: the person’s scene in dawn, the system in blueprint",
+    "aspect": "16:9",
+    "style_refs": [],
+    "prompt": "An architect's drafting studio at the exact moment before dawn, no people: a large window on the right shows the first warm dawn light on a quiet city horizon, falling across a drafting table where a blueprint-blue line drawing of a small bridge is pinned; the left half stays in graphite shadow for copy. Materials: vellum, graphite, steel, oak. palette: graphite #06070c ground, surface #0d0f18, structural border #1b1f30, blueprint #5b8cff for system and mechanism, dawn #e8d5ad and #f7e8c8 only for the person’s scene and meaning. Cinematic still, 35mm, one motivated light source.",
+    "negative": "no visible face; Reality Architect anti-signature: cosmic stock imagery, galaxies, generic sacred geometry, mandalas, flower of life, glowing chakras, quantum or energy-wave imagery implying thoughts control events, transformation before-and-after, clinical or medical imagery, a generated logo or aperture mark (identity masters come only from source assets), concept UI shown as live behaviour, all-caps decorative labels, dawn colour used on numbers or causal claims; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "reality-architect-2026-11-27-002",
+    "brand": "reality-architect",
+    "destination": {
+      "repo": "frankxai/realityarchitect",
+      "route": "/",
+      "placement": "Homepage five-move loop section (See, Design, Build, Automate, Compound) background image Route unverified: frankxai/realityarchitect is not checked out in this session."
+    },
+    "audience": "Visitors learning the method",
+    "purpose": "Show the method as five ordered physical stages without replacing the schema graphic",
+    "aspect": "16:9",
+    "style_refs": [],
+    "prompt": "Five architectural study models on a long graphite table, left to right in order: a single viewing lens on a stand (See), a sheet of tracing paper with a blueprint sketch (Design), a partly built balsa bridge (Build), a small brass gear mechanism attached to the bridge (Automate), and a completed bridge with a second span added (Compound). Blueprint #5b8cff thin light lines underneath each model, dawn light falling only on the finished bridge. palette: graphite #06070c ground, surface #0d0f18, structural border #1b1f30, blueprint #5b8cff for system and mechanism, dawn #e8d5ad and #f7e8c8 only for the person’s scene and meaning.",
+    "negative": "no labels or text, no numbers; Reality Architect anti-signature: cosmic stock imagery, galaxies, generic sacred geometry, mandalas, flower of life, glowing chakras, quantum or energy-wave imagery implying thoughts control events, transformation before-and-after, clinical or medical imagery, a generated logo or aperture mark (identity masters come only from source assets), concept UI shown as live behaviour, all-caps decorative labels, dawn colour used on numbers or causal claims; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "reality-architect-2026-11-27-003",
+    "brand": "reality-architect",
+    "destination": {
+      "repo": "frankxai/realityarchitect",
+      "route": "/",
+      "placement": "Homepage scene section: authored-scene example (clearly labelled fictional example) Route unverified: frankxai/realityarchitect is not checked out in this session."
+    },
+    "audience": "People trying to picture what an authored scene is",
+    "purpose": "Dawn register: a desired scene rendered as a quiet lived moment",
+    "aspect": "4:5",
+    "style_refs": [],
+    "prompt": "Vertical documentary still: a kitchen table by a window at dawn, a handwritten page in a notebook (illegible), a cup of tea, a pair of reading glasses, a small potted herb; warm dawn #f7e8c8 light on the page, the rest in soft graphite shadow. palette: graphite #06070c ground, surface #0d0f18, structural border #1b1f30, blueprint #5b8cff for system and mechanism, dawn #e8d5ad and #f7e8c8 only for the person’s scene and meaning.",
+    "negative": "no face, no readable handwriting; Reality Architect anti-signature: cosmic stock imagery, galaxies, generic sacred geometry, mandalas, flower of life, glowing chakras, quantum or energy-wave imagery implying thoughts control events, transformation before-and-after, clinical or medical imagery, a generated logo or aperture mark (identity masters come only from source assets), concept UI shown as live behaviour, all-caps decorative labels, dawn colour used on numbers or causal claims; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "reality-architect-2026-11-27-004",
+    "brand": "reality-architect",
+    "destination": {
+      "repo": "frankxai/realityarchitect",
+      "route": "/",
+      "placement": "Homepage bridge section: one feasible act and its artifact Route unverified: frankxai/realityarchitect is not checked out in this session."
+    },
+    "audience": "Visitors who need to see the step from scene to action",
+    "purpose": "Blueprint register: the bridge as a buildable plan with one chosen act",
+    "aspect": "16:9",
+    "style_refs": [],
+    "prompt": "Flat-lay on a graphite desk: a blueprint-style plan of a small footbridge drawn in #5b8cff lines on dark paper, one segment of the bridge highlighted by a single physical object placed on it (a brass key), a pencil and scale ruler beside. A thin strip of dawn light enters from the upper left onto the key only. palette: graphite #06070c ground, surface #0d0f18, structural border #1b1f30, blueprint #5b8cff for system and mechanism, dawn #e8d5ad and #f7e8c8 only for the person’s scene and meaning.",
+    "negative": "Reality Architect anti-signature: cosmic stock imagery, galaxies, generic sacred geometry, mandalas, flower of life, glowing chakras, quantum or energy-wave imagery implying thoughts control events, transformation before-and-after, clinical or medical imagery, a generated logo or aperture mark (identity masters come only from source assets), concept UI shown as live behaviour, all-caps decorative labels, dawn colour used on numbers or causal claims; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "reality-architect-2026-11-27-005",
+    "brand": "reality-architect",
+    "destination": {
+      "repo": "frankxai/realityarchitect",
+      "route": "/",
+      "placement": "Homepage record section: the witness ledger (portable, exportable record) Route unverified: frankxai/realityarchitect is not checked out in this session."
+    },
+    "audience": "Visitors who care about honest, portable records",
+    "purpose": "Show a kept record: entries, dates, export; plans and completed actions visibly distinct",
+    "aspect": "16:9",
+    "style_refs": [],
+    "prompt": "A bound ledger book open on a graphite surface, left page with neat handwritten entries (illegible) marked by small blueprint ticks, right page with a pressed paper ticket and a dated stamp shape (no readable digits), a USB key lying beside the ledger to suggest export. Cool blueprint ambient light with a warm dawn reading lamp from the left. palette: graphite #06070c ground, surface #0d0f18, structural border #1b1f30, blueprint #5b8cff for system and mechanism, dawn #e8d5ad and #f7e8c8 only for the person’s scene and meaning.",
+    "negative": "no readable dates or numbers; Reality Architect anti-signature: cosmic stock imagery, galaxies, generic sacred geometry, mandalas, flower of life, glowing chakras, quantum or energy-wave imagery implying thoughts control events, transformation before-and-after, clinical or medical imagery, a generated logo or aperture mark (identity masters come only from source assets), concept UI shown as live behaviour, all-caps decorative labels, dawn colour used on numbers or causal claims; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "reality-architect-2026-11-27-006",
+    "brand": "reality-architect",
+    "destination": {
+      "repo": "frankxai/realityarchitect",
+      "route": "/",
+      "placement": "Open Graph share image (render at 1200x630 from 16:9 source) Route unverified: frankxai/realityarchitect is not checked out in this session."
+    },
+    "audience": "People seeing Reality Architect links shared on social and chat",
+    "purpose": "Small-size legible share card with the left half reserved for HTML overlay",
+    "aspect": "16:9",
+    "style_refs": [],
+    "prompt": "Minimal composition: right 45% shows a close crop of a blueprint footbridge drawing in #5b8cff lines with first dawn light grazing one span; left 55% graphite #06070c with faint paper grain, empty for overlay text added later. palette: graphite #06070c ground, surface #0d0f18, structural border #1b1f30, blueprint #5b8cff for system and mechanism, dawn #e8d5ad and #f7e8c8 only for the person’s scene and meaning.",
+    "negative": "Reality Architect anti-signature: cosmic stock imagery, galaxies, generic sacred geometry, mandalas, flower of life, glowing chakras, quantum or energy-wave imagery implying thoughts control events, transformation before-and-after, clinical or medical imagery, a generated logo or aperture mark (identity masters come only from source assets), concept UI shown as live behaviour, all-caps decorative labels, dawn colour used on numbers or causal claims; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "reality-architect-2026-11-27-007",
+    "brand": "reality-architect",
+    "destination": {
+      "repo": "frankxai/realityarchitect",
+      "route": "/",
+      "placement": "Social 9:16 story frame for the daily practice Route unverified: frankxai/realityarchitect is not checked out in this session."
+    },
+    "audience": "Followers on Instagram/TikTok/Shorts",
+    "purpose": "A daily-practice moment: imagine, build, witness in one vertical frame",
+    "aspect": "9:16",
+    "style_refs": [],
+    "prompt": "Tall vertical frame: a stair of three concrete steps leading up toward a doorway filled with dawn light, a notebook on the bottom step, a thin blueprint line drawn along the step edges; top third graphite for copy. palette: graphite #06070c ground, surface #0d0f18, structural border #1b1f30, blueprint #5b8cff for system and mechanism, dawn #e8d5ad and #f7e8c8 only for the person’s scene and meaning.",
+    "negative": "no figures, no cosmic sky; Reality Architect anti-signature: cosmic stock imagery, galaxies, generic sacred geometry, mandalas, flower of life, glowing chakras, quantum or energy-wave imagery implying thoughts control events, transformation before-and-after, clinical or medical imagery, a generated logo or aperture mark (identity masters come only from source assets), concept UI shown as live behaviour, all-caps decorative labels, dawn colour used on numbers or causal claims; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  }
+]

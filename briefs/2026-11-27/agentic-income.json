@@ -1,0 +1,271 @@
+[
+  {
+    "id": "agentic-income-2026-11-27-001",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/",
+      "placement": "Homepage hero depth layer behind IncomeDeskHero (Agent-as-a-Service)"
+    },
+    "audience": "Small business owners and operators evaluating scoped Agent-as-a-Service builds",
+    "purpose": "An operator’s build room: the system being assembled in public, credible and inspectable",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/agenticincome:public/brand/income-desk-hero-poster.webp",
+      "frankxai/agenticincome:public/images/products/plate-implementation-sprint.svg"
+    ],
+    "prompt": "Flat schematic illustration of an operator's build bench seen in elevation: a pegboard wall on a 32px grid holding tools drawn in 1.5px pale line work (wrench, caliper, magnifier, key), a workbench with five labelled-by-shape trays forming a left-to-right assembly line, the final tray marked by one emerald check seal. Layered charcoal planes give depth without shadows; faint smoke-like light drift in obsidian, emerald and cyan behind the pegboard per the depth-layer lock. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-002",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/",
+      "placement": "Homepage hero 4:5 mobile"
+    },
+    "audience": "Mobile visitors",
+    "purpose": "Same build-room idea readable on a phone",
+    "aspect": "4:5",
+    "style_refs": [
+      "frankxai/agenticincome:public/brand/income-desk-hero-poster.webp"
+    ],
+    "prompt": "Vertical flat schematic: pegboard grid in the upper half with four line-drawn tools, workbench trays stacked vertically in the lower half, final tray with an emerald check seal. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-003",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/offers",
+      "placement": "Offers index hero"
+    },
+    "audience": "Prospects comparing scoped implementation offers",
+    "purpose": "Offers as scoped blueprints on a drafting table",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/agenticincome:public/images/products/plate-blueprint.svg",
+      "frankxai/agenticincome:public/images/products/plate-starter-kit.svg"
+    ],
+    "prompt": "Flat line-work drafting table seen from above: three rolled and one unrolled blueprint sheet, each with distinct schematic diagrams in pale line work on charcoal, a scale ruler and a mechanical pencil, one emerald dimension line on the unrolled sheet, a small gold boundary marker at the sheet's scope edge. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-004",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/offers/[slug]",
+      "placement": "Offer detail page header plate template (square)"
+    },
+    "audience": "Prospects reading one offer",
+    "purpose": "Square plate that matches the existing product-plate family",
+    "aspect": "1:1",
+    "style_refs": [
+      "frankxai/agenticincome:public/images/products/plate-implementation-sprint.svg",
+      "frankxai/agenticincome:public/images/products/plate-agent-team-pro.svg"
+    ],
+    "prompt": "Square flat schematic plate: a single line-drawn instrument (a compass over a folded plan) centered on a charcoal field with a 32px grid, corner tick marks, one emerald detail on the compass pivot. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-005",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/build",
+      "placement": "Build page hero"
+    },
+    "audience": "Businesses wanting an agent system built for them",
+    "purpose": "Show scoped building: one system, one bench, clear stages",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/agenticincome:public/visuals/income-engine-flow.svg"
+    ],
+    "prompt": "Flat isometric schematic of a small workshop floor: four workstations in a row (audit with magnifier, design with compass, implement with wrench, verify with check seal), a fifth station marked by a key for the human approval gate, thin pale conveyor line connecting them, emerald on the verify station, gold on the human gate. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "no workers, no figures; AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-006",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/build/request-to-quote",
+      "placement": "Request-to-quote page hero (closest existing route to a quote pilot; no quote-recovery page exists at this revision)"
+    },
+    "audience": "Prospects requesting a quote for a build",
+    "purpose": "Make asking for a quote feel precise and low-risk: a request form becoming a scoped plan",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/agenticincome:public/images/products/plate-blueprint.svg"
+    ],
+    "prompt": "Flat schematic: on the left a simple paper request form drawn in line work with four blank fields, an arrow of pale line to the right where the same request becomes a scoped one-page plan with sections and a single emerald check, a gold boundary line marking what is out of scope. Charcoal layers, 32px grid. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "no prices or numbers; AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-007",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/challenge",
+      "placement": "7-Day Challenge hero"
+    },
+    "audience": "Learners joining the free 7-Day Agentic Income Challenge",
+    "purpose": "Capability over income: seven concrete artifacts, one per day",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/agenticincome:public/brand/transformation-system-poster.webp"
+    ],
+    "prompt": "Flat schematic of seven small artifacts in a row on a charcoal shelf, each drawn in pale line work: a contract sheet, a schema card, an offer card, a checklist, a folder, a test tube-like validator, a key; small tick marks numbered by dots (no digits), the seventh artifact marked with one emerald seal. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "no income imagery, no calendars with dollar signs; AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-008",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/start",
+      "placement": "Start page image"
+    },
+    "audience": "New visitors picking a first step",
+    "purpose": "A single first tool, clearly the next action",
+    "aspect": "4:5",
+    "style_refs": [
+      "frankxai/agenticincome:public/images/products/plate-starter-kit.svg"
+    ],
+    "prompt": "Vertical flat schematic: a single line-drawn wrench resting on an open starter manual on a charcoal field, a 32px grid, one emerald highlight on the first page tab. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-009",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/delivery/starter-kit",
+      "placement": "Starter kit delivery page plate"
+    },
+    "audience": "Buyers receiving the starter kit",
+    "purpose": "Square plate in the existing plate family for the starter kit",
+    "aspect": "1:1",
+    "style_refs": [
+      "frankxai/agenticincome:public/images/products/plate-starter-kit.svg"
+    ],
+    "prompt": "Square flat schematic plate: an open toolbox drawn in pale line work showing four tools nested in foam cutouts, charcoal ground, 32px grid, corner ticks, one emerald tool handle. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-010",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/delivery/blueprint",
+      "placement": "Blueprint delivery page plate"
+    },
+    "audience": "Buyers receiving the blueprint",
+    "purpose": "Square plate for the blueprint deliverable",
+    "aspect": "1:1",
+    "style_refs": [
+      "frankxai/agenticincome:public/images/products/plate-blueprint.svg"
+    ],
+    "prompt": "Square flat schematic plate: an unrolled blueprint sheet with a simple system diagram, weighted by two small line-drawn blocks, charcoal ground, 32px grid, one emerald route line. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-011",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/delivery/private-intel",
+      "placement": "Private intel delivery page plate"
+    },
+    "audience": "Buyers of the private intelligence brief",
+    "purpose": "Square plate for private research delivery: sealed and confidential",
+    "aspect": "1:1",
+    "style_refs": [
+      "frankxai/agenticincome:public/images/products/plate-private-intel.svg"
+    ],
+    "prompt": "Square flat schematic plate: a closed folder with a line-drawn clasp and a small key beside it, charcoal ground, 32px grid, one gold boundary tab marking confidentiality, one emerald check on the clasp. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-012",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/proof",
+      "placement": "Proof page hero"
+    },
+    "audience": "Skeptical buyers checking evidence",
+    "purpose": "Proof as an inspectable ledger, not testimonials",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/agenticincome:public/visuals/website-growth-loop.svg"
+    ],
+    "prompt": "Flat schematic of a ledger book open on a charcoal desk, rows of line-drawn entries as abstract marks, a magnifier resting on one row highlighted by an emerald underline, a small seal stamp beside the book. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "no star ratings, no testimonial quotes, no numbers; AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-013",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/workbench",
+      "placement": "Workbench page hero"
+    },
+    "audience": "Builders using the offer workbench",
+    "purpose": "A clean bench with an offer brief being assembled",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/agenticincome:public/images/products/plate-implementation-sprint.svg"
+    ],
+    "prompt": "Flat schematic elevation of a workbench: a clipboard with an offer brief outline in line work, a vise holding a small card, a lamp drawn in line work casting a flat pale wedge, one emerald check on the brief. Charcoal layers, 32px grid. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "agentic-income-2026-11-27-014",
+    "brand": "agentic-income",
+    "destination": {
+      "repo": "frankxai/agenticincome",
+      "route": "/blog",
+      "placement": "Blog article template default hero (app/blog/<slug>/page.mdx articles)"
+    },
+    "audience": "Readers of AgenticIncome research articles",
+    "purpose": "Disclosed editorial research: a research desk, not hype",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/agenticincome:public/brand/agentic-income-og.webp"
+    ],
+    "prompt": "Flat schematic of a research desk: an open notebook with line-drawn notes, a stack of three reference cards, a magnifier, a small gold disclosure tag clipped to the notebook marking affiliate disclosure, one emerald bookmark. Charcoal layers, 32px grid. palette: obsidian #05060a canvas, layered charcoal surfaces #0a0c14 and #101522, borders #1a1f2e, pale ink line work #f1f3f9 at 1.5px weight, a single emerald #10b981 detail marking the verified or active step, gold #f59e0b only at a commercial or claim boundary. Grammar: operator’s build room assembled in public, 32px grid, 1.5px pale line work, small mono-style tick markings, layered charcoal fills instead of shadows, flat, no glow.",
+    "negative": "AgenticIncome anti-signature: money, cash, coins, payout screenshots, rising charts, trading-terminal look, laptop-on-beach passive-income cliches, luxury cars, indigo or violet gradients (#6366f1, #8b5cf6), node clouds, fake dashboards, filler card grids, 3D paperback mockups, stock photos, emoji, ALL CAPS banners, gradient headlines, glass stacks, rainbow or mesh gradients, any metric or number, the 3D logo lockup or monogram; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  }
+]

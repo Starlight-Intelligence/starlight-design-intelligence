@@ -1,0 +1,295 @@
+[
+  {
+    "id": "gencreator-2026-11-27-001",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/",
+      "placement": "Homepage hero (Territory B), right column beside the promise “Turn one trusted source into a week of content that still sounds like you.”"
+    },
+    "audience": "Expert-led creators with owned source material",
+    "purpose": "Show one trusted source becoming a set of authored outputs, literally on paper",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/studio-objects/source-folio.jpg",
+      "frankxai/gencreator.ai:public/studio-objects/constellation.jpg"
+    ],
+    "prompt": "Overhead studio photograph on uncoated paper ground: on the left a single source object (a marked-up printed transcript held by a bulldog clip), on the right seven derived proofs laid in a fanned sequence: a 9:16 reel frame print with caption bars, a four-slide carousel strip, a square thumbnail at true small size, a newsletter column; thin ink lines with folio numbers connect each proof back to a marked passage in the source. One red #c8322a dot marks the approved edition. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white. Grammar: artist book and independent magazine, crop marks, registration marks, folio numbers, hairline grid, folds; photocopy texture only on paper. Warm window light from the left.",
+    "negative": "no readable words on proofs, no faces; GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-002",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/",
+      "placement": "Homepage hero 4:5 mobile source"
+    },
+    "audience": "Mobile visitors",
+    "purpose": "Same source-to-edition idea readable on a phone",
+    "aspect": "4:5",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/studio-objects/source-folio.jpg"
+    ],
+    "prompt": "Vertical overhead view: the clipped source transcript at the top, a vertical column of three derived proofs below it (reel frame, carousel strip, thumbnail) joined by hairline ink connectors, one red #c8322a registration mark on the approved proof. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white. Grammar: artist book and independent magazine, crop marks, registration marks, folio numbers, hairline grid, folds; photocopy texture only on paper.",
+    "negative": "GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-003",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/pricing",
+      "placement": "Pricing page header image (alpha: no public checkout; image must not imply purchase)"
+    },
+    "audience": "Creators reading the pricing hypotheses",
+    "purpose": "Calm editorial header that carries no price claims",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/studio-objects/export-packet.jpg"
+    ],
+    "prompt": "Close photograph of a stack of three paper editions of different thickness on paper ground, each with a folded corner and a handwritten folio number (abstract marks), side-lit by warm daylight, hairline registration marks in the corners of the frame. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white. Grammar: artist book and independent magazine, crop marks, registration marks, folio numbers, hairline grid, folds; photocopy texture only on paper.",
+    "negative": "no currency symbols, no price tags; GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-004",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/offers",
+      "placement": "Offers index hero"
+    },
+    "audience": "Creators and agencies comparing offers",
+    "purpose": "Offers as editions on a press table",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/studio-objects/export-packet.jpg",
+      "frankxai/gencreator.ai:public/studio-objects/review-seal.jpg"
+    ],
+    "prompt": "A small printing studio press table seen at a low angle: freshly pulled paper prints drying on a line overhead, a composing stick and ink roller on the table, one print pegged with a red #c8322a clip. Warm tungsten and window light mix, uncoated paper textures. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white. Grammar: artist book and independent magazine, crop marks, registration marks, folio numbers, hairline grid, folds; photocopy texture only on paper.",
+    "negative": "GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-005",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/products",
+      "placement": "Products index hero"
+    },
+    "audience": "Visitors scanning what GenCreator makes",
+    "purpose": "The five loop stages as five physical objects on one table",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/studio-objects/source-folio.jpg",
+      "frankxai/gencreator.ai:public/studio-objects/creatorpack-prism.jpg",
+      "frankxai/gencreator.ai:public/studio-objects/constellation.jpg",
+      "frankxai/gencreator.ai:public/studio-objects/review-seal.jpg",
+      "frankxai/gencreator.ai:public/studio-objects/export-packet.jpg"
+    ],
+    "prompt": "Long horizontal still life on paper ground with five objects spaced evenly left to right: a source folio, a clear prism resting on a CreatorPack card, a hand-strung constellation of paper proofs, a wax review seal stamp, and a tied export packet. Hairline rule beneath with folio numbers 01 to 05 as ink marks. Warm daylight from the left. Only the review seal carries red #c8322a. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white. Grammar: artist book and independent magazine, crop marks, registration marks, folio numbers, hairline grid, folds; photocopy texture only on paper.",
+    "negative": "GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-006",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/products/creator-os",
+      "placement": "Creator OS product hero"
+    },
+    "audience": "Creators evaluating Creator OS",
+    "purpose": "Authorship kept: a creator’s rules shaping drafts",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/studio-objects/creatorpack-prism.jpg"
+    ],
+    "prompt": "A clear glass prism sitting on a printed CreatorPack style sheet (abstract rule lines, ink swatches), light passing through it and splitting onto three paper proofs beside it as warm bands of ink-toned light rather than rainbow; one proof edge marked with a red #c8322a dot. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white. Grammar: artist book and independent magazine, crop marks, registration marks, folio numbers, hairline grid, folds; photocopy texture only on paper.",
+    "negative": "no rainbow spectrum; GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-007",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/products/kit",
+      "placement": "Kit product card image"
+    },
+    "audience": "Buyers of the starter kit",
+    "purpose": "Square object image that reads as a tidy physical kit",
+    "aspect": "1:1",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/studio-objects/export-packet.jpg"
+    ],
+    "prompt": "Square overhead: a kraft paper folder opened flat on paper ground revealing labelled-by-tab dividers, a pencil, a sheet of registration stickers, one red #c8322a tab. Warm daylight. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white.",
+    "negative": "GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-008",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/products/skill-packs",
+      "placement": "Skill packs product card"
+    },
+    "audience": "Claude Code and agent users installing skill packs",
+    "purpose": "Skills as a set of small tools in a case",
+    "aspect": "1:1",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/studio-objects/review-seal.jpg"
+    ],
+    "prompt": "Square still life: a slim linen-covered box with six compartments, each holding a different small studio tool (bone folder, brass ruler, stamp, ink pot, scalpel, pencil), lid propped open, one compartment lined in red #c8322a. Warm side light on paper ground. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white. Grammar: artist book and independent magazine, crop marks, registration marks, folio numbers, hairline grid, folds; photocopy texture only on paper.",
+    "negative": "GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-009",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/products/agent-pack",
+      "placement": "Agent pack product card"
+    },
+    "audience": "Creators adding the Companion agent pack",
+    "purpose": "A pack of coordinated helpers shown as a stack of instruction cards, not robots",
+    "aspect": "1:1",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/studio-objects/constellation.jpg"
+    ],
+    "prompt": "Square overhead: a deck of eight instruction cards fanned on paper ground, each with a different simple ink diagram, a rubber band beside them, one card flipped to show a red #c8322a signature box. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white. Grammar: artist book and independent magazine, crop marks, registration marks, folio numbers, hairline grid, folds; photocopy texture only on paper.",
+    "negative": "no robot icons; GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-010",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/create",
+      "placement": "Creator Mission entry hero (checkoutHref and successHref point to /create)"
+    },
+    "audience": "Creators starting a Creator Mission",
+    "purpose": "Show the mission as a guided conversation becoming a reviewed edition",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/demos/field-notes/assets/shot-01.png",
+      "frankxai/gencreator.ai:public/studio-objects/constellation.jpg"
+    ],
+    "prompt": "Studio table in warm morning light: a voice recorder and handwritten question cards on the left, a hairline-ruled review sheet in the middle with ink tick marks, and on the right a row of proofs showing the media itself (a 9:16 reel print with caption bars, a carousel of four slides, a small thumbnail). One red #c8322a signature stamp on the review sheet. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white. Grammar: artist book and independent magazine, crop marks, registration marks, folio numbers, hairline grid, folds; photocopy texture only on paper.",
+    "negative": "no readable words, no chat bubbles; GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-011",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/create",
+      "placement": "Example 9:16 reel frame for the Creator Mission output preview (fictional example, label as example)"
+    },
+    "audience": "Creators previewing what a mission produces",
+    "purpose": "Interface bar: show the reel as a 9:16 frame with caption placement, not as text",
+    "aspect": "9:16",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/demos/field-notes/assets/shot-02.png"
+    ],
+    "prompt": "Vertical 9:16 frame of a documentary-style video still: hands of a ceramicist trimming a bowl on a wheel in a warm workshop, shot from slightly above, shallow depth, warm window light; the lower third deliberately calm and unbusy to receive HTML caption bars. Paper-and-ink colour grade with one small red #c8322a object (a clay tool handle). palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white",
+    "negative": "no face, no burned-in captions or text; GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-012",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/studio",
+      "placement": "Studio page hero"
+    },
+    "audience": "Creators and agencies using Studio",
+    "purpose": "One canvas where source, moments and formats are visible objects joined by real relationships",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/studio-objects/constellation.jpg",
+      "frankxai/gencreator.ai:public/images/workspace/observatory-source-plate.webp"
+    ],
+    "prompt": "A large pinned-paper wall in a bright studio: source pages pinned at the left, chosen excerpts cut out and pinned in the middle, final format proofs (reel frame, carousel, thumbnail) on the right, all joined by taut ink threads with small folio tags; one red #c8322a pin marks the item awaiting approval. Warm daylight raking across paper. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white. Grammar: artist book and independent magazine, crop marks, registration marks, folio numbers, hairline grid, folds; photocopy texture only on paper.",
+    "negative": "GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-013",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/founding",
+      "placement": "Founding page hero (first route converting to Territory B)"
+    },
+    "audience": "Early founding members",
+    "purpose": "An edition-number moment: the first copies off the press",
+    "aspect": "4:5",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/studio-objects/review-seal.jpg"
+    ],
+    "prompt": "Vertical close-up: a small stack of freshly printed editions, the top one hand-numbered in pencil (abstract mark), a red #c8322a wax seal on its corner, crop marks visible at the paper edges, warm side light. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white. Grammar: artist book and independent magazine, crop marks, registration marks, folio numbers, hairline grid, folds; photocopy texture only on paper.",
+    "negative": "GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-014",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/showcase",
+      "placement": "Showcase index tile (4:5)"
+    },
+    "audience": "Visitors browsing showcase editions",
+    "purpose": "A neutral edition tile frame that real work will replace",
+    "aspect": "4:5",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/demos/field-notes/assets/shot-03.png"
+    ],
+    "prompt": "Vertical photograph of a single printed edition pinned to a paper wall with two brass pins, slight curl at the bottom corner, hairline crop marks, warm daylight from the left, the print showing a soft documentary image of a workshop interior. One red #c8322a pin. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white.",
+    "negative": "GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "gencreator-2026-11-27-015",
+    "brand": "gencreator",
+    "destination": {
+      "repo": "frankxai/gencreator.ai",
+      "route": "/research/[slug]",
+      "placement": "Research edition template default hero"
+    },
+    "audience": "Readers of research editions",
+    "purpose": "Editorial header usable across reports without implying results",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/gencreator.ai:public/studio-objects/source-folio.jpg"
+    ],
+    "prompt": "Close photograph of a printed research folio on paper ground, pages slightly fanned, pencil marginalia and a paper clip, hairline grid printed faintly on the page, warm daylight from the left, one red #c8322a index tab. palette: Territory B paper #fbf9f5 and ink #221f1b carry at least 90% of the frame, one single spot of signal red #c8322a marking the edition, source, state or signature; warm uncoated light, never blue-white. Grammar: artist book and independent magazine, crop marks, registration marks, folio numbers, hairline grid, folds; photocopy texture only on paper.",
+    "negative": "no charts with numbers, no readable text; GenCreator anti-signature: generic AI people, neon or glowing brains, robot heads, prompt bubbles, network wallpaper, floating dashboards, chrome blobs, faceless laptop stock, generic creator desk with ring light, prompt screenshots as spectacle, 3D logo render, mascot as proof, ambient glow, orbit or particle effects, liquid glass, blue cyan or green gradients, retired dark tokens (#05060A, #275EFE, #38BDF8, #34D399), red used as a gradient or more than once, uppercase labels, readable invented text, any logo of a social platform or tool vendor, a GenCreator logo or monogram (none is approved); AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  }
+]

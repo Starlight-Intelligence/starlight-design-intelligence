@@ -1,0 +1,510 @@
+[
+  {
+    "id": "frankx-2026-11-27-001",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/",
+      "placement": "Homepage hero, full-bleed behind the H1 (HomePageElite). Candidate only: homepage preservation contract requires baseline captures and Frank approval before any swap."
+    },
+    "audience": "Founders and operators arriving cold who need to see an AI Architect who builds real systems",
+    "purpose": "First read: a working studio where AI systems are actually built, not an abstract tech wallpaper; replaces nothing until approved",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/home/ai-architecture-atelier-v2.webp",
+      "frankxai/frankx.ai-vercel-website:public/images/ai-architecture/seven-plane-stack-hero.webp"
+    ],
+    "prompt": "Night interior of a working AI architecture atelier, no people in frame. A long oak workbench in the left third holds a printed system diagram with pencil annotations, a mechanical keyboard and one open laptop whose screen shows a dim emerald trace graph (abstract lines, no readable text). Right two thirds fall into soft shadow so headline copy can sit over darkness on the left after crop review. Single practical desk lamp as key light from upper left, emerald screen spill as fill. Materials: oiled oak, matte black steel, paper, brushed aluminium. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-002",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/",
+      "placement": "Homepage hero mobile crop (art-directed 4:5 source for small viewports)"
+    },
+    "audience": "Mobile visitors from social and newsletter links",
+    "purpose": "Keep the same subject legible at 375px instead of a center-cropped 16:9",
+    "aspect": "4:5",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/home/ai-architecture-atelier-v2.webp"
+    ],
+    "prompt": "Vertical composition of the same working atelier: top 40% is quiet dark wall for copy, bottom 60% shows the oak workbench from a slightly high angle with the annotated system diagram, a pencil, and a laptop edge glowing emerald. One desk lamp key light from upper left, warm falloff into void. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-003",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/",
+      "placement": "Homepage music-lab section image (Soul surface mode)"
+    },
+    "audience": "Visitors who know Frank through music and want to see the creative side",
+    "purpose": "Show music practice as tactile craft and separate the soul register from the technical register",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/home/music-lab-studio-v2.webp",
+      "frankxai/frankx.ai-vercel-website:public/images/music/infogenius/music-catalog-universe-poster-v1.png"
+    ],
+    "prompt": "Home music studio at blue hour turning to night, no people. Foreground: a pair of studio headphones resting on a closed notebook of handwritten lyrics; midground: a MIDI keyboard and a small mixing controller with a few amber LED meters lit; background: acoustic panels in charcoal felt. Warm tungsten practical lamp from the right, amber meters as accent. Materials: felt, walnut, rubberised plastic, paper. palette: warm dark #0a0a0b ground with soul amber #f59e0b and #fbbf24 as practical light, contemplative ink #E8DDD0 highlights, emerald absent. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "no brand names on equipment, no readable lyrics; FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-004",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/products",
+      "placement": "Products index hero band above the product grid"
+    },
+    "audience": "Buyers comparing FrankX products for the first time",
+    "purpose": "Frame the catalog as a set of working tools on one bench rather than a wall of equal cards",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/blog/agentic-creator-os-hero.png",
+      "frankxai/frankx.ai-vercel-website:public/images/acos-hero.png"
+    ],
+    "prompt": "Overhead flat-lay on a dark slate surface: five distinct physical objects arranged on a loose grid with generous spacing, each standing for a product type: a bound field notebook, a deck of index cards with hand-drawn prompt structures (unreadable marks only), a small modular synth module, a folded system blueprint, and a USB key on a lanyard. Soft top light with a slight warm key from upper left, crisp contact shadows. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace, emerald appears only as a thin enamel stripe on the notebook spine.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-005",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/products/vibe-os",
+      "placement": "Product hero image; the page references /images/products/vibe-os-hero.jpg which is missing on disk"
+    },
+    "audience": "Creators buying Vibe OS for a repeatable creative session setup",
+    "purpose": "Fill a broken hero slot on a revenue page with an image that shows the session ritual the product sets up",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/home/music-lab-studio-v2.webp",
+      "frankxai/frankx.ai-vercel-website:public/images/blog/creators-ai-toolkit-workshop-hero.png"
+    ],
+    "prompt": "Late-evening creative desk prepared for a focused session, no people: a closed laptop, a single candle-warm desk lamp, a paper checklist card with five ticked boxes (marks only, no words), headphones, a glass of water, a small potted plant. Left half quiet and dark for copy. Warm amber key from the right, cool emerald rim from a monitor off frame. Materials: linen, ceramic, paper, walnut. Blend of soul amber #f59e0b and tech emerald #10b981 on void #0a0a0b. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-006",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/products/visual-creation-loop",
+      "placement": "Product hero image; the page references /images/products/visual-creation-loop-hero.jpg which is missing on disk"
+    },
+    "audience": "Creators and small studios buying a repeatable image-making workflow",
+    "purpose": "Fill a broken hero slot with the loop itself: brief, generate, review, select",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/design-lab/nature-01-digital-garden-hero.png",
+      "frankxai/frankx.ai-vercel-website:public/images/blog/agentic-creator-os-hero.png"
+    ],
+    "prompt": "A pinboard wall in a dim studio holding a sequence of eight printed image proofs arranged left to right as a loop, with red grease-pencil selection circles on two of them and a thin emerald thread connecting the selected proofs back to a handwritten brief card at the start. Proofs show abstract landscapes and still lifes, not faces. Raking light from upper left emphasising paper texture and pin shadows. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-007",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/products/agentic-creator-os",
+      "placement": "Product hero image"
+    },
+    "audience": "Solo creators and operators evaluating Agentic Creator OS",
+    "purpose": "Show an agent system as an organised workspace with handoffs, not a robot or a dashboard",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/blog/agentic-creator-os-hero.png",
+      "frankxai/frankx.ai-vercel-website:public/images/acos-hero.png"
+    ],
+    "prompt": "A large matte-black desk seen from a three-quarter high angle, no people: four labelled-by-colour folders (no text) laid out in a row with thin emerald string connecting them to a central open notebook, representing agents handing work to each other; a laptop at the far right shows a dim terminal with abstract emerald lines. Key light from a desk lamp upper left, the rest falls off into void. Materials: matte steel, kraft paper, waxed cotton string. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-008",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/products/agentic-creator-os",
+      "placement": "Product card / social square for the product grid and share previews"
+    },
+    "audience": "Grid browsers and social followers",
+    "purpose": "A single iconic object that stands for the product at thumbnail size",
+    "aspect": "1:1",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/blog/agentic-creator-os-hero.png"
+    ],
+    "prompt": "Single object still life centered on a dark slate surface: a hardbound black field notebook with an emerald fabric bookmark trailing out, a brass binder clip on top holding four index cards fanned slightly. One soft key light from upper left, deep shadow lower right, generous negative space. Void #0a0a0b ground, emerald #10b981 only on the bookmark.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-009",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/products/generative-creator-os",
+      "placement": "Product hero image"
+    },
+    "audience": "Creators deciding between Generative Creator OS and Agentic Creator OS",
+    "purpose": "Differentiate the generative product with source-to-output making, visibly distinct from the ACOS hero",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/blog/creators-ai-toolkit-workshop-hero.png"
+    ],
+    "prompt": "Bright daytime studio table seen from above: on the left a stack of raw source material (printed article pages, a voice memo recorder, a sketchbook), on the right finished outputs (a printed carousel of four square cards, a vertical phone-sized print, a thumbnail proof sheet), a ruler and pencil between them suggesting process. Diffuse window daylight from the left, soft shadows. Editorial warmth: palette: editorial candidate canvas #fbf9f5, ink #221f1b, rule #d9d4cc, one small red #c8322a accent at most, with emerald #10b981 as a single paperclip.",
+    "negative": "no readable text on the printed pages; FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-010",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/products/prompt-vault",
+      "placement": "Product hero image"
+    },
+    "audience": "Buyers of the prompt library who want organised, reusable prompts",
+    "purpose": "Show the vault as a disciplined index system, not a glowing chat bubble",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/blog/ultimate-guide-ai-coding-agents-2026-hero-v2.png"
+    ],
+    "prompt": "A long wooden card-catalogue drawer pulled open on a dark desk, filled with tabbed index cards (tabs blank or with abstract marks), one card lifted slightly with emerald ink annotation lines. Low raking light from upper left catching the card edges, brass drawer pull glinting. Materials: oak, brass, card stock. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-011",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/products/suno-prompt-library",
+      "placement": "Product hero image (Soul surface mode)"
+    },
+    "audience": "Musicians and hobbyists making songs with AI music tools",
+    "purpose": "Show structured music prompting as songwriting craft",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/blog/suno-music-workflow-hero.png",
+      "frankxai/frankx.ai-vercel-website:public/images/home/music-lab-studio-v2.webp"
+    ],
+    "prompt": "Close still life on a walnut desk at night: a spiral notebook with hand-drawn song structure blocks (verse, chorus shapes drawn as boxes without words), a capo, a guitar pick, studio headphones and a small speaker with amber power LED. Warm tungsten lamp from upper right, rich shadow. palette: warm dark #0a0a0b ground with soul amber #f59e0b and #fbbf24 as practical light, contemplative ink #E8DDD0 highlights, emerald absent. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "no logos of music platforms, no readable words; FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-012",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/products/creative-ai-toolkit",
+      "placement": "Product hero image"
+    },
+    "audience": "Beginner creators buying a starter toolkit",
+    "purpose": "A welcoming, organised starter kit image that reads as practical",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/blog/creators-ai-toolkit-workshop-hero.png"
+    ],
+    "prompt": "An open canvas tool roll laid flat on a dark wood table, each pocket holding a creative tool: pencils, a small sketchbook, a USB drive, a set of index cards, a compact microphone, a lens cloth. Soft key light from upper left, gentle fill, crisp shadows. Void #0a0a0b surroundings, warm cream #F5EDD8 canvas, emerald #10b981 only as a stitched edge.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-013",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/ai-architect-academy",
+      "placement": "Academy hero image behind the program headline"
+    },
+    "audience": "Engineers, architects and technical founders considering the AI Architect Academy",
+    "purpose": "Revenue page first read: serious architecture study, real diagrams, a place of practice",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/ai-architecture/intelligence-campus-v1.webp",
+      "frankxai/frankx.ai-vercel-website:public/images/ai-architecture/seven-plane-stack-hero.webp"
+    ],
+    "prompt": "A quiet architecture study room at dusk, no people: a large drafting table holds a hand-drawn layered system architecture on vellum (seven stacked horizontal planes connected by vertical lines, no text), drafting tools, a scale ruler and a laptop pushed aside. A tall window on the right lets in the last blue-grey light; a green-shaded banker's lamp provides the key light on the vellum. Materials: vellum, graphite, aluminium, oak. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-014",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/ai-architect-academy",
+      "placement": "Academy hero mobile art-directed crop"
+    },
+    "audience": "Mobile visitors from LinkedIn and newsletter",
+    "purpose": "Keep the drafting-table subject readable on a phone",
+    "aspect": "4:5",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/ai-architecture/intelligence-campus-v1.webp"
+    ],
+    "prompt": "Vertical view looking down onto the drafting table: the seven-plane architecture drawing on vellum fills the lower two thirds, a mechanical pencil and scale ruler cross it diagonally, the upper third is soft dark for copy. Banker's lamp key light from upper left, emerald lamp shade reflection on the vellum. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-015",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/ai-architect-academy/patterns",
+      "placement": "Patterns sub-route header image"
+    },
+    "audience": "Academy students browsing architecture patterns",
+    "purpose": "Signal a pattern library: repeatable structures studied one by one",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/ai-architecture/agent-engine-v1.webp",
+      "frankxai/frankx.ai-vercel-website:public/images/ai-architecture/seven-plane-stack-hero.webp"
+    ],
+    "prompt": "Six small physical architecture models built from matte grey card and thin black rods sit in a row on a long shelf, each a different system topology (pipeline, hub, mesh, layered stack, loop, fan-out), one model has a single emerald rod marking its critical path. Even gallery lighting from above with a slightly warmer key from the left. Materials: grey card, black steel rod, plywood shelf. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-016",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/ai-architect-academy",
+      "placement": "Open Graph share image (render at 1200x630 from the 16:9 source)"
+    },
+    "audience": "People seeing Academy links in LinkedIn, X and Slack",
+    "purpose": "A share card that reads at small size and leaves the left half clean for HTML/SVG title overlay",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/brand/frankx-public-workspace-og-1200x630.png",
+      "frankxai/frankx.ai-vercel-website:public/images/ai-architecture/og-ai-architecture.webp"
+    ],
+    "prompt": "Simple dark composition: the right 45% shows a close crop of a hand-drawn seven-plane architecture on vellum lit by a single emerald-tinted lamp glow with subtle emerald light leak at the right edge; the left 55% is near-empty void #0a0a0b with faint paper texture, reserved for overlay text added later in HTML. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-017",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/agents/packs/[pillar]",
+      "placement": "Agent pack hero template, one image reused across pillar packs. Closest live destination for an ops-style agent pack; no FrankX Multi-agent Ops page exists at this revision."
+    },
+    "audience": "Operators shopping for a ready-made agent pack",
+    "purpose": "Show a coordinated agent team as a run sheet with human checkpoints, the honest picture of multi-agent work",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/ai-architecture/agent-engine-v1.webp",
+      "frankxai/frankx.ai-vercel-website:public/images/acos-hero.png"
+    ],
+    "prompt": "A clipboard run sheet on a dark steel desk, no people: a printed table with five rows of abstract marks, three rows checked in emerald pen, one row flagged with a small red paper tab for human review; beside it a stopwatch, a pen, and a laptop edge with a dim emerald status trace. Directional key light from upper left, hard clean shadows. Materials: steel, paper, aluminium clipboard. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "no robot hands, no humanoid agents; FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-018",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/work-with-me",
+      "placement": "Work-with-me page hero"
+    },
+    "audience": "Founders and teams considering paid advisory with Frank",
+    "purpose": "Signal a calm working session, two seats, real artifacts; without showing Frank",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/home/ai-architecture-atelier-v2.webp"
+    ],
+    "prompt": "A small meeting table by a window in daylight, two empty chairs facing each other, between them a printed system diagram with handwritten notes, two cups of coffee, a pen and a closed laptop. Soft overcast daylight from the left, gentle shadows. Materials: oak, linen, ceramic, paper. Palette: warm neutral room with void #0a0a0b accents in the furniture and one emerald #10b981 pen. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "no people, no hands, no faces; FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-019",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/consulting",
+      "placement": "Consulting page hero"
+    },
+    "audience": "Companies evaluating architecture consulting engagements",
+    "purpose": "Professional, evidence-led: a review of a real architecture, not a handshake photo",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/ai-architecture/seven-plane-stack-hero.webp",
+      "frankxai/frankx.ai-vercel-website:public/images/ai-architecture/intelligence-campus-v1.webp"
+    ],
+    "prompt": "A large wall-mounted whiteboard in a dim office at night with a clean architecture review drawn on it: boxes, arrows, three sticky notes (blank) marking risks, one boxed area outlined in emerald marker. A rolling chair pushed away, a marker tray in the foreground in focus. Cool ambient light with a warm desk lamp key from the right. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "no readable text, no handshake, no suits; FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-020",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/enterprise",
+      "placement": "Enterprise page hero"
+    },
+    "audience": "Enterprise technology leaders",
+    "purpose": "Scale and restraint: governed systems at enterprise size, with no vendor branding",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/ai-architecture/intelligence-campus-v1.webp"
+    ],
+    "prompt": "A long, quiet server-room corridor rendered as architecture rather than spectacle: matte black racks receding in one-point perspective, cable trays overhead, a single row of emerald status LEDs, the floor polished concrete reflecting a strip of soft light. No people. Cool neutral key from overhead, emerald accents only. palette: void #0a0a0b ground, space #111113 and elevated #1a1a1f planes, tech emerald #10b981 as the single live signal, cyan #06b6d4 only on one secondary trace. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "no vendor names or logos on racks, no blue neon tunnel; FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-021",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/courses/[slug]",
+      "placement": "Course detail page header template"
+    },
+    "audience": "Learners comparing course pages",
+    "purpose": "Generic-safe course header that fits any slug: study materials ready to use",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/blog/creators-ai-toolkit-workshop-hero.png"
+    ],
+    "prompt": "A study desk from a high three-quarter angle: an open workbook with diagrams (no text), a laptop, a mechanical pencil, highlighter strokes in emerald, a cup of tea, soft morning daylight from the left. Materials: paper, ceramic, aluminium, oak. palette: editorial candidate canvas #fbf9f5, ink #221f1b, rule #d9d4cc, one small red #c8322a accent at most, emerald #10b981 highlighter as the only saturated colour. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-022",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/founders-circle",
+      "placement": "Founders Circle hero / membership card image"
+    },
+    "audience": "Founders considering the paid community",
+    "purpose": "Community without fake attendance: an empty table set for a working session",
+    "aspect": "4:5",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/home/ai-architecture-atelier-v2.webp"
+    ],
+    "prompt": "Vertical frame of a long table set for eight people before a working session: eight notebooks squared at each seat, pens, water glasses, one shared printed agenda in the center (no readable text), warm pendant lights overhead. No people. Warm amber #f59e0b pendant glow, void #0a0a0b shadows, emerald #10b981 only as notebook bands. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "no crowds, no faces, no invented attendance; FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-023",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/newsletter",
+      "placement": "Newsletter signup page image"
+    },
+    "audience": "Readers deciding whether to subscribe",
+    "purpose": "Show the newsletter as a weekly written artifact",
+    "aspect": "4:5",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/brand/og-template.png"
+    ],
+    "prompt": "A single folded printed newsletter sheet resting on a dark linen tablecloth beside a cup of black coffee and a fountain pen, morning light from a window on the left casting long soft shadows. Columns of greyed-out text blocks (illegible), one small emerald rule line at the top. palette: editorial candidate canvas #fbf9f5, ink #221f1b, rule #d9d4cc, one small red #c8322a accent at most.",
+    "negative": "no readable text, no envelope icons; FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-024",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/blog/[slug]",
+      "placement": "Article template default hero (used when an article has no bespoke hero)"
+    },
+    "audience": "Readers landing on a long-form article from search",
+    "purpose": "A neutral editorial hero that fits any technical article without lying about its subject",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/blog/ultimate-guide-ai-coding-agents-2026-hero-v2.png",
+      "frankxai/frankx.ai-vercel-website:public/images/design-lab/nature-04-data-streams.png"
+    ],
+    "prompt": "Documentary close-up of a printed technical draft on a desk with pencil corrections in the margins, a pair of reading glasses folded on top, daylight from a window on the left; the right side of frame is soft-focus paper and wood. palette: editorial candidate canvas #fbf9f5, ink #221f1b, rule #d9d4cc, one small red #c8322a accent at most. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "no readable text, no AI imagery cliches; FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 3,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-025",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/music",
+      "placement": "Music page hero (Soul surface mode)"
+    },
+    "audience": "Listeners and collaborators exploring Frank’s music",
+    "purpose": "Atmosphere of practice and listening; warm, tactile, quiet",
+    "aspect": "16:9",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/home/music-lab-studio-v2.webp",
+      "frankxai/frankx.ai-vercel-website:public/images/music/infogenius/music-catalog-universe-poster-v1.png"
+    ],
+    "prompt": "A dark listening room late at night: a turntable with a spinning unbranded black record in the lower right, a single amber lamp, a stack of plain-sleeve records leaning against the wall, the left two thirds falling into soft warm shadow for copy. Materials: walnut, vinyl, felt, brass. palette: warm dark #0a0a0b ground with soul amber #f59e0b and #fbbf24 as practical light, contemplative ink #E8DDD0 highlights, emerald absent. Composed like a film still: 35mm lens, eye height, shallow but not mushy depth, one motivated key light, natural falloff, fine grain.",
+    "negative": "no album art, no label logos; FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 4,
+    "tier": "explore"
+  },
+  {
+    "id": "frankx-2026-11-27-026",
+    "brand": "frankx",
+    "destination": {
+      "repo": "frankxai/frankx.ai-vercel-website",
+      "route": "/shop",
+      "placement": "Shop index tile image (square, reused as category card)"
+    },
+    "audience": "Shoppers scanning the shop grid",
+    "purpose": "One cohesive square that groups digital products as owned tools",
+    "aspect": "1:1",
+    "style_refs": [
+      "frankxai/frankx.ai-vercel-website:public/images/acos-hero.png"
+    ],
+    "prompt": "Square overhead still life on dark slate: a neat stack of three hardbound notebooks of different heights, a USB key, and a folded blueprint tied with emerald cotton string, centered with generous margins. Soft key light from upper left, clean contact shadows. Void #0a0a0b ground, emerald #10b981 only on the string.",
+    "negative": "FrankX anti-signature: stock people on laptops, AI-perfect faces, any face or likeness of Frank or a lookalike, circular portrait rings, generic city skyline, decorative gradients used as art, fake glass dashboards, glassmorphism with nothing under it, decorative floating 3D AI brains, light-beam stock, neon blocks, purple or violet Arcanea glow (#8B5CF6, #E040FB, #7C3AED), mythic or fantasy iconography, invented partner logos, badge walls, pure #000 black, emoji, text or headlines baked into the image; AI slop tells: plastic skin, waxy over-smoothed surfaces, extra or fused fingers, warped hands, melted geometry, garbled pseudo-text, fake letters, watermarks, signatures, lens-flare spam, HDR halos, oversaturated teal-and-orange grade, symmetrical stock composition, bokeh orbs, floating holograms, glowing brain, humanoid robot, circuit-board wallpaper, generic particle starfield, chrome blob, any logo or trademark of another company, any recognizable real person or celebrity likeness",
+    "candidates": 2,
+    "tier": "explore"
+  }
+]
