@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 820" width="1520" height="820" role="img" aria-labelledby="title-ig-03-living-glasshouse-memory-dark desc-ig-03-living-glasshouse-memory-dark" data-brand="sis" data-archetype="layered-architecture" data-theme="dark">
+<title id="title-ig-03-living-glasshouse-memory-dark">Living Glasshouse: How Knowledge Is Kept and Recalled</title>
+<desc id="desc-ig-03-living-glasshouse-memory-dark">Glasshouse is a proposed visual family for the SIS memory plane. The mapping below is a metaphor, not a shipped product.</desc>
+<defs>
+    <linearGradient id="bg-grad-ig-03-living-glasshouse-memory-dark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#070A10"/>
+      <stop offset="100%" stop-color="#0C121E"/>
+    </linearGradient>
+    <pattern id="grid-ig-03-living-glasshouse-memory-dark" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#141E30" stroke-width="0.75"/>
+    </pattern>
+    <marker id="arrow-ig-03-living-glasshouse-memory-dark" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#82D8E6"/>
+    </marker>
+  </defs>
+<rect x="0" y="0" width="1520" height="820" fill="#070A10"/>
+<rect x="0" y="0" width="1520" height="820" fill="url(#grid-ig-03-living-glasshouse-memory-dark)" opacity="0.55"/>
+<rect x="16" y="16" width="1488" height="788" rx="20" fill="none" stroke="#283959" stroke-width="1"/>
+<rect x="56" y="42" width="257" height="26" rx="13" fill="#112438" stroke="#244B70" stroke-width="1"/>
+<text x="184.5" y="58.85" fill="#BAE6FD" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STARLIGHT · MEMORY ARCHITECTURE</text>
+<rect x="323" y="42" width="115" height="26" rx="13" fill="#2A2010" stroke="#684F24" stroke-width="1"/>
+<text x="380.5" y="58.85" fill="#F6D89E" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">BENCHMARK 03</text>
+<rect x="1162" y="42" width="302" height="26" rx="13" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1313" y="58.85" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">Starlight Intelligence Systems · DARK</text>
+<text x="56" y="104" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="30" font-weight="700">Living Glasshouse: How Knowledge Is Kept and Recalled</text>
+<text x="56" y="132" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="15" font-weight="400">Glasshouse is a proposed visual family for the SIS memory plane. The mapping below is a metaphor, not a shipped product.</text>
+<line x1="56" y1="168" x2="1464" y2="168" stroke="#283959" stroke-width="1"/>
+<line x1="56" y1="760" x2="1464" y2="760" stroke="#283959" stroke-width="1"/>
+<text x="56" y="782" fill="#A2B0C8" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="12" font-weight="500">Source: sis-agentic-architecture spec, Plane 03; living-design catalog family (proposal). Garden words are this benchmark&apos;s metaphor</text>
+<rect x="56" y="194" width="348" height="148" rx="14" fill="#162033" stroke="#3E5682" stroke-width="1.2"/>
+<rect x="56" y="194" width="5" height="148" rx="2.5" fill="#7DD3FC"/>
+<rect x="76" y="212" width="154" height="23" rx="11.5" fill="#112438" stroke="#244B70" stroke-width="1"/>
+<text x="153" y="227.18" fill="#BAE6FD" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">STAGE 01 · CAPTURE</text>
+<text x="76" y="260" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="18.5" font-weight="700">Plant: gateway intake</text>
+<text x="76" y="284" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Loopback session store with privacy filtering.</text>
+<rect x="426" y="194" width="511" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(444, 212) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="12" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="18" cy="17" r="2.2"/><path d="M8.2 11.2L15.8 7.8"/><path d="M8.2 12.8l7.6 3.4"/></g>
+<rect x="849.52" y="210" width="72" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="885.52" y="224.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">GATEWAY</text>
+<text x="444" y="260" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">SIS Memory Gateway</text>
+<text x="444" y="284" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Session store, privacy tag filtering, hybrid retrieval.</text>
+<rect x="953" y="194" width="511" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(971, 212) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.6-3 8.4-7 9.5-4-1.1-7-4.9-7-9.5V6l7-3z"/><path d="M9 12.2l2 2 4-4.2"/></g>
+<rect x="1369.4" y="210" width="79" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1408.9" y="224.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">THE VEIL</text>
+<text x="971" y="260" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Sanitization</text>
+<text x="971" y="284" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Local secret scrubbing and .vis.provenance.json sidecar locks.</text>
+<line x1="230" y1="344" x2="230" y2="361" stroke="#82D8E6" stroke-width="1.6" marker-end="url(#arrow-ig-03-living-glasshouse-memory-dark)"/>
+<rect x="56" y="364" width="348" height="148" rx="14" fill="#162033" stroke="#3E5682" stroke-width="1.2"/>
+<rect x="56" y="364" width="5" height="148" rx="2.5" fill="#7DD3FC"/>
+<rect x="76" y="382" width="133" height="23" rx="11.5" fill="#112438" stroke="#244B70" stroke-width="1"/>
+<text x="142.5" y="397.18" fill="#BAE6FD" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">STAGE 02 · KEEP</text>
+<text x="76" y="430" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="18.5" font-weight="700">Beds: typed vaults</text>
+<text x="76" y="454" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Event-sourced JSONL is the source of truth.</text>
+<rect x="426" y="364" width="511" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(444, 382) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="12" cy="12" r="3.5"/><path d="M12 8.5v-2M12 17.5v-2M8.5 12h-2M17.5 12h-2"/></g>
+<rect x="842.4" y="380" width="79" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="881.9" y="394.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">6 VAULTS</text>
+<text x="444" y="430" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Typed vaults</text>
+<text x="444" y="454" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Strategic, Technical, Creative, Operational, Wisdom, Horizon.</text>
+<rect x="953" y="364" width="511" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(971, 382) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="7.5" ry="2.8"/><path d="M4.5 6v6c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8V6"/><path d="M4.5 12v6c0 1.5 3.4 2.8 7.5 2.8s7.5-1.3 7.5-2.8v-6"/></g>
+<rect x="1390.77" y="380" width="58" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1419.77" y="394.68" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">JSONL</text>
+<text x="971" y="430" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Event-sourced JSONL</text>
+<text x="971" y="454" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Event-sourced source of truth.</text>
+<line x1="230" y1="514" x2="230" y2="531" stroke="#82D8E6" stroke-width="1.6" marker-end="url(#arrow-ig-03-living-glasshouse-memory-dark)"/>
+<rect x="56" y="534" width="348" height="148" rx="14" fill="#162033" stroke="#3E5682" stroke-width="1.2"/>
+<rect x="56" y="534" width="5" height="148" rx="2.5" fill="#7DD3FC"/>
+<rect x="76" y="552" width="147" height="23" rx="11.5" fill="#112438" stroke="#244B70" stroke-width="1"/>
+<text x="149.5" y="567.17" fill="#BAE6FD" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">STAGE 03 · RECALL</text>
+<text x="76" y="600" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="18.5" font-weight="700">Harvest: find it again</text>
+<text x="76" y="624" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">SQLite FTS5 index with hybrid ranking.</text>
+<rect x="426" y="534" width="511" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(444, 552) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2.2 5.2-5.2 2.2 2.2-5.2 5.2-2.2z"/></g>
+<rect x="870.9" y="550" width="51" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="896.4" y="564.67" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">FTS5</text>
+<text x="444" y="600" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Full-text recall</text>
+<text x="444" y="624" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Indexed from the event log.</text>
+<rect x="953" y="534" width="511" height="148" rx="14" fill="#0F1624" stroke="#283959" stroke-width="1.15"/>
+<g transform="translate(971, 552) scale(0.92)" width="22" height="22" fill="none" stroke="#7DD3FC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6.2 6 12 6s9.5 6 9.5 6-3.7 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.6"/></g>
+<rect x="1355.15" y="550" width="93" height="22" rx="11" fill="#162033" stroke="#3E5682" stroke-width="1"/>
+<text x="1401.65" y="564.67" fill="#D6DEEC" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="600" letter-spacing="0.4" text-anchor="middle">RRF HYBRID</text>
+<text x="971" y="600" fill="#F5F2EB" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="16" font-weight="700">Hybrid retrieval</text>
+<text x="971" y="624" fill="#D6DEEC" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="400">Hybrid retrieval, as on the memory gateway.</text>
+</svg>

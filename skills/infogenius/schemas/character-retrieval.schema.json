@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "starlight.infogenius.character-resolve-result.v1",
+  "title": "InfoGenius view of the VIS character resolver (visual.character.resolve)",
+  "description": "CONTRACT TAKEN FROM frankxai/visual-intelligence DRAFT PR 92 as relayed to this repo (the PR was not readable from this session). Re-check every name and enum against the merged resolver before relying on it. MCP tool: visual.character.resolve, argument `name`. CLI: node bin/vis-character.mjs --name <name>, exit 3 for any non-resolved status. Env: VIS_CHARACTER_MANIFEST (authorised manifest path), VIS_CHARACTER_CACHE (content-addressed cache, layout <aa>/<sha256>). Rights and approval are always unknown (vendor guests: rights pending). This schema is a local consumer view, not the owner's schema.",
+  "$defs": {
+    "request": {
+      "type": "object",
+      "required": [
+        "tool",
+        "arguments"
+      ],
+      "properties": {
+        "tool": {
+          "const": "visual.character.resolve"
+        },
+        "arguments": {
+          "type": "object",
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "reference": {
+      "type": "object",
+      "required": [
+        "edition",
+        "sha256",
+        "locators"
+      ],
+      "properties": {
+        "edition": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "locators": {
+          "type": "object",
+          "properties": {
+            "figma_node": {
+              "type": "string"
+            },
+            "drive_file_id": {
+              "type": "string"
+            },
+            "r2_key": {
+              "type": "string"
+            },
+            "local_cache_path": {
+              "type": "string",
+              "description": "<VIS_CHARACTER_CACHE>/<aa>/<sha256>; bytes at this path are hashed before anything reports verified"
+            }
+          }
+        }
+      }
+    },
+    "conflict": {
+      "type": "object",
+      "required": [
+        "code"
+      ],
+      "properties": {
+        "code": {
+          "enum": [
+            "confusable_alias_not_merged",
+            "status_conflicts_with_rejected_lineage"
+          ],
+          "description": "Known examples from PR 92; the list may grow. Any conflict blocks use."
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "`resolved`, `ambiguous`, `not_found` or similar. Exit code 3 for every value except `resolved`."
+        },
+        "identity_id": {
+          "type": "string"
+        },
+        "matched_alias": {
+          "type": "string"
+        },
+        "positive_references": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/reference"
+          }
+        },
+        "proposals": {
+          "type": "array",
+          "description": "Candidates. Never positive references."
+        },
+        "rejected_lineages": {
+          "type": "array"
+        },
+        "missing_references": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "edition": {
+                "type": "string"
+              },
+              "reason": {
+                "type": "string",
+                "description": "for example not_accessible"
+              }
+            }
+          }
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/conflict"
+          }
+        },
+        "rights": {
+          "enum": [
+            "unknown",
+            "pending"
+          ],
+          "description": "unknown always; pending for vendor guests"
+        },
+        "approval": {
+          "const": "unknown"
+        },
+        "class": {
+          "const": "vendor-guest"
+        },
+        "unofficial": {
+          "const": true
+        },
+        "fixture": {
+          "type": "boolean",
+          "description": "Local synthetic fixture only; never present on a real result"
+        }
+      }
+    }
+  }
+}

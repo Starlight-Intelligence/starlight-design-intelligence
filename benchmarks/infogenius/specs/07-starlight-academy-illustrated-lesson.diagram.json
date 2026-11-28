@@ -1,0 +1,52 @@
+{
+  "id": "ig-07-starlight-academy-illustrated-lesson",
+  "brand": "sis",
+  "archetype": "hub-spoke",
+  "eyebrow": "STARLIGHT · ACADEMY MODE",
+  "editionTag": "BENCHMARK 07",
+  "title": "A Lesson Built Around One Small Working Method",
+  "subtitle": "Academy mode: the learner practises judgment and keeps the portfolio. Observed work, not activity counts.",
+  "sourceNote": "Sources: brand-packs/sis/COPY.md (Academy line) · NARRATIVE.md (Academy) · DESIGN.md (Academy mode) · MOTION.md (Academy motion).",
+  "hub": {
+    "icon": "compass",
+    "badge": "ONE LESSON",
+    "title": "A small working method",
+    "subtitle": "Build it, trace it, adapt it.",
+    "source": "brand-packs/sis/COPY.md, Academy line"
+  },
+  "spokes": [
+    {
+      "icon": "code",
+      "role": "BUILD",
+      "title": "Build a small method",
+      "detail": "Practise judgment with something that works.",
+      "source": "brand-packs/sis/COPY.md; NARRATIVE.md, Academy"
+    },
+    {
+      "icon": "eye",
+      "role": "TRACE",
+      "title": "Trace the evidence",
+      "detail": "Feedback points at the part it concerns.",
+      "source": "brand-packs/sis/COPY.md; MOTION.md, Academy motion"
+    },
+    {
+      "icon": "layers",
+      "role": "ADAPT",
+      "title": "Adapt it to your project",
+      "detail": "Progress is visible as prerequisites are completed.",
+      "source": "brand-packs/sis/COPY.md; MOTION.md, Academy motion"
+    },
+    {
+      "icon": "book",
+      "role": "KEEP",
+      "title": "Keep the portfolio",
+      "detail": "Show observed work, not mastery counts.",
+      "source": "brand-packs/sis/NARRATIVE.md, Academy; DESIGN.md, Academy mode"
+    }
+  ],
+  "height": 700,
+  "layout": {
+    "centerHub": true,
+    "footerClaim": false
+  }
+}

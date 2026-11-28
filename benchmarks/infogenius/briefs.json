@@ -1,0 +1,129 @@
+{
+  "schema": "starlight.infogenius.benchmark-briefs.v1",
+  "rubric": "benchmarks/infogenius/RUBRIC.md",
+  "briefs": [
+    {
+      "n": 1,
+      "id": "01-starlight-agent-orchestration",
+      "title": "Starlight agent orchestration",
+      "brand": "sis",
+      "visual_kind": "technical",
+      "archetype": "hub-spoke",
+      "character_policy": "none by default; Starlight Queen only with a named gain and retrieval",
+      "deterministic_render": true,
+      "spec": "benchmarks/infogenius/specs/01-starlight-agent-orchestration.diagram.json",
+      "note": "Orchestrator, maker/verifier separation, human gates."
+    },
+    {
+      "n": 2,
+      "id": "02-skills-capability-tree",
+      "title": "Skills and specialist capability tree",
+      "brand": "sis",
+      "visual_kind": "technical",
+      "archetype": "layered-architecture",
+      "character_policy": "none",
+      "deterministic_render": true,
+      "spec": "benchmarks/infogenius/specs/02-skills-capability-tree.diagram.json",
+      "note": "Every node is an existing skills/<name>/ directory."
+    },
+    {
+      "n": 3,
+      "id": "03-living-glasshouse-memory",
+      "title": "Living Glasshouse memory architecture",
+      "brand": "sis",
+      "visual_kind": "technical",
+      "archetype": "layered-architecture",
+      "character_policy": "Living Glasshouse family is a proposal; character optional, retrieval required",
+      "deterministic_render": true,
+      "spec": "benchmarks/infogenius/specs/03-living-glasshouse-memory.diagram.json",
+      "note": "Memory facts come from the SIS plane spec; Glasshouse is labelled metaphor."
+    },
+    {
+      "n": 4,
+      "id": "04-mini-frank-human-ai-collaboration",
+      "title": "Mini Frank human-AI collaboration",
+      "brand": "frankx",
+      "visual_kind": "story",
+      "archetype": "hud-blueprint",
+      "character_policy": "character-led direction B expected; Mini Frank/Nilo/Brio/Riff proposals; retrieval and hash verification mandatory; Biro never merged into Brio",
+      "deterministic_render": false,
+      "spec": null,
+      "note": "Not rendered here: requires private reference bytes. Run only with the installed private retrieval source.",
+      "not_rendered_reason": "needs private reference bytes; run only with the installed private retrieval source. Direction B slot spec in direction-b/."
+    },
+    {
+      "n": 5,
+      "id": "05-frankx-advanced-ai-architecture",
+      "title": "FrankX: from vibe-coded demo to agentic engineering",
+      "brand": "frankx",
+      "visual_kind": "technical",
+      "archetype": "stack-tiers",
+      "character_policy": "none; Omega only with explicit opt-in and named gain",
+      "deterministic_render": true,
+      "spec": "benchmarks/infogenius/specs/05-frankx-advanced-ai-architecture.diagram.json",
+      "note": "Four rungs from FrankX stance 2 and the reader ladder in brand-packs/frankx/POINT_OF_VIEW.md; every node cites that file. Replaces the round 1 process view."
+    },
+    {
+      "n": 6,
+      "id": "06-gencreator-production-workflow",
+      "title": "GenCreator production workflow",
+      "brand": "gencreator",
+      "visual_kind": "technical",
+      "archetype": "curriculum-roadmap",
+      "character_policy": "none",
+      "deterministic_render": true,
+      "spec": "benchmarks/infogenius/specs/06-gencreator-production-workflow.diagram.json",
+      "note": "Five steps from brand-packs/gencreator/NARRATIVE.md edition contracts; every node cites its file. Compiler uppercases step and evidence labels, which GenCreator's DESIGN direction avoids; limitation, not a decision."
+    },
+    {
+      "n": 7,
+      "id": "07-starlight-academy-illustrated-lesson",
+      "title": "Starlight Academy illustrated lesson",
+      "brand": "sis",
+      "visual_kind": "editorial",
+      "archetype": "hub-spoke",
+      "character_policy": "optional, only if it reduces abstraction; retrieval required",
+      "deterministic_render": true,
+      "spec": "benchmarks/infogenius/specs/07-starlight-academy-illustrated-lesson.diagram.json",
+      "note": "Four spokes from the SIS Academy mode text (COPY, NARRATIVE, DESIGN, MOTION); every node cites its file. No character; the repo has no illustration source for an Academy lesson, so this is the lesson structure, not an illustrated scene."
+    },
+    {
+      "n": 8,
+      "id": "08-arcanea-guardian-knowledge-map",
+      "title": "Arcanea Guardian knowledge map",
+      "brand": "arcanea",
+      "visual_kind": "editorial",
+      "archetype": "hub-spoke",
+      "character_policy": "Arcanea mythic education route; locked Guardians only; staging forms stay labelled staging; Arcanea Fire and Unity v1/v2 never positive references",
+      "deterministic_render": false,
+      "spec": null,
+      "note": "Not rendered in this run. Arcanea language stays on Arcanea surfaces.",
+      "not_rendered_reason": "needs private reference retrieval for locked Guardians; Arcanea language stays on Arcanea surfaces. Not attempted this round."
+    },
+    {
+      "n": 9,
+      "id": "09-agentic-income-commercial-system",
+      "title": "Agentic Income commercial system",
+      "brand": "agentic-income",
+      "visual_kind": "technical",
+      "archetype": "curriculum-roadmap",
+      "character_policy": "none",
+      "deterministic_render": true,
+      "spec": "benchmarks/infogenius/specs/09-agentic-income-commercial-system.diagram.json",
+      "note": "No earnings claims; paid access shown as unavailable."
+    },
+    {
+      "n": 10,
+      "id": "10-premium-landing-page-visual-narrative",
+      "title": "Premium landing-page visual narrative",
+      "brand": "owner-selected (not set; rendered with the sis pack as the repo default)",
+      "visual_kind": "editorial",
+      "archetype": "comparison-matrix",
+      "character_policy": "decided by casting resolver per surface.brand_id",
+      "deterministic_render": true,
+      "spec": "benchmarks/infogenius/specs/10-premium-landing-page-visual-narrative.diagram.json",
+      "note": "Repo supports the release-gate process, not any brand's landing-page copy. Renders the four gate scores beside the SKILL step that earns each; no page copy invented."
+    }
+  ],
+  "source_revision": "5fb0bdd (main at run time; specs cite repo files at this revision)"
+}

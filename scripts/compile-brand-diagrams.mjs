@@ -950,9 +950,9 @@ function renderCanvasChrome(ctx, spec, brand) {
     mono: true,
     fill: colors.textMuted,
     bgHex: colors.canvas,
-    maxWidthPx: width - padX * 2 - 284
+    maxWidthPx: width - padX * 2 - (spec.layout?.footerClaim === false ? 0 : 284)
   });
-  ctx.addText({
+  if (spec.layout?.footerClaim !== false) ctx.addText({
     label: "footer.contract",
     text: "WCAG AA >= 4.5:1 · ZERO RASTER TEXT",
     x: width - padX,
@@ -1114,8 +1114,15 @@ function renderCurriculumRoadmap(spec, brand) {
   if (stages.length < 2 || stages.length > 5) {
     throw new Error(`curriculum-roadmap requires 2..5 stages, got ${stages.length}`);
   }
+  // Opt-in layout options (spec.layout.aligned / .compact, spec.labels.skills / .outcome).
+  // Absent options leave the output byte-identical to earlier compiler versions.
+  const aligned = spec.layout?.aligned === true;
+  const compact = spec.layout?.compact === true;
+  const skillsOffset = compact ? 178 : 216;
+  const maxSkills = Math.min(4, Math.max(0, ...stages.map((st) => (st.skills || []).length)));
+  const compactCardH = skillsOffset + 14 + maxSkills * 32 - 6 + 12 + 68 + 18;
   const width = spec.width || 1520;
-  const height = spec.height || 860;
+  const height = spec.height || (compact ? 236 + compactCardH + 82 : 860);
   const ctx = createRenderContext(spec, brand, { width, height });
   renderCanvasChrome(ctx, spec, brand);
   const { colors } = ctx;
@@ -1132,7 +1139,7 @@ function renderCurriculumRoadmap(spec, brand) {
 
   stages.forEach((stage, idx) => {
     const x = padX + idx * (colW + gapX);
-    const stepOffset = (stages.length - 1 - idx) * 10;
+    const stepOffset = aligned ? 0 : (stages.length - 1 - idx) * 10;
     const cardY = 236 + stepOffset;
     const cardH = height - cardY - 82;
 
@@ -1200,10 +1207,10 @@ function renderCurriculumRoadmap(spec, brand) {
       bgHex: colors.surface
     });
 
-    const skillsStartY = cardY + 216;
+    const skillsStartY = cardY + skillsOffset;
     ctx.addText({
       label: `stage[${idx}].skillsHeader`,
-      text: "SKILLS & GATES",
+      text: spec.labels?.skills ?? "SKILLS & GATES",
       x: innerX,
       y: skillsStartY,
       fontSize: 10.5,
@@ -1242,7 +1249,7 @@ function renderCurriculumRoadmap(spec, brand) {
       );
       ctx.addText({
         label: `stage[${idx}].outcomeLabel`,
-        text: "ARTIFACT OUTCOME",
+        text: spec.labels?.outcome ?? "ARTIFACT OUTCOME",
         x: innerX + 12,
         y: outY + 20,
         fontSize: 10,
@@ -1558,7 +1565,8 @@ function renderHubSpoke(spec, brand) {
   const { colors } = ctx;
 
   const centerX = width / 2;
-  const centerY = 486;
+  // spec.layout.centerHub (opt-in) centres the hub in the band between header and footer rules.
+  const centerY = spec.layout?.centerHub === true ? Math.round((168 + (height - 60)) / 2) : 486;
   const hubW = 340;
   const hubH = 196;
   const hubX = centerX - hubW / 2;

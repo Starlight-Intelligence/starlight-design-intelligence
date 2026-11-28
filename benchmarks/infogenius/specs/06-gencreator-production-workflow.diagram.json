@@ -1,0 +1,82 @@
+{
+  "id": "ig-06-gencreator-production-workflow",
+  "brand": "gencreator",
+  "archetype": "curriculum-roadmap",
+  "eyebrow": "GENCREATOR · FROM SOURCE TO EDITION",
+  "editionTag": "BENCHMARK 06",
+  "title": "Saved, Reviewed, Exported and Published Are Four Different States",
+  "subtitle": "Each step needs its own evidence. Nothing publishes until the creator signs.",
+  "sourceNote": "Sources: brand-packs/gencreator/NARRATIVE.md (edition contracts) · BRAND.md (boundaries) · FOUNDATIONS.md (promise, voice).",
+  "stages": [
+    {
+      "phase": "STEP 01",
+      "icon": "book",
+      "title": "Source",
+      "summary": "The creator's own material keeps its provenance and the permission that applies to it.",
+      "skills": [
+        "Provenance kept",
+        "Permission kept",
+        "Private notes stay private"
+      ],
+      "outcome": "Source on record",
+      "source": "brand-packs/gencreator/NARRATIVE.md, Edition contracts: source input"
+    },
+    {
+      "phase": "STEP 02",
+      "icon": "workflow",
+      "title": "Draft",
+      "summary": "A draft is generated from the source. Generating text is not the creator's approval.",
+      "skills": [
+        "Draft marked as draft",
+        "Source link per passage"
+      ],
+      "outcome": "Draft, unapproved",
+      "source": "brand-packs/gencreator/NARRATIVE.md, Edition contracts: human review; FOUNDATIONS.md section 6, source trace"
+    },
+    {
+      "phase": "STEP 03",
+      "icon": "eye",
+      "title": "Review",
+      "summary": "The creator compares the draft with the original and keeps or corrects each passage.",
+      "skills": [
+        "Keep passages",
+        "Correct meaning",
+        "Check the credit"
+      ],
+      "outcome": "Recorded decision",
+      "source": "brand-packs/gencreator/NARRATIVE.md, Copy specimen and Edition contracts: human review"
+    },
+    {
+      "phase": "STEP 04",
+      "icon": "code",
+      "title": "Export",
+      "summary": "The actual file is opened and checked. It counts as exported only once the file exists.",
+      "skills": [
+        "Credit in the file",
+        "Edition kept on failure"
+      ],
+      "outcome": "File exists",
+      "source": "brand-packs/gencreator/NARRATIVE.md, Edition contracts: export and revisions"
+    },
+    {
+      "phase": "STEP 05",
+      "icon": "shield",
+      "title": "Release",
+      "summary": "Publication is a separate release decision. Community critique asks one precise question.",
+      "skills": [
+        "Separate decision",
+        "One artifact, one question"
+      ],
+      "outcome": "Signed release",
+      "source": "brand-packs/gencreator/NARRATIVE.md, Edition contracts: publication; BRAND.md, Promise and proof"
+    }
+  ],
+  "layout": {
+    "aligned": true,
+    "compact": true,
+    "footerClaim": false
+  },
+  "labels": {
+    "skills": "EVIDENCE"
+  }
+}

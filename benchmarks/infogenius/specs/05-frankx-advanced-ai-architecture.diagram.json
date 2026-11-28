@@ -1,0 +1,60 @@
+{
+  "id": "ig-05-frankx-advanced-ai-architecture",
+  "brand": "frankx",
+  "archetype": "stack-tiers",
+  "eyebrow": "FRANKX \u00b7 POINT OF VIEW \u00b7 STANCE 2",
+  "editionTag": "BENCHMARK 05",
+  "title": "A Demo Is a Start; Engineering Makes It Durable",
+  "subtitle": "FrankX stance 2: prompting your way to a working demo is fine; durable products add the engineering layer.",
+  "sourceNote": "Sources, all brand-packs/frankx/POINT_OF_VIEW.md: tier 01 and 04 stance 2 claim; tier 02 reader table, vibe coder row; tier 03 reader table, agentic engineer row.",
+  "tiers": [
+    {
+      "step": "RUNG 01",
+      "icon": "book",
+      "title": "A demo that works",
+      "summary": "Prompting your way to a working demo is a fine start; vibe coders are early, not wrong.",
+      "role": "START",
+      "badges": [
+        "VIBE CODING",
+        "EARLY"
+      ]
+    },
+    {
+      "step": "RUNG 02",
+      "icon": "workflow",
+      "title": "Reliability habits",
+      "summary": "The first habits to add: git, a test, an eval and a cost cap.",
+      "role": "HABITS",
+      "badges": [
+        "GIT + TEST",
+        "EVAL + COST CAP"
+      ]
+    },
+    {
+      "step": "RUNG 03",
+      "icon": "layers",
+      "title": "Agentic engineering",
+      "summary": "Orchestration, verification by a second model, permissions and receipts.",
+      "role": "ORCHESTRATE",
+      "badges": [
+        "SECOND-MODEL CHECK",
+        "PERMISSIONS"
+      ]
+    },
+    {
+      "step": "RUNG 04",
+      "icon": "shield",
+      "title": "A human who can stop the run",
+      "summary": "Durable products keep a person with the power to halt a run. A small tool needs a small process.",
+      "role": "HUMAN STOP",
+      "gate": true,
+      "badges": [
+        "STOP",
+        "SMALL PROCESS"
+      ]
+    }
+  ],
+  "layout": {
+    "footerClaim": false
+  }
+}

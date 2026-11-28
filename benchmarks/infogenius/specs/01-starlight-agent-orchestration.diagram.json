@@ -1,0 +1,47 @@
+{
+  "id": "ig-01-starlight-agent-orchestration",
+  "brand": "sis",
+  "archetype": "hub-spoke",
+  "eyebrow": "STARLIGHT \u00b7 AGENT ORCHESTRATION",
+  "editionTag": "BENCHMARK 01",
+  "title": "Small Team, Independent Verifier, Named Gates",
+  "subtitle": "Release-affecting work uses the smallest 3 to 5 role team and an independent verifier.",
+  "sourceNote": "Source: AGENTS.md, Starlight repository contract",
+  "hub": {
+    "icon": "queen-star",
+    "badge": "ASSIGNED SLICE",
+    "title": "Release-affecting work",
+    "subtitle": "Work only in assigned paths."
+  },
+  "spokes": [
+    {
+      "icon": "code",
+      "role": "ROLE TEAM",
+      "title": "3 to 5 roles",
+      "detail": "Preserve unrelated dirty files."
+    },
+    {
+      "icon": "check",
+      "role": "VERIFIER",
+      "title": "Independent verifier",
+      "detail": "Required for release-affecting work."
+    },
+    {
+      "icon": "shield",
+      "role": "HUMAN GATES",
+      "title": "Named approval needed",
+      "detail": "DNS, secrets, billing, spend, migrations, legal/IP."
+    },
+    {
+      "icon": "book",
+      "role": "HANDOFF",
+      "title": "Required handoff",
+      "detail": "Artifacts, checks, verdict, risks, rollback."
+    }
+  ],
+  "height": 760,
+  "layout": {
+    "centerHub": true,
+    "footerClaim": false
+  }
+}

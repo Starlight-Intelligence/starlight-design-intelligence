@@ -84,6 +84,10 @@ Read `playbooks/design-skill-integration.md` for source pins, invocation, runtim
 dependencies and candidate-release boundaries. External snapshots remain
 subordinate to the selected brand pack and canonical release contract.
 
+## InfoGenius orchestrator
+
+- `infogenius`: one orchestration skill for sourced infographics, diagrams, data visuals and lesson visuals (Brief to Receipt, two concept directions, deterministic exact text, casting resolver, independent critique). Overlapping variants stay in place; see `skills/infogenius/references/migration.md`. Benchmarks: `benchmarks/infogenius/`.
+
 ## Specialist Digital Product & Funnel Skills
 
 - `digital-product-funnel-designer`: Refero-backed conversion funnel archetypes, two-pane pack inspectors, value-first lead magnets, and voice-gated digital product packaging (`playbooks/refero-funnel-atlas.md` + `playbooks/lead-magnets-and-products-design/INDEX.md`).

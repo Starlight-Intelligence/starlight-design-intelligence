@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 698" width="1520" height="698" role="img" aria-labelledby="title-ig-06-gencreator-production-workflow-light desc-ig-06-gencreator-production-workflow-light" data-brand="gencreator" data-archetype="curriculum-roadmap" data-theme="light">
+<title id="title-ig-06-gencreator-production-workflow-light">Saved, Reviewed, Exported and Published Are Four Different States</title>
+<desc id="desc-ig-06-gencreator-production-workflow-light">Each step needs its own evidence. Nothing publishes until the creator signs.</desc>
+<defs>
+    <linearGradient id="bg-grad-ig-06-gencreator-production-workflow-light" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FBF9F5"/>
+      <stop offset="100%" stop-color="#F3EFE8"/>
+    </linearGradient>
+    <pattern id="grid-ig-06-gencreator-production-workflow-light" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#EAE5DC" stroke-width="0.75"/>
+    </pattern>
+    <marker id="arrow-ig-06-gencreator-production-workflow-light" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 1 1.5 L 8.5 5 L 1 8.5 z" fill="#A6241D"/>
+    </marker>
+  </defs>
+<rect x="0" y="0" width="1520" height="698" fill="#FBF9F5"/>
+<rect x="0" y="0" width="1520" height="698" fill="url(#grid-ig-06-gencreator-production-workflow-light)" opacity="0.55"/>
+<rect x="16" y="16" width="1488" height="666" rx="20" fill="none" stroke="#D8D2C7" stroke-width="1"/>
+<rect x="56" y="42" width="287" height="26" rx="13" fill="#FDECEC" stroke="#F3B4B0" stroke-width="1"/>
+<text x="199.5" y="58.85" fill="#881B15" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">GENCREATOR · FROM SOURCE TO EDITION</text>
+<rect x="353" y="42" width="115" height="26" rx="13" fill="#FEF3C7" stroke="#E5B869" stroke-width="1"/>
+<text x="410.5" y="58.85" fill="#78350F" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">BENCHMARK 06</text>
+<rect x="1304" y="42" width="160" height="26" rx="13" fill="#F2EFE9" stroke="#ADA597" stroke-width="1"/>
+<text x="1384" y="58.85" fill="#3B3630" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">GenCreator · LIGHT</text>
+<text x="56" y="104" fill="#221F1B" font-family="&apos;Instrument Serif&apos;, Georgia, Cambria, serif" font-size="30" font-weight="700">Saved, Reviewed, Exported and Published Are Four Different States</text>
+<text x="56" y="132" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="15" font-weight="400">Each step needs its own evidence. Nothing publishes until the creator signs.</text>
+<line x1="56" y1="168" x2="1464" y2="168" stroke="#D8D2C7" stroke-width="1"/>
+<line x1="56" y1="638" x2="1464" y2="638" stroke="#D8D2C7" stroke-width="1"/>
+<text x="56" y="660" fill="#575048" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="12" font-weight="500">Sources: brand-packs/gencreator/NARRATIVE.md (edition contracts) · BRAND.md (boundaries) · FOUNDATIONS.md (promise, voice).</text>
+<line x1="80" y1="204" x2="1440" y2="204" stroke="#ADA597" stroke-width="2" stroke-dasharray="6 5"/>
+<circle cx="84" cy="204" r="9" fill="#FFFFFF" stroke="#A6241D" stroke-width="2.5"/>
+<circle cx="84" cy="204" r="3.5" fill="#A6241D"/>
+<line x1="312.4" y1="204" x2="338.4" y2="204" stroke="#A6241D" stroke-width="1.8" marker-end="url(#arrow-ig-06-gencreator-production-workflow-light)"/>
+<rect x="56" y="236" width="262.4" height="380" rx="16" fill="#FFFFFF" stroke="#D8D2C7" stroke-width="1.25"/>
+<rect x="56" y="236" width="262.4" height="5" rx="2.5" fill="#A6241D"/>
+<rect x="78" y="258" width="78" height="24" rx="12" fill="#FDECEC" stroke="#F3B4B0" stroke-width="1"/>
+<text x="117" y="273.85" fill="#881B15" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STEP 01</text>
+<g transform="translate(274.4, 258) scale(0.92)" width="22" height="22" fill="none" stroke="#A6241D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16.5H6.5A2.5 2.5 0 0 0 4 22V5.5z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></g>
+<text x="78" y="310" fill="#221F1B" font-family="&apos;Instrument Serif&apos;, Georgia, Cambria, serif" font-size="19" font-weight="700">Source</text>
+<text x="78" y="343" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">The creator&apos;s own material</text>
+<text x="78" y="363" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">keeps its provenance and the</text>
+<text x="78" y="383" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">permission that applies to it.</text>
+<text x="78" y="414" fill="#575048" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="0.6">EVIDENCE</text>
+<rect x="78" y="428" width="218.4" height="26" rx="7" fill="#F2EFE9" stroke="#D8D2C7" stroke-width="1"/>
+<text x="88" y="445" fill="#221F1B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="500">Provenance kept</text>
+<rect x="78" y="460" width="218.4" height="26" rx="7" fill="#F2EFE9" stroke="#D8D2C7" stroke-width="1"/>
+<text x="88" y="477" fill="#221F1B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="500">Permission kept</text>
+<rect x="78" y="492" width="218.4" height="26" rx="7" fill="#F2EFE9" stroke="#D8D2C7" stroke-width="1"/>
+<text x="88" y="509" fill="#221F1B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="500">Private notes stay private</text>
+<rect x="78" y="530" width="218.4" height="68" rx="10" fill="#FDECEC" stroke="#F3B4B0" stroke-width="1"/>
+<text x="90" y="550" fill="#881B15" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="0.5">ARTIFACT OUTCOME</text>
+<text x="90" y="569" fill="#881B15" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="600">Source on record</text>
+<circle cx="370.4" cy="204" r="9" fill="#FFFFFF" stroke="#A6241D" stroke-width="2.5"/>
+<circle cx="370.4" cy="204" r="3.5" fill="#A6241D"/>
+<line x1="598.8" y1="204" x2="624.8" y2="204" stroke="#A6241D" stroke-width="1.8" marker-end="url(#arrow-ig-06-gencreator-production-workflow-light)"/>
+<rect x="342.4" y="236" width="262.4" height="380" rx="16" fill="#FFFFFF" stroke="#D8D2C7" stroke-width="1.25"/>
+<rect x="342.4" y="236" width="262.4" height="5" rx="2.5" fill="#A6241D"/>
+<rect x="364.4" y="258" width="78" height="24" rx="12" fill="#FDECEC" stroke="#F3B4B0" stroke-width="1"/>
+<text x="403.4" y="273.85" fill="#881B15" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STEP 02</text>
+<g transform="translate(560.8, 258) scale(0.92)" width="22" height="22" fill="none" stroke="#A6241D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="6.5" height="5" rx="1.2"/><rect x="14.5" y="4" width="6.5" height="5" rx="1.2"/><rect x="8.8" y="15" width="6.5" height="5" rx="1.2"/><path d="M9.5 6.5h5M12 9v6"/></g>
+<text x="364.4" y="310" fill="#221F1B" font-family="&apos;Instrument Serif&apos;, Georgia, Cambria, serif" font-size="19" font-weight="700">Draft</text>
+<text x="364.4" y="343" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">A draft is generated from the</text>
+<text x="364.4" y="363" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">source. Generating text is not</text>
+<text x="364.4" y="383" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">the creator&apos;s approval.</text>
+<text x="364.4" y="414" fill="#575048" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="0.6">EVIDENCE</text>
+<rect x="364.4" y="428" width="218.4" height="26" rx="7" fill="#F2EFE9" stroke="#D8D2C7" stroke-width="1"/>
+<text x="374.4" y="445" fill="#221F1B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="500">Draft marked as draft</text>
+<rect x="364.4" y="460" width="218.4" height="26" rx="7" fill="#F2EFE9" stroke="#D8D2C7" stroke-width="1"/>
+<text x="374.4" y="477" fill="#221F1B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="500">Source link per passage</text>
+<rect x="364.4" y="530" width="218.4" height="68" rx="10" fill="#FDECEC" stroke="#F3B4B0" stroke-width="1"/>
+<text x="376.4" y="550" fill="#881B15" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="0.5">ARTIFACT OUTCOME</text>
+<text x="376.4" y="569" fill="#881B15" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="600">Draft, unapproved</text>
+<circle cx="656.8" cy="204" r="9" fill="#FFFFFF" stroke="#A6241D" stroke-width="2.5"/>
+<circle cx="656.8" cy="204" r="3.5" fill="#A6241D"/>
+<line x1="885.2" y1="204" x2="911.2" y2="204" stroke="#A6241D" stroke-width="1.8" marker-end="url(#arrow-ig-06-gencreator-production-workflow-light)"/>
+<rect x="628.8" y="236" width="262.4" height="380" rx="16" fill="#FFFFFF" stroke="#D8D2C7" stroke-width="1.25"/>
+<rect x="628.8" y="236" width="262.4" height="5" rx="2.5" fill="#A6241D"/>
+<rect x="650.8" y="258" width="78" height="24" rx="12" fill="#FDECEC" stroke="#F3B4B0" stroke-width="1"/>
+<text x="689.8" y="273.85" fill="#881B15" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STEP 03</text>
+<g transform="translate(847.2, 258) scale(0.92)" width="22" height="22" fill="none" stroke="#A6241D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6.2 6 12 6s9.5 6 9.5 6-3.7 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.6"/></g>
+<text x="650.8" y="310" fill="#221F1B" font-family="&apos;Instrument Serif&apos;, Georgia, Cambria, serif" font-size="19" font-weight="700">Review</text>
+<text x="650.8" y="343" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">The creator compares the draft</text>
+<text x="650.8" y="363" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">with the original and keeps or</text>
+<text x="650.8" y="383" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">corrects each passage.</text>
+<text x="650.8" y="414" fill="#575048" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="0.6">EVIDENCE</text>
+<rect x="650.8" y="428" width="218.4" height="26" rx="7" fill="#F2EFE9" stroke="#D8D2C7" stroke-width="1"/>
+<text x="660.8" y="445" fill="#221F1B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="500">Keep passages</text>
+<rect x="650.8" y="460" width="218.4" height="26" rx="7" fill="#F2EFE9" stroke="#D8D2C7" stroke-width="1"/>
+<text x="660.8" y="477" fill="#221F1B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="500">Correct meaning</text>
+<rect x="650.8" y="492" width="218.4" height="26" rx="7" fill="#F2EFE9" stroke="#D8D2C7" stroke-width="1"/>
+<text x="660.8" y="509" fill="#221F1B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="500">Check the credit</text>
+<rect x="650.8" y="530" width="218.4" height="68" rx="10" fill="#FDECEC" stroke="#F3B4B0" stroke-width="1"/>
+<text x="662.8" y="550" fill="#881B15" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="0.5">ARTIFACT OUTCOME</text>
+<text x="662.8" y="569" fill="#881B15" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="600">Recorded decision</text>
+<circle cx="943.2" cy="204" r="9" fill="#FFFFFF" stroke="#A6241D" stroke-width="2.5"/>
+<circle cx="943.2" cy="204" r="3.5" fill="#A6241D"/>
+<line x1="1171.6" y1="204" x2="1197.6" y2="204" stroke="#A6241D" stroke-width="1.8" marker-end="url(#arrow-ig-06-gencreator-production-workflow-light)"/>
+<rect x="915.2" y="236" width="262.4" height="380" rx="16" fill="#FFFFFF" stroke="#D8D2C7" stroke-width="1.25"/>
+<rect x="915.2" y="236" width="262.4" height="5" rx="2.5" fill="#A6241D"/>
+<rect x="937.2" y="258" width="78" height="24" rx="12" fill="#FDECEC" stroke="#F3B4B0" stroke-width="1"/>
+<text x="976.2" y="273.85" fill="#881B15" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STEP 04</text>
+<g transform="translate(1133.6, 258) scale(0.92)" width="22" height="22" fill="none" stroke="#A6241D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 8L4 12l4.5 4M15.5 8L20 12l-4.5 4M13.5 5.5l-3 13"/></g>
+<text x="937.2" y="310" fill="#221F1B" font-family="&apos;Instrument Serif&apos;, Georgia, Cambria, serif" font-size="19" font-weight="700">Export</text>
+<text x="937.2" y="343" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">The actual file is opened and</text>
+<text x="937.2" y="363" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">checked. It counts as exported</text>
+<text x="937.2" y="383" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">only once the file exists.</text>
+<text x="937.2" y="414" fill="#575048" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="0.6">EVIDENCE</text>
+<rect x="937.2" y="428" width="218.4" height="26" rx="7" fill="#F2EFE9" stroke="#D8D2C7" stroke-width="1"/>
+<text x="947.2" y="445" fill="#221F1B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="500">Credit in the file</text>
+<rect x="937.2" y="460" width="218.4" height="26" rx="7" fill="#F2EFE9" stroke="#D8D2C7" stroke-width="1"/>
+<text x="947.2" y="477" fill="#221F1B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="500">Edition kept on failure</text>
+<rect x="937.2" y="530" width="218.4" height="68" rx="10" fill="#FDECEC" stroke="#F3B4B0" stroke-width="1"/>
+<text x="949.2" y="550" fill="#881B15" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="0.5">ARTIFACT OUTCOME</text>
+<text x="949.2" y="569" fill="#881B15" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="600">File exists</text>
+<circle cx="1229.6" cy="204" r="9" fill="#FFFFFF" stroke="#A6241D" stroke-width="2.5"/>
+<circle cx="1229.6" cy="204" r="3.5" fill="#A6241D"/>
+<rect x="1201.6" y="236" width="262.4" height="380" rx="16" fill="#FFFFFF" stroke="#D8D2C7" stroke-width="1.25"/>
+<rect x="1201.6" y="236" width="262.4" height="5" rx="2.5" fill="#8C3D0F"/>
+<rect x="1223.6" y="258" width="78" height="24" rx="12" fill="#FEF3C7" stroke="#E5B869" stroke-width="1"/>
+<text x="1262.6" y="273.85" fill="#78350F" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="11" font-weight="600" letter-spacing="0.4" text-anchor="middle">STEP 05</text>
+<g transform="translate(1420, 258) scale(0.92)" width="22" height="22" fill="none" stroke="#A6241D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.6-3 8.4-7 9.5-4-1.1-7-4.9-7-9.5V6l7-3z"/><path d="M9 12.2l2 2 4-4.2"/></g>
+<text x="1223.6" y="310" fill="#221F1B" font-family="&apos;Instrument Serif&apos;, Georgia, Cambria, serif" font-size="19" font-weight="700">Release</text>
+<text x="1223.6" y="343" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">Publication is a separate release</text>
+<text x="1223.6" y="363" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">decision. Community critique</text>
+<text x="1223.6" y="383" fill="#3B3630" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="13.5" font-weight="400">asks one precise question.</text>
+<text x="1223.6" y="414" fill="#575048" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10.5" font-weight="700" letter-spacing="0.6">EVIDENCE</text>
+<rect x="1223.6" y="428" width="218.4" height="26" rx="7" fill="#F2EFE9" stroke="#D8D2C7" stroke-width="1"/>
+<text x="1233.6" y="445" fill="#221F1B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="500">Separate decision</text>
+<rect x="1223.6" y="460" width="218.4" height="26" rx="7" fill="#F2EFE9" stroke="#D8D2C7" stroke-width="1"/>
+<text x="1233.6" y="477" fill="#221F1B" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="500">One artifact, one question</text>
+<rect x="1223.6" y="530" width="218.4" height="68" rx="10" fill="#FDECEC" stroke="#F3B4B0" stroke-width="1"/>
+<text x="1235.6" y="550" fill="#881B15" font-family="&apos;IBM Plex Mono&apos;, &apos;JetBrains Mono&apos;, ui-monospace, monospace" font-size="10" font-weight="700" letter-spacing="0.5">ARTIFACT OUTCOME</text>
+<text x="1235.6" y="569" fill="#881B15" font-family="&apos;Instrument Sans&apos;, Inter, system-ui, sans-serif" font-size="12" font-weight="600">Signed release</text>
+</svg>
